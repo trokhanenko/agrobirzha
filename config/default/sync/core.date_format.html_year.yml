@@ -1,0 +1,10 @@
+uuid: fb482772-5c2e-431d-b29b-cc71defcb71e
+langcode: ru
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: OjekiQuX9RbVQ2_8jOHBL94RgYLePqX7wpfNGgcQzrk
+id: html_year
+label: 'Год HTML'
+locked: true
+pattern: 'Y'

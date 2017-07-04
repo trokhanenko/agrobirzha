@@ -1,0 +1,10 @@
+uuid: 42eb4cff-3850-4d31-b0a5-b90928048bbe
+langcode: ru
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 5VpawMrKPEPCkoO4YpPa0TDFO2dgiIHfTziJtwlmUxc
+id: html_yearless_date
+label: 'Дата без года HTML'
+locked: true
+pattern: m-d

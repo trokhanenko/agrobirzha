@@ -1,0 +1,22 @@
+uuid: fad4147f-7a9a-4e9b-ad75-8c678bc04b04
+langcode: ru
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - agrobirzha
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: agrobirzha_messages
+theme: agrobirzha
+region: header
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Сообщения статуса'
+  provider: system
+  label_display: '0'
+visibility: {  }

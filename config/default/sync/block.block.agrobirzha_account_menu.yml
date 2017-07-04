@@ -1,0 +1,26 @@
+uuid: 3834f875-c28b-4d60-90c8-eb9216fcba7a
+langcode: ru
+status: false
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - agrobirzha
+_core:
+  default_config_hash: DweBpscQZdG0-fHkSpUzdYucrNH45G_KF7Z82V-oyQM
+id: agrobirzha_account_menu
+theme: agrobirzha
+region: header
+weight: -5
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'Меню учётной записи пользователя'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+visibility: {  }

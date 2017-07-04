@@ -1,0 +1,14 @@
+uuid: 999a2988-d3d1-4d20-8552-33bca1c4cbf0
+name: Agrobirzha.info
+mail: agrobirzha@gmail.com
+slogan: 'Место встречи производителей и покупателей'
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: ru
+default_langcode: ru
+_core:
+  default_config_hash: AyT9s8OUcclfALRE_imByOMgtZ19eOlqdF6zI3p7yqo

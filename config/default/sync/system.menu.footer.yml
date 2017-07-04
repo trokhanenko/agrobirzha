@@ -1,0 +1,10 @@
+uuid: e163eec3-0021-455a-8018-b9020ecabd2f
+langcode: ru
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 7yrlW5z9zdg2eBucB2GPqXKSMQfH9lSRSO4DbWF7AFc
+id: footer
+label: Подвал
+description: 'Ссылки информации о сайте'
+locked: true

@@ -1,0 +1,22 @@
+uuid: 1180e14f-216f-46aa-b9df-cc51448fc6e0
+langcode: ru
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - agrobirzha
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: agrobirzha_help
+theme: agrobirzha
+region: content
+weight: -3
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Справка
+  provider: help
+  label_display: '0'
+visibility: {  }

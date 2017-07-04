@@ -1,0 +1,20 @@
+uuid: 869200af-4587-4918-8775-76e4084efef5
+langcode: ru
+status: true
+dependencies:
+  theme:
+    - agrobirzha
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: agrobirzha_local_actions
+theme: agrobirzha
+region: content
+weight: -4
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Основные действия администратора'
+  provider: core
+  label_display: '0'
+visibility: {  }

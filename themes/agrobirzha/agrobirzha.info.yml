@@ -1,0 +1,18 @@
+core: 8.x
+type: theme
+base theme: bootstrap
+
+name: 'Agrobirzha'
+description: 'Agrobirzha custom theme.'
+package: 'Bootstrap'
+
+regions:
+  header: 'Header'
+  navigation: 'Navigation'
+  content: 'Content'
+  sidebar_second: 'Secondary'
+  footer: 'Footer'
+
+libraries:
+  - 'agrobirzha/global-styling'
+  - 'agrobirzha/bootstrap-scripts'

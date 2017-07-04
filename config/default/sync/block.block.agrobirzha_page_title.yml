@@ -1,0 +1,20 @@
+uuid: ee29070c-35fa-4793-8528-4a5b912220f2
+langcode: ru
+status: true
+dependencies:
+  theme:
+    - agrobirzha
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: agrobirzha_page_title
+theme: agrobirzha
+region: content
+weight: -5
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Заголовок страницы'
+  provider: core
+  label_display: '0'
+visibility: {  }

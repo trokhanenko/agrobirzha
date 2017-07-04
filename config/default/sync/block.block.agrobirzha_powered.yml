@@ -1,0 +1,22 @@
+uuid: f9fcb9a3-c394-492d-b013-04909c9b4201
+langcode: ru
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - agrobirzha
+_core:
+  default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
+id: agrobirzha_powered
+theme: agrobirzha
+region: footer
+weight: -5
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Сделано на Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

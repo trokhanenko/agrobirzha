@@ -1,0 +1,22 @@
+uuid: bb0c0e37-7296-4974-a20e-03e90f50cd17
+langcode: ru
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - agrobirzha
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: agrobirzha_content
+theme: agrobirzha
+region: content
+weight: -2
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Содержимое страницы'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,22 @@
+uuid: ae07fc5f-3b14-4f27-b527-a491fe75e6df
+langcode: ru
+status: true
+dependencies:
+  theme:
+    - agrobirzha
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: agrobirzha_local_tasks
+theme: agrobirzha
+region: content
+weight: -6
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Вкладки
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

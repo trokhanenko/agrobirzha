@@ -1,0 +1,22 @@
+uuid: 5c6d2673-a1f1-403e-b827-b2fd77870d67
+langcode: ru
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - agrobirzha
+_core:
+  default_config_hash: za-39d5WDUg6XvbyqSnuVYEeq6QM4qKJxW8MnoAha5A
+id: agrobirzha_search
+theme: agrobirzha
+region: sidebar_second
+weight: -6
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: Поиск
+  provider: search
+  label_display: visible
+visibility: {  }

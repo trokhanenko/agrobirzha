@@ -1,0 +1,13 @@
+uuid: 30484677-aef1-4794-a66b-f764b004e468
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: lsQkbo4njZ-Q_oGKCPGXGWFjWF1I7QpgA6m-t9rcRoA
+id: node_publish_action
+label: 'Опубликовать материал'
+type: node
+plugin: node_publish_action
+configuration: {  }
