@@ -9505,6 +9505,11 @@ body.toolbar-fixed.toolbar-vertical.toolbar-tray-open.toolbar-fixed .toolbar-tra
   font-size: 12px;
 }
 
+/* line 1, ../scss/block/_lang.scss */
+#block-pereklucatelazyka {
+  float: right;
+}
+
 /**
  * jQuery UI autocomplete widget style overrides.
  *
@@ -9554,21 +9559,21 @@ body.toolbar-fixed.toolbar-vertical.toolbar-tray-open.toolbar-fixed .toolbar-tra
   color: #fff;
 }
 
-/* line 23, ../scss/_overrides.scss */
+/* line 24, ../scss/_overrides.scss */
 ol, ul {
   padding-left: 1.5em;
 }
-/* line 25, ../scss/_overrides.scss */
+/* line 26, ../scss/_overrides.scss */
 .popover ol:last-child, .popover ul:last-child {
   margin-bottom: 0;
 }
 
-/* line 31, ../scss/_overrides.scss */
+/* line 32, ../scss/_overrides.scss */
 .page-header {
   margin-top: 0;
 }
 
-/* line 36, ../scss/_overrides.scss */
+/* line 37, ../scss/_overrides.scss */
 .footer {
   margin-top: 45px;
   padding-top: 35px;
@@ -9576,32 +9581,32 @@ ol, ul {
   border-top: 1px solid #E5E5E5;
 }
 
-/* line 44, ../scss/_overrides.scss */
+/* line 45, ../scss/_overrides.scss */
 p:last-child,
 .form-group:last-child,
 .panel:last-child {
   margin-bottom: 0;
 }
 
-/* line 52, ../scss/_overrides.scss */
+/* line 53, ../scss/_overrides.scss */
 .region-help > .glyphicon {
   font-size: 18px;
   float: left;
   margin: -0.05em 0.5em 0 0;
 }
-/* line 57, ../scss/_overrides.scss */
+/* line 58, ../scss/_overrides.scss */
 .region-help .block {
   overflow: hidden;
 }
 
-/* line 63, ../scss/_overrides.scss */
+/* line 64, ../scss/_overrides.scss */
 .help-block, .control-group .help-inline {
   color: #777777;
   font-size: 12px;
   margin: 5px 0 10px;
   padding: 0;
 }
-/* line 68, ../scss/_overrides.scss */
+/* line 69, ../scss/_overrides.scss */
 .help-block:first-child, .control-group .help-inline:first-child {
   margin-top: 0;
 }
