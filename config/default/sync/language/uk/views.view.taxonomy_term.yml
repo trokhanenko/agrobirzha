@@ -17,14 +17,10 @@ display:
             items_per_page_label: 'Елементів на сторінку'
             items_per_page_options_all_label: '- Усе -'
             offset_label: Зміщення
-          tags:
-            previous: ‹‹
-            next: ››
       arguments:
         tid:
           exception:
             title: Все
-          title: '{{ arguments.tid }}'
   feed_1:
     display_title: Потік
   page_1:

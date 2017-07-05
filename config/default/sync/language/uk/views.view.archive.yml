@@ -18,17 +18,7 @@ display:
             items_per_page_label: 'Елементів на сторінку'
             items_per_page_options_all_label: '- Усе -'
             offset_label: Зміщення
-          tags:
-            previous: ‹‹
-            next: ››
-      arguments:
-        created_year_month:
-          title: '{{ arguments.created_year_month }}'
   block_1:
     display_title: Блок
-    display_options:
-      arguments:
-        created_year_month:
-          title: '{{ arguments.created_year_month }}'
   page_1:
     display_title: Сторінка

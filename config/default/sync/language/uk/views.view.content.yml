@@ -22,7 +22,6 @@ display:
           label: Заголовок
         type:
           label: 'Тип матеріалів'
-          separator: ', '
         name:
           label: Автор
         status:

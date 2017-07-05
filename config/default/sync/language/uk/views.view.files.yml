@@ -21,11 +21,8 @@ display:
             items_per_page_options_all_label: '- Усе -'
             offset_label: Зміщення
       fields:
-        fid:
-          label: Fid
         filename:
           label: 'Назва (ім''я)'
-          separator: ', '
         filemime:
           label: 'Тип MIME'
         filesize:

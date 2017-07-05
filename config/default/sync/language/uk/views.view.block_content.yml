@@ -23,10 +23,8 @@ display:
       fields:
         info:
           label: 'Опис блоку'
-          separator: ', '
         type:
           label: 'Тип блоку'
-          separator: ', '
         changed:
           label: Оновлено
         operations:
