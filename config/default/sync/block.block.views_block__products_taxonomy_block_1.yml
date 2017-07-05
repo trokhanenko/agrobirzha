@@ -16,9 +16,9 @@ provider: null
 plugin: 'views_block:products_taxonomy-block_1'
 settings:
   id: 'views_block:products_taxonomy-block_1'
-  label: ''
+  label: ТОВАРЫ
   provider: views
   label_display: visible
-  views_label: ''
+  views_label: ТОВАРЫ
   items_per_page: none
 visibility: {  }

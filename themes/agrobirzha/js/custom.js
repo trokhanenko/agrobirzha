@@ -2,7 +2,7 @@
   Drupal.behaviors.myModuleBehavior = {
     attach: function (context, settings) {
       // Behavior вызывается несколько раз на странице, не забывайте использовать функцию .once().
-      $('.view-companies .view-content').once().slick({
+      $('.view-company-slider .view-content').once().slick({
         slidesToShow: 3,
         slidesToScroll: 1,
       });

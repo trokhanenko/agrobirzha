@@ -1,0 +1,21 @@
+uuid: 705e0b77-0a65-4f03-83ab-09a3132f3ce2
+langcode: ru
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_company_adress
+field_name: field_company_adress
+entity_type: user
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

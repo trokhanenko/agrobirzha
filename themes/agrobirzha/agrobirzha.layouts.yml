@@ -3,9 +3,9 @@ front_page:
   category: My layouts
   template: layouts/front-page
   regions:
-    sub-header:
-      label: Sub-header
-    main-content:
-      label: Main-content
+    subheader:
+      label: subheader
+    maincontent:
+      label: maincontent
     map:    
-      label: Map 
+      label: map 

@@ -1,12 +1,12 @@
-uuid: 2a7d1b52-3490-4ea6-89d4-de55aae82732
+uuid: 468ec00a-6f53-4236-9bfa-1a5a0f4edd42
 langcode: ru
 status: true
 dependencies:
   module:
-    - node
-id: node.field_company_adress
-field_name: field_company_adress
-entity_type: node
+    - user
+id: user.field_contact_person
+field_name: field_contact_person
+entity_type: user
 type: string
 settings:
   max_length: 255

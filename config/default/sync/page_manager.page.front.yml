@@ -1,12 +1,12 @@
-uuid: 9f91547d-ee26-4572-b2e6-2841c134ebae
+uuid: bd2f7eb4-8f5b-4ac5-b706-cd3107e3a106
 langcode: ru
 status: true
 dependencies: {  }
-id: front_page
-label: 'Front page'
+id: front
+label: Front
 description: ''
 use_admin_theme: false
-path: /node
+path: /front
 access_logic: and
 access_conditions: {  }
 parameters: {  }

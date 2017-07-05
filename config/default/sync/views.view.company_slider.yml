@@ -1,21 +1,20 @@
-uuid: 50d5a4e3-b995-41b2-829e-519819c1a7ac
+uuid: b92c61c4-297c-4d0a-9a3b-aa1c56d38ad0
 langcode: ru
 status: true
 dependencies:
   config:
-    - field.storage.node.field_company_logo
-    - node.type.company
+    - field.storage.user.user_picture
+    - user.role.administrator
   module:
     - image
-    - node
     - user
-id: companies
-label: Companies
+id: company_slider
+label: 'Company slider'
 module: views
 description: ''
 tag: ''
-base_table: node_field_data
-base_field: nid
+base_table: users_field_data
+base_field: uid
 core: 8.x
 display:
   default:
@@ -27,7 +26,7 @@ display:
       access:
         type: perm
         options:
-          perm: 'access content'
+          perm: 'access user profiles'
       cache:
         type: tag
         options: {  }
@@ -52,21 +51,17 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 6
+          items_per_page: 9
           offset: 0
       style:
         type: default
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: false
       row:
         type: fields
       fields:
-        field_company_logo:
-          id: field_company_logo
-          table: node__field_company_logo
-          field: field_company_logo
+        user_picture:
+          id: user_picture
+          table: user__user_picture
+          field: user_picture
           relationship: none
           group_type: group
           admin_label: ''
@@ -130,41 +125,57 @@ display:
       filters:
         status:
           value: '1'
-          table: node_field_data
+          table: users_field_data
           field: status
           plugin_id: boolean
-          entity_type: node
+          entity_type: user
           entity_field: status
           id: status
           expose:
             operator: ''
           group: 1
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          value:
-            company: company
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-      sorts:
-        created:
-          id: created
-          table: node_field_data
-          field: created
-          order: DESC
-          entity_type: node
-          entity_field: created
-          plugin_id: date
+        roles_target_id:
+          id: roles_target_id
+          table: user__roles
+          field: roles_target_id
           relationship: none
           group_type: group
           admin_label: ''
+          operator: not
+          value:
+            administrator: administrator
+          group: 1
           exposed: false
           expose:
+            operator_id: ''
             label: ''
-          granularity: second
-      title: Companies
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          entity_type: user
+          plugin_id: user_roles
+      sorts: {  }
+      title: 'Company slider'
       header: {  }
       footer: {  }
       empty: {  }
@@ -176,10 +187,9 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_company_logo'
+        - 'config:field.storage.user.user_picture'
   block_1:
     display_plugin: block
     id: block_1
@@ -192,7 +202,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_company_logo'
+        - 'config:field.storage.user.user_picture'

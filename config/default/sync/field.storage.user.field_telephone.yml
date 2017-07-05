@@ -1,0 +1,20 @@
+uuid: da997f6b-4185-4a3b-a05f-8f6b5a93f560
+langcode: ru
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_telephone
+field_name: field_telephone
+entity_type: user
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

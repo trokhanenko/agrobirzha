@@ -1,21 +1,21 @@
-uuid: 0fe4dc5a-374b-4729-96d3-d6826261461f
+uuid: 609373c6-b0e2-4c5a-9a81-b7954f7795ef
 langcode: ru
 status: true
 dependencies:
   config:
-    - views.view.companies
+    - views.view.company_slider
   module:
     - views
   theme:
     - agrobirzha
-id: views_block__companies_block_1
+id: views_block__company_slider_block_1
 theme: agrobirzha
 region: content
 weight: 0
 provider: null
-plugin: 'views_block:companies-block_1'
+plugin: 'views_block:company_slider-block_1'
 settings:
-  id: 'views_block:companies-block_1'
+  id: 'views_block:company_slider-block_1'
   label: ''
   provider: views
   label_display: '0'

@@ -3,6 +3,10 @@ langcode: ru
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_company_adress
+    - field.field.user.user.field_company_name
+    - field.field.user.user.field_contact_person
+    - field.field.user.user.field_telephone
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
@@ -16,24 +20,56 @@ bundle: user
 mode: default
 content:
   account:
-    weight: -10
-    region: content
-  contact:
-    weight: 5
-    region: content
-  language:
     weight: 0
     region: content
-  timezone:
-    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+  field_company_adress:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
+  field_company_name:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_contact_person:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_telephone:
+    weight: 3
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  language:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   user_picture:
     type: image_image
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    weight: -1
+    weight: 1
     region: content
 hidden:
+  contact: true
   langcode: true
+  path: true
+  timezone: true

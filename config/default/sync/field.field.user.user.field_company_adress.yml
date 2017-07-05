@@ -1,14 +1,15 @@
-uuid: 9c5d886b-8eeb-4fd9-91b5-3749395329a3
+uuid: dec92b6c-7586-4547-998f-02b02f6ddf88
 langcode: ru
 status: true
 dependencies:
   config:
-    - field.storage.node.field_company_adress
-    - node.type.company
-id: node.company.field_company_adress
+    - field.storage.user.field_company_adress
+  module:
+    - user
+id: user.user.field_company_adress
 field_name: field_company_adress
-entity_type: node
-bundle: company
+entity_type: user
+bundle: user
 label: 'Company adress'
 description: ''
 required: false
