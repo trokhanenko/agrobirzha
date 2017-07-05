@@ -9,6 +9,8 @@ label: 'Анонимный пользователь'
 weight: 0
 is_admin: false
 permissions:
+  - 'access cart'
+  - 'access checkout'
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'

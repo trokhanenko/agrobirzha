@@ -9,6 +9,8 @@ label: 'Аутентифицированный пользователь'
 weight: 1
 is_admin: false
 permissions:
+  - 'access cart'
+  - 'access checkout'
   - 'access comments'
   - 'access content'
   - 'access shortcuts'
