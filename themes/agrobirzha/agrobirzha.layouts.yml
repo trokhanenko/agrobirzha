@@ -1,0 +1,11 @@
+front_page:
+  label: Front
+  category: My layouts
+  template: layouts/front-page
+  regions:
+    sub-header:
+      label: Sub-header
+    main-content:
+      label: Main-content
+    map:    
+      label: Map 

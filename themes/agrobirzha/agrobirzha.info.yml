@@ -16,3 +16,6 @@ regions:
 libraries:
   - 'agrobirzha/global-styling'
   - 'agrobirzha/bootstrap-scripts'
+  - 'agrobirzha/slick'
+  - 'agrobirzha/custom'
+
