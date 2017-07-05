@@ -1,0 +1,11 @@
+uuid: f133f663-24f8-464e-92e4-adc2c0e0fdf5
+langcode: ru
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.regions
+id: taxonomy_term.regions
+target_entity_type_id: taxonomy_term
+target_bundle: regions
+default_langcode: site_default
+language_alterable: false

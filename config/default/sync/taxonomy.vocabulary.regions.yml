@@ -1,0 +1,9 @@
+uuid: efe60999-f5b5-49ed-898d-221fcdc704b4
+langcode: ru
+status: true
+dependencies: {  }
+name: Regions
+vid: regions
+description: 'Области страны'
+hierarchy: 0
+weight: 0
