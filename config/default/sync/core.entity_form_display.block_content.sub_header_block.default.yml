@@ -1,0 +1,33 @@
+uuid: 4b871ef5-0555-44c3-8e25-9e271ced1874
+langcode: ru
+status: true
+dependencies:
+  config:
+    - block_content.type.sub_header_block
+    - field.field.block_content.sub_header_block.field_steps
+id: block_content.sub_header_block.default
+targetEntityType: block_content
+bundle: sub_header_block
+mode: default
+content:
+  field_steps:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

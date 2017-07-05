@@ -1,0 +1,8 @@
+uuid: 0bf03f8c-113d-4531-b557-9c5efefbedb9
+langcode: ru
+status: true
+dependencies: {  }
+id: sub_header_block
+label: 'Sub header block'
+revision: 0
+description: ''

@@ -1,0 +1,24 @@
+uuid: 5e8b0546-eaee-4e43-8a71-a3fc5936b0c6
+langcode: ru
+status: true
+dependencies:
+  config:
+    - views.view.products_taxonomy
+  module:
+    - views
+  theme:
+    - agrobirzha
+id: views_block__products_taxonomy_block_1
+theme: agrobirzha
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'views_block:products_taxonomy-block_1'
+settings:
+  id: 'views_block:products_taxonomy-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility: {  }

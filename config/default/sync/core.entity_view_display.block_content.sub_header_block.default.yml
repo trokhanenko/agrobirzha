@@ -1,0 +1,23 @@
+uuid: 3cbc074d-40cc-4d0c-87a5-0b0014f40865
+langcode: ru
+status: true
+dependencies:
+  config:
+    - block_content.type.sub_header_block
+    - field.field.block_content.sub_header_block.field_steps
+  module:
+    - options
+id: block_content.sub_header_block.default
+targetEntityType: block_content
+bundle: sub_header_block
+mode: default
+content:
+  field_steps:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+hidden:
+  langcode: true

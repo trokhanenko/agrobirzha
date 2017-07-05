@@ -1,0 +1,30 @@
+uuid: 957eafaa-7180-490e-bb58-bba46e904d9f
+langcode: ru
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+id: block_content.field_steps
+field_name: field_steps
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1 Зарегистрируйтесь'
+      label: '1 Зарегистрируйтесь'
+    -
+      value: '2 Добавьте объявление'
+      label: '2 Добавьте объявление'
+    -
+      value: '3 Разместите информацию о предприятии'
+      label: '3 Разместите информацию о предприятии'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

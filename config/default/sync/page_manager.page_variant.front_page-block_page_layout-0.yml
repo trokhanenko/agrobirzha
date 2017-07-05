@@ -1,0 +1,40 @@
+uuid: c1d43554-cd47-40ef-b8c9-7a401d565587
+langcode: ru
+status: true
+dependencies:
+  config:
+    - page_manager.page.front_page
+  content:
+    - 'block_content:sub_header_block:3b2b95f0-42ad-4bec-80f5-f6e7349cb41a'
+  module:
+    - block_content
+    - block_page_layout
+id: front_page-block_page_layout-0
+label: 'Block page (with Layout plugin integration)'
+variant: block_page_layout
+variant_settings:
+  blocks:
+    951d1e19-a0ad-4063-ad03-a541dfd7b7bc:
+      id: 'block_content:3b2b95f0-42ad-4bec-80f5-f6e7349cb41a'
+      label: 'Sub header block'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: sub-header
+      weight: 0
+      uuid: 951d1e19-a0ad-4063-ad03-a541dfd7b7bc
+      context_mapping: {  }
+  id: block_page_layout
+  uuid: 6a9dd3e0-c39a-4c14-8df7-5c6f00ef9cda
+  label: null
+  weight: 0
+  page_title: ''
+  layout: front_page
+  layout_settings: {  }
+page: front_page
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

@@ -1,4 +1,4 @@
-uuid: 158ae778-87b6-4f7b-b4d8-cce7aff380a8
+uuid: 71c4e291-85cd-4af2-bd20-474006083b4a
 langcode: ru
 status: true
 dependencies:
@@ -9,12 +9,10 @@ third_party_settings:
     available_menus:
       - main
     parent: 'main:'
-_core:
-  default_config_hash: AeW1SEDgb1OTQACAWGhzvMknMYAJlcZu0jljfeU3oso
-name: Новости
-type: article
+name: Company
+type: company
 description: ''
 help: ''
 new_revision: true
 preview_mode: 1
-display_submitted: true
+display_submitted: false

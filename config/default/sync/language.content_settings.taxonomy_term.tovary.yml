@@ -1,0 +1,11 @@
+uuid: 7c433f66-03a0-4253-9adc-a347bb3d2573
+langcode: ru
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.tovary
+id: taxonomy_term.tovary
+target_entity_type_id: taxonomy_term
+target_bundle: tovary
+default_langcode: site_default
+language_alterable: false

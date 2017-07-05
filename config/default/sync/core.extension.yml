@@ -5,6 +5,7 @@ module:
   automated_cron: 0
   block: 0
   block_content: 0
+  block_page_layout: 0
   breakpoint: 0
   ckeditor: 0
   color: 0
@@ -26,12 +27,15 @@ module:
   history: 0
   image: 0
   language: 0
+  layout_plugin: 0
   link: 0
   locale: 0
   menu_ui: 0
   node: 0
   options: 0
   page_cache: 0
+  page_manager: 0
+  page_manager_ui: 0
   path: 0
   quickedit: 0
   rdf: 0

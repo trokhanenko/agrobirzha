@@ -1,0 +1,27 @@
+uuid: d689465d-d40a-490f-9e42-9a1d3884a3a0
+langcode: ru
+status: true
+dependencies:
+  config:
+    - block_content.type.sub_header_block
+    - field.storage.block_content.field_steps
+  module:
+    - options
+id: block_content.sub_header_block.field_steps
+field_name: field_steps
+entity_type: block_content
+bundle: sub_header_block
+label: Steps
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: '1 Зарегистрируйтесь'
+  -
+    value: '2 Добавьте объявление'
+  -
+    value: '3 Разместите информацию о предприятии'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

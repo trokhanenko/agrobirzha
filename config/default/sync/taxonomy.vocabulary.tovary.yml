@@ -1,0 +1,9 @@
+uuid: f6239df5-a17e-467c-a639-0d5d0c11ba23
+langcode: ru
+status: true
+dependencies: {  }
+name: Товары
+vid: tovary
+description: ''
+hierarchy: 0
+weight: 0
