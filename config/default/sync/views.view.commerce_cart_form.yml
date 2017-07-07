@@ -92,7 +92,7 @@ display:
           relationship: order_items
           group_type: group
           admin_label: ''
-          label: Item
+          label: Элемент
           exclude: false
           alter:
             alter_text: false
@@ -157,7 +157,7 @@ display:
           relationship: order_items
           group_type: group
           admin_label: ''
-          label: Price
+          label: Цена
           exclude: false
           alter:
             alter_text: false
@@ -223,7 +223,7 @@ display:
           relationship: order_items
           group_type: group
           admin_label: ''
-          label: Quantity
+          label: Количество
           exclude: false
           alter:
             alter_text: false
@@ -323,7 +323,7 @@ display:
           relationship: order_items
           group_type: group
           admin_label: ''
-          label: Total
+          label: Итого
           exclude: false
           alter:
             alter_text: false

@@ -1,0 +1,12 @@
+uuid: 11639824-4b39-4546-b63f-866371303841
+langcode: ru
+status: true
+dependencies: {  }
+id: front_page
+label: 'Главная страница'
+description: ''
+use_admin_theme: false
+path: /front
+access_logic: and
+access_conditions: {  }
+parameters: {  }

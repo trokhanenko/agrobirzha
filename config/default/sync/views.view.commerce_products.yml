@@ -10,7 +10,7 @@ dependencies:
 _core:
   default_config_hash: lTfF_aenIIJ8YnvaratQgGpNEkFtA7tSDiElcgecVQo
 id: commerce_products
-label: Products
+label: Товары
 module: views
 description: ''
 tag: Commerce
@@ -65,10 +65,10 @@ display:
             offset: false
             offset_label: Offset
           tags:
-            previous: '‹ previous'
-            next: 'next ›'
-            first: '« first'
-            last: 'last »'
+            previous: '‹ предыдущая'
+            next: 'следующая ›'
+            first: '« первая'
+            last: 'последняя »'
           quantity: 9
       style:
         type: table
@@ -581,7 +581,7 @@ display:
           entity_field: title
           plugin_id: string
       sorts: {  }
-      title: Products
+      title: Товары
       header: {  }
       footer: {  }
       empty:
@@ -594,7 +594,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: 'No products available.'
+          content: 'Нет доступных товаров.'
           plugin_id: text_custom
       relationships: {  }
       arguments: {  }

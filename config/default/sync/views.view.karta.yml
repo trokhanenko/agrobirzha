@@ -42,11 +42,11 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Apply
+          submit_button: Найти
           reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
+          expose_sort_order: false
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
@@ -281,25 +281,45 @@ display:
             identifier: field_regions_target_id
             required: false
             remember: false
-            multiple: false
+            multiple: true
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
               company: '0'
             reduce: false
-          is_grouped: false
+          is_grouped: true
           group_info:
-            label: ''
+            label: 'Область (field_regions)'
             description: ''
-            identifier: ''
+            identifier: field_regions_target_id
             optional: true
-            widget: select
+            widget: radios
             multiple: false
             remember: false
             default_group: All
             default_group_multiple: {  }
-            group_items: {  }
+            group_items:
+              1:
+                title: Николаевская
+                operator: or
+                value:
+                  13: '13'
+              2:
+                title: Черниговская
+                operator: or
+                value:
+                  23: '23'
+              3:
+                title: Черкасская
+                operator: or
+                value:
+                  22: '22'
+              4:
+                title: Хмельницкая
+                operator: or
+                value:
+                  21: '21'
           reduce_duplicates: false
           type: select
           limit: true
@@ -315,6 +335,7 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
+      use_ajax: true
     cache_metadata:
       max-age: -1
       contexts:

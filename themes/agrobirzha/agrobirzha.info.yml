@@ -17,3 +17,4 @@ libraries:
   - 'agrobirzha/global-styling'
   - 'agrobirzha/bootstrap-scripts'
   - 'agrobirzha/google.maps'
+  - 'agrobirzha/slick'

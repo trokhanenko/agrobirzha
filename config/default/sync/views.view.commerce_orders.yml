@@ -14,7 +14,7 @@ dependencies:
 _core:
   default_config_hash: tpDt6NuuckyWNxkctwBhb-wOuIK--Fk8OBMk6OuRCZg
 id: commerce_orders
-label: Orders
+label: Заказы
 module: views
 description: ''
 tag: Commerce
@@ -69,10 +69,10 @@ display:
             offset: false
             offset_label: Offset
           tags:
-            previous: '‹ previous'
-            next: 'next ›'
-            first: '« first'
-            last: 'last »'
+            previous: '‹ предыдущая'
+            next: 'следующая ›'
+            first: '« первая'
+            last: 'последняя »'
           quantity: 9
       style:
         type: table
@@ -422,7 +422,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Store
+          label: Магазин
           exclude: false
           alter:
             alter_text: false
@@ -488,7 +488,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Customer
+          label: Покупатель
           exclude: false
           alter:
             alter_text: false
@@ -681,7 +681,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Total
+          label: Итого
           exclude: false
           alter:
             alter_text: false
@@ -805,7 +805,7 @@ display:
           exposed: true
           expose:
             operator_id: order_number_op
-            label: 'Order number'
+            label: 'Номер заказа'
             description: ''
             use_operator: false
             operator: order_number_op
@@ -916,7 +916,7 @@ display:
           entity_field: state
           plugin_id: state_machine_state
       sorts: {  }
-      title: Orders
+      title: Заказы
       header: {  }
       footer: {  }
       empty:
@@ -929,7 +929,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: 'No orders available.'
+          content: 'Пока нет заказов.'
           plugin_id: text_custom
       relationships: {  }
       arguments: {  }
@@ -959,7 +959,7 @@ display:
       path: admin/commerce/orders/list
       menu:
         type: 'default tab'
-        title: Orders
+        title: Заказы
         description: ''
         expanded: false
         parent: ''
@@ -968,7 +968,7 @@ display:
         menu_name: main
       tab_options:
         type: normal
-        title: Orders
+        title: Заказы
         description: 'Manage your orders.'
         weight: 0
     cache_metadata:

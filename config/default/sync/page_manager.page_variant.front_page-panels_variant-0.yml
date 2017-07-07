@@ -1,0 +1,87 @@
+uuid: 5feb4703-8b4e-422b-8ae9-3b3ae40d9ca9
+langcode: ru
+status: true
+dependencies:
+  config:
+    - page_manager.page.front_page
+    - views.view.karta
+    - views.view.posts
+    - views.view.price_partners
+  module:
+    - panels
+    - views
+id: front_page-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    701ae28f-2381-421c-921e-a50f0825a281:
+      id: 'views_block:karta-block_1'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: 5
+      uuid: 701ae28f-2381-421c-921e-a50f0825a281
+      context_mapping: {  }
+    130deb3b-b248-4001-95c1-13bed1cab830:
+      id: 'views_block:posts-block_2'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: 4
+      uuid: 130deb3b-b248-4001-95c1-13bed1cab830
+      context_mapping: {  }
+    f629ced6-e36d-4631-a801-520c7c1b973c:
+      id: 'views_block:posts-block_1'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: 3
+      uuid: f629ced6-e36d-4631-a801-520c7c1b973c
+      context_mapping: {  }
+    0a932b64-b162-49b3-aa60-5bbf61fd67e1:
+      id: 'views_block:price_partners-block_1'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: 1
+      uuid: 0a932b64-b162-49b3-aa60-5bbf61fd67e1
+      context_mapping: {  }
+    a169c39c-320a-45e4-b192-c71b6ea96ec6:
+      id: 'views_block:price_partners-block_2'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: 2
+      uuid: a169c39c-320a-45e4-b192-c71b6ea96ec6
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 53c1ebaf-50fe-41e5-b9a3-726e44d3e169
+  label: null
+  weight: 0
+  layout: layout_onecol
+  layout_settings: {  }
+  page_title: ''
+  storage_type: page_manager
+  storage_id: front_page-panels_variant-0
+  builder: ipe
+page: front_page
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

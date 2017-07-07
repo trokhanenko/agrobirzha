@@ -1,0 +1,18 @@
+.path-frontpage{
+  .view{
+    .view-header{
+      h3{
+          width: auto;
+          display: inline-block;
+      }
+    }
+  }
+  .view-price-partners, .view-posts{
+    .views-row {
+      width: 33%;
+      display: inline-block;
+      margin-bottom: 10px;
+      border: 1px solid #000;
+    }
+  }
+}
