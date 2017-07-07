@@ -1,0 +1,30 @@
+uuid: 4e0224fa-70a5-43c7-aa33-dd11d76e0c40
+langcode: ru
+status: true
+dependencies:
+  config:
+    - views.view.posts
+  module:
+    - system
+    - views
+  theme:
+    - agrobirzha
+id: views_block__posts_block_2
+theme: agrobirzha
+region: content
+weight: -1
+provider: null
+plugin: 'views_block:posts-block_2'
+settings:
+  id: 'views_block:posts-block_2'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

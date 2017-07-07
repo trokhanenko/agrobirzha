@@ -1,0 +1,77 @@
+uuid: 75b51ded-beb2-461a-8828-0294071d9bda
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.profile.test_company.field_ad
+    - field.field.profile.test_company.field_logo_company
+    - field.field.profile.test_company.field_name_company
+    - field.field.profile.test_company.field_regions
+    - image.style.thumbnail
+    - profile.type.test_company
+  module:
+    - geolocation
+    - image
+id: profile.test_company.default
+targetEntityType: profile
+bundle: test_company
+mode: default
+content:
+  field_ad:
+    weight: 3
+    settings:
+      default_longitude: '31.4489168'
+      default_latitude: '49.0383462 '
+      auto_client_location: '1'
+      auto_client_location_marker: '1'
+      google_map_settings:
+        height: 400px
+        width: 100%
+        type: ROADMAP
+        zoom: '6'
+        maxZoom: 18
+        minZoom: 0
+        mapTypeControl: 1
+        streetViewControl: 1
+        zoomControl: 1
+        scrollwheel: 1
+        gestureHandling: auto
+        draggable: 1
+        style: ''
+        info_auto_display: 1
+        marker_icon_path: ''
+        disableAutoPan: 1
+        rotateControl: 0
+        fullscreenControl: 0
+        preferScrollingToZooming: 0
+        disableDoubleClickZoom: 0
+      allow_override_map_settings: 0
+      populate_address_field: ''
+      target_address_field: null
+      explicite_actions_address_field: ''
+    third_party_settings: {  }
+    type: geolocation_googlegeocoder
+    region: content
+  field_logo_company:
+    weight: 1
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_name_company:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: 'Название компании'
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_regions:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+hidden: {  }

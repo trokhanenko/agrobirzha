@@ -1,0 +1,21 @@
+uuid: 8e5a112a-1447-449a-8e59-3d7a72acfba7
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_ad
+    - profile.type.test_company
+  module:
+    - geolocation
+id: profile.test_company.field_ad
+field_name: field_ad
+entity_type: profile
+bundle: test_company
+label: Адрес
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geolocation

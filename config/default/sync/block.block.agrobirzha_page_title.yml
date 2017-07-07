@@ -9,7 +9,7 @@ _core:
 id: agrobirzha_page_title
 theme: agrobirzha
 region: content
-weight: -5
+weight: -8
 provider: null
 plugin: page_title_block
 settings:

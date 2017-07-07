@@ -1,0 +1,11 @@
+uuid: 477cdeac-5980-48b8-aefb-ac311b911cbe
+langcode: ru
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.obavlenia
+id: commerce_product_variation.obavlenia
+target_entity_type_id: commerce_product_variation
+target_bundle: obavlenia
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,10 @@
+uuid: 99c62c1b-1b41-4164-87d2-500d333f704b
+langcode: ru
+status: true
+dependencies: {  }
+id: obavlenie
+label: Обьявление
+description: ''
+variationType: obavlenia
+injectVariationFields: true
+traits: {  }

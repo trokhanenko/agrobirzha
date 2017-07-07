@@ -1,0 +1,14 @@
+uuid: 3954a22e-ad73-46cd-9a10-9bf3b653c83f
+langcode: ru
+status: true
+dependencies:
+  config:
+    - user.role.company
+  module:
+    - user
+id: user_add_role_action.company
+label: 'Назначить роль Company выбранным пользователям'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: company

@@ -1,0 +1,21 @@
+uuid: c2a6c0b4-f3dd-4c81-bc03-a7d50d005655
+langcode: ru
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.obavlenie
+    - field.storage.commerce_product.stores
+id: commerce_product.obavlenie.stores
+field_name: stores
+entity_type: commerce_product
+bundle: obavlenie
+label: Stores
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: null
+settings:
+  handler: 'default:commerce_store'
+  handler_settings: {  }
+field_type: entity_reference

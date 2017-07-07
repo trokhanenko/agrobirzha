@@ -1,0 +1,48 @@
+uuid: cdd54f6d-ee03-4d5e-ab15-23dd5c713f1e
+langcode: ru
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.prodat
+    - field.field.commerce_product.prodat.body
+    - field.field.commerce_product.prodat.field_izobrazenie
+    - field.field.commerce_product.prodat.stores
+    - field.field.commerce_product.prodat.variations
+  module:
+    - commerce_product
+    - image
+    - text
+id: commerce_product.prodat.default
+targetEntityType: commerce_product
+bundle: prodat
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_izobrazenie:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  variations:
+    type: commerce_add_to_cart
+    weight: 2
+    label: hidden
+    settings:
+      combine: true
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  langcode: true
+  stores: true
+  uid: true

@@ -1,0 +1,11 @@
+uuid: 07b33742-cf31-469c-b56f-a16501a0aa49
+langcode: ru
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.prodat
+id: commerce_product.prodat
+target_entity_type_id: commerce_product
+target_bundle: prodat
+default_langcode: site_default
+language_alterable: false

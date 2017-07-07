@@ -1,0 +1,19 @@
+uuid: bb7efcc1-345d-41d5-9530-a09a89d130ab
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_name_company
+    - profile.type.test_company
+id: profile.test_company.field_name_company
+field_name: field_name_company
+entity_type: profile
+bundle: test_company
+label: Компания
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,10 @@
+uuid: 2930c9af-ab0c-4fdf-b29a-66aada53d791
+langcode: ru
+status: true
+dependencies: {  }
+id: kupit
+label: Купить
+description: ''
+variationType: kupit
+injectVariationFields: true
+traits: {  }

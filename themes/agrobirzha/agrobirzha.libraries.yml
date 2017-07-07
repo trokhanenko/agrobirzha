@@ -17,3 +17,8 @@ bootstrap-scripts:
     bootstrap/assets/javascripts/bootstrap/scrollspy.js: {}
     bootstrap/assets/javascripts/bootstrap/tab.js: {}
     bootstrap/assets/javascripts/bootstrap/transition.js: {}
+
+google.maps:
+  version: 3
+  js:
+    https://maps.googleapis.com/maps/api/js?key=AIzaSyB_Hltr7xD3XFRolZyXH5iqEwAvfKZC7OA: { type: external, minified: true }

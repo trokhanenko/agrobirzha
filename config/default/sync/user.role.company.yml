@@ -1,0 +1,17 @@
+uuid: 9481d44e-3602-43d8-8477-10330a64ce6c
+langcode: ru
+status: true
+dependencies: {  }
+id: company
+label: Company
+weight: 3
+is_admin: null
+permissions:
+  - 'access in-place editing'
+  - 'create kupit commerce_product'
+  - 'create tovar commerce_product'
+  - 'delete own test_company profile'
+  - 'delete own tovar commerce_product'
+  - 'update own test_company profile'
+  - 'update own tovar commerce_product'
+  - 'view own test_company profile'

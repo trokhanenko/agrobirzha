@@ -1,0 +1,45 @@
+uuid: 6e41bd66-75c3-46b0-a987-1de8d20a8fb6
+langcode: ru
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.prodat
+    - field.storage.commerce_product.field_izobrazenie
+  module:
+    - content_translation
+    - image
+third_party_settings:
+  content_translation:
+    translation_sync:
+      file: '0'
+      alt: '0'
+      title: '0'
+id: commerce_product.prodat.field_izobrazenie
+field_name: field_izobrazenie
+entity_type: commerce_product
+bundle: prodat
+label: Изображение
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'sell/[current-user:display-name]/[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png jpg jpeg'
+  max_filesize: '4 MB'
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: false
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

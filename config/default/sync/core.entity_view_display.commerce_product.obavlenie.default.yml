@@ -1,0 +1,40 @@
+uuid: d2e9b2cf-d8d3-4cdd-b59f-f6a5e1c2a766
+langcode: ru
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.obavlenie
+    - field.field.commerce_product.obavlenie.body
+    - field.field.commerce_product.obavlenie.field_izobrazenie
+    - field.field.commerce_product.obavlenie.stores
+    - field.field.commerce_product.obavlenie.variations
+  module:
+    - image
+    - text
+id: commerce_product.obavlenie.default
+targetEntityType: commerce_product
+bundle: obavlenie
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_izobrazenie:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  created: true
+  langcode: true
+  stores: true
+  uid: true
+  variations: true

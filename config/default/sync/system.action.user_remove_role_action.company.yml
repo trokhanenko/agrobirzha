@@ -1,0 +1,14 @@
+uuid: 615f54f1-25c0-4ee0-b104-d25aadea3195
+langcode: ru
+status: true
+dependencies:
+  config:
+    - user.role.company
+  module:
+    - user
+id: user_remove_role_action.company
+label: 'Удалить роль Company у выбранных пользователей'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: company

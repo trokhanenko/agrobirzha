@@ -1,0 +1,40 @@
+uuid: b54d8aa7-1a9d-4aa8-bcf9-45d57f090794
+langcode: ru
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.kupit
+    - field.field.commerce_product.kupit.body
+    - field.field.commerce_product.kupit.field_izobrazenie
+    - field.field.commerce_product.kupit.stores
+    - field.field.commerce_product.kupit.variations
+  module:
+    - image
+    - text
+id: commerce_product.kupit.default
+targetEntityType: commerce_product
+bundle: kupit
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_izobrazenie:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  created: true
+  langcode: true
+  stores: true
+  uid: true
+  variations: true

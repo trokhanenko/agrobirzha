@@ -1,0 +1,28 @@
+uuid: 069548d3-1f9f-4ec8-b6d4-eccc54ad078a
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_regions
+    - profile.type.test_company
+    - taxonomy.vocabulary.regions
+id: profile.test_company.field_regions
+field_name: field_regions
+entity_type: profile
+bundle: test_company
+label: Область
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      regions: regions
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

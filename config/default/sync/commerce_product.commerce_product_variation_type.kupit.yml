@@ -1,0 +1,9 @@
+uuid: 63982f78-ff31-4edc-a030-e6446ba3639f
+langcode: ru
+status: true
+dependencies: {  }
+id: kupit
+label: Купить
+orderItemType: default
+generateTitle: true
+traits: {  }

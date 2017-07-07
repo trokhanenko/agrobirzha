@@ -1,0 +1,11 @@
+uuid: b34fb171-718b-4707-9e79-e972ecbc1c3f
+langcode: ru
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.kupit
+id: commerce_product_variation.kupit
+target_entity_type_id: commerce_product_variation
+target_bundle: kupit
+default_langcode: site_default
+language_alterable: false

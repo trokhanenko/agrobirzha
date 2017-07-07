@@ -1,0 +1,9 @@
+uuid: 018e8aae-0094-4b0e-bb50-6062c51514e5
+langcode: ru
+status: true
+dependencies: {  }
+id: obavlenia
+label: Обьявления
+orderItemType: default
+generateTitle: true
+traits: {  }

@@ -1,0 +1,14 @@
+uuid: d590fc95-0ac2-4aab-a8ed-e917f250fc61
+langcode: ru
+status: true
+dependencies: {  }
+id: test_company
+label: Компания
+registration: true
+multiple: false
+roles:
+  company: company
+  authenticated: '0'
+  administrator: '0'
+weight: 0
+use_revisions: false

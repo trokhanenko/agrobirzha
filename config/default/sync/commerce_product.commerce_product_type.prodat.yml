@@ -1,0 +1,10 @@
+uuid: f47bf6ec-026a-4530-b11e-16dbcd1c0172
+langcode: ru
+status: true
+dependencies: {  }
+id: prodat
+label: Продать
+description: ''
+variationType: prodat
+injectVariationFields: true
+traits: {  }

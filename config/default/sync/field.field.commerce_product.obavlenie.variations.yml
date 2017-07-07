@@ -1,0 +1,24 @@
+uuid: 445b8cb9-26be-4593-a64c-d0ac6a9884ff
+langcode: ru
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.obavlenie
+    - commerce_product.commerce_product_variation_type.obavlenia
+    - field.storage.commerce_product.variations
+id: commerce_product.obavlenie.variations
+field_name: variations
+entity_type: commerce_product
+bundle: obavlenie
+label: Variations
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: null
+settings:
+  handler: 'default:commerce_product_variation'
+  handler_settings:
+    target_bundles:
+      - obavlenia
+field_type: entity_reference

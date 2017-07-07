@@ -1,0 +1,11 @@
+uuid: a38a6f6e-b203-4f6a-8d1e-b937093f8402
+langcode: ru
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.obavlenie
+id: commerce_product.obavlenie
+target_entity_type_id: commerce_product
+target_bundle: obavlenie
+default_langcode: site_default
+language_alterable: false

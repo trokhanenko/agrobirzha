@@ -1,0 +1,9 @@
+uuid: 07b50565-6fa6-47e6-a340-26c882e5d28c
+langcode: ru
+status: true
+dependencies: {  }
+id: prodat
+label: Продать
+orderItemType: default
+generateTitle: true
+traits: {  }
