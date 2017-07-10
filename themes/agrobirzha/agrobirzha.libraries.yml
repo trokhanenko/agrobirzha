@@ -38,3 +38,9 @@ readmore:
     http://jedfoster.com/js/readmore.min.js: { minified: true }
   dependencies:
     - core/jquery
+
+custom:
+  js:
+    /themes/agrobirzha/js/agrobirzha.js: {}
+  dependencies:
+    - core/jquery
