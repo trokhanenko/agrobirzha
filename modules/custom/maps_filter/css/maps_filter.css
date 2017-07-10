@@ -1,0 +1,52 @@
+/**
+ * Hide <select> and submit-button
+ */
+#views-exposed-form-karta-block-1 .form-type-select {
+  display: none;
+}
+#views-exposed-form-karta-block-1 #edit-actions {
+  display: none;
+}
+#views-exposed-form-karta-block-1 .form-submit {
+  display: none;
+}
+
+.view-karta .form-group{
+  margin-bottom: 0;
+}
+.region-title{
+  font-size: 24px;
+  margin-right: 5px;
+  font-family: none;
+ }
+.pop-list {
+  height: 45px;
+  overflow: hidden;
+  display: block;
+  text-align: left;
+  margin: 0 auto;
+  padding: 0;
+}
+.pop-list li {
+  margin: 5px 5px 5px 0;
+  float: none;
+  display: inline-block;
+}
+.pop-list li a, .read-more{
+  color: #000;
+  background: url(/modules/custom/maps_filter/images/ellipse-static.png) no-repeat left center;
+  padding-left: 10px;
+}
+.pop-list li a.active, .pop-list li a:hover, .read-more:hover {
+  background: url(/modules/custom/maps_filter/images/ellipse-active.png) no-repeat left center;
+  color: #67440c;
+  text-decoration: none;
+  cursor: pointer;
+}
+.view-filter-articles .views-row{
+  float: left;
+  padding: 15px;
+}
+.read-more{
+  float: right;
+}

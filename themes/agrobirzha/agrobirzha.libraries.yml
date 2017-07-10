@@ -32,3 +32,9 @@ slick:
     /libraries/slick/slick/slick.min.js: {}
   dependencies:
     - core/jquery
+
+readmore:
+  js:
+    http://jedfoster.com/js/readmore.min.js: { minified: true }
+  dependencies:
+    - core/jquery

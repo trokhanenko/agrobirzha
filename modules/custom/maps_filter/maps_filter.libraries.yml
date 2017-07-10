@@ -1,0 +1,13 @@
+maps_filter.forms:
+   version: VERSION
+   css:
+     theme:
+       css/maps_filter.css: {}
+
+maps_filter.enable:
+  version: VERSION
+  js:
+    js/maps_filter.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings

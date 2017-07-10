@@ -18,3 +18,4 @@ libraries:
   - 'agrobirzha/bootstrap-scripts'
   - 'agrobirzha/google.maps'
   - 'agrobirzha/slick'
+  - 'agrobirzha/readmore'

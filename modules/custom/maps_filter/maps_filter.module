@@ -1,0 +1,45 @@
+<?php
+function maps_filter_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
+
+  /**
+   * Apply the form_alter to a specific form #id
+   * the form #id can be found through inspecting the markup
+   */
+  if($form['#id'] == 'views-exposed-form-karta-block-1') {
+  /**
+   * Include a js and css, which was defined in maps_filter.libraries.yml
+   */
+  $form['#attached']['library'][] = 'maps_filter/maps_filter.enable';
+  $form['#attached']['library'][] = 'maps_filter/maps_filter.forms';
+  /**
+   * Extract the options from the Views Exposed Filter <select>-list
+   */
+  $links = $form['field_regions_target_id']['#options'];
+  /**
+   * Iterate over the options ($links) to build an array ($pop_array) of links
+   */
+  $i = 0; // Initiate counter/index
+  $pop_array = array();
+  foreach ($links as $tid => $term_name) {
+    if ($tid == 'All') {
+      $pop_array[$i]['#markup'] = '<span class="region-title">Области:</span>'.'<span class="filter-tab"><a href="" class="active" id="' .$tid . '">' . $term_name . '</a></span>';
+    }
+    else {
+      $pop_array[$i]['#markup'] = '<span class="filter-tab"><a href="" id="' .$tid . '">' . $term_name . '</a></span>';
+    }
+    $i++; // Increase counter/index
+  }
+  /**
+   * Create the item-list the form should render
+   */
+    $form['links'] = [
+      '#theme' => 'item_list',
+      '#items' => $pop_array,
+      '#attributes' => array('class' => array('pop-list')),
+    ];
+  }
+
+  else {
+    //nothing...
+  }
+}
