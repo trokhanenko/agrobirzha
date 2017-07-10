@@ -1,0 +1,14 @@
+uuid: 0a5622af-43b6-429b-9d23-b79f6f27c93e
+langcode: ru
+status: true
+dependencies: {  }
+name: slide
+label: Slide
+effects:
+  92246c53-0a4b-4984-85c1-30c5056da8a5:
+    uuid: 92246c53-0a4b-4984-85c1-30c5056da8a5
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 150
+      height: 150
