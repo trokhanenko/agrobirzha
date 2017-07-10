@@ -1,0 +1,30 @@
+uuid: 0efb013b-b01a-4d41-98d5-42d7600df4c2
+langcode: ru
+status: true
+dependencies:
+  config:
+    - views.view.block_with_news
+  module:
+    - system
+    - views
+  theme:
+    - agrobirzha
+id: views_block__block_with_news_block_1
+theme: agrobirzha
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'views_block:block_with_news-block_1'
+settings:
+  id: 'views_block:block_with_news-block_1'
+  label: 'НОВОСТИ СЕКТОРА '
+  provider: views
+  label_display: visible
+  views_label: 'НОВОСТИ СЕКТОРА '
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
