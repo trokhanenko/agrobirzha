@@ -56,7 +56,8 @@ module:
   profile: 0
   quickedit: 0
   rdf: 0
-  search: 0
+  search_api: 0
+  search_api_db: 0
   shortcut: 0
   state_machine: 0
   system: 0

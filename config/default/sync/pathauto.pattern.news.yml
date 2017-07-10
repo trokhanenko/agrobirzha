@@ -1,0 +1,33 @@
+uuid: 17da2c75-4660-424f-acc2-484cb386a177
+langcode: ru
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: news
+label: News
+type: 'canonical_entities:node'
+pattern: '[node:title]'
+selection_criteria:
+  103694ed-4afa-4144-beb4-f99e4028e8c7:
+    id: node_type
+    bundles:
+      article: article
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 103694ed-4afa-4144-beb4-f99e4028e8c7
+  fb47b692-fd8c-4ccc-9cf1-7d3e7f70a743:
+    id: language
+    langcodes:
+      ru: ru
+    negate: false
+    context_mapping:
+      language: 'node:langcode:language'
+    uuid: fb47b692-fd8c-4ccc-9cf1-7d3e7f70a743
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Язык

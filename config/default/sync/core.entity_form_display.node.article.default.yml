@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.article.body
+    - field.field.node.article.field_comment
     - field.field.node.article.field_date
     - field.field.node.article.field_image
+    - field.field.node.article.field_tags
     - image.style.thumbnail
     - node.type.article
   module:
@@ -31,19 +33,19 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   field_date:
-    weight: 31
+    weight: 9
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_image:
     type: image_image
-    weight: 4
+    weight: 3
     region: content
     settings:
       progress_indicator: throbber
@@ -57,7 +59,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -65,14 +67,14 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 15
+    weight: 6
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 16
+    weight: 7
     region: content
     third_party_settings: {  }
   title:
@@ -85,11 +87,13 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 4
     region: content
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_comment: true
+  field_tags: true
