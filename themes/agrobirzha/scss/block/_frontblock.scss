@@ -1,18 +1,27 @@
-.path-frontpage{
+.path-frontpage, .path-price{
   .view{
     .view-header{
       h3{
-          width: auto;
-          display: inline-block;
+        color: #67440c;
+        width: auto;
+        display: inline-block;
+        margin: 0;
+        font-family: none;
+      }
+      span{
+        color: #67440c;
+        vertical-align: top;
+        font-size: 12px;
+      }
+      .links {
+          float: right;
       }
     }
   }
-  .view-price-partners, .view-posts{
-    .views-row {
-      width: 33%;
-      display: inline-block;
-      margin-bottom: 10px;
-      border: 1px solid #000;
-    }
+  .block-views-blockprice-partners-block-2{
+    display: none;
+  }
+  .block-views-blockposts-block-2{
+    display: none;
   }
 }

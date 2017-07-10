@@ -19,3 +19,4 @@ libraries:
   - 'agrobirzha/google.maps'
   - 'agrobirzha/slick'
   - 'agrobirzha/readmore'
+  - 'agrobirzha/custom'

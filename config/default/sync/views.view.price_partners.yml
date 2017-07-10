@@ -14,6 +14,7 @@ dependencies:
     - commerce_product
     - profile
     - user
+    - views_bootstrap
 id: price_partners
 label: 'Прайсы партнеров'
 module: views
@@ -514,7 +515,7 @@ display:
           entity_field: type
           plugin_id: commerce_entity_bundle
       sorts: {  }
-      title: 'Прайсы партнеров'
+      title: ''
       header:
         result:
           id: result
@@ -536,7 +537,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: "<a herf=\"#\" class=\"all-prices\">Все прайси</a>\n<a herf=\"#\" class=\"all-prices\">Добавить прайс</a>\n<a href=\"#\" class=\"icon-table\"><img src=\"/themes/agrobirzha/images/table.png\"></a> \n<a href=\"#\" class=\"icon-grid\"><img src=\"/themes/agrobirzha/images/grid.png\"></a> "
+            value: "<div class=\"links\">\n<a href='/price' class=\"all-prices\">Все прайси</a>\n<a href=\"#\" class=\"all-prices\">Добавить прайс</a>\n<a href=\"#\" class=\"icon-table-price\"><img src=\"/themes/agrobirzha/images/table.png\"></a> \n<a href=\"#\" class=\"icon-grid-price\"><img src=\"/themes/agrobirzha/images/grid.png\"></a> \n</div>"
             format: full_html
           plugin_id: text
       footer: {  }
@@ -992,13 +993,13 @@ display:
           field_api_classes: false
           plugin_id: field
       style:
-        type: table
+        type: views_bootstrap_table
         options:
           grouping: {  }
           row_class: ''
           default_row_class: true
-          override: true
-          sticky: false
+          override: 1
+          sticky: 1
           caption: ''
           summary: ''
           description: ''
@@ -1011,47 +1012,53 @@ display:
             field_regions: field_regions
           info:
             created:
-              sortable: false
+              sortable: 0
               default_sort_order: asc
               align: ''
               separator: ''
-              empty_column: false
+              empty_column: 0
               responsive: ''
             title:
-              sortable: false
+              sortable: 0
               default_sort_order: asc
               align: ''
               separator: ''
-              empty_column: false
+              empty_column: 0
               responsive: ''
             type:
-              sortable: false
+              sortable: 1
               default_sort_order: asc
               align: ''
               separator: ''
-              empty_column: false
+              empty_column: 0
               responsive: ''
             field_name_company:
-              sortable: false
+              sortable: 0
               default_sort_order: asc
               align: ''
               separator: ''
-              empty_column: false
+              empty_column: 0
               responsive: ''
             price__number:
-              sortable: false
+              sortable: 0
               default_sort_order: asc
               align: ''
               separator: ''
-              empty_column: false
+              empty_column: 0
               responsive: ''
             field_regions:
               align: ''
               separator: ''
-              empty_column: false
+              empty_column: 0
               responsive: ''
           default: '-1'
-          empty_table: false
+          empty_table: 0
+          responsive: 0
+          bootstrap_styles:
+            striped: 0
+            bordered: 0
+            hover: 0
+            condensed: 0
       row:
         type: fields
         options: {  }
@@ -1061,6 +1068,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url.query_args
       tags:
         - 'config:field.storage.profile.field_name_company'
         - 'config:field.storage.profile.field_regions'
@@ -1473,11 +1481,17 @@ display:
           field_api_classes: false
           plugin_id: field
       style:
-        type: default
+        type: views_bootstrap_grid
         options:
           grouping: {  }
           row_class: ''
           default_row_class: true
+          alignment: horizontal
+          columns: '4'
+          col_xs: col-xs-12
+          col_sm: col-sm-6
+          col_md: col-md-3
+          col_lg: col-lg-3
       row:
         type: fields
         options: {  }
@@ -1523,7 +1537,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: '<a herf="#" class="all-prices">Добавить прайс</a>'
+            value: '<div class="links"><a herf="#" class="all-prices">Добавить прайс</a></div>'
             format: basic_html
           plugin_id: text
       defaults:
@@ -1531,13 +1545,13 @@ display:
         style: false
         row: false
       style:
-        type: table
+        type: views_bootstrap_table
         options:
           grouping: {  }
           row_class: ''
           default_row_class: true
-          override: true
-          sticky: false
+          override: 1
+          sticky: 0
           caption: ''
           summary: ''
           description: ''
@@ -1550,47 +1564,53 @@ display:
             field_regions: field_regions
           info:
             created:
-              sortable: false
+              sortable: 1
               default_sort_order: asc
               align: ''
               separator: ''
-              empty_column: false
+              empty_column: 0
               responsive: ''
             title:
-              sortable: false
+              sortable: 0
               default_sort_order: asc
               align: ''
               separator: ''
-              empty_column: false
+              empty_column: 0
               responsive: ''
             type:
-              sortable: false
+              sortable: 0
               default_sort_order: asc
               align: ''
               separator: ''
-              empty_column: false
+              empty_column: 0
               responsive: ''
             field_name_company:
-              sortable: false
+              sortable: 0
               default_sort_order: asc
               align: ''
               separator: ''
-              empty_column: false
+              empty_column: 0
               responsive: ''
             price__number:
-              sortable: false
+              sortable: 0
               default_sort_order: asc
               align: ''
               separator: ''
-              empty_column: false
+              empty_column: 0
               responsive: ''
             field_regions:
               align: ''
               separator: ''
-              empty_column: false
+              empty_column: 0
               responsive: ''
           default: '-1'
-          empty_table: false
+          empty_table: 0
+          responsive: 0
+          bootstrap_styles:
+            striped: 0
+            bordered: 0
+            hover: 0
+            condensed: 0
       row:
         type: fields
         options: {  }

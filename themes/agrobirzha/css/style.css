@@ -9518,16 +9518,30 @@ body.toolbar-fixed.toolbar-vertical.toolbar-tray-open.toolbar-fixed .toolbar-tra
 }
 
 /* line 4, ../scss/block/_frontblock.scss */
-.path-frontpage .view .view-header h3 {
+.path-frontpage .view .view-header h3, .path-price .view .view-header h3 {
+  color: #67440c;
   width: auto;
   display: inline-block;
+  margin: 0;
+  font-family: none;
 }
 /* line 11, ../scss/block/_frontblock.scss */
-.path-frontpage .view-price-partners .views-row, .path-frontpage .view-posts .views-row {
-  width: 33%;
-  display: inline-block;
-  margin-bottom: 10px;
-  border: 1px solid #000;
+.path-frontpage .view .view-header span, .path-price .view .view-header span {
+  color: #67440c;
+  vertical-align: top;
+  font-size: 12px;
+}
+/* line 16, ../scss/block/_frontblock.scss */
+.path-frontpage .view .view-header .links, .path-price .view .view-header .links {
+  float: right;
+}
+/* line 21, ../scss/block/_frontblock.scss */
+.path-frontpage .block-views-blockprice-partners-block-2, .path-price .block-views-blockprice-partners-block-2 {
+  display: none;
+}
+/* line 24, ../scss/block/_frontblock.scss */
+.path-frontpage .block-views-blockposts-block-2, .path-price .block-views-blockposts-block-2 {
+  display: none;
 }
 
 /**
