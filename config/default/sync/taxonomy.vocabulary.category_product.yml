@@ -1,0 +1,9 @@
+uuid: 6ba95304-1d79-4c63-bf01-ff2f3301cb7a
+langcode: ru
+status: true
+dependencies: {  }
+name: 'Катеории товаров'
+vid: category_product
+description: ''
+hierarchy: 0
+weight: 0

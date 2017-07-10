@@ -6,6 +6,7 @@ dependencies:
     - commerce_product.commerce_product_type.obavlenie
     - field.field.commerce_product.obavlenie.body
     - field.field.commerce_product.obavlenie.field_izobrazenie
+    - field.field.commerce_product.obavlenie.field_product
     - field.field.commerce_product.obavlenie.stores
     - field.field.commerce_product.obavlenie.variations
     - image.style.thumbnail
@@ -22,7 +23,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 3
+    weight: 4
     settings:
       rows: 9
       summary_rows: 3
@@ -31,7 +32,7 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -43,15 +44,21 @@ content:
     third_party_settings: {  }
     type: image_image
     region: content
+  field_product:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   langcode:
     type: language_select
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 7
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -74,7 +81,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 6
     region: content
     settings:
       match_operator: CONTAINS
@@ -83,7 +90,7 @@ content:
     third_party_settings: {  }
   variations:
     type: inline_entity_form_complex
-    weight: 8
+    weight: 9
     region: content
     settings:
       match_operator: CONTAINS

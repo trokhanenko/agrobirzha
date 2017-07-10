@@ -21,5 +21,6 @@ content:
     region: content
 hidden:
   body: true
+  field_date: true
   field_image: true
   langcode: true

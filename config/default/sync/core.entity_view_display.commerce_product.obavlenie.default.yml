@@ -6,6 +6,7 @@ dependencies:
     - commerce_product.commerce_product_type.obavlenie
     - field.field.commerce_product.obavlenie.body
     - field.field.commerce_product.obavlenie.field_izobrazenie
+    - field.field.commerce_product.obavlenie.field_product
     - field.field.commerce_product.obavlenie.stores
     - field.field.commerce_product.obavlenie.variations
   module:
@@ -31,6 +32,14 @@ content:
       image_link: ''
     third_party_settings: {  }
     type: image
+    region: content
+  field_product:
+    weight: 2
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
 hidden:
   created: true

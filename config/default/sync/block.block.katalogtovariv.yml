@@ -1,0 +1,24 @@
+uuid: b8d583e4-85b1-4245-92ca-0f22a383dbb4
+langcode: ru
+status: true
+dependencies:
+  config:
+    - system.menu.katalog-tovariv
+  module:
+    - system
+  theme:
+    - agrobirzha
+id: katalogtovariv
+theme: agrobirzha
+region: sidebar_second
+weight: -9
+provider: null
+plugin: 'system_menu_block:katalog-tovariv'
+settings:
+  id: 'system_menu_block:katalog-tovariv'
+  label: Товары
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility: {  }

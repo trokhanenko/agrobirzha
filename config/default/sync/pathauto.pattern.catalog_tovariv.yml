@@ -1,0 +1,23 @@
+uuid: 978b464b-924c-420d-ab84-e6f46d36bda0
+langcode: ru
+status: true
+dependencies:
+  module:
+    - ctools
+    - taxonomy
+id: catalog_tovariv
+label: 'Каталог товарів'
+type: 'canonical_entities:taxonomy_term'
+pattern: 'product/[term:name]/'
+selection_criteria:
+  dce6139d-51d9-4b66-8858-566c6b0d6834:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      category_product: category_product
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: dce6139d-51d9-4b66-8858-566c6b0d6834
+selection_logic: and
+weight: -5
+relationships: {  }

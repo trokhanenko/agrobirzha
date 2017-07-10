@@ -12,7 +12,7 @@ dependencies:
 id: views_block__block_with_news_block_1
 theme: agrobirzha
 region: sidebar_second
-weight: 0
+weight: -6
 provider: null
 plugin: 'views_block:block_with_news-block_1'
 settings:

@@ -1,0 +1,28 @@
+uuid: 3aff806d-67bb-4f1e-b25e-5c081ce215f1
+langcode: ru
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.kupit
+    - field.storage.commerce_product.field_product
+    - taxonomy.vocabulary.category_product
+id: commerce_product.kupit.field_product
+field_name: field_product
+entity_type: commerce_product
+bundle: kupit
+label: Товар
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      category_product: category_product
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,14 @@
+uuid: 33720cf7-6e75-4412-9a2d-d3d6f8bf48ed
+langcode: ru
+status: true
+dependencies:
+  config:
+    - system.menu.katalog-tovariv
+    - taxonomy.vocabulary.category_product
+id: katalog_tovarov_iz_taksonomii
+label: 'Каталог товаров из таксономии'
+vocabulary: category_product
+menu: katalog-tovariv
+expanded: true
+depth: 0
+menu_parent: 'katalog-tovariv:'

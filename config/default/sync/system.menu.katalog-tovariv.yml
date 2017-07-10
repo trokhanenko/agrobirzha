@@ -1,0 +1,8 @@
+uuid: d8cde72e-9e3b-42b1-a045-9f4ae7db71bc
+langcode: ru
+status: true
+dependencies: {  }
+id: katalog-tovariv
+label: 'Каталог товарів'
+description: ''
+locked: false
