@@ -7,7 +7,11 @@ dependencies:
     - views.view.karta
     - views.view.posts
     - views.view.price_partners
+    - views.view.slide
+  content:
+    - 'block_content:basic:769d2a10-601b-4044-9789-87ea71859557'
   module:
+    - block_content
     - panels
     - views
 id: front_page-panels_variant-0
@@ -69,6 +73,29 @@ variant_settings:
       region: content
       weight: 2
       uuid: a169c39c-320a-45e4-b192-c71b6ea96ec6
+      context_mapping: {  }
+    5ebd7fed-88d1-4c10-8b3c-82506df48f12:
+      id: 'views_block:slide-block_1'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: 0
+      uuid: 5ebd7fed-88d1-4c10-8b3c-82506df48f12
+      context_mapping: {  }
+    ea12315d-7d4c-465c-abd2-6d7eb688c926:
+      id: 'block_content:769d2a10-601b-4044-9789-87ea71859557'
+      label: Item
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: content
+      weight: 0
+      uuid: ea12315d-7d4c-465c-abd2-6d7eb688c926
       context_mapping: {  }
   id: panels_variant
   uuid: 53c1ebaf-50fe-41e5-b9a3-726e44d3e169
