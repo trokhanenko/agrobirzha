@@ -1,0 +1,79 @@
+uuid: 08476324-937f-4cb4-9981-588d8bbfe00f
+langcode: ru
+status: true
+dependencies:
+  config:
+    - search_api.server.customserver
+  module:
+    - search_api
+    - user
+    - node
+    - commerce_product
+id: search
+name: Search
+description: ''
+read_only: false
+field_settings:
+  name:
+    label: Name
+    datasource_id: 'entity:user'
+    property_path: name
+    type: text
+  title_1:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+  title:
+    label: Title
+    datasource_id: 'entity:commerce_product'
+    property_path: title
+    type: text
+datasource_settings:
+  'entity:user':
+    languages:
+      default: true
+      selected: {  }
+  'entity:node':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+  'entity:commerce_product':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  tokenizer:
+    all_fields: false
+    fields:
+      - title
+    spaces: ''
+    overlap_cjk: 1
+    minimum_word_size: '3'
+    weights:
+      preprocess_index: -6
+      preprocess_query: -6
+  ignorecase:
+    all_fields: false
+    fields:
+      - name
+      - title_1
+      - title
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+  aggregated_field: {  }
+  rendered_item: {  }
+tracker_settings:
+  default: {  }
+options:
+  index_directly: true
+  cron_limit: 50
+server: customserver

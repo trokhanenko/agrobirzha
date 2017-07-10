@@ -1,0 +1,23 @@
+uuid: 00649f15-4d63-4c91-ba16-027ba20d556c
+langcode: ru
+status: true
+dependencies:
+  config:
+    - views.view.customsearch
+  module:
+    - views
+  theme:
+    - agrobirzha
+id: raskrytaaformacustomsearchpage_1
+theme: agrobirzha
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:customsearch-page_1'
+settings:
+  id: 'views_exposed_filter_block:customsearch-page_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+visibility: {  }
