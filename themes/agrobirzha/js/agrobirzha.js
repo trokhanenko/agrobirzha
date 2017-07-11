@@ -41,4 +41,13 @@
       });
     }
   };
+    Drupal.behaviors.slider_product_page = {
+    attach: function(context, settings) {
+      $('.field--name-field-izobrazenie').once().slick({
+        autoplay: true,
+        autoplaySpeed: 2000,
+        arrows: false,
+      });
+    }
+  };
 })(jQuery);

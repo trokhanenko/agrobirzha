@@ -273,7 +273,7 @@ display:
           relationship: order_items
           group_type: group
           admin_label: ''
-          label: Remove
+          label: Удалить
           exclude: false
           alter:
             alter_text: false

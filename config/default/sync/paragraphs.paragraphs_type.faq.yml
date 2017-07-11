@@ -1,0 +1,7 @@
+uuid: 68b0f627-f095-4019-ab24-153f9771e4ca
+langcode: ru
+status: true
+dependencies: {  }
+id: faq
+label: 'Вопрос - Ответ'
+behavior_plugins: {  }

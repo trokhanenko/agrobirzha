@@ -1,7 +1,5 @@
 <?php
-/**
- * @file
- * Bootstrap sub-theme.
- *
- * Place your custom PHP code in this file.
- */
+
+function agrobirzha_form_alter(&$form, $form_state, $form_id){
+  //echo $form_id;
+}

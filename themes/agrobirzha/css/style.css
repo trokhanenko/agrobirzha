@@ -9544,6 +9544,11 @@ body.toolbar-fixed.toolbar-vertical.toolbar-tray-open.toolbar-fixed .toolbar-tra
   display: none;
 }
 
+/* line 2, ../scss/block/_cart.scss */
+.cart-block--summary__icon img {
+  width: 45px;
+}
+
 /**
  * jQuery UI autocomplete widget style overrides.
  *
@@ -9593,21 +9598,21 @@ body.toolbar-fixed.toolbar-vertical.toolbar-tray-open.toolbar-fixed .toolbar-tra
   color: #fff;
 }
 
-/* line 25, ../scss/_overrides.scss */
+/* line 26, ../scss/_overrides.scss */
 ol, ul {
   padding-left: 1.5em;
 }
-/* line 27, ../scss/_overrides.scss */
+/* line 28, ../scss/_overrides.scss */
 .popover ol:last-child, .popover ul:last-child {
   margin-bottom: 0;
 }
 
-/* line 33, ../scss/_overrides.scss */
+/* line 34, ../scss/_overrides.scss */
 .page-header {
   margin-top: 0;
 }
 
-/* line 38, ../scss/_overrides.scss */
+/* line 39, ../scss/_overrides.scss */
 .footer {
   margin-top: 45px;
   padding-top: 35px;
@@ -9615,32 +9620,32 @@ ol, ul {
   border-top: 1px solid #E5E5E5;
 }
 
-/* line 46, ../scss/_overrides.scss */
+/* line 47, ../scss/_overrides.scss */
 p:last-child,
 .form-group:last-child,
 .panel:last-child {
   margin-bottom: 0;
 }
 
-/* line 54, ../scss/_overrides.scss */
+/* line 55, ../scss/_overrides.scss */
 .region-help > .glyphicon {
   font-size: 18px;
   float: left;
   margin: -0.05em 0.5em 0 0;
 }
-/* line 59, ../scss/_overrides.scss */
+/* line 60, ../scss/_overrides.scss */
 .region-help .block {
   overflow: hidden;
 }
 
-/* line 65, ../scss/_overrides.scss */
+/* line 66, ../scss/_overrides.scss */
 .help-block, .control-group .help-inline {
   color: #777777;
   font-size: 12px;
   margin: 5px 0 10px;
   padding: 0;
 }
-/* line 70, ../scss/_overrides.scss */
+/* line 71, ../scss/_overrides.scss */
 .help-block:first-child, .control-group .help-inline:first-child {
   margin-top: 0;
 }

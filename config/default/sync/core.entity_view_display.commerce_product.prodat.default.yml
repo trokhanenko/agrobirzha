@@ -19,7 +19,7 @@ bundle: prodat
 mode: default
 content:
   body:
-    label: hidden
+    label: inline
     type: text_default
     weight: 2
     settings: {  }
@@ -36,7 +36,7 @@ content:
     region: content
   field_product:
     weight: 1
-    label: above
+    label: inline
     settings:
       link: true
     third_party_settings: {  }

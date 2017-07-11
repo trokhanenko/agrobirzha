@@ -16,3 +16,5 @@ permissions:
   - 'access site-wide contact form'
   - 'search content'
   - 'use text format restricted_html'
+  - 'view any commerce_product'
+  - 'view commerce_product_attribute'

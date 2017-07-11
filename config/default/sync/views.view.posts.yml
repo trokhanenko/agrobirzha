@@ -513,7 +513,7 @@ display:
           entity_field: type
           plugin_id: commerce_entity_bundle
       sorts: {  }
-      title: 'Свежие обьявления'
+      title: 'Производители и потребители'
       header:
         result:
           id: result
@@ -535,7 +535,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: "<div class=\"links\">\n<a href=\"/posts\" class=\"all-prices\">Все прайси</a> \n<a href=\"#\" class=\"all-prices\">Добавить прайс</a>\n<a href=\"#\" class=\"icon-table-posts\"><img src=\"/themes/agrobirzha/images/table.png\"></a>\n<a href=\"#\" class=\"icon-grid-posts\"><img src=\"/themes/agrobirzha/images/grid.png\"></a> \n</div>"
+            value: "<div class=\"links\">\n<a href=\"/posts\" class=\"all-prices\">Все обьявления</a> \n<a href=\"product/add\" class=\"all-prices\">Добавить обьявление</a>\n<a href=\"#\" class=\"icon-table-posts\"><img src=\"/themes/agrobirzha/images/table.png\"></a>\n<a href=\"#\" class=\"icon-grid-posts\"><img src=\"/themes/agrobirzha/images/grid.png\"></a> \n</div>"
             format: full_html
           plugin_id: text
       footer: {  }
@@ -1511,7 +1511,12 @@ display:
       path: posts
       menu:
         type: normal
-        title: 'Услуги и цены'
+        title: 'Производители и потребители'
+        description: ''
+        expanded: false
+        parent: ''
+        weight: -48
+        context: '0'
         menu_name: main
       header:
         result:
@@ -1534,8 +1539,8 @@ display:
           empty: false
           tokenize: false
           content:
-            value: "<div class=\"links\">\n<a herf=\"#\" class=\"all-prices\">Добавить прайс</a>\n</div>"
-            format: basic_html
+            value: "<div class=\"links\">\n<a herf=\"product/add\" class=\"all-prices\">Добавить обьявление</a>\n</div>"
+            format: full_html
           plugin_id: text
       defaults:
         header: false

@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.profile.field_logo_company
-    - image.style.slide
+    - image.style.thumbnail
     - profile.type.test_company
   module:
     - image
@@ -109,7 +109,7 @@ display:
           click_sort_column: target_id
           type: image
           settings:
-            image_style: slide
+            image_style: thumbnail
             image_link: ''
           group_column: ''
           group_columns: {  }

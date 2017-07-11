@@ -11,7 +11,7 @@ dependencies:
 id: raskrytaaformacustomsearchpage_1
 theme: agrobirzha
 region: sidebar_second
-weight: 0
+weight: -5
 provider: null
 plugin: 'views_exposed_filter_block:customsearch-page_1'
 settings:

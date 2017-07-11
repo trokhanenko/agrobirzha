@@ -18,9 +18,9 @@ bundle: obavlenie
 mode: default
 content:
   body:
-    label: hidden
+    label: inline
     type: text_default
-    weight: 1
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -34,8 +34,8 @@ content:
     type: image
     region: content
   field_product:
-    weight: 2
-    label: above
+    weight: 1
+    label: inline
     settings:
       link: true
     third_party_settings: {  }

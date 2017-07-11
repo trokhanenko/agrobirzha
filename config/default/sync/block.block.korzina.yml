@@ -1,0 +1,27 @@
+uuid: df3497cd-300c-46a8-ae2c-ee8b8d8a1ea0
+langcode: ru
+status: true
+dependencies:
+  module:
+    - commerce_cart
+    - system
+  theme:
+    - agrobirzha
+id: korzina
+theme: agrobirzha
+region: sidebar_second
+weight: -9
+provider: null
+plugin: commerce_cart
+settings:
+  id: commerce_cart
+  label: Корзина
+  provider: commerce_cart
+  label_display: '0'
+  dropdown: false
+visibility:
+  request_path:
+    id: request_path
+    pages: "/cart\r\n/checkout/*"
+    negate: true
+    context_mapping: {  }

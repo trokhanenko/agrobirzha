@@ -1,0 +1,41 @@
+uuid: 1be86eed-b84c-4034-921b-d392a3c88eec
+langcode: ru
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.obavlenia
+  module:
+    - commerce_price
+id: commerce_product_variation.obavlenia.default
+targetEntityType: commerce_product_variation
+bundle: obavlenia
+mode: default
+content:
+  price:
+    label: inline
+    type: commerce_price_default
+    weight: 0
+    region: content
+    settings:
+      strip_trailing_zeroes: false
+      display_currency_code: false
+    third_party_settings: {  }
+  sku:
+    label: inline
+    type: string
+    weight: -4
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  title:
+    label: hidden
+    type: string
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  product_id: true
