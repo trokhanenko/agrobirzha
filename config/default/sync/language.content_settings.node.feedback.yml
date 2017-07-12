@@ -1,0 +1,11 @@
+uuid: 1ebdc93a-ef9e-4ceb-a303-e9d30ba01315
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.feedback
+id: node.feedback
+target_entity_type_id: node
+target_bundle: feedback
+default_langcode: site_default
+language_alterable: false

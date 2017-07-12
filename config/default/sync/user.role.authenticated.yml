@@ -17,6 +17,7 @@ permissions:
   - 'access site-wide contact form'
   - 'create kupit commerce_product'
   - 'create obavlenie commerce_product'
+  - 'create otzyvy content'
   - 'create prodat commerce_product'
   - 'create tovar commerce_product'
   - 'delete own kupit commerce_product'

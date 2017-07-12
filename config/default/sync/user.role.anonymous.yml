@@ -14,5 +14,7 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
+  - 'create otzyvy content'
+  - 'post comments'
   - 'search content'
   - 'use text format restricted_html'

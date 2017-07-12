@@ -1,0 +1,6 @@
+name: Feedback Form
+description: 'Feedback module - extends FormBase!'
+type: module
+core: 8.x
+version: 1.0
+package: Examples

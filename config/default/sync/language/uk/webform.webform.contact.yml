@@ -1,0 +1,7 @@
+title: Контакт
+settings:
+  confirmation_message: 'Ваше повідомлення було надіслано.'
+handlers:
+  email_confirmation:
+    settings:
+      from_name: замовчування

@@ -1,0 +1,27 @@
+uuid: 75b43776-5ade-4cd5-8c3a-5ca64eea6398
+langcode: ru
+status: true
+dependencies:
+  module:
+    - contact
+    - system
+  theme:
+    - agrobirzha
+id: sitewidecontactform
+theme: agrobirzha
+region: content
+weight: 0
+provider: null
+plugin: formblock_contact
+settings:
+  id: formblock_contact
+  label: 'Site-wide contact form'
+  provider: contact
+  label_display: '0'
+  contact_form: feedback
+visibility:
+  request_path:
+    id: request_path
+    pages: /node/5
+    negate: false
+    context_mapping: {  }

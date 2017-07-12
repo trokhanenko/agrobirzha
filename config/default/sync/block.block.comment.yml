@@ -1,0 +1,30 @@
+uuid: 687a7a5a-e924-4162-98dd-90e0e9c3ce94
+langcode: ru
+status: true
+dependencies:
+  module:
+    - ctools_block
+  theme:
+    - agrobirzha
+id: comment
+theme: agrobirzha
+region: content
+weight: 0
+provider: null
+plugin: 'entity_field:node:field_comment'
+settings:
+  id: 'entity_field:node:field_comment'
+  label: Comment
+  provider: ctools_block
+  label_display: visible
+  formatter:
+    label: above
+    type: comment_default
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    weight: 0
+  context_mapping:
+    entity: '@node.node_route_context:node'
+visibility: {  }

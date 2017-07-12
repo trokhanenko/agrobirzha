@@ -1,0 +1,45 @@
+uuid: bd45aeb9-64ce-4948-9a58-14ffbafb21e8
+langcode: ru
+status: true
+dependencies:
+  config:
+    - page_manager.page.otzyvy
+    - views.view.feedback
+  module:
+    - feedback_form
+    - views
+id: otzyvy-block_display-0
+label: 'Block page'
+variant: block_display
+variant_settings:
+  blocks:
+    343fecf8-8b64-454a-b7bd-ff97081f5178:
+      id: simple_block_example
+      label: 'Оставьте Ваш отзыв'
+      provider: feedback_form
+      label_display: visible
+      region: bottom
+      weight: 0
+      uuid: 343fecf8-8b64-454a-b7bd-ff97081f5178
+      context_mapping: {  }
+    495d4695-eecc-49d1-9197-6d326d337079:
+      id: 'views_block:feedback-block_1'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: top
+      weight: 0
+      uuid: 495d4695-eecc-49d1-9197-6d326d337079
+      context_mapping: {  }
+  id: block_display
+  uuid: 17c1662a-eb62-4ebb-b493-2959d766c4a7
+  label: null
+  weight: 0
+  page_title: ''
+page: otzyvy
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }
