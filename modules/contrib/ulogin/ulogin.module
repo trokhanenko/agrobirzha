@@ -1,0 +1,185 @@
+<?php
+/**
+ * @file
+ * Main file for the uLogin module.
+ */
+
+use \Drupal\user\Entity\User;
+use \Drupal\Core\Url;
+
+use Drupal\ulogin\UloginHelper;
+
+/**
+ * Implements hook_hook_info().
+ */
+function ulogin_hook_info() {
+  $hooks['ulogin_username_alter'] = array(
+    'group' => 'ulogin',
+  );
+  return $hooks;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function ulogin_user_insert(Drupal\Core\Entity\EntityInterface $entity) {
+  global $ulogin_data;
+  if (!empty($entity->id()) && !empty($ulogin_data)) { // the user is being created
+    foreach ($ulogin_data as $key => $val) {
+      \Drupal::service('user.data')->set('ulogin', $entity->id(), $key, $val);
+    }
+
+    if (!empty($ulogin_data['email'])) {
+//      email_confirm: if email was manually entered - set temporary email
+      if (!empty($ulogin_data['manual']) && in_array('email', explode(',', $ulogin_data['manual'])) &&
+        \Drupal::config('ulogin.settings')
+          ->get('email_confirm') && \Drupal::moduleHandler()
+          ->moduleExists('email_confirm')
+      ) {
+        $entity->set('mail', preg_replace('/^(.+)@/', '$1+not_confirmed@', $ulogin_data['email']));
+      }
+      else {
+        $entity->set('mail', $ulogin_data['email']);
+      }
+      $entity->save();
+    }
+  }
+}
+
+/**
+ * Implements hook_user_delete().
+ */
+function ulogin_user_delete(Drupal\Core\Entity\EntityInterface $entity) {
+  UloginHelper::identity_delete_by_uid($entity->id());
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function ulogin_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $form_ids = array_merge(
+    array_filter(\Drupal::config('ulogin.settings')
+      ->get('forms') ?: array('user_login_form', 'user_register_form')),
+    array('comment_comment_form')
+  );
+  if (\Drupal::currentUser()
+      ->hasPermission('use ulogin') && \Drupal::currentUser()->isAnonymous() &&
+    in_array($form_id, $form_ids)
+  ) {
+    $form['ulogin'] = array(
+      '#type' => 'ulogin_widget',
+    );
+  }
+}
+
+/**
+ * TODO. Profile integration
+ * Implements hook_form_FORM_ID_alter().
+ */
+//function ulogin_form_user_profile_form_alter(&$form, &$form_state, $form_id) {
+//  global $user;
+//  if ($form['#user_category'] == 'account' && !empty($form['#user']->data['ulogin'])) {
+//    if ($form['account']['name']['#access'] && (\Drupal::config('ulogin.settings')->get('disable_username_change'))) {
+//      $form['account']['name']['#access'] = FALSE;
+//    }
+//    if (\Drupal::config('ulogin.settings')->get('remove_password_fields')) {
+//      $form['#validate'] = array_filter($form['#validate'], 'ulogin_user_profile_form_validate_filter');
+//      unset($form['account']['pass']);
+//      unset($form['account']['current_pass']);
+//      unset($form['account']['current_pass_required_values']);
+//    }
+//  }
+//}
+
+//function ulogin_user_profile_form_validate_filter($value) {
+//  return !($value == 'user_validate_current_pass');
+//}
+
+/**
+ * Implements hook_theme().
+ */
+function ulogin_theme($existing, $type, $theme, $path) {
+  return array(
+    'ulogin_widget' => array(
+      'render element' => 'element',
+      'template' => 'ulogin_widget',
+    ),
+    'ulogin_widget_id' => array(
+      'render element' => 'element',
+      'template' => 'ulogin_widget_id',
+    ),
+    'ulogin_widget_window' => array(
+      'render element' => 'element',
+      'template' => 'ulogin_widget_window',
+    ),
+    'ulogin_widget_buttons' => array(
+      'render element' => 'element',
+      'template' => 'ulogin_widget_buttons',
+    ),
+  );
+}
+
+/**
+ * Implements hook_user_format_name_alter().
+ */
+function ulogin_user_format_name_alter(&$name, $account) {
+  // Don't alter anonymous users or objects that do not have any user ID.
+  if (empty($account->id())) {
+    return;
+  }
+
+  $ulogin_pattern = \Drupal::config('ulogin.settings')
+    ->get('display_name') ?: '[user:ulogin:first_name] [user:ulogin:last_name]';
+  if (!empty($ulogin_pattern) && !\Drupal::moduleHandler()
+      ->moduleExists('realname')
+  ) {
+    if (!empty(\Drupal::service('user.data')->get('ulogin', $account->id()))) {
+      $pattern = str_replace('[user:name]', $account->getAccountName(), $ulogin_pattern);
+      $ulogin_name = \Drupal::token()
+        ->replace($ulogin_pattern, array('user' => $account), array('clear' => TRUE));
+      $name = trim(strip_tags($ulogin_name));
+    }
+  }
+}
+
+/**
+ * Implements hook_realname_alter().
+ */
+function ulogin_realname_alter(&$realname, $account) {
+  if (!empty(\Drupal::service('user.data')
+      ->get('ulogin', $account->id())) && \Drupal::config('ulogin.settings')
+      ->get('override_realname')
+  ) {
+    $ulogin_pattern = \Drupal::config('ulogin.settings')
+      ->get('display_name') ?: '[user:ulogin:first_name] [user:ulogin:last_name]';
+    $pattern = str_replace('[user:name]', $realname, $ulogin_pattern);
+    $ulogin_name = \Drupal::token()
+      ->replace($pattern, array('user' => $account), array('clear' => TRUE));
+    $realname = trim(strip_tags($ulogin_name));
+  }
+}
+
+/**
+ * Implements hook_email_registration_name().
+ */
+function ulogin_email_registration_name(\Drupal\user\UserInterface $account) {
+  global $ulogin_data;
+  if (!empty($ulogin_data) || !empty(\Drupal::service('user.data')->get('ulogin', $account->id()))) {
+    return $account->label();
+  }
+  return NULL;
+}
+
+///**
+//TODO Need to port it for d8
+// * Implements hook_exit().
+// * Intercepts drupal_goto() calls from Legal legal_user_login().
+// */
+////function ulogin_exit($destination = NULL) {
+////  global $ulogin_data;
+////  if (!empty($ulogin_data) && preg_match('/\/legal_accept\/([\d]*)\//', $destination, $matches) && !UloginHelper::identity_load($ulogin_data)) {
+////    $uid = $matches[1];
+////    UloginHelper::user_save($ulogin_data, $uid);
+////  }
+////}
+//

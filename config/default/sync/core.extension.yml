@@ -30,6 +30,7 @@ module:
   editor: 0
   entity: 0
   entity_reference_revisions: 0
+  externalauth: 0
   feedback_form: 0
   field: 0
   field_ui: 0
@@ -69,6 +70,7 @@ module:
   token: 0
   toolbar: 0
   tour: 0
+  ulogin: 0
   update: 0
   user: 0
   views_bootstrap: 0

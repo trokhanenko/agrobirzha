@@ -31,5 +31,6 @@ permissions:
   - 'update own prodat commerce_product'
   - 'update own tovar commerce_product'
   - 'use text format basic_html'
+  - 'use ulogin'
   - 'view any commerce_product'
   - 'view commerce_product_attribute'

@@ -1,0 +1,95 @@
+widget_title: ''
+widget_id: ''
+display: panel
+icons_path: ''
+widget_weight: '-100'
+providers:
+  mailru: mailru
+  facebook: facebook
+  twitter: twitter
+  google: google
+  yandex: yandex
+  livejournal: livejournal
+  openid: openid
+  vkontakte: 0
+  odnoklassniki: 0
+  steam: 0
+  soundcloud: 0
+  lastfm: 0
+  linkedin: 0
+  liveid: 0
+  flickr: 0
+  uid: 0
+  webmoney: 0
+  youtube: 0
+  foursquare: 0
+  tumblr: 0
+  googleplus: 0
+  dudu: 0
+  vimeo: 0
+  instagram: 0
+  wargaming: 0
+provider_vkontakte_main: 0
+provider_odnoklassniki_main: 0
+provider_mailru_main: 1
+provider_facebook_main: 1
+provider_twitter_main: 0
+provider_google_main: 0
+provider_yandex_main: 0
+provider_livejournal_main: 0
+provider_openid_main: 0
+provider_steam_main: 0
+provider_soundcloud_main: 0
+provider_lastfm_main: 0
+provider_linkedin_main: 0
+provider_liveid_main: 0
+provider_flickr_main: 0
+provider_uid_main: 0
+provider_webmoney_main: 0
+provider_youtube_main: 0
+provider_foursquare_main: 0
+provider_tumblr_main: 0
+provider_googleplus_main: 0
+provider_dudu_main: 0
+provider_vimeo_main: 0
+provider_instagram_main: 0
+provider_wargaming_main: 0
+fields:
+  first_name: first_name
+  last_name: last_name
+  email: email
+  nickname: nickname
+  bdate: bdate
+  sex: sex
+  phone: phone
+  photo: photo
+  photo_big: photo_big
+  city: city
+  country: country
+field_first_name_required: 1
+field_last_name_required: 1
+field_email_required: 1
+field_nickname_required: 1
+field_bdate_required: 1
+field_sex_required: 1
+field_phone_required: 0
+field_photo_required: 1
+field_photo_big_required: 1
+field_city_required: 1
+field_country_required: 1
+disable_username_change: 1
+remove_password_fields: 1
+pictures: 1
+email_confirm: 0
+username: '[user:ulogin:network]_[user:ulogin:uid]'
+display_name: '[user:ulogin:first_name] [user:ulogin:last_name]'
+destination: ''
+forms:
+  user_login_form: user_login_form
+  user_register_form: user_register_form
+  comment_comment_form: 0
+duplicate_emails: '1'
+_core:
+  default_config_hash: zG_0W5P-2djxyBJpfrUhIoctAvXS00bfygWhG_tHmGc
+langcode: ru
+override_realname: 0
