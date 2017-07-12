@@ -10,5 +10,5 @@ recipients:
   - agrobirzha@gmail.com
 reply: ''
 weight: 0
-message: 'Ваше сообщение отправлено.'
+message: 'Your message has been sent.'
 redirect: ''

@@ -1,0 +1,8 @@
+uuid: 4cacfc99-9e60-4a77-bca9-cafc67895054
+langcode: ru
+status: true
+dependencies: {  }
+id: new_comment
+label: 'New Comment'
+target_entity_type_id: user
+description: ''

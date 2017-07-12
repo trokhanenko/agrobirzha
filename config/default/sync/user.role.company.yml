@@ -9,6 +9,7 @@ is_admin: null
 permissions:
   - 'access in-place editing'
   - 'create kupit commerce_product'
+  - 'create otzyvy content'
   - 'create tovar commerce_product'
   - 'delete own test_company profile'
   - 'delete own tovar commerce_product'

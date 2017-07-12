@@ -9,5 +9,5 @@ label: 'Персональная контактная форма'
 recipients: {  }
 reply: ''
 weight: 0
-message: 'Ваше сообщение отправлено.'
+message: 'Your message has been sent.'
 redirect: ''

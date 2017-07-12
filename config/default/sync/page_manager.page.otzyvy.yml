@@ -1,0 +1,12 @@
+uuid: 3420016f-6137-401b-a507-6073988141bc
+langcode: ru
+status: true
+dependencies: {  }
+id: otzyvy
+label: Отзывы
+description: ''
+use_admin_theme: false
+path: /otzyvy
+access_logic: and
+access_conditions: {  }
+parameters: {  }

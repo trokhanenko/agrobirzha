@@ -1,0 +1,9 @@
+feedback_page:
+  label: Feedback
+  category: My Layouts
+  template: layout/feedback-page
+  regions:
+    top:
+      label: One
+    feed:
+      label: Feed  

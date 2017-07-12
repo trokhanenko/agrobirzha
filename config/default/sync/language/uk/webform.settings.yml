@@ -1,0 +1,5 @@
+settings:
+  default_submit_button_label: Надіслати
+  default_wizard_complete_label: Завершене
+  default_preview_next_button_label: 'Попередній перегляд'
+  default_preview_label: 'Попередній перегляд'

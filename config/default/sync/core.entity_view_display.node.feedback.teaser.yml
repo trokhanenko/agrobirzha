@@ -1,0 +1,19 @@
+uuid: d7b2565b-6754-437a-b156-283d1f5f6b4b
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.feedback
+  module:
+    - user
+id: node.feedback.teaser
+targetEntityType: node
+bundle: feedback
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  langcode: true

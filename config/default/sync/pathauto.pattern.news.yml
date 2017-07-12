@@ -10,22 +10,23 @@ label: News
 type: 'canonical_entities:node'
 pattern: '[node:title]'
 selection_criteria:
-  103694ed-4afa-4144-beb4-f99e4028e8c7:
+  e67eceb1-e9da-4483-832b-5950f87f7186:
     id: node_type
     bundles:
       article: article
+      page: page
     negate: false
     context_mapping:
       node: node
-    uuid: 103694ed-4afa-4144-beb4-f99e4028e8c7
-  fb47b692-fd8c-4ccc-9cf1-7d3e7f70a743:
+    uuid: e67eceb1-e9da-4483-832b-5950f87f7186
+  bdd56604-28d0-4751-a51f-d1686589ed22:
     id: language
     langcodes:
       ru: ru
     negate: false
     context_mapping:
       language: 'node:langcode:language'
-    uuid: fb47b692-fd8c-4ccc-9cf1-7d3e7f70a743
+    uuid: bdd56604-28d0-4751-a51f-d1686589ed22
 selection_logic: and
 weight: -10
 relationships:

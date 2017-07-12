@@ -1,0 +1,26 @@
+uuid: 13a30b12-6c08-4e77-9133-d2ca43eddf7c
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.feedback.field_feed
+    - node.type.feedback
+  module:
+    - user
+id: node.feedback.default
+targetEntityType: node
+bundle: feedback
+mode: default
+content:
+  field_feed:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  langcode: true

@@ -40,6 +40,8 @@ content:
     weight: 100
     region: content
 hidden:
+  field_comment: true
   field_date: true
   field_image: true
+  field_tags: true
   langcode: true

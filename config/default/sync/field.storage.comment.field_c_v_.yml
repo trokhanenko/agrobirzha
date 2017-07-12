@@ -1,0 +1,19 @@
+uuid: 16b9713f-84cf-4586-b600-11cc1b712d25
+langcode: ru
+status: true
+dependencies:
+  module:
+    - comment
+id: comment.field_c_v_
+field_name: field_c_v_
+entity_type: comment
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
