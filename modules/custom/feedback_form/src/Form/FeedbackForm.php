@@ -56,7 +56,6 @@ class FeedbackForm extends FormBase {
       'status' => 0,
     ));
    $node->save();
-   kint($form_state);
  
     drupal_set_message(t('Спасибо, Ваш отзыв успешно принят'));
  }
