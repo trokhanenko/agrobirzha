@@ -1,3 +1,16 @@
 #block-pereklucatelazyka {
     float: right;
+    li{
+      list-style: none;
+      display: inline-block;
+      width: 45px;
+      height: 30px;
+      margin: 0 2px;
+    }
+    .ru{
+      background: url(/themes/agrobirzha/images/ru.png);
+    }
+    .ua{
+      background: url(/themes/agrobirzha/images/uk.png);
+    }
 }

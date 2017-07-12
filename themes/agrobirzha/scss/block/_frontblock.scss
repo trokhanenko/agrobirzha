@@ -1,6 +1,8 @@
 .path-frontpage, .path-price{
   .view{
+    margin-top: 20px;
     .view-header{
+      margin-bottom: 10px;
       h3{
         color: #67440c;
         width: auto;
@@ -23,5 +25,30 @@
   }
   .block-views-blockposts-block-2{
     display: none;
+  }
+  thead{
+    background: #67440c;
+    color: #fff;
+    th{
+      border-right: 1px solid #fff;
+    }
+    a{
+      color: #fff;
+    }
+  }
+  .all-prices{
+    height: 23px;
+    background: #c9ba9b;
+    background: url(/modules/custom/maps_filter/images/ellipse-active.png) no-repeat 5px center #c9ba9b;
+    padding: 0 5px 0 15px;
+    border: 1px solid #603b00;
+    color: #a58048;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 20px;
+    &:hover{
+      color: #603b00;
+      background: url(/modules/custom/maps_filter/images/ellipse-active.png) no-repeat 5px center #c9ba9b;
+    }
   }
 }

@@ -16,10 +16,14 @@
 @import "component/toolbar";
 
 // Custom
+@import "main";
 @import "block/login";
 @import "block/lang";
 @import "block/frontblock";
 @import "block/cart";
+@import "block/header";
+@import "block/slider";
+@import "block/footer";
 // jQuery UI style overrides.
 @import "jquery-ui/autocomplete";
 

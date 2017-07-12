@@ -1,0 +1,19 @@
+.header{
+  padding-top: 15px;
+  .logo{
+    display: block;
+    float: left;
+  }
+  .navbar-brand{
+    display: block;
+    float: none;
+    height: auto;
+    padding: 0;
+  }
+  .navbar-text{
+    width: auto;
+    display: block;
+    float: none;
+    margin: 0;
+  }
+}

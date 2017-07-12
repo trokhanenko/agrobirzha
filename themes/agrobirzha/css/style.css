@@ -9499,14 +9499,45 @@ body.toolbar-fixed.toolbar-vertical.toolbar-tray-open.toolbar-fixed .toolbar-tra
   width: 240px;
 }
 
+/* line 1, ../scss/_main.scss */
+body {
+  margin-top: 0;
+}
+
 /* line 1, ../scss/block/_login.scss */
 #block-vhodnasait {
+  background: rgba(255, 255, 255, 0.3);
+  text-align: center;
   float: right;
   font-size: 12px;
+  padding: 10px;
+  width: 200px;
+}
+/* line 8, ../scss/block/_login.scss */
+#block-vhodnasait .control-label.js-form-required.form-required {
+  display: none;
+}
+/* line 11, ../scss/block/_login.scss */
+#block-vhodnasait li {
+  list-style: none;
+}
+/* line 14, ../scss/block/_login.scss */
+#block-vhodnasait #edit-actions {
+  display: inline-block;
+  width: 28%;
+}
+/* line 17, ../scss/block/_login.scss */
+#block-vhodnasait #edit-actions .button {
+  font-size: 0;
+}
+/* line 21, ../scss/block/_login.scss */
+#block-vhodnasait .form-type-password.js-form-type-password {
+  display: inline-block;
+  width: 70%;
 }
 
 /*----Page- reg---*/
-/* line 11, ../scss/block/_login.scss */
+/* line 32, ../scss/block/_login.scss */
 #edit-entity-test-company-field-regions .form-type-checkbox {
   width: 19%;
   display: inline-block;
@@ -9516,8 +9547,32 @@ body.toolbar-fixed.toolbar-vertical.toolbar-tray-open.toolbar-fixed .toolbar-tra
 #block-pereklucatelazyka {
   float: right;
 }
+/* line 3, ../scss/block/_lang.scss */
+#block-pereklucatelazyka li {
+  list-style: none;
+  display: inline-block;
+  width: 45px;
+  height: 30px;
+  margin: 0 2px;
+}
+/* line 10, ../scss/block/_lang.scss */
+#block-pereklucatelazyka .ru {
+  background: url(/themes/agrobirzha/images/ru.png);
+}
+/* line 13, ../scss/block/_lang.scss */
+#block-pereklucatelazyka .ua {
+  background: url(/themes/agrobirzha/images/uk.png);
+}
 
+/* line 2, ../scss/block/_frontblock.scss */
+.path-frontpage .view, .path-price .view {
+  margin-top: 20px;
+}
 /* line 4, ../scss/block/_frontblock.scss */
+.path-frontpage .view .view-header, .path-price .view .view-header {
+  margin-bottom: 10px;
+}
+/* line 6, ../scss/block/_frontblock.scss */
 .path-frontpage .view .view-header h3, .path-price .view .view-header h3 {
   color: #67440c;
   width: auto;
@@ -9525,28 +9580,112 @@ body.toolbar-fixed.toolbar-vertical.toolbar-tray-open.toolbar-fixed .toolbar-tra
   margin: 0;
   font-family: none;
 }
-/* line 11, ../scss/block/_frontblock.scss */
+/* line 13, ../scss/block/_frontblock.scss */
 .path-frontpage .view .view-header span, .path-price .view .view-header span {
   color: #67440c;
   vertical-align: top;
   font-size: 12px;
 }
-/* line 16, ../scss/block/_frontblock.scss */
+/* line 18, ../scss/block/_frontblock.scss */
 .path-frontpage .view .view-header .links, .path-price .view .view-header .links {
   float: right;
 }
-/* line 21, ../scss/block/_frontblock.scss */
+/* line 23, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockprice-partners-block-2, .path-price .block-views-blockprice-partners-block-2 {
   display: none;
 }
-/* line 24, ../scss/block/_frontblock.scss */
+/* line 26, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockposts-block-2, .path-price .block-views-blockposts-block-2 {
   display: none;
+}
+/* line 29, ../scss/block/_frontblock.scss */
+.path-frontpage thead, .path-price thead {
+  background: #67440c;
+  color: #fff;
+}
+/* line 32, ../scss/block/_frontblock.scss */
+.path-frontpage thead th, .path-price thead th {
+  border-right: 1px solid #fff;
+}
+/* line 35, ../scss/block/_frontblock.scss */
+.path-frontpage thead a, .path-price thead a {
+  color: #fff;
+}
+/* line 39, ../scss/block/_frontblock.scss */
+.path-frontpage .all-prices, .path-price .all-prices {
+  height: 23px;
+  background: #c9ba9b;
+  background: url(/modules/custom/maps_filter/images/ellipse-active.png) no-repeat 5px center #c9ba9b;
+  padding: 0 5px 0 15px;
+  border: 1px solid #603b00;
+  color: #a58048;
+  text-decoration: none;
+  display: inline-block;
+}
+/* line 48, ../scss/block/_frontblock.scss */
+.path-frontpage .all-prices:hover, .path-price .all-prices:hover {
+  color: #603b00;
+  background: url(/modules/custom/maps_filter/images/ellipse-active.png) no-repeat 5px center #c9ba9b;
 }
 
 /* line 2, ../scss/block/_cart.scss */
 .cart-block--summary__icon img {
   width: 45px;
+}
+
+/* line 1, ../scss/block/_header.scss */
+.header {
+  padding-top: 15px;
+}
+/* line 3, ../scss/block/_header.scss */
+.header .logo {
+  display: block;
+  float: left;
+}
+/* line 7, ../scss/block/_header.scss */
+.header .navbar-brand {
+  display: block;
+  float: none;
+  height: auto;
+  padding: 0;
+}
+/* line 13, ../scss/block/_header.scss */
+.header .navbar-text {
+  width: auto;
+  display: block;
+  float: none;
+  margin: 0;
+}
+
+/* line 1, ../scss/block/_slider.scss */
+.block-views-blockslide-block-1 {
+  background: #eee;
+  padding: 20px 0;
+}
+/* line 4, ../scss/block/_slider.scss */
+.block-views-blockslide-block-1 .slick-arrow {
+  height: 50px;
+}
+
+/* line 1, ../scss/block/_footer.scss */
+.footer {
+  margin-top: 15px;
+  padding: 10px !important;
+  background: #bf0000;
+}
+/* line 5, ../scss/block/_footer.scss */
+.footer li {
+  display: inline-block;
+  width: 20%;
+}
+/* line 8, ../scss/block/_footer.scss */
+.footer li a {
+  color: #fff;
+  padding: 5px 15px;
+}
+/* line 11, ../scss/block/_footer.scss */
+.footer li a:hover {
+  background: transparent;
 }
 
 /**
@@ -9598,21 +9737,21 @@ body.toolbar-fixed.toolbar-vertical.toolbar-tray-open.toolbar-fixed .toolbar-tra
   color: #fff;
 }
 
-/* line 26, ../scss/_overrides.scss */
+/* line 30, ../scss/_overrides.scss */
 ol, ul {
   padding-left: 1.5em;
 }
-/* line 28, ../scss/_overrides.scss */
+/* line 32, ../scss/_overrides.scss */
 .popover ol:last-child, .popover ul:last-child {
   margin-bottom: 0;
 }
 
-/* line 34, ../scss/_overrides.scss */
+/* line 38, ../scss/_overrides.scss */
 .page-header {
   margin-top: 0;
 }
 
-/* line 39, ../scss/_overrides.scss */
+/* line 43, ../scss/_overrides.scss */
 .footer {
   margin-top: 45px;
   padding-top: 35px;
@@ -9620,32 +9759,32 @@ ol, ul {
   border-top: 1px solid #E5E5E5;
 }
 
-/* line 47, ../scss/_overrides.scss */
+/* line 51, ../scss/_overrides.scss */
 p:last-child,
 .form-group:last-child,
 .panel:last-child {
   margin-bottom: 0;
 }
 
-/* line 55, ../scss/_overrides.scss */
+/* line 59, ../scss/_overrides.scss */
 .region-help > .glyphicon {
   font-size: 18px;
   float: left;
   margin: -0.05em 0.5em 0 0;
 }
-/* line 60, ../scss/_overrides.scss */
+/* line 64, ../scss/_overrides.scss */
 .region-help .block {
   overflow: hidden;
 }
 
-/* line 66, ../scss/_overrides.scss */
+/* line 70, ../scss/_overrides.scss */
 .help-block, .control-group .help-inline {
   color: #777777;
   font-size: 12px;
   margin: 5px 0 10px;
   padding: 0;
 }
-/* line 71, ../scss/_overrides.scss */
+/* line 75, ../scss/_overrides.scss */
 .help-block:first-child, .control-group .help-inline:first-child {
   margin-top: 0;
 }

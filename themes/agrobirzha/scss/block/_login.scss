@@ -1,6 +1,27 @@
 #block-vhodnasait {
-    float: right;
-    font-size: 12px;
+  background: rgba(255, 255, 255, 0.3);
+  text-align: center;
+  float: right;
+  font-size: 12px;
+  padding: 10px;
+  width: 200px;
+  .control-label.js-form-required.form-required {
+    display: none;
+  }
+  li{
+    list-style: none;
+  }
+  #edit-actions {
+    display: inline-block;
+    width: 28%;
+    .button{
+      font-size: 0;
+    }
+  }
+  .form-type-password.js-form-type-password{
+    display: inline-block;
+    width: 70%;
+  }
 }
 
 
