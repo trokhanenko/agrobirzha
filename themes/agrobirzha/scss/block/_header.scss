@@ -4,10 +4,10 @@
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: cover;
-  height: 236px;
+  min-height: 200px;
 }
 .header{
-
+  height: 150px;
   padding-top: 15px;
   .logo{
     display: block;

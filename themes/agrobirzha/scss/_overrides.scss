@@ -17,6 +17,7 @@
 
 // Custom
 @import "main";
+@import "page/user";
 @import "block/cart";
 @import "block/block-content";
 @import "block/header";
@@ -30,6 +31,8 @@
 @import "block/right-sidebar";
 @import "block/search";
 @import "block/region-navigation";
+
+
 // jQuery UI style overrides.
 @import "jquery-ui/autocomplete";
 

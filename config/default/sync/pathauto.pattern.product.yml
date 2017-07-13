@@ -1,0 +1,25 @@
+uuid: b75d0ab1-e4a9-4d13-a311-dee970c8752e
+langcode: ru
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - ctools
+id: product
+label: Product
+type: 'canonical_entities:commerce_product'
+pattern: 'product/[commerce_product:title]'
+selection_criteria:
+  d4faaef8-a466-4272-94aa-380c4b902a63:
+    id: 'entity_bundle:commerce_product'
+    bundles:
+      kupit: kupit
+      obavlenie: obavlenie
+      prodat: prodat
+    negate: false
+    context_mapping:
+      commerce_product: commerce_product
+    uuid: d4faaef8-a466-4272-94aa-380c4b902a63
+selection_logic: and
+weight: -5
+relationships: {  }
