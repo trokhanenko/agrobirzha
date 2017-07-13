@@ -7,10 +7,9 @@ use Drupal\Core\Form\FormStateInterface;
  */
 
 function agrobirzha_form_alter(&$form, $form_state, $form_id){
-  dsm($form);
 	if ($form_id == 'user_login_form') {
 		$form['new'] = [
-		'#prefix' => '<a href="http://agrobirzha/user/simple-fb-connect">',
+		'#prefix' => '<a href="http://agrobirzha.itguild.com.ua/user/simple-fb-connect">',
 		'#markup' => 'Логин Facebook',
 		'#suffix' => '</a>',
 		'#weight' => '-100',
