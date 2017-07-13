@@ -1,0 +1,96 @@
+<?php
+
+/**
+ * @file
+ * Install, update, and uninstall functions for the Simple FB Connect module.
+ */
+
+/**
+ * Implements hook_requirements().
+ *
+ * Checks that a compatible version of Facebook Graph SDK has been installed
+ * with Composer. Check installation instructions from the README.txt.
+ */
+function simple_fb_connect_requirements($phase) {
+  $requirements = array();
+
+  if ($phase == 'install') {
+    $sdk_found = FALSE;
+
+    if ($json = simple_fb_connect_read_packages()) {
+
+      // Loop through installed packages and check that the SDK version is OK.
+      foreach ($json as $package) {
+        if ($package['name'] == 'facebook/graph-sdk') {
+          $sdk_found = TRUE;
+          if ($package['version'] < 5 || $package['version'] >= 6) {
+            $requirements['simple_fb_connect'] = [
+              'description' => t('Simple FB Connect could not be installed because an incompatible version of Facebook SDK library was detected. Please read the installation instructions from README.txt.'),
+              'severity' => REQUIREMENT_ERROR,
+            ];
+          }
+        }
+      }
+
+      // SDK was not found in installed.json.
+      if (!$sdk_found) {
+        $requirements['simple_fb_connect'] = [
+          'description' => t('Simple FB Connect could not be installed because Facebook SDK library was not found. Simple FB Connect must be installed using Composer. Please read the installation instructions from README.txt.'),
+          'severity' => REQUIREMENT_ERROR,
+        ];
+      }
+    }
+
+    // installed.json could not be read or parsed.
+    else {
+      $requirements['simple_fb_connect'] = [
+        'description' => t('Simple FB Connect could not be installed: installed.json could not be read.'),
+        'severity' => REQUIREMENT_ERROR,
+      ];
+    }
+  }
+
+  return $requirements;
+
+}
+
+/**
+ * Reads and parses Drupal installed.json.
+ *
+ * @return array|bool
+ *   Parsed installed.json if the file could be read and parsed.
+ *   False otherwise.
+ */
+function simple_fb_connect_read_packages() {
+  // Make this test compatible with either regular installs,
+  // when DRUPAL_ROOT is the actual website filesystem root,
+  // or composer drupal-scaffold installs when DRUPAL_ROOT is set in
+  // /web/ subdirectory.
+  $base_dir = is_dir(DRUPAL_ROOT . '/vendor') ? DRUPAL_ROOT : dirname(DRUPAL_ROOT);
+  $file_path = $base_dir . '/vendor/composer/installed.json';
+  if (file_exists($file_path)) {
+    if ($filedata = @file_get_contents($file_path)) {
+      $json = @json_decode($filedata, TRUE);
+      if ($json !== NULL) {
+        return $json;
+      }
+    }
+  }
+  return FALSE;
+}
+
+/**
+ * Set Graph API version to v2.6.
+ *
+ * The Graph API version became a configurable parameter in 8.x-3.0-rc3.
+ * Versions prior to 8.x-3.0-rc3 used hard coded Graph API version 'v2.6'.
+ * This update populates the value 'v2.6' to module settings so
+ * that older installations will continue to use the same Graph API version than
+ * before.
+ */
+function simple_fb_connect_update_8301(&$sandbox) {
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('simple_fb_connect.settings');
+  $config->set('api_version', 'v2.6');
+  $config->save(TRUE);
+}

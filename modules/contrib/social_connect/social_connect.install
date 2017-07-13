@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ *  social_connect.install.
+ * Contains install and update functions for Social connect.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function social_connect_install() {
+  $configs = [
+    'global' => [
+      'debug' => 0,
+      'login_page_icons' => 'above',
+      'login_page_above_caption' => 'Instantly login with',
+      'login_page_below_caption' => 'Or',
+      'registration_page_icons' => 'above',
+      'registration_page_above_caption' => 'Instantly register with',
+      'registration_page_below_caption' => 'Or',
+      'picture_override' => 0,
+    ],
+    'connections' => [
+      'facebook' => [
+        'enable' => 0,
+        'access' => [
+          'app_id' => '',
+          'secret' => '',
+        ],
+        'button_text' => 'Facebook',
+        'picture_size' => 'large',
+        'field_maps' => [],
+      ],
+      [
+        'gplus' => [
+          'enable' => 0,
+          'access' => [
+            'client_id' => '',
+            'client_secret' => '',
+          ],
+          'button_text' => 'Goole plus',
+          'picture_size' => 'large',
+          'field_maps' => [],
+        ]
+      ]
+    ],
+  ];
+  \Drupal::configFactory()->getEditable('social_connect.settings')
+      ->set('configurations', $configs)
+      ->save();
+}

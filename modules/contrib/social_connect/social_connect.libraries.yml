@@ -1,0 +1,21 @@
+# Libraries for social connections
+libraries:
+  version: VERSION
+  js:
+    https://connect.facebook.net/en_US/sdk.js: { type: external }
+    https://apis.google.com/js/api:client.js: { type: external }
+    js/social-connect.js: {}
+  css:
+    component:
+      css/social-connect.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+
+# Library for admin
+admin:
+  version: '8.x-0.0'
+  css:
+    component:
+      css/social-connect-admin.css: {}

@@ -1,0 +1,136 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\file\Plugin\Field\FieldType\FileItem;
+
+function social_connect_form_alter(&$form, FormStateInterface $form_state, $form_id){
+  if(in_array($form_id, ['user_login_form' , 'user_register_form'])){
+    $configs = \Drupal::configFactory()->get('social_connect.settings')->get('configurations');
+
+    $global_settings = $configs['global'];
+    $icon = 'login_page_icons';
+    $above_caption = 'login_page_above_caption';
+    $below_caption = 'login_page_below_caption';
+    if($form_id == 'user_register_form'){
+      $icon = 'registration_page_icons';
+      $above_caption = 'registration_page_above_caption';
+      $below_caption = 'registration_page_below_caption';
+    }
+    if($global_settings[$icon] != 'disable'){
+      $connection_settings = $configs['connections'];
+      $items = [];
+      foreach($connection_settings as $source => $connection_setting){
+        if($connection_setting['enable']){
+          $items[] = [
+            'source' => $source,
+            'button_text' => t($connection_setting['button_text'])
+          ];
+        }
+      }
+      if(!empty($items)){
+        // Add js library and settings.
+        $fb_settings = $configs['connections']['facebook'];
+        $gplus_settings = $configs['connections']['gplus'];
+        $form['#attached']['library'][] = 'social_connect/libraries';
+        $form['#attached']['drupalSettings']['social_connect'] = [
+          'debug' => $global_settings['debug'],
+          'facebook' => [
+            'app_id' => $fb_settings['access']['app_id'],
+            'secret' => $fb_settings['access']['secret'],
+          ],
+          'gplus' => [
+            'client_id' => $gplus_settings['access']['client_id'],
+            'client_secret' => $gplus_settings['access']['client_secret'],
+          ],
+        ];
+        $position = $global_settings[$icon];
+        $above_caption_text = t($global_settings[$above_caption]);
+        $below_caption_text = t($global_settings[$below_caption]);
+        if($position == 'above'){
+          $form['social_connect_above_markup'] = [
+            '#type' => 'markup',
+            '#theme' => 'social_connect',
+            '#position' => $position,
+            '#above_caption' => $above_caption_text,
+            '#below_caption' => $below_caption_text,
+            '#items' => $items,
+            '#weight' => -100
+          ];
+        }
+        else {
+          $form['social_connect_above_markup'] = [
+            '#type' => 'markup',
+            '#theme' => 'social_connect',
+            '#position' => $position,
+            '#above_caption' => $above_caption_text,
+            '#below_caption' => NULL,
+            '#items' => [],
+            '#weight' => -100
+          ];
+
+          $form['social_connect_below_markup'] = [
+            '#type' => 'markup',
+            '#theme' => 'social_connect',
+            '#position' => $position,
+            '#above_caption' => NULL,
+            '#below_caption' => $below_caption_text,
+            '#items' => $items,
+            '#weight' => 100
+          ];
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function social_connect_theme(){
+  return [
+    'social_connect' => [
+      'variables' => [
+        'position' => NULL,
+        'above_caption' => NULL,
+        'below_caption' => NULL,
+        'items' => [],
+      ],
+    ],
+  ];
+}
+
+function social_connect_add_settings($form, FormStateInterface $form_state){
+  // set connection settings
+  $configs = \Drupal::configFactory()->get('social_connect.settings')->get('configurations');
+  $settingsGlobal = $configs['global'];
+  $settingsFB = $configs['connections']['facebook'];
+  $randomString = randomString();
+  if(isset($_SESSION['social_connect'])){
+    unset($_SESSION['social_connect']);
+  }
+
+  $form['#attached']['drupalSettings']['social_connect'] = [
+    'debug' => TRUE,
+    'key' => $randomString,
+    'facebook' => [
+      'app_id' => $settingsFB['access']['app_id'],
+      'secret' => $settingsFB['access']['secret'],
+    ],
+  ];
+  return $form;
+}
+
+//4VScW
+function randomString($length = 10) {
+  $seed = str_split(
+      'abcdefghijklmnopqrstuvwxyz'
+      .'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+      .'0123456789!@#$%^&*()'
+      . REQUEST_TIME);
+  shuffle($seed);
+  $key = '';
+  foreach (array_rand($seed, $length) as $k){
+    $key .= $seed[$k];
+  }
+  return $key;
+}

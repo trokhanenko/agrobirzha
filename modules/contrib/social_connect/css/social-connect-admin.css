@@ -1,0 +1,18 @@
+.social-connections tr td.icon{
+  background-repeat: no-repeat;
+  font-size: 0;
+  background-position-x: 20px;
+  background-position-y: center;
+}
+.social-connections tr td.disabled{
+  background-image: url('../images/disable.png');
+}
+.social-connections tr td.enabled{
+  background-image: url('../images/enable.png');
+}
+.social-connections tr td.gear{
+  background-image: url('../images/gear.png');
+}
+.social-connections tr td.gear a{
+  display: block;
+}

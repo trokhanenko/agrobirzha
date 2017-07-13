@@ -1,0 +1,4 @@
+services:
+  social_connect.manager:
+    class: Drupal\social_connect\ProcessUser
+    arguments: ['@config.factory', '@entity_type.manager', '@externalauth.authmap', '@externalauth.externalauth']
