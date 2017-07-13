@@ -8,6 +8,7 @@ weight: 3
 is_admin: null
 permissions:
   - 'access in-place editing'
+  - 'administer social_connect'
   - 'create kupit commerce_product'
   - 'create otzyvy content'
   - 'create tovar commerce_product'

@@ -15,6 +15,7 @@ permissions:
   - 'access content'
   - 'access shortcuts'
   - 'access site-wide contact form'
+  - 'administer social_connect'
   - 'create kupit commerce_product'
   - 'create obavlenie commerce_product'
   - 'create otzyvy content'
