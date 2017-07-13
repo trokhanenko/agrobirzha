@@ -1,0 +1,17 @@
+.footer{
+  margin-top: 25px !important;
+  padding: 10px !important;
+  background: #bf0000;
+  li{
+    display: inline-block;
+    width: 20%;
+    a{
+      color: #fff;
+      padding: 0 15px;
+      float: left;
+      &:hover{
+        background: transparent;
+      }
+    }
+  }
+}

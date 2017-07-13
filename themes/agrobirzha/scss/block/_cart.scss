@@ -1,5 +1,15 @@
-.cart-block--summary__icon{
+.cart--cart-block{
+  padding: 0 10px;
+  background: linear-gradient(to top, #cec0a4 0%, #afa186 100%);
+  a{
+    color: #603b00;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .cart-block--summary__icon{
     img{
       width: 45px;
     }
+  }
 }
+

@@ -915,7 +915,7 @@ display:
           type: commerce_price_default
           settings:
             strip_trailing_zeroes: false
-            display_currency_code: false
+            display_currency_code: true
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -1526,7 +1526,7 @@ display:
           group_type: group
           admin_label: ''
           empty: false
-          content: '<h3>Прайсы партнеров</h3><span>(@total)</span>'
+          content: '<h3>Услуги и цены</h3><span>(@total)</span>'
           plugin_id: result
         area:
           id: area
@@ -1616,7 +1616,7 @@ display:
       row:
         type: fields
         options: {  }
-      title: 'Услуги и цены'
+      title: ''
     cache_metadata:
       max-age: 0
       contexts:

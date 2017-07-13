@@ -1,3 +1,24 @@
 #block-pereklucatelazyka {
     float: right;
+    li{
+      display: inline-block;
+      list-style: none;
+      margin: 0 2px;
+      a{
+        cursor: pointer;
+        display: block;
+        height: 20px;
+        font-size: 0;
+        width: 30px;
+        /*box-shadow: 0px 0px 5px #000;*/
+      }
+    }
+    .ru{
+      background: url(/themes/agrobirzha/images/ru.png) no-repeat center center;
+      background-size: cover;
+    }
+    .uk{
+      background: url(/themes/agrobirzha/images/ua.png) no-repeat center center;
+      background-size: cover;
+    }
 }
