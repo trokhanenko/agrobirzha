@@ -17,13 +17,19 @@
 
 // Custom
 @import "main";
+@import "block/cart";
+@import "block/block-content";
+@import "block/header";
+@import "block/frontblock";
+@import "block/footer";
 @import "block/login";
 @import "block/lang";
-@import "block/frontblock";
-@import "block/cart";
-@import "block/header";
+@import "block/news";
 @import "block/slider";
-@import "block/footer";
+@import "block/map";
+@import "block/right-sidebar";
+@import "block/search";
+@import "block/region-navigation";
 // jQuery UI style overrides.
 @import "jquery-ui/autocomplete";
 

@@ -1,0 +1,23 @@
+.region-navigation{
+  .navbar-nav{
+    a{
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.15);
+      margin-right: 6px;
+      &:hover, &:focus{
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background: #fff;
+        color: #3d0000;
+      }
+    }
+    .is-active{
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      background: #fff;
+      color: #3d0000;
+    }
+  }
+}

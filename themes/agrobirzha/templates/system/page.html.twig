@@ -66,11 +66,13 @@
       {# Header #}
       {% if page.header %}
         {% block header %}
-          <div class="col-sm-12 header" role="heading">
-            {{ page.header }}
-          </div>
-          <div class="header-nav col-sm-10">
-            {{ page.navigation }}
+          <div class="top">
+            <div class="col-sm-12 header" role="heading">
+              {{ page.header }}
+            </div>
+            <div class="header-nav col-sm-10">
+              {{ page.navigation }}
+            </div>
           </div>
         {% endblock %}
       {% endif %}

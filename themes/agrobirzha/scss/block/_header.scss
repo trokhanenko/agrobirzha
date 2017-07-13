@@ -1,19 +1,38 @@
+.top{
+  background: linear-gradient(90deg, #3d0000 0%, #bf0000 100%);
+  background-image: url(/themes/agrobirzha/images/header-bg.png);
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: cover;
+  height: 236px;
+}
 .header{
+
   padding-top: 15px;
   .logo{
     display: block;
     float: left;
   }
   .navbar-brand{
+    border-bottom: 1px dotted #736455;
+    color: #d7d7d7;
     display: block;
-    float: none;
+    float: left;
+    font-family: none;
+    font-size: 30px;
     height: auto;
-    padding: 0;
+    padding: 0 0 5px;
+    margin-top: 12px;
+    text-transform: uppercase;
   }
   .navbar-text{
-    width: auto;
+    color: #b59f83;
     display: block;
-    float: none;
     margin: 0;
+    position: relative;
+    left: -274px;
+    top: 38px;
+    text-transform: uppercase;
+    width: auto;
   }
 }

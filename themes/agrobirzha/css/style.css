@@ -9504,115 +9504,295 @@ body {
   margin-top: 0;
 }
 
-/* line 1, ../scss/block/_login.scss */
-#block-vhodnasait {
-  background: rgba(255, 255, 255, 0.3);
-  text-align: center;
-  float: right;
-  font-size: 12px;
-  padding: 10px;
-  width: 200px;
-}
-/* line 8, ../scss/block/_login.scss */
-#block-vhodnasait .control-label.js-form-required.form-required {
-  display: none;
-}
-/* line 11, ../scss/block/_login.scss */
-#block-vhodnasait li {
-  list-style: none;
-}
-/* line 14, ../scss/block/_login.scss */
-#block-vhodnasait #edit-actions {
-  display: inline-block;
-  width: 28%;
-}
-/* line 17, ../scss/block/_login.scss */
-#block-vhodnasait #edit-actions .button {
-  font-size: 0;
-}
-/* line 21, ../scss/block/_login.scss */
-#block-vhodnasait .form-type-password.js-form-type-password {
-  display: inline-block;
-  width: 70%;
+/* line 4, ../scss/_main.scss */
+a {
+  color: #000;
+  cursor: pointer;
 }
 
-/*----Page- reg---*/
-/* line 32, ../scss/block/_login.scss */
-#edit-entity-test-company-field-regions .form-type-checkbox {
-  width: 19%;
-  display: inline-block;
+/* line 8, ../scss/_main.scss */
+.page-header {
+  margin-bottom: 0px;
+  border-bottom: none;
+  color: #603b00;
+  font-family: none;
 }
 
-/* line 1, ../scss/block/_lang.scss */
-#block-pereklucatelazyka {
-  float: right;
+/* line 1, ../scss/block/_cart.scss */
+.cart--cart-block {
+  padding: 0 10px;
+  background: linear-gradient(to top, #cec0a4 0%, #afa186 100%);
 }
-/* line 3, ../scss/block/_lang.scss */
-#block-pereklucatelazyka li {
-  list-style: none;
-  display: inline-block;
+/* line 4, ../scss/block/_cart.scss */
+.cart--cart-block a {
+  color: #603b00;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+/* line 10, ../scss/block/_cart.scss */
+.cart--cart-block .cart-block--summary__icon img {
   width: 45px;
-  height: 30px;
-  margin: 0 2px;
-}
-/* line 10, ../scss/block/_lang.scss */
-#block-pereklucatelazyka .ru {
-  background: url(/themes/agrobirzha/images/ru.png);
-}
-/* line 13, ../scss/block/_lang.scss */
-#block-pereklucatelazyka .ua {
-  background: url(/themes/agrobirzha/images/uk.png);
 }
 
-/* line 2, ../scss/block/_frontblock.scss */
-.path-frontpage .view, .path-price .view {
+/* line 1, ../scss/block/_block-content.scss */
+.block-block-content {
+  background: #f4f0ea;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+/* line 6, ../scss/block/_block-content.scss */
+.block-block-content h3 {
+  margin: 0;
+  font-family: none;
+  color: #68460e;
+  font-size: 20px;
+}
+
+/* line 1, ../scss/block/_header.scss */
+.top {
+  background: linear-gradient(90deg, #3d0000 0%, #bf0000 100%);
+  background-image: url(/themes/agrobirzha/images/header-bg.png);
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: cover;
+  height: 236px;
+}
+
+/* line 9, ../scss/block/_header.scss */
+.header {
+  padding-top: 15px;
+}
+/* line 12, ../scss/block/_header.scss */
+.header .logo {
+  display: block;
+  float: left;
+}
+/* line 16, ../scss/block/_header.scss */
+.header .navbar-brand {
+  border-bottom: 1px dotted #736455;
+  color: #d7d7d7;
+  display: block;
+  float: left;
+  font-family: none;
+  font-size: 30px;
+  height: auto;
+  padding: 0 0 5px;
+  margin-top: 12px;
+  text-transform: uppercase;
+}
+/* line 28, ../scss/block/_header.scss */
+.header .navbar-text {
+  color: #b59f83;
+  display: block;
+  margin: 0;
+  position: relative;
+  left: -274px;
+  top: 38px;
+  text-transform: uppercase;
+  width: auto;
+}
+
+/* line 5, ../scss/block/_frontblock.scss */
+.path-frontpage .view,
+.path-price .view,
+.path-posts .view,
+.path-taxonomy .view {
   margin-top: 20px;
 }
-/* line 4, ../scss/block/_frontblock.scss */
-.path-frontpage .view .view-header, .path-price .view .view-header {
+/* line 7, ../scss/block/_frontblock.scss */
+.path-frontpage .view .view-header,
+.path-price .view .view-header,
+.path-posts .view .view-header,
+.path-taxonomy .view .view-header {
   margin-bottom: 10px;
 }
-/* line 6, ../scss/block/_frontblock.scss */
-.path-frontpage .view .view-header h3, .path-price .view .view-header h3 {
+/* line 9, ../scss/block/_frontblock.scss */
+.path-frontpage .view .view-header h3,
+.path-price .view .view-header h3,
+.path-posts .view .view-header h3,
+.path-taxonomy .view .view-header h3 {
   color: #67440c;
   width: auto;
   display: inline-block;
   margin: 0;
   font-family: none;
 }
-/* line 13, ../scss/block/_frontblock.scss */
-.path-frontpage .view .view-header span, .path-price .view .view-header span {
+/* line 16, ../scss/block/_frontblock.scss */
+.path-frontpage .view .view-header span,
+.path-price .view .view-header span,
+.path-posts .view .view-header span,
+.path-taxonomy .view .view-header span {
   color: #67440c;
   vertical-align: top;
   font-size: 12px;
 }
-/* line 18, ../scss/block/_frontblock.scss */
-.path-frontpage .view .view-header .links, .path-price .view .view-header .links {
+/* line 21, ../scss/block/_frontblock.scss */
+.path-frontpage .view .view-header .links,
+.path-price .view .view-header .links,
+.path-posts .view .view-header .links,
+.path-taxonomy .view .view-header .links {
   float: right;
 }
-/* line 23, ../scss/block/_frontblock.scss */
-.path-frontpage .block-views-blockprice-partners-block-2, .path-price .block-views-blockprice-partners-block-2 {
-  display: none;
-}
 /* line 26, ../scss/block/_frontblock.scss */
-.path-frontpage .block-views-blockposts-block-2, .path-price .block-views-blockposts-block-2 {
+.path-frontpage .block-views-blockprice-partners-block-2,
+.path-price .block-views-blockprice-partners-block-2,
+.path-posts .block-views-blockprice-partners-block-2,
+.path-taxonomy .block-views-blockprice-partners-block-2 {
   display: none;
 }
-/* line 29, ../scss/block/_frontblock.scss */
-.path-frontpage thead, .path-price thead {
+/* line 28, ../scss/block/_frontblock.scss */
+.path-frontpage .block-views-blockprice-partners-block-2 .col,
+.path-price .block-views-blockprice-partners-block-2 .col,
+.path-posts .block-views-blockprice-partners-block-2 .col,
+.path-taxonomy .block-views-blockprice-partners-block-2 .col {
+  text-align: center;
+  border-right: 1px dotted #67440c;
+  margin-bottom: 10px;
+}
+/* line 32, ../scss/block/_frontblock.scss */
+.path-frontpage .block-views-blockprice-partners-block-2 .col:nth-child(2n),
+.path-price .block-views-blockprice-partners-block-2 .col:nth-child(2n),
+.path-posts .block-views-blockprice-partners-block-2 .col:nth-child(2n),
+.path-taxonomy .block-views-blockprice-partners-block-2 .col:nth-child(2n) {
+  background: #efebe8;
+}
+/* line 35, ../scss/block/_frontblock.scss */
+.path-frontpage .block-views-blockprice-partners-block-2 .col:last-child,
+.path-price .block-views-blockprice-partners-block-2 .col:last-child,
+.path-posts .block-views-blockprice-partners-block-2 .col:last-child,
+.path-taxonomy .block-views-blockprice-partners-block-2 .col:last-child {
+  border-right: none;
+}
+/* line 39, ../scss/block/_frontblock.scss */
+.path-frontpage .block-views-blockprice-partners-block-2 .col .views-field:nth-child(2n),
+.path-price .block-views-blockprice-partners-block-2 .col .views-field:nth-child(2n),
+.path-posts .block-views-blockprice-partners-block-2 .col .views-field:nth-child(2n),
+.path-taxonomy .block-views-blockprice-partners-block-2 .col .views-field:nth-child(2n) {
+  color: #67440c;
+}
+/* line 45, ../scss/block/_frontblock.scss */
+.path-frontpage .block-views-blockposts-block-2,
+.path-price .block-views-blockposts-block-2,
+.path-posts .block-views-blockposts-block-2,
+.path-taxonomy .block-views-blockposts-block-2 {
+  display: none;
+}
+/* line 47, ../scss/block/_frontblock.scss */
+.path-frontpage .block-views-blockposts-block-2 .col,
+.path-price .block-views-blockposts-block-2 .col,
+.path-posts .block-views-blockposts-block-2 .col,
+.path-taxonomy .block-views-blockposts-block-2 .col {
+  text-align: center;
+  border-right: 1px dotted #67440c;
+}
+/* line 50, ../scss/block/_frontblock.scss */
+.path-frontpage .block-views-blockposts-block-2 .col:nth-child(2n),
+.path-price .block-views-blockposts-block-2 .col:nth-child(2n),
+.path-posts .block-views-blockposts-block-2 .col:nth-child(2n),
+.path-taxonomy .block-views-blockposts-block-2 .col:nth-child(2n) {
+  background: #efebe8;
+}
+/* line 53, ../scss/block/_frontblock.scss */
+.path-frontpage .block-views-blockposts-block-2 .col:last-child,
+.path-price .block-views-blockposts-block-2 .col:last-child,
+.path-posts .block-views-blockposts-block-2 .col:last-child,
+.path-taxonomy .block-views-blockposts-block-2 .col:last-child {
+  border-right: none;
+}
+/* line 57, ../scss/block/_frontblock.scss */
+.path-frontpage .block-views-blockposts-block-2 .col .views-field:nth-child(2n),
+.path-price .block-views-blockposts-block-2 .col .views-field:nth-child(2n),
+.path-posts .block-views-blockposts-block-2 .col .views-field:nth-child(2n),
+.path-taxonomy .block-views-blockposts-block-2 .col .views-field:nth-child(2n) {
+  color: #67440c;
+}
+/* line 63, ../scss/block/_frontblock.scss */
+.path-frontpage thead,
+.path-price thead,
+.path-posts thead,
+.path-taxonomy thead {
+  font-family: none;
   background: #67440c;
   color: #fff;
 }
-/* line 32, ../scss/block/_frontblock.scss */
-.path-frontpage thead th, .path-price thead th {
+/* line 67, ../scss/block/_frontblock.scss */
+.path-frontpage thead th,
+.path-price thead th,
+.path-posts thead th,
+.path-taxonomy thead th {
   border-right: 1px solid #fff;
 }
-/* line 35, ../scss/block/_frontblock.scss */
-.path-frontpage thead a, .path-price thead a {
+/* line 69, ../scss/block/_frontblock.scss */
+.path-frontpage thead th:last-child,
+.path-price thead th:last-child,
+.path-posts thead th:last-child,
+.path-taxonomy thead th:last-child {
+  border-right: none;
+}
+/* line 73, ../scss/block/_frontblock.scss */
+.path-frontpage thead a,
+.path-price thead a,
+.path-posts thead a,
+.path-taxonomy thead a {
   color: #fff;
 }
-/* line 39, ../scss/block/_frontblock.scss */
-.path-frontpage .all-prices, .path-price .all-prices {
+/* line 78, ../scss/block/_frontblock.scss */
+.path-frontpage tbody a,
+.path-price tbody a,
+.path-posts tbody a,
+.path-taxonomy tbody a {
+  color: #000;
+  cursor: pointer;
+}
+/* line 83, ../scss/block/_frontblock.scss */
+.path-frontpage tbody tr:nth-child(2n),
+.path-price tbody tr:nth-child(2n),
+.path-posts tbody tr:nth-child(2n),
+.path-taxonomy tbody tr:nth-child(2n) {
+  background: #efebe8;
+}
+/* line 86, ../scss/block/_frontblock.scss */
+.path-frontpage tbody tr:hover,
+.path-price tbody tr:hover,
+.path-posts tbody tr:hover,
+.path-taxonomy tbody tr:hover {
+  background: #efebe8;
+}
+/* line 89, ../scss/block/_frontblock.scss */
+.path-frontpage tbody tr td,
+.path-price tbody tr td,
+.path-posts tbody tr td,
+.path-taxonomy tbody tr td {
+  border-right: 1px solid #efebe7;
+}
+/* line 91, ../scss/block/_frontblock.scss */
+.path-frontpage tbody tr td:last-child,
+.path-price tbody tr td:last-child,
+.path-posts tbody tr td:last-child,
+.path-taxonomy tbody tr td:last-child {
+  border-right: none;
+}
+/* line 96, ../scss/block/_frontblock.scss */
+.path-frontpage tbody .views-field-created,
+.path-frontpage tbody .views-field-type,
+.path-frontpage tbody .views-field-price,
+.path-price tbody .views-field-created,
+.path-price tbody .views-field-type,
+.path-price tbody .views-field-price,
+.path-posts tbody .views-field-created,
+.path-posts tbody .views-field-type,
+.path-posts tbody .views-field-price,
+.path-taxonomy tbody .views-field-created,
+.path-taxonomy tbody .views-field-type,
+.path-taxonomy tbody .views-field-price {
+  color: #8c652d;
+}
+/* line 102, ../scss/block/_frontblock.scss */
+.path-frontpage .all-prices,
+.path-price .all-prices,
+.path-posts .all-prices,
+.path-taxonomy .all-prices {
   height: 23px;
   background: #c9ba9b;
   background: url(/modules/custom/maps_filter/images/ellipse-active.png) no-repeat 5px center #c9ba9b;
@@ -9621,55 +9801,20 @@ body {
   color: #a58048;
   text-decoration: none;
   display: inline-block;
+  line-height: 20px;
 }
-/* line 48, ../scss/block/_frontblock.scss */
-.path-frontpage .all-prices:hover, .path-price .all-prices:hover {
+/* line 112, ../scss/block/_frontblock.scss */
+.path-frontpage .all-prices:hover,
+.path-price .all-prices:hover,
+.path-posts .all-prices:hover,
+.path-taxonomy .all-prices:hover {
   color: #603b00;
   background: url(/modules/custom/maps_filter/images/ellipse-active.png) no-repeat 5px center #c9ba9b;
 }
 
-/* line 2, ../scss/block/_cart.scss */
-.cart-block--summary__icon img {
-  width: 45px;
-}
-
-/* line 1, ../scss/block/_header.scss */
-.header {
-  padding-top: 15px;
-}
-/* line 3, ../scss/block/_header.scss */
-.header .logo {
-  display: block;
-  float: left;
-}
-/* line 7, ../scss/block/_header.scss */
-.header .navbar-brand {
-  display: block;
-  float: none;
-  height: auto;
-  padding: 0;
-}
-/* line 13, ../scss/block/_header.scss */
-.header .navbar-text {
-  width: auto;
-  display: block;
-  float: none;
-  margin: 0;
-}
-
-/* line 1, ../scss/block/_slider.scss */
-.block-views-blockslide-block-1 {
-  background: #eee;
-  padding: 20px 0;
-}
-/* line 4, ../scss/block/_slider.scss */
-.block-views-blockslide-block-1 .slick-arrow {
-  height: 50px;
-}
-
 /* line 1, ../scss/block/_footer.scss */
 .footer {
-  margin-top: 15px;
+  margin-top: 25px !important;
   padding: 10px !important;
   background: #bf0000;
 }
@@ -9681,11 +9826,231 @@ body {
 /* line 8, ../scss/block/_footer.scss */
 .footer li a {
   color: #fff;
-  padding: 5px 15px;
+  padding: 0 15px;
+  float: left;
 }
-/* line 11, ../scss/block/_footer.scss */
+/* line 12, ../scss/block/_footer.scss */
 .footer li a:hover {
   background: transparent;
+}
+
+/* line 1, ../scss/block/_login.scss */
+#block-vhodnasait {
+  background: rgba(255, 255, 255, 0.25);
+  text-align: center;
+  float: right;
+  font-size: 12px;
+  padding: 20px 10px 10px 10px;
+  width: 200px;
+}
+/* line 8, ../scss/block/_login.scss */
+#block-vhodnasait .control-label.js-form-required.form-required {
+  display: none;
+}
+/* line 11, ../scss/block/_login.scss */
+#block-vhodnasait a {
+  color: #fff;
+}
+/* line 14, ../scss/block/_login.scss */
+#block-vhodnasait li {
+  list-style: none;
+}
+/* line 20, ../scss/block/_login.scss */
+#block-vhodnasait #edit-actions, #block-vhodnasait #edit-actions--2 {
+  display: inline-block;
+  width: 28%;
+}
+/* line 23, ../scss/block/_login.scss */
+#block-vhodnasait #edit-actions .button, #block-vhodnasait #edit-actions--2 .button {
+  /*font-size: 0;*/
+  background: #f6f6f6;
+  border: none;
+  border-radius: 0;
+  width: 50px;
+}
+/* line 29, ../scss/block/_login.scss */
+#block-vhodnasait #edit-actions .button:after, #block-vhodnasait #edit-actions--2 .button:after {
+  display: block;
+  width: 15px;
+  height: 15px;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+/* line 38, ../scss/block/_login.scss */
+#block-vhodnasait .form-control {
+  border-radius: 0;
+}
+/* line 41, ../scss/block/_login.scss */
+#block-vhodnasait .form-type-password.js-form-type-password {
+  display: inline-block;
+  width: 70%;
+}
+
+/*----Page- reg---*/
+/* line 52, ../scss/block/_login.scss */
+#edit-entity-test-company-field-regions .form-type-checkbox {
+  width: 19%;
+  display: inline-block;
+}
+
+/* line 1, ../scss/block/_lang.scss */
+#block-pereklucatelazyka {
+  float: right;
+}
+/* line 3, ../scss/block/_lang.scss */
+#block-pereklucatelazyka li {
+  display: inline-block;
+  list-style: none;
+  margin: 0 2px;
+}
+/* line 7, ../scss/block/_lang.scss */
+#block-pereklucatelazyka li a {
+  cursor: pointer;
+  display: block;
+  height: 20px;
+  font-size: 0;
+  width: 30px;
+  /*box-shadow: 0px 0px 5px #000;*/
+}
+/* line 16, ../scss/block/_lang.scss */
+#block-pereklucatelazyka .ru {
+  background: url(/themes/agrobirzha/images/ru.png) no-repeat center center;
+  background-size: cover;
+}
+/* line 20, ../scss/block/_lang.scss */
+#block-pereklucatelazyka .uk {
+  background: url(/themes/agrobirzha/images/ua.png) no-repeat center center;
+  background-size: cover;
+}
+
+/* line 2, ../scss/block/_news.scss */
+.block-views-blockblock-with-news-block-1 .block-title {
+  background: none;
+  font-size: 17px;
+  padding: 0;
+  margin: 0;
+}
+/* line 8, ../scss/block/_news.scss */
+.block-views-blockblock-with-news-block-1 .view {
+  margin-top: 10px;
+  text-align: center;
+}
+/* line 11, ../scss/block/_news.scss */
+.block-views-blockblock-with-news-block-1 .view .views-row {
+  margin-top: 10px;
+}
+/* line 14, ../scss/block/_news.scss */
+.block-views-blockblock-with-news-block-1 .view .views-field-title {
+  margin-top: 5px;
+}
+/* line 17, ../scss/block/_news.scss */
+.block-views-blockblock-with-news-block-1 .view .views-field-field-date {
+  color: #b2a595;
+  font-size: 12px;
+}
+/* line 22, ../scss/block/_news.scss */
+.block-views-blockblock-with-news-block-1 a {
+  color: #000;
+}
+/* line 25, ../scss/block/_news.scss */
+.block-views-blockblock-with-news-block-1 img {
+  width: 100%;
+  box-shadow: 3px 3px #b3b3b3;
+}
+
+/* line 1, ../scss/block/_slider.scss */
+.block-views-blockslide-block-1 {
+  background: #eee;
+  padding: 0px 30px 20px 30px;
+}
+/* line 4, ../scss/block/_slider.scss */
+.block-views-blockslide-block-1 .slick-arrow {
+  height: 50px;
+}
+
+/* line 1, ../scss/block/_map.scss */
+.block-views-blockkarta-block-1 {
+  border-top: 1px solid #f0f0f0;
+}
+/* line 3, ../scss/block/_map.scss */
+.block-views-blockkarta-block-1 .view-content {
+  border: 1px solid #634c2b;
+}
+/* line 6, ../scss/block/_map.scss */
+.block-views-blockkarta-block-1 h2 {
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+/* line 1, ../scss/block/_right-sidebar.scss */
+.well {
+  background: none;
+  border: none;
+  padding: 0;
+}
+/* line 5, ../scss/block/_right-sidebar.scss */
+.well .block {
+  margin: 20px 0;
+}
+/* line 8, ../scss/block/_right-sidebar.scss */
+.well h2 {
+  background: linear-gradient(to top, #cec0a4 0%, #afa186 100%);
+  color: #603b00;
+  font-family: none;
+  font-size: 20px;
+  margin-top: 0px;
+  padding: 10px;
+  text-transform: uppercase;
+}
+/* line 18, ../scss/block/_right-sidebar.scss */
+.well #block-katalogtovariv {
+  border: 1px solid #b4a68a;
+  background: #f9f7f4;
+}
+/* line 21, ../scss/block/_right-sidebar.scss */
+.well #block-katalogtovariv .nav {
+  padding-left: 10px;
+}
+/* line 23, ../scss/block/_right-sidebar.scss */
+.well #block-katalogtovariv .nav a {
+  color: #000;
+  background: url(/themes/agrobirzha/images/ellipse-static.png) no-repeat left center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+/* line 28, ../scss/block/_right-sidebar.scss */
+.well #block-katalogtovariv .nav a:hover {
+  background: url(/themes/agrobirzha/images/ellipse-active.png) no-repeat left center;
+  cursor: pointer;
+}
+
+/* line 2, ../scss/block/_search.scss */
+.block-views-exposed-filter-blockcustomsearch-page-1 .form-control {
+  width: 188px;
+  border-radius: 0;
+}
+
+/* line 3, ../scss/block/_region-navigation.scss */
+.region-navigation .navbar-nav a {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  margin-right: 6px;
+}
+/* line 9, ../scss/block/_region-navigation.scss */
+.region-navigation .navbar-nav a:hover, .region-navigation .navbar-nav a:focus {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background: #fff;
+  color: #3d0000;
+}
+/* line 16, ../scss/block/_region-navigation.scss */
+.region-navigation .navbar-nav .is-active {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background: #fff;
+  color: #3d0000;
 }
 
 /**
@@ -9737,21 +10102,21 @@ body {
   color: #fff;
 }
 
-/* line 30, ../scss/_overrides.scss */
+/* line 36, ../scss/_overrides.scss */
 ol, ul {
   padding-left: 1.5em;
 }
-/* line 32, ../scss/_overrides.scss */
+/* line 38, ../scss/_overrides.scss */
 .popover ol:last-child, .popover ul:last-child {
   margin-bottom: 0;
 }
 
-/* line 38, ../scss/_overrides.scss */
+/* line 44, ../scss/_overrides.scss */
 .page-header {
   margin-top: 0;
 }
 
-/* line 43, ../scss/_overrides.scss */
+/* line 49, ../scss/_overrides.scss */
 .footer {
   margin-top: 45px;
   padding-top: 35px;
@@ -9759,32 +10124,32 @@ ol, ul {
   border-top: 1px solid #E5E5E5;
 }
 
-/* line 51, ../scss/_overrides.scss */
+/* line 57, ../scss/_overrides.scss */
 p:last-child,
 .form-group:last-child,
 .panel:last-child {
   margin-bottom: 0;
 }
 
-/* line 59, ../scss/_overrides.scss */
+/* line 65, ../scss/_overrides.scss */
 .region-help > .glyphicon {
   font-size: 18px;
   float: left;
   margin: -0.05em 0.5em 0 0;
 }
-/* line 64, ../scss/_overrides.scss */
+/* line 70, ../scss/_overrides.scss */
 .region-help .block {
   overflow: hidden;
 }
 
-/* line 70, ../scss/_overrides.scss */
+/* line 76, ../scss/_overrides.scss */
 .help-block, .control-group .help-inline {
   color: #777777;
   font-size: 12px;
   margin: 5px 0 10px;
   padding: 0;
 }
-/* line 75, ../scss/_overrides.scss */
+/* line 81, ../scss/_overrides.scss */
 .help-block:first-child, .control-group .help-inline:first-child {
   margin-top: 0;
 }

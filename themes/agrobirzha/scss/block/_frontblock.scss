@@ -1,4 +1,7 @@
-.path-frontpage, .path-price{
+.path-frontpage,
+.path-price,
+.path-posts,
+.path-taxonomy {
   .view{
     margin-top: 20px;
     .view-header{
@@ -22,18 +25,78 @@
   }
   .block-views-blockprice-partners-block-2{
     display: none;
+    .col{
+      text-align: center;
+      border-right: 1px dotted #67440c;
+      margin-bottom: 10px;
+      &:nth-child(2n){
+        background: #efebe8;
+      }
+      &:last-child{
+        border-right: none;
+      }
+      .views-field{
+        &:nth-child(2n){
+          color: #67440c;
+        }
+      }
+    }
   }
   .block-views-blockposts-block-2{
     display: none;
+    .col{
+      text-align: center;
+      border-right: 1px dotted #67440c;
+      &:nth-child(2n){
+        background: #efebe8;
+      }
+      &:last-child{
+        border-right: none;
+      }
+      .views-field{
+        &:nth-child(2n){
+          color: #67440c;
+        }
+      }
+    }
   }
   thead{
+    font-family: none;
     background: #67440c;
     color: #fff;
     th{
       border-right: 1px solid #fff;
+      &:last-child{
+        border-right: none;
+      }
     }
     a{
       color: #fff;
+    }
+  }
+  tbody{
+    a{
+      color: #000;
+      cursor: pointer;
+    }
+    tr{
+      &:nth-child(2n){
+        background: #efebe8;
+      }
+      &:hover{
+        background: #efebe8;
+      }
+      td{
+        border-right: 1px solid #efebe7;
+        &:last-child{
+          border-right: none;
+        }
+      }
+    }
+    .views-field-created,
+    .views-field-type,
+    .views-field-price{
+      color: #8c652d;
     }
   }
   .all-prices{

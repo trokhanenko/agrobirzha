@@ -1,5 +1,5 @@
 .footer{
-  margin-top: 15px;
+  margin-top: 25px !important;
   padding: 10px !important;
   background: #bf0000;
   li{
@@ -7,7 +7,8 @@
     width: 20%;
     a{
       color: #fff;
-      padding: 5px 15px;
+      padding: 0 15px;
+      float: left;
       &:hover{
         background: transparent;
       }

@@ -1,0 +1,35 @@
+.well{
+  background: none;
+  border: none;
+  padding: 0;
+  .block{
+    margin: 20px 0;
+  }
+  h2{
+    background: linear-gradient(to top, #cec0a4 0%, #afa186 100%);
+    color: #603b00;
+    font-family: none;
+    font-size: 20px;
+    margin-top: 0px;
+    padding: 10px;
+    text-transform: uppercase;
+  }
+
+  #block-katalogtovariv{
+    border: 1px solid #b4a68a;
+    background: #f9f7f4;
+    .nav{
+      padding-left: 10px;
+      a{
+        color: #000;
+        background: url(/themes/agrobirzha/images/ellipse-static.png) no-repeat left center;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        &:hover{
+          background: url(/themes/agrobirzha/images/ellipse-active.png) no-repeat left center;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
