@@ -1,4 +1,11 @@
 (function ($) {
+
+  Drupal.behaviors.add_class_to_search_form = {
+    attach: function(context, settings) {
+      $('#edit-submit-customsearch').once().addClass("icon glyphicon glyphicon-search");
+    }
+  };
+
   Drupal.behaviors.switch_front_page = {
     attach: function(context, settings) {
 

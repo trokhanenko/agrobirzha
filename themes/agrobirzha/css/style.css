@@ -9515,6 +9515,11 @@ a {
   margin-top: 10px;
 }
 
+/* line 11, ../scss/_main.scss */
+.region-content {
+  padding-top: 10px;
+}
+
 /* line 3, ../scss/page/_user.scss */
 .view-kabinet .views-field-edit-commerce-product a {
   color: #27a912;
@@ -10110,11 +10115,11 @@ a {
 .well {
   background: none;
   border: none;
-  padding: 0;
+  padding: 20px 0 0 0;
 }
 /* line 5, ../scss/block/_right-sidebar.scss */
 .well .block {
-  margin: 20px 0;
+  margin: 0 0 20px 0;
 }
 /* line 8, ../scss/block/_right-sidebar.scss */
 .well h2 {
@@ -10130,41 +10135,69 @@ a {
 .well #block-katalogtovariv {
   border: 1px solid #b4a68a;
   background: #f9f7f4;
+  margin-bottom: 20px;
 }
-/* line 21, ../scss/block/_right-sidebar.scss */
+/* line 22, ../scss/block/_right-sidebar.scss */
 .well #block-katalogtovariv .nav {
   padding-left: 10px;
 }
-/* line 23, ../scss/block/_right-sidebar.scss */
+/* line 24, ../scss/block/_right-sidebar.scss */
 .well #block-katalogtovariv .nav a {
   color: #000;
   background: url(/themes/agrobirzha/images/ellipse-static.png) no-repeat left center;
   padding-top: 5px;
   padding-bottom: 5px;
 }
-/* line 28, ../scss/block/_right-sidebar.scss */
+/* line 29, ../scss/block/_right-sidebar.scss */
 .well #block-katalogtovariv .nav a:hover {
   background: url(/themes/agrobirzha/images/ellipse-active.png) no-repeat left center;
   cursor: pointer;
 }
-/* line 35, ../scss/block/_right-sidebar.scss */
+/* line 36, ../scss/block/_right-sidebar.scss */
 .well .block-simple-block-example {
   border: 1px solid #b4a68a;
   background: #f9f7f4;
 }
-/* line 38, ../scss/block/_right-sidebar.scss */
+/* line 39, ../scss/block/_right-sidebar.scss */
 .well .block-simple-block-example #feedback-form {
   padding: 0 10px;
 }
-/* line 40, ../scss/block/_right-sidebar.scss */
+/* line 41, ../scss/block/_right-sidebar.scss */
 .well .block-simple-block-example #feedback-form .form-control {
   border-radius: 0;
 }
-/* line 43, ../scss/block/_right-sidebar.scss */
+/* line 44, ../scss/block/_right-sidebar.scss */
 .well .block-simple-block-example #feedback-form button {
   width: 100%;
   border-radius: 0;
   margin-bottom: 10px;
+}
+/* line 52, ../scss/block/_right-sidebar.scss */
+.well .block-views-exposed-filter-blockcustomsearch-page-1 .control-label {
+  display: block;
+  background: linear-gradient(to top, #cec0a4 0%, #afa186 100%);
+  color: #603b00;
+  font-family: none;
+  font-weight: 100;
+  font-size: 20px;
+  margin-top: 0px;
+  padding: 8px 10px;
+  text-transform: uppercase;
+}
+/* line 63, ../scss/block/_right-sidebar.scss */
+.well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions {
+  position: absolute;
+  top: 46px;
+  right: 2px;
+}
+/* line 67, ../scss/block/_right-sidebar.scss */
+.well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions #edit-submit-customsearch {
+  padding: 5px;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+  color: #603b00;
 }
 
 /* line 2, ../scss/block/_search.scss */
