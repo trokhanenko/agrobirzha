@@ -14,5 +14,10 @@ function agrobirzha_form_alter(&$form, $form_state, $form_id){
 		'#suffix' => '</a>',
 		'#weight' => '-100',
 		];
+		$form['actions']['submit']['#value'] = '»';
+	}
+
+	if ($form_id == 'views_exposed_form') {
+		$form['actions']['submit']['#value'] = '';
 	}
 }
