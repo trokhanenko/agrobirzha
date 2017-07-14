@@ -18,7 +18,11 @@
 // Custom
 @import "main";
 @import "page/user";
+@import "page/faq";
+@import "page/news";
+
 @import "block/cart";
+@import "block/comment";
 @import "block/block-content";
 @import "block/header";
 @import "block/frontblock";
@@ -27,6 +31,7 @@
 @import "block/lang";
 @import "block/news";
 @import "block/slider";
+@import "block/review";
 @import "block/map";
 @import "block/right-sidebar";
 @import "block/search";
@@ -45,14 +50,18 @@ ol, ul {
 
 // Page header.
 .page-header {
-  margin-top: 0;
+  margin-top: 8px;
+  margin-bottom: 0px;
+  border-bottom: none;
+  color: #603b00;
+  font-family: none;
 }
 
 // Footer.
 .footer {
-  margin-top: 45px;
-  padding-top: 35px;
-  padding-bottom: 36px;
+  margin-top: 25px;
+  padding: 10px;
+  background: #bf0000;
   border-top: 1px solid #E5E5E5;
 }
 

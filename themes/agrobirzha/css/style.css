@@ -9511,14 +9511,6 @@ a {
 }
 
 /* line 8, ../scss/_main.scss */
-.page-header {
-  margin-bottom: 0px;
-  border-bottom: none;
-  color: #603b00;
-  font-family: none;
-}
-
-/* line 14, ../scss/_main.scss */
 .tabs {
   margin-top: 10px;
 }
@@ -9530,6 +9522,64 @@ a {
 /* line 8, ../scss/page/_user.scss */
 .view-kabinet .views-field-delete-commerce-product a {
   color: #f00;
+}
+
+/* line 1, ../scss/page/_faq.scss */
+.paragraph--type--faq {
+  padding: 10px 0;
+  margin-top: 5px;
+}
+/* line 4, ../scss/page/_faq.scss */
+.paragraph--type--faq .field--name-field-question {
+  font-weight: bold;
+  padding-left: 15px;
+  position: relative;
+}
+/* line 8, ../scss/page/_faq.scss */
+.paragraph--type--faq .field--name-field-question:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+/* line 12, ../scss/page/_faq.scss */
+.paragraph--type--faq .field--name-field-question:before {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 5px;
+  display: block;
+  width: 10px;
+  height: 3px;
+  background: #67440c;
+  transform: rotate(45deg);
+}
+/* line 23, ../scss/page/_faq.scss */
+.paragraph--type--faq .field--name-field-question:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0px;
+  bottom: 5px;
+  width: 10px;
+  height: 3px;
+  background: #67440c;
+  transform: rotate(-45deg);
+}
+
+/* line 2, ../scss/page/_news.scss */
+.article .field--name-field-image {
+  float: left;
+  margin: 0 10px 10px 0;
+}
+/* line 6, ../scss/page/_news.scss */
+.article .statistics-counter {
+  float: right;
+  font-style: italic;
+}
+/* line 10, ../scss/page/_news.scss */
+.article .field--name-field-date {
+  font-style: italic;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 /* line 1, ../scss/block/_cart.scss */
@@ -9546,6 +9596,28 @@ a {
 /* line 10, ../scss/block/_cart.scss */
 .cart--cart-block .cart-block--summary__icon img {
   width: 45px;
+}
+
+/* line 2, ../scss/block/_comment.scss */
+#block-comment .block-title {
+  color: #67440c;
+  font-family: none;
+  border-bottom: 1px solid #67440c;
+}
+/* line 8, ../scss/block/_comment.scss */
+#block-comment section h2 {
+  color: #67440c;
+  font-size: 20px;
+}
+/* line 12, ../scss/block/_comment.scss */
+#block-comment section textarea {
+  border-radius: 0;
+}
+/* line 15, ../scss/block/_comment.scss */
+#block-comment section button {
+  background: #f6f6f6;
+  border-radius: 0;
+  color: #000;
 }
 
 /* line 1, ../scss/block/_block-content.scss */
@@ -9856,25 +9928,23 @@ a {
   background: url(/modules/custom/maps_filter/images/ellipse-active.png) no-repeat 5px center #c9ba9b;
 }
 
-/* line 1, ../scss/block/_footer.scss */
-.footer {
-  margin-top: 25px !important;
-  padding: 10px !important;
-  background: #bf0000;
-}
-/* line 5, ../scss/block/_footer.scss */
+/* line 2, ../scss/block/_footer.scss */
 .footer li {
   display: inline-block;
   width: 20%;
 }
-/* line 8, ../scss/block/_footer.scss */
+/* line 5, ../scss/block/_footer.scss */
 .footer li a {
   color: #fff;
   padding: 0 15px;
   float: left;
 }
-/* line 12, ../scss/block/_footer.scss */
+/* line 9, ../scss/block/_footer.scss */
 .footer li a:hover {
+  background: transparent;
+}
+/* line 12, ../scss/block/_footer.scss */
+.footer li a:focus {
   background: transparent;
 }
 
@@ -10011,6 +10081,10 @@ a {
 .block-views-blockslide-block-1 .slick-arrow {
   height: 50px;
 }
+/* line 8, ../scss/block/_slider.scss */
+.block-views-blockslide-block-1 .slick-slide img {
+  margin: 0 auto;
+}
 
 /* line 1, ../scss/block/_map.scss */
 .block-views-blockkarta-block-1 {
@@ -10022,6 +10096,12 @@ a {
 }
 /* line 6, ../scss/block/_map.scss */
 .block-views-blockkarta-block-1 h2 {
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+/* line 12, ../scss/block/_map.scss */
+.view-geoinformation h2 {
   font-size: 14px;
   margin-top: 15px;
 }
@@ -10066,6 +10146,25 @@ a {
 .well #block-katalogtovariv .nav a:hover {
   background: url(/themes/agrobirzha/images/ellipse-active.png) no-repeat left center;
   cursor: pointer;
+}
+/* line 35, ../scss/block/_right-sidebar.scss */
+.well .block-simple-block-example {
+  border: 1px solid #b4a68a;
+  background: #f9f7f4;
+}
+/* line 38, ../scss/block/_right-sidebar.scss */
+.well .block-simple-block-example #feedback-form {
+  padding: 0 10px;
+}
+/* line 40, ../scss/block/_right-sidebar.scss */
+.well .block-simple-block-example #feedback-form .form-control {
+  border-radius: 0;
+}
+/* line 43, ../scss/block/_right-sidebar.scss */
+.well .block-simple-block-example #feedback-form button {
+  width: 100%;
+  border-radius: 0;
+  margin-bottom: 10px;
 }
 
 /* line 2, ../scss/block/_search.scss */
@@ -10146,54 +10245,58 @@ a {
   color: #fff;
 }
 
-/* line 39, ../scss/_overrides.scss */
+/* line 44, ../scss/_overrides.scss */
 ol, ul {
   padding-left: 1.5em;
 }
-/* line 41, ../scss/_overrides.scss */
+/* line 46, ../scss/_overrides.scss */
 .popover ol:last-child, .popover ul:last-child {
   margin-bottom: 0;
 }
 
-/* line 47, ../scss/_overrides.scss */
+/* line 52, ../scss/_overrides.scss */
 .page-header {
-  margin-top: 0;
+  margin-top: 8px;
+  margin-bottom: 0px;
+  border-bottom: none;
+  color: #603b00;
+  font-family: none;
 }
 
-/* line 52, ../scss/_overrides.scss */
+/* line 61, ../scss/_overrides.scss */
 .footer {
-  margin-top: 45px;
-  padding-top: 35px;
-  padding-bottom: 36px;
+  margin-top: 25px;
+  padding: 10px;
+  background: #bf0000;
   border-top: 1px solid #E5E5E5;
 }
 
-/* line 60, ../scss/_overrides.scss */
+/* line 69, ../scss/_overrides.scss */
 p:last-child,
 .form-group:last-child,
 .panel:last-child {
   margin-bottom: 0;
 }
 
-/* line 68, ../scss/_overrides.scss */
+/* line 77, ../scss/_overrides.scss */
 .region-help > .glyphicon {
   font-size: 18px;
   float: left;
   margin: -0.05em 0.5em 0 0;
 }
-/* line 73, ../scss/_overrides.scss */
+/* line 82, ../scss/_overrides.scss */
 .region-help .block {
   overflow: hidden;
 }
 
-/* line 79, ../scss/_overrides.scss */
+/* line 88, ../scss/_overrides.scss */
 .help-block, .control-group .help-inline {
   color: #777777;
   font-size: 12px;
   margin: 5px 0 10px;
   padding: 0;
 }
-/* line 84, ../scss/_overrides.scss */
+/* line 93, ../scss/_overrides.scss */
 .help-block:first-child, .control-group .help-inline:first-child {
   margin-top: 0;
 }

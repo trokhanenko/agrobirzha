@@ -44,10 +44,10 @@
 
       //var leng = $('.pop-list li').length;
 
-      $('.pop-list').once().after(read_more);
-
+      $('.pop-list').once().append(read_more);
+      $('.pop-list li').slice( 8, 26 ).css("display", "none");
       $('.read-more').once().click(function(){
-        $('.pop-list').css("height", "100px");
+        $('.pop-list li').slice( 8, 26 ).css("display", "inline-block");
         $('.read-more').remove();
       });
     }

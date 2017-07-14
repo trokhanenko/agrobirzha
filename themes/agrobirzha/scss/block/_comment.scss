@@ -1,0 +1,21 @@
+#block-comment{
+  .block-title{
+    color: #67440c;
+    font-family: none;
+    border-bottom: 1px solid #67440c;
+  }
+  section{
+    h2{
+      color: #67440c;
+      font-size: 20px;
+    }
+    textarea{
+      border-radius: 0;
+    }
+    button{
+      background: #f6f6f6;
+      border-radius: 0;
+      color: #000;
+    }
+  }
+}

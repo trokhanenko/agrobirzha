@@ -1,0 +1,20 @@
+uuid: f6847024-a905-4a8d-a691-2670bad590bd
+langcode: ru
+status: true
+dependencies:
+  module:
+    - feedback_form
+  theme:
+    - agrobirzha
+id: simpleblockexample
+theme: agrobirzha
+region: sidebar_second
+weight: 0
+provider: null
+plugin: simple_block_example
+settings:
+  id: simple_block_example
+  label: Отзивы
+  provider: feedback_form
+  label_display: visible
+visibility: {  }
