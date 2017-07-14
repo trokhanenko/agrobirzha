@@ -9,7 +9,7 @@ id: comment.comment.field_vas_otzyv
 field_name: field_vas_otzyv
 entity_type: comment
 bundle: comment
-label: 'Вiаiш отзывd'
+label: 'Ваш отзыв'
 description: ''
 required: false
 translatable: false

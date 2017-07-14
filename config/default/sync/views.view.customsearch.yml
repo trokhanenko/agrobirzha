@@ -5,7 +5,12 @@ dependencies:
   config:
     - search_api.index.search
   module:
+    - commerce_price
+    - commerce_product
     - search_api
+    - taxonomy
+    - user
+    - views_bootstrap
 id: customsearch
 label: Customsearch
 module: views
@@ -61,7 +66,24 @@ display:
             previous: ‹‹
             next: ››
       style:
-        type: default
+        type: views_bootstrap_table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
+          columns: {  }
+          default: ''
+          info: {  }
+          override: true
+          sticky: false
+          order: asc
+          caption: ''
+          summary: ''
+          description: ''
+          empty_table: false
+          bootstrap_styles: {  }
+          responsive: false
       row:
         type: fields
       fields:
@@ -72,7 +94,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: Пользователь
           exclude: false
           alter:
             alter_text: false
@@ -142,7 +164,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: 'Новости С/Г Сектора'
           exclude: false
           alter:
             alter_text: false
@@ -210,7 +232,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: ТОВАР
           exclude: false
           alter:
             alter_text: false
@@ -271,6 +293,222 @@ display:
             link_to_item: false
             multi_separator: ', '
           plugin_id: search_api_field
+        created:
+          id: created
+          table: search_api_entity_commerce_product_variation
+          field: created
+          relationship: variations
+          group_type: group
+          admin_label: ''
+          label: Дата
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: timestamp
+          settings:
+            date_format: custom
+            custom_date_format: d.m.Y
+            timezone: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api_date
+          fallback_options:
+            date_format: fallback
+            custom_date_format: ''
+            timezone: ''
+            link_to_item: false
+            multi_separator: ', '
+          entity_type: commerce_product_variation
+          plugin_id: search_api_field
+        type:
+          id: type
+          table: search_api_datasource_search_entity_commerce_product
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Продажа
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api_entity
+          fallback_options:
+            link_to_item: false
+            multi_separator: ', '
+            display_methods:
+              commerce_product_type:
+                display_method: label
+          entity_type: commerce_product
+          plugin_id: search_api_field
+        price:
+          id: price
+          table: search_api_entity_commerce_product_variation
+          field: price
+          relationship: variations
+          group_type: group
+          admin_label: ''
+          label: Цена
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: number
+          type: commerce_price_default
+          settings:
+            strip_trailing_zeroes: false
+            display_currency_code: false
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            multi_separator: ', '
+          entity_type: commerce_product_variation
+          plugin_id: search_api_field
       filters:
         search_api_fulltext:
           id: search_api_fulltext
@@ -285,7 +523,7 @@ display:
           exposed: true
           expose:
             operator_id: search_api_fulltext_op
-            label: Поиск
+            label: ПОИСК
             description: ''
             use_operator: false
             operator: search_api_fulltext_op
@@ -322,7 +560,62 @@ display:
       header: {  }
       footer: {  }
       empty: {  }
-      relationships: {  }
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_search_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Вариации: Product variation'
+          required: false
+          skip_access: false
+          entity_type: commerce_product
+          plugin_id: search_api
+        field_product:
+          id: field_product
+          table: search_api_datasource_search_entity_commerce_product
+          field: field_product
+          relationship: none
+          group_type: group
+          admin_label: 'Товар: Термин таксономии'
+          required: false
+          skip_access: false
+          entity_type: commerce_product
+          plugin_id: search_api
+        uid:
+          id: uid
+          table: search_api_datasource_search_entity_commerce_product
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: 'Автор: User'
+          required: false
+          skip_access: false
+          entity_type: commerce_product
+          plugin_id: search_api
+        uid_1:
+          id: uid_1
+          table: search_api_entity_commerce_product_variation
+          field: uid
+          relationship: variations
+          group_type: group
+          admin_label: 'Автор: User'
+          required: false
+          skip_access: false
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+        uid_2:
+          id: uid_2
+          table: search_api_datasource_search_entity_node
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: 'Автор: User'
+          required: false
+          skip_access: false
+          entity_type: node
+          plugin_id: search_api
       arguments:
         search_api_more_like_this:
           id: search_api_more_like_this
@@ -364,7 +657,7 @@ display:
         groups:
           1: AND
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -381,7 +674,7 @@ display:
       path: customsearch
       exposed_block: true
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'

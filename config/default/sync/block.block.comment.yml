@@ -14,9 +14,9 @@ provider: null
 plugin: 'entity_field:node:field_comment'
 settings:
   id: 'entity_field:node:field_comment'
-  label: Comment
+  label: Комментарий
   provider: ctools_block
-  label_display: visible
+  label_display: '0'
   formatter:
     label: above
     type: comment_default
