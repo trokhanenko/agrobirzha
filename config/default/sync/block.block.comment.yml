@@ -14,11 +14,7 @@ provider: null
 plugin: 'entity_field:node:field_comment'
 settings:
   id: 'entity_field:node:field_comment'
-<<<<<<< HEAD
-  label: Комментарий
-=======
   label: Коментарии
->>>>>>> styles
   provider: ctools_block
   label_display: '0'
   formatter:
