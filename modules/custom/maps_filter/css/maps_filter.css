@@ -20,7 +20,6 @@
   font-family: none;
  }
 .pop-list {
-  height: 45px;
   overflow: hidden;
   display: block;
   text-align: left;
@@ -47,6 +46,4 @@
   float: left;
   padding: 15px;
 }
-.read-more{
-  float: right;
-}
+

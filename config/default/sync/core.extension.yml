@@ -66,6 +66,7 @@ module:
   social_api: 0
   social_auth: 0
   state_machine: 0
+  statistics: 0
   system: 0
   taxonomy: 0
   taxonomy_menu: 0

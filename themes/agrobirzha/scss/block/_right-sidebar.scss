@@ -32,4 +32,19 @@
       }
     }
   }
+  .block-simple-block-example{
+    border: 1px solid #b4a68a;
+    background: #f9f7f4;
+    #feedback-form{
+      padding: 0 10px;
+      .form-control{
+        border-radius: 0;
+      }
+      button{
+        width: 100%;
+        border-radius: 0;
+        margin-bottom: 10px;
+      }
+    }
+  }
 }
