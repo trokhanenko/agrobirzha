@@ -18,7 +18,7 @@ mode: default
 content:
   field_ad:
     weight: 3
-    label: above
+    label: hidden
     settings:
       title: ''
       set_marker: '1'
@@ -60,7 +60,7 @@ content:
     region: content
   field_name_company:
     weight: 0
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -68,7 +68,7 @@ content:
     region: content
   field_regions:
     weight: 2
-    label: above
+    label: inline
     settings:
       link: true
     third_party_settings: {  }

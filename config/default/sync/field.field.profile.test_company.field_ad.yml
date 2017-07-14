@@ -11,7 +11,7 @@ id: profile.test_company.field_ad
 field_name: field_ad
 entity_type: profile
 bundle: test_company
-label: Адрес
+label: 'Метка на карте'
 description: ''
 required: false
 translatable: false
