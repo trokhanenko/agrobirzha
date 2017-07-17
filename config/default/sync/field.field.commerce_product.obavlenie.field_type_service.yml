@@ -1,0 +1,23 @@
+uuid: 2567fdf4-80a1-4bc1-b144-3fed0d5a9aea
+langcode: ru
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.obavlenie
+    - field.storage.commerce_product.field_type_service
+  module:
+    - options
+id: commerce_product.obavlenie.field_type_service
+field_name: field_type_service
+entity_type: commerce_product
+bundle: obavlenie
+label: 'Тип услуги'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: '1'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

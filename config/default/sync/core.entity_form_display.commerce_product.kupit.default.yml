@@ -7,6 +7,7 @@ dependencies:
     - field.field.commerce_product.kupit.body
     - field.field.commerce_product.kupit.field_izobrazenie
     - field.field.commerce_product.kupit.field_product
+    - field.field.commerce_product.kupit.field_type_service
     - field.field.commerce_product.kupit.stores
     - field.field.commerce_product.kupit.variations
     - image.style.thumbnail
@@ -102,4 +103,5 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_type_service: true
   status: true

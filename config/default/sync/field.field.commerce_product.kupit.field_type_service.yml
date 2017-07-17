@@ -1,0 +1,23 @@
+uuid: 48dadbec-6773-4616-a4b4-74765daf62ad
+langcode: ru
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.kupit
+    - field.storage.commerce_product.field_type_service
+  module:
+    - options
+id: commerce_product.kupit.field_type_service
+field_name: field_type_service
+entity_type: commerce_product
+bundle: kupit
+label: 'Тип услуги'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: '3'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

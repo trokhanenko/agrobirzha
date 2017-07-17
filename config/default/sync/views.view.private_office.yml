@@ -66,6 +66,57 @@ display:
             next: ››
       style:
         type: views_bootstrap_table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          override: 1
+          sticky: 0
+          caption: ''
+          summary: ''
+          description: ''
+          columns:
+            created: created
+            title: title
+            edit_commerce_product: edit_commerce_product
+            delete_commerce_product: delete_commerce_product
+          info:
+            created:
+              sortable: 0
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            title:
+              sortable: 0
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            edit_commerce_product:
+              sortable: 0
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            delete_commerce_product:
+              sortable: 0
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: 0
+              responsive: ''
+          default: '-1'
+          empty_table: 0
+          responsive: 1
+          bootstrap_styles:
+            striped: 0
+            bordered: 0
+            hover: 0
+            condensed: 0
       row:
         type: fields
       fields:
@@ -378,6 +429,7 @@ display:
           entity_field: uid
           plugin_id: numeric
       display_extenders: {  }
+      css_class: table-responsive
     cache_metadata:
       max-age: 0
       contexts:

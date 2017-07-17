@@ -10,6 +10,7 @@
  * You can copy existing variables directly from the following file:
  * ./THEMENAME/bootstrap/assets/stylesheets/bootstrap/_variables.scss
  */
+/*MEDIA ----------------*/
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -9587,6 +9588,121 @@ a {
   margin-bottom: 5px;
 }
 
+/* line 18, ../scss/page/_news.scss */
+.view-id-news .views-row {
+  clear: both;
+  margin-bottom: 10px;
+}
+/* line 22, ../scss/page/_news.scss */
+.view-id-news .views-row .views-field-field-image img {
+  width: 160px;
+  margin-right: 10px;
+  float: left;
+}
+/* line 28, ../scss/page/_news.scss */
+.view-id-news .views-row .views-field-view-node {
+  float: right;
+  font-style: italic;
+}
+
+@media only screen and (max-width: 768px) {
+  /* line 1, ../scss/menu/_sidebar.scss */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    background: #262626;
+    width: 250px;
+    height: 100%;
+    transition: .3s;
+    z-index: 10;
+  }
+  /* line 12, ../scss/menu/_sidebar.scss */
+  .sidebar .navbar-nav a {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    margin: 0 5px;
+  }
+  /* line 17, ../scss/menu/_sidebar.scss */
+  .sidebar .navbar-nav .is-active {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+  }
+}
+
+/* line 24, ../scss/menu/_sidebar.scss */
+.menu-active {
+  left: 0;
+}
+
+/* line 27, ../scss/menu/_sidebar.scss */
+.sidebarBtn {
+  display: none;
+}
+@media only screen and (max-width: 768px) {
+  /* line 27, ../scss/menu/_sidebar.scss */
+  .sidebarBtn {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -50px;
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+    cursor: pointer;
+    background: #f5f5f5;
+    border: none;
+    outline: none;
+  }
+  /* line 42, ../scss/menu/_sidebar.scss */
+  .sidebarBtn span {
+    display: block;
+    width: 35px;
+    height: 3px;
+    background: #262626;
+    position: absolute;
+    top: 24px;
+    transition: .3s;
+  }
+  /* line 50, ../scss/menu/_sidebar.scss */
+  .sidebarBtn span:before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #262626;
+    transition: .3s;
+  }
+  /* line 60, ../scss/menu/_sidebar.scss */
+  .sidebarBtn span:after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #262626;
+    transition: .3s;
+  }
+}
+
+/* line 74, ../scss/menu/_sidebar.scss */
+.toggle span {
+  background: transparent;
+}
+/* line 76, ../scss/menu/_sidebar.scss */
+.toggle span:before {
+  top: 0;
+  transform: rotate(45deg);
+}
+/* line 80, ../scss/menu/_sidebar.scss */
+.toggle span:after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
 /* line 1, ../scss/block/_cart.scss */
 .cart--cart-block {
   padding: 0 10px;
@@ -9639,6 +9755,12 @@ a {
   color: #68460e;
   font-size: 20px;
 }
+@media only screen and (max-width: 768px) {
+  /* line 6, ../scss/block/_block-content.scss */
+  .block-block-content h3 {
+    font-size: 12px;
+  }
+}
 
 /* line 1, ../scss/block/_header.scss */
 .top {
@@ -9684,6 +9806,13 @@ a {
   text-transform: uppercase;
   width: auto;
 }
+@media only screen and (max-width: 768px) {
+  /* line 28, ../scss/block/_header.scss */
+  .header .navbar-text {
+    left: 0;
+    top: 0;
+  }
+}
 
 /* line 6, ../scss/block/_frontblock.scss */
 .path-frontpage .view,
@@ -9701,7 +9830,17 @@ a {
 .user-logged-in .view .view-header {
   margin-bottom: 10px;
 }
-/* line 10, ../scss/block/_frontblock.scss */
+@media only screen and (max-width: 768px) {
+  /* line 8, ../scss/block/_frontblock.scss */
+  .path-frontpage .view .view-header,
+  .path-price .view .view-header,
+  .path-posts .view .view-header,
+  .path-taxonomy .view .view-header,
+  .user-logged-in .view .view-header {
+    text-align: center;
+  }
+}
+/* line 13, ../scss/block/_frontblock.scss */
 .path-frontpage .view .view-header h3,
 .path-price .view .view-header h3,
 .path-posts .view .view-header h3,
@@ -9713,7 +9852,7 @@ a {
   margin: 0;
   font-family: none;
 }
-/* line 17, ../scss/block/_frontblock.scss */
+/* line 20, ../scss/block/_frontblock.scss */
 .path-frontpage .view .view-header span,
 .path-price .view .view-header span,
 .path-posts .view .view-header span,
@@ -9723,7 +9862,7 @@ a {
   vertical-align: top;
   font-size: 12px;
 }
-/* line 22, ../scss/block/_frontblock.scss */
+/* line 25, ../scss/block/_frontblock.scss */
 .path-frontpage .view .view-header .links,
 .path-price .view .view-header .links,
 .path-posts .view .view-header .links,
@@ -9731,7 +9870,18 @@ a {
 .user-logged-in .view .view-header .links {
   float: right;
 }
-/* line 27, ../scss/block/_frontblock.scss */
+@media only screen and (max-width: 768px) {
+  /* line 25, ../scss/block/_frontblock.scss */
+  .path-frontpage .view .view-header .links,
+  .path-price .view .view-header .links,
+  .path-posts .view .view-header .links,
+  .path-taxonomy .view .view-header .links,
+  .user-logged-in .view .view-header .links {
+    float: none;
+    text-align: center;
+  }
+}
+/* line 34, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockprice-partners-block-2,
 .path-price .block-views-blockprice-partners-block-2,
 .path-posts .block-views-blockprice-partners-block-2,
@@ -9739,7 +9889,7 @@ a {
 .user-logged-in .block-views-blockprice-partners-block-2 {
   display: none;
 }
-/* line 29, ../scss/block/_frontblock.scss */
+/* line 36, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockprice-partners-block-2 .col,
 .path-price .block-views-blockprice-partners-block-2 .col,
 .path-posts .block-views-blockprice-partners-block-2 .col,
@@ -9749,7 +9899,7 @@ a {
   border-right: 1px dotted #67440c;
   margin-bottom: 10px;
 }
-/* line 33, ../scss/block/_frontblock.scss */
+/* line 40, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockprice-partners-block-2 .col:nth-child(2n),
 .path-price .block-views-blockprice-partners-block-2 .col:nth-child(2n),
 .path-posts .block-views-blockprice-partners-block-2 .col:nth-child(2n),
@@ -9757,7 +9907,7 @@ a {
 .user-logged-in .block-views-blockprice-partners-block-2 .col:nth-child(2n) {
   background: #efebe8;
 }
-/* line 36, ../scss/block/_frontblock.scss */
+/* line 43, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockprice-partners-block-2 .col:last-child,
 .path-price .block-views-blockprice-partners-block-2 .col:last-child,
 .path-posts .block-views-blockprice-partners-block-2 .col:last-child,
@@ -9765,7 +9915,7 @@ a {
 .user-logged-in .block-views-blockprice-partners-block-2 .col:last-child {
   border-right: none;
 }
-/* line 40, ../scss/block/_frontblock.scss */
+/* line 47, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockprice-partners-block-2 .col .views-field:nth-child(2n),
 .path-price .block-views-blockprice-partners-block-2 .col .views-field:nth-child(2n),
 .path-posts .block-views-blockprice-partners-block-2 .col .views-field:nth-child(2n),
@@ -9773,7 +9923,7 @@ a {
 .user-logged-in .block-views-blockprice-partners-block-2 .col .views-field:nth-child(2n) {
   color: #67440c;
 }
-/* line 46, ../scss/block/_frontblock.scss */
+/* line 53, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockposts-block-2,
 .path-price .block-views-blockposts-block-2,
 .path-posts .block-views-blockposts-block-2,
@@ -9781,7 +9931,7 @@ a {
 .user-logged-in .block-views-blockposts-block-2 {
   display: none;
 }
-/* line 48, ../scss/block/_frontblock.scss */
+/* line 55, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockposts-block-2 .col,
 .path-price .block-views-blockposts-block-2 .col,
 .path-posts .block-views-blockposts-block-2 .col,
@@ -9790,7 +9940,7 @@ a {
   text-align: center;
   border-right: 1px dotted #67440c;
 }
-/* line 51, ../scss/block/_frontblock.scss */
+/* line 58, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockposts-block-2 .col:nth-child(2n),
 .path-price .block-views-blockposts-block-2 .col:nth-child(2n),
 .path-posts .block-views-blockposts-block-2 .col:nth-child(2n),
@@ -9798,7 +9948,7 @@ a {
 .user-logged-in .block-views-blockposts-block-2 .col:nth-child(2n) {
   background: #efebe8;
 }
-/* line 54, ../scss/block/_frontblock.scss */
+/* line 61, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockposts-block-2 .col:last-child,
 .path-price .block-views-blockposts-block-2 .col:last-child,
 .path-posts .block-views-blockposts-block-2 .col:last-child,
@@ -9806,7 +9956,7 @@ a {
 .user-logged-in .block-views-blockposts-block-2 .col:last-child {
   border-right: none;
 }
-/* line 58, ../scss/block/_frontblock.scss */
+/* line 65, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockposts-block-2 .col .views-field:nth-child(2n),
 .path-price .block-views-blockposts-block-2 .col .views-field:nth-child(2n),
 .path-posts .block-views-blockposts-block-2 .col .views-field:nth-child(2n),
@@ -9814,7 +9964,7 @@ a {
 .user-logged-in .block-views-blockposts-block-2 .col .views-field:nth-child(2n) {
   color: #67440c;
 }
-/* line 64, ../scss/block/_frontblock.scss */
+/* line 71, ../scss/block/_frontblock.scss */
 .path-frontpage thead,
 .path-price thead,
 .path-posts thead,
@@ -9824,7 +9974,7 @@ a {
   background: #67440c;
   color: #fff;
 }
-/* line 68, ../scss/block/_frontblock.scss */
+/* line 75, ../scss/block/_frontblock.scss */
 .path-frontpage thead th,
 .path-price thead th,
 .path-posts thead th,
@@ -9832,7 +9982,7 @@ a {
 .user-logged-in thead th {
   border-right: 1px solid #fff;
 }
-/* line 70, ../scss/block/_frontblock.scss */
+/* line 77, ../scss/block/_frontblock.scss */
 .path-frontpage thead th:last-child,
 .path-price thead th:last-child,
 .path-posts thead th:last-child,
@@ -9840,7 +9990,7 @@ a {
 .user-logged-in thead th:last-child {
   border-right: none;
 }
-/* line 74, ../scss/block/_frontblock.scss */
+/* line 81, ../scss/block/_frontblock.scss */
 .path-frontpage thead a,
 .path-price thead a,
 .path-posts thead a,
@@ -9848,7 +9998,7 @@ a {
 .user-logged-in thead a {
   color: #fff;
 }
-/* line 79, ../scss/block/_frontblock.scss */
+/* line 86, ../scss/block/_frontblock.scss */
 .path-frontpage tbody a,
 .path-price tbody a,
 .path-posts tbody a,
@@ -9857,7 +10007,7 @@ a {
   color: #000;
   cursor: pointer;
 }
-/* line 84, ../scss/block/_frontblock.scss */
+/* line 91, ../scss/block/_frontblock.scss */
 .path-frontpage tbody tr:nth-child(2n),
 .path-price tbody tr:nth-child(2n),
 .path-posts tbody tr:nth-child(2n),
@@ -9865,7 +10015,7 @@ a {
 .user-logged-in tbody tr:nth-child(2n) {
   background: #efebe8;
 }
-/* line 87, ../scss/block/_frontblock.scss */
+/* line 94, ../scss/block/_frontblock.scss */
 .path-frontpage tbody tr:hover,
 .path-price tbody tr:hover,
 .path-posts tbody tr:hover,
@@ -9873,7 +10023,7 @@ a {
 .user-logged-in tbody tr:hover {
   background: #efebe8;
 }
-/* line 90, ../scss/block/_frontblock.scss */
+/* line 97, ../scss/block/_frontblock.scss */
 .path-frontpage tbody tr td,
 .path-price tbody tr td,
 .path-posts tbody tr td,
@@ -9881,7 +10031,7 @@ a {
 .user-logged-in tbody tr td {
   border-right: 1px solid #efebe7;
 }
-/* line 92, ../scss/block/_frontblock.scss */
+/* line 99, ../scss/block/_frontblock.scss */
 .path-frontpage tbody tr td:last-child,
 .path-price tbody tr td:last-child,
 .path-posts tbody tr td:last-child,
@@ -9889,7 +10039,7 @@ a {
 .user-logged-in tbody tr td:last-child {
   border-right: none;
 }
-/* line 97, ../scss/block/_frontblock.scss */
+/* line 104, ../scss/block/_frontblock.scss */
 .path-frontpage tbody .views-field-created,
 .path-frontpage tbody .views-field-type,
 .path-frontpage tbody .views-field-price,
@@ -9907,7 +10057,7 @@ a {
 .user-logged-in tbody .views-field-price {
   color: #8c652d;
 }
-/* line 103, ../scss/block/_frontblock.scss */
+/* line 110, ../scss/block/_frontblock.scss */
 .path-frontpage .all-prices,
 .path-price .all-prices,
 .path-posts .all-prices,
@@ -9923,7 +10073,7 @@ a {
   display: inline-block;
   line-height: 20px;
 }
-/* line 113, ../scss/block/_frontblock.scss */
+/* line 120, ../scss/block/_frontblock.scss */
 .path-frontpage .all-prices:hover,
 .path-price .all-prices:hover,
 .path-posts .all-prices:hover,
@@ -9932,23 +10082,39 @@ a {
   color: #603b00;
   background: url(/modules/custom/maps_filter/images/ellipse-active.png) no-repeat 5px center #c9ba9b;
 }
+@media only screen and (max-width: 768px) {
+  /* line 110, ../scss/block/_frontblock.scss */
+  .path-frontpage .all-prices,
+  .path-price .all-prices,
+  .path-posts .all-prices,
+  .path-taxonomy .all-prices,
+  .user-logged-in .all-prices {
+    font-size: 12px;
+  }
+}
 
 /* line 2, ../scss/block/_footer.scss */
 .footer li {
   display: inline-block;
   width: 20%;
 }
-/* line 5, ../scss/block/_footer.scss */
+@media only screen and (max-width: 768px) {
+  /* line 2, ../scss/block/_footer.scss */
+  .footer li {
+    width: 100%;
+  }
+}
+/* line 8, ../scss/block/_footer.scss */
 .footer li a {
   color: #fff;
   padding: 0 15px;
   float: left;
 }
-/* line 9, ../scss/block/_footer.scss */
+/* line 12, ../scss/block/_footer.scss */
 .footer li a:hover {
   background: transparent;
 }
-/* line 12, ../scss/block/_footer.scss */
+/* line 15, ../scss/block/_footer.scss */
 .footer li a:focus {
   background: transparent;
 }
@@ -9959,54 +10125,84 @@ a {
   text-align: center;
   float: right;
   font-size: 12px;
-  padding: 20px 10px 10px 10px;
+  padding: 10px 10px 0px 10px;
   width: 200px;
 }
-/* line 8, ../scss/block/_login.scss */
+@media only screen and (max-width: 768px) {
+  /* line 1, ../scss/block/_login.scss */
+  #block-vhodnasait {
+    width: 100%;
+  }
+}
+/* line 11, ../scss/block/_login.scss */
 #block-vhodnasait .control-label.js-form-required.form-required {
   display: none;
 }
-/* line 11, ../scss/block/_login.scss */
+/* line 14, ../scss/block/_login.scss */
 #block-vhodnasait a {
   color: #fff;
 }
-/* line 14, ../scss/block/_login.scss */
+@media only screen and (max-width: 768px) {
+  /* line 14, ../scss/block/_login.scss */
+  #block-vhodnasait a {
+    display: block;
+  }
+}
+/* line 20, ../scss/block/_login.scss */
 #block-vhodnasait li {
   list-style: none;
 }
-/* line 20, ../scss/block/_login.scss */
+@media only screen and (max-width: 768px) {
+  /* line 23, ../scss/block/_login.scss */
+  #block-vhodnasait .form-group {
+    margin-bottom: 8px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  /* line 28, ../scss/block/_login.scss */
+  #block-vhodnasait .form-item.js-form-item.form-type-textfield.js-form-type-textfield.form-item-name.js-form-item-name.form-group {
+    display: inline-block;
+    width: 40%;
+  }
+}
+/* line 34, ../scss/block/_login.scss */
 #block-vhodnasait #edit-actions, #block-vhodnasait #edit-actions--2 {
   display: inline-block;
   width: 28%;
 }
-/* line 23, ../scss/block/_login.scss */
+@media only screen and (max-width: 768px) {
+  /* line 34, ../scss/block/_login.scss */
+  #block-vhodnasait #edit-actions, #block-vhodnasait #edit-actions--2 {
+    width: 17%;
+  }
+}
+/* line 40, ../scss/block/_login.scss */
 #block-vhodnasait #edit-actions .button, #block-vhodnasait #edit-actions--2 .button {
-  /*font-size: 0;*/
   background: #f6f6f6;
   border: none;
   border-radius: 0;
   width: 50px;
+  vertical-align: inherit;
+  height: 33px;
 }
-/* line 29, ../scss/block/_login.scss */
-#block-vhodnasait #edit-actions .button:after, #block-vhodnasait #edit-actions--2 .button:after {
-  display: block;
-  width: 15px;
-  height: 15px;
-  border-right: 1px solid #000;
-  border-bottom: 1px solid #000;
-}
-/* line 38, ../scss/block/_login.scss */
+/* line 49, ../scss/block/_login.scss */
 #block-vhodnasait .form-control {
   border-radius: 0;
 }
-/* line 41, ../scss/block/_login.scss */
+/* line 52, ../scss/block/_login.scss */
 #block-vhodnasait .form-type-password.js-form-type-password {
   display: inline-block;
   width: 70%;
 }
+@media only screen and (max-width: 768px) {
+  /* line 52, ../scss/block/_login.scss */
+  #block-vhodnasait .form-type-password.js-form-type-password {
+    width: 40%;
+  }
+}
 
 /*----Page- reg---*/
-/* line 52, ../scss/block/_login.scss */
+/* line 64, ../scss/block/_login.scss */
 #edit-entity-test-company-field-regions .form-type-checkbox {
   width: 19%;
   display: inline-block;
@@ -10173,6 +10369,10 @@ a {
   margin-bottom: 10px;
 }
 /* line 52, ../scss/block/_right-sidebar.scss */
+.well .block-views-exposed-filter-blockcustomsearch-page-1 .form--inline {
+  position: relative;
+}
+/* line 55, ../scss/block/_right-sidebar.scss */
 .well .block-views-exposed-filter-blockcustomsearch-page-1 .control-label {
   display: block;
   background: linear-gradient(to top, #cec0a4 0%, #afa186 100%);
@@ -10184,26 +10384,25 @@ a {
   padding: 8px 10px;
   text-transform: uppercase;
 }
-/* line 63, ../scss/block/_right-sidebar.scss */
-.well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions {
+/* line 66, ../scss/block/_right-sidebar.scss */
+.well .block-views-exposed-filter-blockcustomsearch-page-1 .form-control {
+  width: 100%;
+  border-radius: 0;
+}
+/* line 70, ../scss/block/_right-sidebar.scss */
+.well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions, .well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions--2 {
   position: absolute;
-  top: 46px;
+  top: 50px;
   right: 2px;
 }
-/* line 67, ../scss/block/_right-sidebar.scss */
-.well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions #edit-submit-customsearch {
-  padding: 5px;
+/* line 74, ../scss/block/_right-sidebar.scss */
+.well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions #edit-submit-customsearch, .well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions--2 #edit-submit-customsearch {
+  padding: 0 5px;
   margin: 0;
   border: 0;
   border-radius: 0;
   background: #fff;
   color: #603b00;
-}
-
-/* line 2, ../scss/block/_search.scss */
-.block-views-exposed-filter-blockcustomsearch-page-1 .form-control {
-  width: 188px;
-  border-radius: 0;
 }
 
 /* line 3, ../scss/block/_region-navigation.scss */
@@ -10278,16 +10477,16 @@ a {
   color: #fff;
 }
 
-/* line 44, ../scss/_overrides.scss */
+/* line 46, ../scss/_overrides.scss */
 ol, ul {
   padding-left: 1.5em;
 }
-/* line 46, ../scss/_overrides.scss */
+/* line 48, ../scss/_overrides.scss */
 .popover ol:last-child, .popover ul:last-child {
   margin-bottom: 0;
 }
 
-/* line 52, ../scss/_overrides.scss */
+/* line 54, ../scss/_overrides.scss */
 .page-header {
   margin-top: 8px;
   margin-bottom: 0px;
@@ -10296,7 +10495,7 @@ ol, ul {
   font-family: none;
 }
 
-/* line 61, ../scss/_overrides.scss */
+/* line 63, ../scss/_overrides.scss */
 .footer {
   margin-top: 25px;
   padding: 10px;
@@ -10304,32 +10503,32 @@ ol, ul {
   border-top: 1px solid #E5E5E5;
 }
 
-/* line 69, ../scss/_overrides.scss */
+/* line 71, ../scss/_overrides.scss */
 p:last-child,
 .form-group:last-child,
 .panel:last-child {
   margin-bottom: 0;
 }
 
-/* line 77, ../scss/_overrides.scss */
+/* line 79, ../scss/_overrides.scss */
 .region-help > .glyphicon {
   font-size: 18px;
   float: left;
   margin: -0.05em 0.5em 0 0;
 }
-/* line 82, ../scss/_overrides.scss */
+/* line 84, ../scss/_overrides.scss */
 .region-help .block {
   overflow: hidden;
 }
 
-/* line 88, ../scss/_overrides.scss */
+/* line 90, ../scss/_overrides.scss */
 .help-block, .control-group .help-inline {
   color: #777777;
   font-size: 12px;
   margin: 5px 0 10px;
   padding: 0;
 }
-/* line 93, ../scss/_overrides.scss */
+/* line 95, ../scss/_overrides.scss */
 .help-block:first-child, .control-group .help-inline:first-child {
   margin-top: 0;
 }

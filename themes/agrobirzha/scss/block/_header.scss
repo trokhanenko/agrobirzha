@@ -34,5 +34,9 @@
     top: 38px;
     text-transform: uppercase;
     width: auto;
+    @include respond-to(xs) {
+      left: 0;
+      top: 0;
+    }
   }
 }

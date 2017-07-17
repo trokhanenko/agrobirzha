@@ -71,19 +71,63 @@ display:
           grouping: {  }
           row_class: ''
           default_row_class: true
-          uses_fields: false
-          columns: {  }
-          default: ''
-          info: {  }
-          override: true
-          sticky: false
-          order: asc
+          override: 1
+          sticky: 0
           caption: ''
           summary: ''
           description: ''
-          empty_table: false
-          bootstrap_styles: {  }
-          responsive: false
+          columns:
+            name: name
+            title_1: title_1
+            title: title
+            created: created
+            type: type
+            price: price
+          info:
+            name:
+              sortable: 0
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            title_1:
+              sortable: 0
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            title:
+              sortable: 0
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            created:
+              align: ''
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            type:
+              align: ''
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            price:
+              align: ''
+              separator: ''
+              empty_column: 0
+              responsive: ''
+          default: '-1'
+          empty_table: 0
+          responsive: 1
+          bootstrap_styles:
+            striped: 0
+            bordered: 0
+            hover: 0
+            condensed: 0
       row:
         type: fields
       fields:
@@ -656,6 +700,7 @@ display:
         operator: AND
         groups:
           1: AND
+      css_class: table-responsive
     cache_metadata:
       max-age: 0
       contexts:

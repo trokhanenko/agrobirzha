@@ -7,6 +7,7 @@ dependencies:
     - field.field.commerce_product.prodat.body
     - field.field.commerce_product.prodat.field_izobrazenie
     - field.field.commerce_product.prodat.field_product
+    - field.field.commerce_product.prodat.field_type_service
     - field.field.commerce_product.prodat.stores
     - field.field.commerce_product.prodat.variations
     - image.style.thumbnail
@@ -46,6 +47,12 @@ content:
     region: content
   field_product:
     weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_type_service:
+    weight: 10
     settings: {  }
     third_party_settings: {  }
     type: options_select

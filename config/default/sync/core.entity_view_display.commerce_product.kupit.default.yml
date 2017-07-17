@@ -7,10 +7,12 @@ dependencies:
     - field.field.commerce_product.kupit.body
     - field.field.commerce_product.kupit.field_izobrazenie
     - field.field.commerce_product.kupit.field_product
+    - field.field.commerce_product.kupit.field_type_service
     - field.field.commerce_product.kupit.stores
     - field.field.commerce_product.kupit.variations
   module:
     - image
+    - options
     - text
 id: commerce_product.kupit.default
 targetEntityType: commerce_product
@@ -20,7 +22,7 @@ content:
   body:
     label: inline
     type: text_default
-    weight: 2
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -40,6 +42,13 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  field_type_service:
+    weight: 2
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
     region: content
 hidden:
   created: true

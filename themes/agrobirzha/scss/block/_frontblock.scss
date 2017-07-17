@@ -7,6 +7,9 @@
     margin-top: 20px;
     .view-header{
       margin-bottom: 10px;
+      @include respond-to(xs) {
+        text-align: center;
+      }
       h3{
         color: #67440c;
         width: auto;
@@ -21,6 +24,10 @@
       }
       .links {
           float: right;
+          @include respond-to(xs) {
+            float: none;
+            text-align: center;
+          }
       }
     }
   }
@@ -113,6 +120,9 @@
     &:hover{
       color: #603b00;
       background: url(/modules/custom/maps_filter/images/ellipse-active.png) no-repeat 5px center #c9ba9b;
+    }
+    @include respond-to(xs) {
+      font-size: 12px;
     }
   }
 }

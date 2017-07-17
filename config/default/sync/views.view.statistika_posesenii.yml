@@ -319,7 +319,22 @@ display:
           entity_field: price
           plugin_id: field
       filters: {  }
-      sorts: {  }
+      sorts:
+        created:
+          id: created
+          table: commerce_product_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+          entity_type: commerce_product
+          entity_field: created
+          plugin_id: date
       title: 'Статистика посешений'
       header: {  }
       footer: {  }
@@ -336,6 +351,7 @@ display:
           plugin_id: standard
       arguments: {  }
       display_extenders: {  }
+      css_class: table-responsive
     cache_metadata:
       max-age: 0
       contexts:
