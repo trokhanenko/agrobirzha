@@ -1,6 +1,22 @@
 <?php
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\comment\CommentInterface;
+use Drupal\comment\Entity\CommentType;
+use Drupal\Core\Entity\FieldableEntityInterface;
+use Drupal\comment\Plugin\Field\FieldType\CommentItemInterface;
+use Drupal\Core\Entity\Entity\EntityViewMode;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Render\Element;
+use Drupal\Core\Url;
+use Drupal\field\FieldConfigInterface;
+use Drupal\field\FieldStorageConfigInterface;
+use Drupal\node\NodeInterface;
+use Drupal\user\RoleInterface;
+
+
 
 /**
  * Implements hook_form_alter().
@@ -20,4 +36,19 @@ function agrobirzha_form_alter(&$form, $form_state, $form_id){
 	if ($form_id == 'views_exposed_form') {
 		$form['actions']['submit']['#value'] = '';
 	}
+}
+
+
+
+function agrobirzha_preprocess_comment(&$variables) {
+  $comment = $variables['elements']['#comment'];
+  $account = $comment->getOwner();
+  $username = [
+    '#theme' => 'username',
+    '#account' => $account,
+  ];
+  $variables['author'] = drupal_render($username);
+  $variables['new_indicator_timestamp'] = $comment->getCreatedTime();
+  $variables['created'] = format_date($comment->getChangedTime(), $type = 'short');
+  $variables['submitted'] = t('Submitted by @username on @datetime', ['@username' => $variables['author'], '@datetime' => $variables['created']]);
 }
