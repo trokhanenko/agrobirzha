@@ -6,6 +6,15 @@
     }
   };
 
+  Drupal.behaviors.mobile_menu = {
+    attach: function(context, settings) {
+      $('.sidebarBtn').once().click(function(){
+        $('.sidebar').toggleClass('menu-active');
+        $('.sidebarBtn').toggleClass('toggle');
+      });
+    }
+  };
+
   Drupal.behaviors.switch_front_page = {
     attach: function(context, settings) {
 
@@ -50,7 +59,7 @@
   };
     Drupal.behaviors.slider_product_page = {
     attach: function(context, settings) {
-      $('.field--name-field-izobrazenie').once().slick({
+      $('.tovar-images .field--name-field-izobrazenie').once().slick({
         autoplay: true,
         autoplaySpeed: 2000,
         arrows: false,

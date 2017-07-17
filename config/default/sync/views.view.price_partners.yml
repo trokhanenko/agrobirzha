@@ -5,6 +5,7 @@ dependencies:
   config:
     - commerce_product.commerce_product_type.kupit
     - commerce_product.commerce_product_type.prodat
+    - field.storage.commerce_product.field_type_service
     - field.storage.profile.field_name_company
     - field.storage.profile.field_regions
     - system.menu.main
@@ -12,6 +13,7 @@ dependencies:
     - commerce
     - commerce_price
     - commerce_product
+    - options
     - profile
     - user
     - views_bootstrap
@@ -213,10 +215,10 @@ display:
           entity_type: null
           entity_field: title
           plugin_id: field
-        type:
-          id: type
-          table: commerce_product_field_data
-          field: type
+        field_type_service:
+          id: field_type_service
+          table: commerce_product__field_type_service
+          field: field_type_service
           relationship: none
           group_type: group
           admin_label: ''
@@ -261,11 +263,10 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: false
-          group_column: target_id
+          click_sort_column: value
+          type: list_default
+          settings: {  }
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -275,10 +276,7 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          hide_single_bundle: true
-          entity_type: commerce_product
-          entity_field: type
-          plugin_id: commerce_entity_bundle
+          plugin_id: field
         field_name_company:
           id: field_name_company
           table: profile__field_name_company
@@ -582,6 +580,7 @@ display:
         - 'languages:language_interface'
         - url.query_args
       tags:
+        - 'config:field.storage.commerce_product.field_type_service'
         - 'config:field.storage.profile.field_name_company'
         - 'config:field.storage.profile.field_regions'
   block_1:
@@ -601,6 +600,7 @@ display:
         fields: false
         style: false
         row: false
+        css_class: false
       fields:
         created:
           id: created
@@ -734,10 +734,10 @@ display:
           entity_type: null
           entity_field: title
           plugin_id: field
-        type:
-          id: type
-          table: commerce_product_field_data
-          field: type
+        field_type_service:
+          id: field_type_service
+          table: commerce_product__field_type_service
+          field: field_type_service
           relationship: none
           group_type: group
           admin_label: ''
@@ -774,7 +774,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -782,11 +782,10 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: false
-          group_column: target_id
+          click_sort_column: value
+          type: list_default
+          settings: {  }
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -796,10 +795,7 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          hide_single_bundle: true
-          entity_type: commerce_product
-          entity_field: type
-          plugin_id: commerce_entity_bundle
+          plugin_id: field
         field_name_company:
           id: field_name_company
           table: profile__field_name_company
@@ -1053,7 +1049,7 @@ display:
               responsive: ''
           default: '-1'
           empty_table: 0
-          responsive: 0
+          responsive: 1
           bootstrap_styles:
             striped: 0
             bordered: 0
@@ -1063,6 +1059,7 @@ display:
         type: fields
         options: {  }
       display_description: ''
+      css_class: table-responsive
     cache_metadata:
       max-age: 0
       contexts:
@@ -1070,6 +1067,7 @@ display:
         - 'languages:language_interface'
         - url.query_args
       tags:
+        - 'config:field.storage.commerce_product.field_type_service'
         - 'config:field.storage.profile.field_name_company'
         - 'config:field.storage.profile.field_regions'
   block_2:
@@ -1222,10 +1220,10 @@ display:
           entity_type: null
           entity_field: title
           plugin_id: field
-        type:
-          id: type
-          table: commerce_product_field_data
-          field: type
+        field_type_service:
+          id: field_type_service
+          table: commerce_product__field_type_service
+          field: field_type_service
           relationship: none
           group_type: group
           admin_label: ''
@@ -1270,11 +1268,10 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: false
-          group_column: target_id
+          click_sort_column: value
+          type: list_default
+          settings: {  }
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -1284,10 +1281,7 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          hide_single_bundle: true
-          entity_type: commerce_product
-          entity_field: type
-          plugin_id: commerce_entity_bundle
+          plugin_id: field
         field_name_company:
           id: field_name_company
           table: profile__field_name_company
@@ -1502,6 +1496,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
       tags:
+        - 'config:field.storage.commerce_product.field_type_service'
         - 'config:field.storage.profile.field_name_company'
         - 'config:field.storage.profile.field_regions'
   page_1:
@@ -1546,6 +1541,7 @@ display:
         style: false
         row: false
         title: false
+        css_class: false
       style:
         type: views_bootstrap_table
         options:
@@ -1607,7 +1603,7 @@ display:
               responsive: ''
           default: '-1'
           empty_table: 0
-          responsive: 0
+          responsive: 1
           bootstrap_styles:
             striped: 0
             bordered: 0
@@ -1617,6 +1613,7 @@ display:
         type: fields
         options: {  }
       title: 'Услуги и цены'
+      css_class: table-responsive
     cache_metadata:
       max-age: 0
       contexts:
@@ -1624,5 +1621,6 @@ display:
         - 'languages:language_interface'
         - url.query_args
       tags:
+        - 'config:field.storage.commerce_product.field_type_service'
         - 'config:field.storage.profile.field_name_company'
         - 'config:field.storage.profile.field_regions'

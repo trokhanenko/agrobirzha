@@ -85,9 +85,55 @@ display:
           summary: ''
           description: ''
           columns:
+            created: created
             title: title
+            type: type
+            field_name_company: field_name_company
+            price__number: price__number
+            field_regions: field_regions
+            field_product: field_product
           info:
+            created:
+              sortable: 0
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: 0
+              responsive: ''
             title:
+              sortable: 0
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            type:
+              sortable: 0
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            field_name_company:
+              sortable: 0
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            price__number:
+              sortable: 0
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            field_regions:
+              align: ''
+              separator: ''
+              empty_column: 0
+              responsive: ''
+            field_product:
               sortable: 0
               default_sort_order: asc
               align: ''
@@ -96,7 +142,7 @@ display:
               responsive: ''
           default: '-1'
           empty_table: 0
-          responsive: 0
+          responsive: 1
           bootstrap_styles:
             striped: 0
             bordered: 0
@@ -228,7 +274,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: false
+            link_to_entity: true
           group_column: value
           group_columns: {  }
           group_rows: true

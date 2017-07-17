@@ -7,6 +7,7 @@ dependencies:
     - field.field.commerce_product.obavlenie.body
     - field.field.commerce_product.obavlenie.field_izobrazenie
     - field.field.commerce_product.obavlenie.field_product
+    - field.field.commerce_product.obavlenie.field_type_service
     - field.field.commerce_product.obavlenie.stores
     - field.field.commerce_product.obavlenie.variations
     - image.style.thumbnail
@@ -102,4 +103,5 @@ content:
       allow_existing: false
     third_party_settings: {  }
 hidden:
+  field_type_service: true
   status: true

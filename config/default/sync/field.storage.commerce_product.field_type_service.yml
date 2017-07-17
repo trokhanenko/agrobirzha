@@ -1,0 +1,30 @@
+uuid: f6c2b184-f26b-4245-be2f-66c5629fa2a7
+langcode: ru
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - options
+id: commerce_product.field_type_service
+field_name: field_type_service
+entity_type: commerce_product
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: Обьявление
+    -
+      value: '2'
+      label: Продать
+    -
+      value: '3'
+      label: Купить
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

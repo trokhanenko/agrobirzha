@@ -3,36 +3,47 @@
   text-align: center;
   float: right;
   font-size: 12px;
-  padding: 20px 10px 10px 10px;
+  padding: 10px 10px 0px 10px;
   width: 200px;
+    @include respond-to(xs) {
+      width: 100%;
+    }
   .control-label.js-form-required.form-required {
     display: none;
   }
   a{
     color: #fff;
+    @include respond-to(xs) {
+      display: block;
+    }
   }
   li{
     list-style: none;
   }
-  button{
-
+  .form-group {
+    @include respond-to(xs) {
+      margin-bottom: 8px;
+    }
+  }
+  .form-item.js-form-item.form-type-textfield.js-form-type-textfield.form-item-name.js-form-item-name.form-group {
+    @include respond-to(xs) {
+      display: inline-block;
+      width: 40%;
+    }
   }
   #edit-actions, #edit-actions--2{
     display: inline-block;
     width: 28%;
+    @include respond-to(xs) {
+      width: 17%;
+    }
     .button{
-      /*font-size: 0;*/
       background: #f6f6f6;
       border: none;
       border-radius: 0;
       width: 50px;
-      &:after{
-        display: block;
-        width: 15px;
-        height: 15px;
-        border-right: 1px solid #000;
-        border-bottom: 1px solid #000;
-      }
+      vertical-align: inherit;
+      height: 33px;
     }
   }
   .form-control{
@@ -41,10 +52,11 @@
   .form-type-password.js-form-type-password{
     display: inline-block;
     width: 70%;
+    @include respond-to(xs) {
+      width: 40%;
+    }
   }
 }
-
-
 
 /*----Page- reg---*/
 

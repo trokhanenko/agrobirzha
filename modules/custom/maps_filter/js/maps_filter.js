@@ -42,9 +42,9 @@
     attach: function(context, settings) {
       var read_more = "<span class='read-more'>Еще...</span>";
       $('.pop-list').once().append(read_more);
-      $('.pop-list li').slice( 8, 26 ).css("display", "none");
+      $('.pop-list li').slice( 8, 28 ).css("display", "none");
       $('.read-more').once().click(function(){
-        $('.pop-list li').slice( 8, 26 ).css("display", "inline-block");
+        $('.pop-list li').slice( 8, 28 ).css("display", "inline-block");
         $('.read-more').remove();
       });
     }

@@ -7,11 +7,13 @@ dependencies:
     - field.field.commerce_product.prodat.body
     - field.field.commerce_product.prodat.field_izobrazenie
     - field.field.commerce_product.prodat.field_product
+    - field.field.commerce_product.prodat.field_type_service
     - field.field.commerce_product.prodat.stores
     - field.field.commerce_product.prodat.variations
   module:
     - commerce_product
     - image
+    - options
     - text
 id: commerce_product.prodat.default
 targetEntityType: commerce_product
@@ -21,7 +23,7 @@ content:
   body:
     label: inline
     type: text_default
-    weight: 2
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -42,9 +44,16 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_type_service:
+    weight: 2
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
   variations:
     type: commerce_add_to_cart
-    weight: 3
+    weight: 4
     label: hidden
     settings:
       combine: true

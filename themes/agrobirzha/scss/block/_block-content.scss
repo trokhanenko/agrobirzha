@@ -8,5 +8,8 @@
     font-family: none;
     color: #68460e;
     font-size: 20px;
+    @include respond-to(xs) {
+      font-size: 12px;
+    }
   }
 }
