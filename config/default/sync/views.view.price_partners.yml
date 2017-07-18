@@ -512,7 +512,22 @@ display:
           entity_type: commerce_product
           entity_field: type
           plugin_id: commerce_entity_bundle
-      sorts: {  }
+      sorts:
+        created:
+          id: created
+          table: commerce_product_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+          entity_type: commerce_product
+          entity_field: created
+          plugin_id: date
       title: 'Услуги и цены'
       header:
         result:
@@ -1002,13 +1017,13 @@ display:
           columns:
             created: created
             title: title
-            type: type
+            field_type_service: field_type_service
             field_name_company: field_name_company
             price__number: price__number
             field_regions: field_regions
           info:
             created:
-              sortable: 0
+              sortable: 1
               default_sort_order: asc
               align: ''
               separator: ''
@@ -1021,7 +1036,7 @@ display:
               separator: ''
               empty_column: 0
               responsive: ''
-            type:
+            field_type_service:
               sortable: 1
               default_sort_order: asc
               align: ''
@@ -1556,7 +1571,7 @@ display:
           columns:
             created: created
             title: title
-            type: type
+            field_type_service: field_type_service
             field_name_company: field_name_company
             price__number: price__number
             field_regions: field_regions
@@ -1575,8 +1590,8 @@ display:
               separator: ''
               empty_column: 0
               responsive: ''
-            type:
-              sortable: 0
+            field_type_service:
+              sortable: 1
               default_sort_order: asc
               align: ''
               separator: ''
