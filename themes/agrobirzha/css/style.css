@@ -9622,25 +9622,26 @@ a {
     border-top-left-radius: 0 !important;
     border-top-right-radius: 0 !important;
     margin: 0 5px;
+    padding: 15px 5px;
   }
-  /* line 17, ../scss/menu/_sidebar.scss */
+  /* line 18, ../scss/menu/_sidebar.scss */
   .sidebar .navbar-nav .is-active {
     border-top-left-radius: 0 !important;
     border-top-right-radius: 0 !important;
   }
 }
 
-/* line 24, ../scss/menu/_sidebar.scss */
+/* line 25, ../scss/menu/_sidebar.scss */
 .menu-active {
   left: 0;
 }
 
-/* line 27, ../scss/menu/_sidebar.scss */
+/* line 28, ../scss/menu/_sidebar.scss */
 .sidebarBtn {
   display: none;
 }
 @media only screen and (max-width: 768px) {
-  /* line 27, ../scss/menu/_sidebar.scss */
+  /* line 28, ../scss/menu/_sidebar.scss */
   .sidebarBtn {
     display: block;
     position: absolute;
@@ -9654,7 +9655,7 @@ a {
     border: none;
     outline: none;
   }
-  /* line 42, ../scss/menu/_sidebar.scss */
+  /* line 43, ../scss/menu/_sidebar.scss */
   .sidebarBtn span {
     display: block;
     width: 35px;
@@ -9664,7 +9665,7 @@ a {
     top: 24px;
     transition: .3s;
   }
-  /* line 50, ../scss/menu/_sidebar.scss */
+  /* line 51, ../scss/menu/_sidebar.scss */
   .sidebarBtn span:before {
     content: '';
     position: absolute;
@@ -9675,7 +9676,7 @@ a {
     background: #262626;
     transition: .3s;
   }
-  /* line 60, ../scss/menu/_sidebar.scss */
+  /* line 61, ../scss/menu/_sidebar.scss */
   .sidebarBtn span:after {
     content: '';
     position: absolute;
@@ -9688,16 +9689,16 @@ a {
   }
 }
 
-/* line 74, ../scss/menu/_sidebar.scss */
+/* line 75, ../scss/menu/_sidebar.scss */
 .toggle span {
   background: transparent;
 }
-/* line 76, ../scss/menu/_sidebar.scss */
+/* line 77, ../scss/menu/_sidebar.scss */
 .toggle span:before {
   top: 0;
   transform: rotate(45deg);
 }
-/* line 80, ../scss/menu/_sidebar.scss */
+/* line 81, ../scss/menu/_sidebar.scss */
 .toggle span:after {
   top: 0;
   transform: rotate(-45deg);
@@ -10206,6 +10207,12 @@ a {
 #edit-entity-test-company-field-regions .form-type-checkbox {
   width: 19%;
   display: inline-block;
+}
+@media only screen and (max-width: 768px) {
+  /* line 64, ../scss/block/_login.scss */
+  #edit-entity-test-company-field-regions .form-type-checkbox {
+    width: 49%;
+  }
 }
 
 /* line 1, ../scss/block/_lang.scss */
