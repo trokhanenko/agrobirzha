@@ -1,6 +1,12 @@
 services:
-  statistics.storage.node:
-    class: Drupal\statistics\NodeStatisticsDatabaseStorage
-    arguments: ['@database', '@state', '@request_stack']
+  statistics.storage:
+    class: Drupal\statistics\StatisticsDatabaseStorage
+    arguments: ['@database', '@request_stack']
+    tags:
+      - { name: backend_overridable }
+
+  statistics.reset_count:
+    class: Drupal\statistics\StatisticsResetCount
+    arguments: ['@database', '@state', '@datetime.time']
     tags:
       - { name: backend_overridable }

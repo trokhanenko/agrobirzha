@@ -10,7 +10,11 @@ source:
     - statistics_flush_accesslog_timer
     - statistics_count_content_views
 process:
-  'count_content_views': statistics_count_content_views
+  entity_type_ids:
+    -
+      plugin: callback
+      callable: statistics_migrate_callback
+      source: statistics_count_content_views
 destination:
   plugin: config
   config_name: statistics.settings

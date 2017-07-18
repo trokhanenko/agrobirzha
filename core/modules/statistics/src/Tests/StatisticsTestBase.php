@@ -47,7 +47,7 @@ abstract class StatisticsTestBase extends WebTestBase {
 
     // Enable logging.
     $this->config('statistics.settings')
-      ->set('count_content_views', 1)
+      ->set('entity_type_ids', ['node'])
       ->save();
   }
 

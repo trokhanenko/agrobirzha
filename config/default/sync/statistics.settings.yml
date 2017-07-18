@@ -3,3 +3,23 @@ display_max_age: 3600
 _core:
   default_config_hash: 83DFdl59OsypYUif32K2NCB8eiszXAKCcay04oZCRpA
 langcode: ru
+entity_type_ids:
+  commerce_product_attribute_value: commerce_product_attribute_value
+  commerce_product_variation: commerce_product_variation
+  search_api_task: search_api_task
+  user: user
+  commerce_store: commerce_store
+  block_content: block_content
+  profile: profile
+  node: node
+  taxonomy_term: taxonomy_term
+  commerce_product: commerce_product
+  commerce_order_item: '0'
+  paragraph: '0'
+  webform_submission: '0'
+  comment: '0'
+  contact_message: '0'
+  menu_link_content: '0'
+  commerce_order: '0'
+  file: '0'
+  shortcut: '0'
