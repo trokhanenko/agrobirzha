@@ -4,5 +4,8 @@ type: module
 core: 8.x
 version: 1.0
 package: Examples
-dependencies:
-  - default_content
+default_content:
+  node:
+      - c01d8fdd-68e2-4af1-8927-ae5729dbc25e
+      - dfaff7fe-95a2-4bc3-9033-dad929eb0a2f
+      - e8e1dfbe-eccd-4f7f-9bde-4ba5731ee855
