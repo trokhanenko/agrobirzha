@@ -1,0 +1,8 @@
+name: Content Migration
+description: 'Custom module for contetn migration'
+type: module
+core: 8.x
+version: 1.0
+package: Examples
+dependencies:
+  - default_content
