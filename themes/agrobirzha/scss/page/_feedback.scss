@@ -1,0 +1,86 @@
+.contextual-region {
+	.main-feedback {
+		font-family: Baskerville;
+		background-color: #603913;
+		background-image: linear-gradient(to top, rgba(0, 0, 0, 0.15) 0%, rgba(255, 255, 255, 0.15) 100%);
+		color: #fff;
+		padding-top: 1%;
+		padding-bottom: 1%;
+		font-weight: bold;
+	}
+	.sub-feedback:nth-child(2n) {
+		background: #efebe8;
+		padding-top: 1%;
+		padding-bottom: 1%;
+	}
+	.field--name-body {
+		ul {
+		background-color: #c7b299;
+		padding-top: 1%;
+		padding-bottom: 1%;
+		font-weight: bold;
+		font-style: italic;
+		}
+	}
+	.contact-message-feedback-form {
+		background: #efebe8;
+		.btn-primary {
+		    color: #603913;
+		    font-family: "Gill Sans";
+		    font-size: 13px;
+		    font-weight: 400;
+		    border: 1px solid #603913;
+			background-color: #c7b299;
+			background-image: linear-gradient(to top, rgba(0, 0, 0, 0.06) 0%, rgba(255, 255, 255, 0.06) 100%);
+		}
+		.js-form-submit {
+		    color: #603913;
+		    font-family: "Gill Sans";
+		    font-size: 13px;
+		    font-weight: 400;
+		    border: 1px solid #603913;
+			background-color: #c7b299;
+			background-image: linear-gradient(to top, rgba(0, 0, 0, 0.06) 0%, rgba(255, 255, 255, 0.06) 100%);	
+		}
+	}
+
+}
+
+
+.page {
+	.main-feedback {
+		font-family: Baskerville;
+		background-color: #603913;
+		background-image: linear-gradient(to top, rgba(0, 0, 0, 0.15) 0%, rgba(255, 255, 255, 0.15) 100%);
+		color: #fff;
+		padding-top: 1%;
+		padding-bottom: 1%;
+		font-weight: bold;
+	}
+	.sub-feedback:nth-child(2n) {
+		background: #efebe8;
+		padding-top: 1%;
+		padding-bottom: 1%;
+	}
+	.field--name-body {
+		ul {
+		background-color: #c7b299;
+		padding-top: 1%;
+		padding-bottom: 1%;
+		font-weight: bold;
+		font-style: italic;
+		}
+	}
+	}
+	.contact-message-feedback-form {
+		background: #efebe8;
+			button {
+				color: #603913;
+			    font-family: "Gill Sans";
+			    font-size: 13px;
+			    font-weight: 400;
+			    border: 1px solid #603913;
+				background-color: #c7b299;
+				background-image: linear-gradient(to top, rgba(0, 0, 0, 0.06) 0%, rgba(255, 255, 255, 0.06) 100%);
+			}  
+	}
