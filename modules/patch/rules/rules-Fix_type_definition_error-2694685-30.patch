@@ -1,0 +1,25 @@
+diff --git a/src/Plugin/RulesAction/EntityCreateDeriver.php b/src/Plugin/RulesAction/EntityCreateDeriver.php
+index aa096ae..b6acea0 100644
+--- a/src/Plugin/RulesAction/EntityCreateDeriver.php
++++ b/src/Plugin/RulesAction/EntityCreateDeriver.php
+@@ -89,7 +89,19 @@ class EntityCreateDeriver extends DeriverBase implements ContainerDeriverInterfa
+         }
+
+         $item_definition = $definition->getItemDefinition();
+-        $type_definition = $item_definition->getPropertyDefinition($item_definition->getMainPropertyName());
++
++        $main_property_name = $item_definition->getMainPropertyName();
++
++        if (is_null($main_property_name)) {
++          continue;
++        }
++
++        $type_definition = $item_definition->getPropertyDefinition($main_property_name);
++
++        // Get around types which don't properly define their main property (or lack of one)
++        if (is_null($type_definition)) {
++          continue;
++        }
+
+         // If this is an entity reference then we expect the target type as
+         // context.
