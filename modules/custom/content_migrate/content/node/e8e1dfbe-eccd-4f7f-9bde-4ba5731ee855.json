@@ -30,7 +30,7 @@
     ],
     "vid": [
         {
-            "value": 14
+            "value": 51
         }
     ],
     "langcode": [
@@ -101,7 +101,7 @@
     ],
     "changed": [
         {
-            "value": 1499764260,
+            "value": 1500384034,
             "lang": "ru"
         }
     ],
@@ -118,7 +118,13 @@
     ],
     "revision_timestamp": [
         {
-            "value": 1499764260
+            "value": 1500384034
+        }
+    ],
+    "revision_translation_affected": [
+        {
+            "value": true,
+            "lang": "ru"
         }
     ],
     "default_langcode": [
@@ -129,8 +135,8 @@
     ],
     "body": [
         {
-            "value": "<p>\u041f\u043e \u0432\u043e\u043f\u0440\u043e\u0441\u0430\u043c \u0440\u0435\u043a\u043b\u0430\u043c\u044b \u0438 \u043f\u0440\u0435\u0434\u043e\u0441\u0442\u0430\u0432\u043b\u0435\u043d\u0438\u044f \u043f\u043e\u0434\u0434\u043e\u043c\u0435\u043d\u043e\u0432 \u0437\u0432\u043e\u043d\u0438\u0442\u0435 \u043f\u043e \u0442\u0435\u043b:<\/p>\r\n\r\n<p>(068) 000 00 00<\/p>\r\n\r\n<p>(066) 000 00 00<\/p>\r\n\r\n<ul>\r\n\t<li>\r\n\t<p>\u043f\u043e \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u043d\u043d\u043e\u0439 \u043f\u043e\u0447\u0442\u0435:<\/p>\r\n\t<\/li>\r\n<\/ul>\r\n\r\n<p><a href=\"mailto:agrobirzhainfo@gmail.com\">agrobirzhainfo@gmail.com<\/a><\/p>\r\n\r\n<ul>\r\n\t<li><strong>\u0438\u043b\u0438 \u043e\u0442\u043f\u0440\u0430\u0432\u0438\u0442\u044c \u0437\u0430\u043f\u0440\u043e\u0441 \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e \u0444\u043e\u0440\u043c\u044b \u043a\u043e\u043d\u0442\u0430\u043a\u0442\u043e\u0432<\/strong><\/li>\r\n<\/ul>\r\n",
-            "format": "basic_html",
+            "value": "<p class=\"main-feedback\">\u041f\u043e \u0432\u043e\u043f\u0440\u043e\u0441\u0430\u043c \u0440\u0435\u043a\u043b\u0430\u043c\u044b \u0438 \u043f\u0440\u0435\u0434\u043e\u0441\u0442\u0430\u0432\u043b\u0435\u043d\u0438\u044f \u043f\u043e\u0434\u0434\u043e\u043c\u0435\u043d\u043e\u0432 \u0437\u0432\u043e\u043d\u0438\u0442\u0435 \u043f\u043e \u0442\u0435\u043b:<\/p>\r\n\r\n<p class=\"sub-feedback\">(068) 000 00 00<\/p>\r\n\r\n<p class=\"sub-feedback\">(066) 000 00 00<\/p>\r\n\r\n<ul>\r\n\t<li>\r\n\t<p class=\"li-feedback\">\u043f\u043e \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u043d\u043d\u043e\u0439 \u043f\u043e\u0447\u0442\u0435:<\/p>\r\n\t<\/li>\r\n<\/ul>\r\n\r\n<p><a href=\"mailto:agrobirzhainfo@gmail.com\">agrobirzhainfo@gmail.com<\/a><\/p>\r\n\r\n<ul>\r\n\t<li class=\"li-feedback\"><strong>\u0438\u043b\u0438 \u043e\u0442\u043f\u0440\u0430\u0432\u0438\u0442\u044c \u0437\u0430\u043f\u0440\u043e\u0441 \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e \u0444\u043e\u0440\u043c\u044b \u043a\u043e\u043d\u0442\u0430\u043a\u0442\u043e\u0432<\/strong><\/li>\r\n<\/ul>\r\n",
+            "format": "full_html",
             "summary": "",
             "lang": "ru"
         }
