@@ -51,12 +51,6 @@ content:
     third_party_settings: {  }
     type: options_select
     region: content
-  field_type_service:
-    weight: 10
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
   langcode:
     type: language_select
     weight: 5
@@ -109,4 +103,5 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_type_service: true
   status: true
