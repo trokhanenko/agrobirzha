@@ -23,8 +23,8 @@ class StatisticsTokenReplaceTest extends StatisticsTestBase {
     // Hit the node.
     $this->drupalGet('node/' . $node->id());
     // Manually calling statistics.php, simulating ajax behavior.
-    $nid = $node->id();
-    $post = http_build_query(['nid' => $nid]);
+    $id = $node->id();
+    $post = http_build_query(['type' => 'node', 'key' => 'nid', 'id' => $id]);
     $headers = ['Content-Type' => 'application/x-www-form-urlencoded'];
     global $base_url;
     $stats_path = $base_url . '/' . drupal_get_path('module', 'statistics') . '/statistics.php';

@@ -78,7 +78,7 @@ class StatisticsLoggingTest extends BrowserTestBase {
 
     // Enable access logging.
     $this->config('statistics.settings')
-      ->set('count_content_views', 1)
+      ->set('entity_type_ids', ['node'])
       ->save();
 
     // Clear the logs.
@@ -112,17 +112,17 @@ class StatisticsLoggingTest extends BrowserTestBase {
     $this->drupalGet($path);
     $settings = $this->getDrupalSettings();
     $this->assertPattern($expected_library, 'Found statistics library JS on node page.');
-    $this->assertIdentical($this->node->id(), $settings['statistics']['data']['nid'], 'Found statistics settings on node page.');
+    $this->assertIdentical($this->node->id(), $settings['statistics']['data']['id'], 'Found statistics settings on node page.');
 
     // Verify the same when loading the site in a non-default language.
     $this->drupalGet($this->language['langcode'] . '/' . $path);
     $settings = $this->getDrupalSettings();
     $this->assertPattern($expected_library, 'Found statistics library JS on a valid node page in a non-default language.');
-    $this->assertIdentical($this->node->id(), $settings['statistics']['data']['nid'], 'Found statistics settings on valid node page in a non-default language.');
+    $this->assertIdentical($this->node->id(), $settings['statistics']['data']['id'], 'Found statistics settings on valid node page in a non-default language.');
 
     // Manually call statistics.php to simulate ajax data collection behavior.
     global $base_root;
-    $post = ['nid' => $this->node->id()];
+    $post = ['type' => 'node', 'key' => 'nid', 'id' => $this->node->id()];
     $this->client->post($base_root . $stats_path, ['form_params' => $post]);
     $node_counter = statistics_get($this->node->id());
     $this->assertIdentical($node_counter['totalcount'], '1');

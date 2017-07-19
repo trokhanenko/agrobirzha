@@ -9605,6 +9605,122 @@ a {
   font-style: italic;
 }
 
+/* line 2, ../scss/page/_feedback.scss */
+.contextual-region .main-feedback {
+  font-family: Baskerville;
+  background-color: #603913;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.15) 0%, rgba(255, 255, 255, 0.15) 100%);
+  color: #fff;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  font-weight: bold;
+}
+/* line 11, ../scss/page/_feedback.scss */
+.contextual-region .sub-feedback:nth-child(2n) {
+  background: #efebe8;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+/* line 17, ../scss/page/_feedback.scss */
+.contextual-region .field--name-body ul {
+  background-color: #c7b299;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  font-weight: bold;
+  font-style: italic;
+}
+/* line 25, ../scss/page/_feedback.scss */
+.contextual-region .contact-message-feedback-form {
+  background: #efebe8;
+}
+/* line 27, ../scss/page/_feedback.scss */
+.contextual-region .contact-message-feedback-form .btn-primary {
+  color: #603913;
+  font-family: "Gill Sans";
+  font-size: 13px;
+  font-weight: 400;
+  border: 1px solid #603913;
+  background-color: #c7b299;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.06) 0%, rgba(255, 255, 255, 0.06) 100%);
+}
+/* line 36, ../scss/page/_feedback.scss */
+.contextual-region .contact-message-feedback-form .js-form-submit {
+  color: #603913;
+  font-family: "Gill Sans";
+  font-size: 13px;
+  font-weight: 400;
+  border: 1px solid #603913;
+  background-color: #c7b299;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.06) 0%, rgba(255, 255, 255, 0.06) 100%);
+}
+
+/* line 51, ../scss/page/_feedback.scss */
+.page .main-feedback {
+  font-family: Baskerville;
+  background-color: #603913;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.15) 0%, rgba(255, 255, 255, 0.15) 100%);
+  color: #fff;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  font-weight: bold;
+}
+/* line 60, ../scss/page/_feedback.scss */
+.page .sub-feedback:nth-child(2n) {
+  background: #efebe8;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+/* line 66, ../scss/page/_feedback.scss */
+.page .field--name-body ul {
+  background-color: #c7b299;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* line 75, ../scss/page/_feedback.scss */
+.contact-message-feedback-form {
+  background: #efebe8;
+}
+/* line 77, ../scss/page/_feedback.scss */
+.contact-message-feedback-form button {
+  color: #603913;
+  font-family: "Gill Sans";
+  font-size: 13px;
+  font-weight: 400;
+  border: 1px solid #603913;
+  background-color: #c7b299;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.06) 0%, rgba(255, 255, 255, 0.06) 100%);
+}
+
+/* line 1, ../scss/page/_about.scss */
+.about-image {
+  background-color: #c7b299;
+  padding: 1.5%;
+  border-radius: 10px;
+}
+
+/* line 8, ../scss/page/_about.scss */
+.statistics-counter {
+  padding-top: 20px;
+  font-style: italic;
+  color: #603913;
+}
+
+/* line 1, ../scss/page/_possibilities.scss */
+.main-possibilities:nth-child(2n) {
+  background: #efebe8;
+}
+
+/* line 4, ../scss/page/_possibilities.scss */
+.main-possibilities {
+  padding-top: 1%;
+  padding-bottom: 1%;
+  font-weight: bold;
+  font-style: italic;
+}
+
 @media only screen and (max-width: 768px) {
   /* line 1, ../scss/menu/_sidebar.scss */
   .sidebar {
@@ -9622,25 +9738,26 @@ a {
     border-top-left-radius: 0 !important;
     border-top-right-radius: 0 !important;
     margin: 0 5px;
+    padding: 15px 5px;
   }
-  /* line 17, ../scss/menu/_sidebar.scss */
+  /* line 18, ../scss/menu/_sidebar.scss */
   .sidebar .navbar-nav .is-active {
     border-top-left-radius: 0 !important;
     border-top-right-radius: 0 !important;
   }
 }
 
-/* line 24, ../scss/menu/_sidebar.scss */
+/* line 25, ../scss/menu/_sidebar.scss */
 .menu-active {
   left: 0;
 }
 
-/* line 27, ../scss/menu/_sidebar.scss */
+/* line 28, ../scss/menu/_sidebar.scss */
 .sidebarBtn {
   display: none;
 }
 @media only screen and (max-width: 768px) {
-  /* line 27, ../scss/menu/_sidebar.scss */
+  /* line 28, ../scss/menu/_sidebar.scss */
   .sidebarBtn {
     display: block;
     position: absolute;
@@ -9654,7 +9771,7 @@ a {
     border: none;
     outline: none;
   }
-  /* line 42, ../scss/menu/_sidebar.scss */
+  /* line 43, ../scss/menu/_sidebar.scss */
   .sidebarBtn span {
     display: block;
     width: 35px;
@@ -9664,7 +9781,7 @@ a {
     top: 24px;
     transition: .3s;
   }
-  /* line 50, ../scss/menu/_sidebar.scss */
+  /* line 51, ../scss/menu/_sidebar.scss */
   .sidebarBtn span:before {
     content: '';
     position: absolute;
@@ -9675,7 +9792,7 @@ a {
     background: #262626;
     transition: .3s;
   }
-  /* line 60, ../scss/menu/_sidebar.scss */
+  /* line 61, ../scss/menu/_sidebar.scss */
   .sidebarBtn span:after {
     content: '';
     position: absolute;
@@ -9688,16 +9805,16 @@ a {
   }
 }
 
-/* line 74, ../scss/menu/_sidebar.scss */
+/* line 75, ../scss/menu/_sidebar.scss */
 .toggle span {
   background: transparent;
 }
-/* line 76, ../scss/menu/_sidebar.scss */
+/* line 77, ../scss/menu/_sidebar.scss */
 .toggle span:before {
   top: 0;
   transform: rotate(45deg);
 }
-/* line 80, ../scss/menu/_sidebar.scss */
+/* line 81, ../scss/menu/_sidebar.scss */
 .toggle span:after {
   top: 0;
   transform: rotate(-45deg);
@@ -10207,6 +10324,12 @@ a {
   width: 19%;
   display: inline-block;
 }
+@media only screen and (max-width: 768px) {
+  /* line 64, ../scss/block/_login.scss */
+  #edit-entity-test-company-field-regions .form-type-checkbox {
+    width: 49%;
+  }
+}
 
 /* line 1, ../scss/block/_lang.scss */
 #block-pereklucatelazyka {
@@ -10477,16 +10600,16 @@ a {
   color: #fff;
 }
 
-/* line 46, ../scss/_overrides.scss */
+/* line 49, ../scss/_overrides.scss */
 ol, ul {
   padding-left: 1.5em;
 }
-/* line 48, ../scss/_overrides.scss */
+/* line 51, ../scss/_overrides.scss */
 .popover ol:last-child, .popover ul:last-child {
   margin-bottom: 0;
 }
 
-/* line 54, ../scss/_overrides.scss */
+/* line 57, ../scss/_overrides.scss */
 .page-header {
   margin-top: 8px;
   margin-bottom: 0px;
@@ -10495,7 +10618,7 @@ ol, ul {
   font-family: none;
 }
 
-/* line 63, ../scss/_overrides.scss */
+/* line 66, ../scss/_overrides.scss */
 .footer {
   margin-top: 25px;
   padding: 10px;
@@ -10503,32 +10626,32 @@ ol, ul {
   border-top: 1px solid #E5E5E5;
 }
 
-/* line 71, ../scss/_overrides.scss */
+/* line 74, ../scss/_overrides.scss */
 p:last-child,
 .form-group:last-child,
 .panel:last-child {
   margin-bottom: 0;
 }
 
-/* line 79, ../scss/_overrides.scss */
+/* line 82, ../scss/_overrides.scss */
 .region-help > .glyphicon {
   font-size: 18px;
   float: left;
   margin: -0.05em 0.5em 0 0;
 }
-/* line 84, ../scss/_overrides.scss */
+/* line 87, ../scss/_overrides.scss */
 .region-help .block {
   overflow: hidden;
 }
 
-/* line 90, ../scss/_overrides.scss */
+/* line 93, ../scss/_overrides.scss */
 .help-block, .control-group .help-inline {
   color: #777777;
   font-size: 12px;
   margin: 5px 0 10px;
   padding: 0;
 }
-/* line 95, ../scss/_overrides.scss */
+/* line 98, ../scss/_overrides.scss */
 .help-block:first-child, .control-group .help-inline:first-child {
   margin-top: 0;
 }

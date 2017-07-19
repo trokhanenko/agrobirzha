@@ -16,7 +16,7 @@ configuration:
       step: login
       weight: 0
     contact_information:
-      double_entry: true
+      double_entry: false
       step: order_information
       weight: 1
     billing_information:

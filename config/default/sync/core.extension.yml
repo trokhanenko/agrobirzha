@@ -20,12 +20,14 @@ module:
   config: 0
   config_translation: 0
   contact: 0
+  content_migrate: 0
   contextual: 0
   ctools: 0
   ctools_block: 0
   ctools_views: 0
   datetime: 0
   dblog: 0
+  default_content: 0
   dynamic_page_cache: 0
   editor: 0
   entity: 0

@@ -63,19 +63,19 @@ class StatisticsAdminTest extends BrowserTestBase {
    */
   public function testStatisticsSettings() {
     $config = $this->config('statistics.settings');
-    $this->assertFalse($config->get('count_content_views'), 'Count content view log is disabled by default.');
+    $this->assertFalse($config->get('entity_type_ids'), 'No entity types are enabled by default.');
 
     // Enable counter on content view.
-    $edit['statistics_count_content_views'] = 1;
+    $edit['entity_type_ids[node]'] = 1;
     $this->drupalPostForm('admin/config/system/statistics', $edit, t('Save configuration'));
     $config = $this->config('statistics.settings');
-    $this->assertTrue($config->get('count_content_views'), 'Count content view log is enabled.');
+    $this->assertEqual($config->get('entity_type_ids'), ['node' => 'node', 'user' => 0], 'Node is enabled.');
 
     // Hit the node.
     $this->drupalGet('node/' . $this->testNode->id());
     // Manually calling statistics.php, simulating ajax behavior.
     $nid = $this->testNode->id();
-    $post = ['nid' => $nid];
+    $post = ['type' => 'node', 'key' => 'nid', 'id' => $nid];
     global $base_url;
     $stats_path = $base_url . '/' . drupal_get_path('module', 'statistics') . '/statistics.php';
     $this->client->post($stats_path, ['form_params' => $post]);
@@ -105,12 +105,12 @@ class StatisticsAdminTest extends BrowserTestBase {
    * Tests that when a node is deleted, the node counter is deleted too.
    */
   public function testDeleteNode() {
-    $this->config('statistics.settings')->set('count_content_views', 1)->save();
+    $this->config('statistics.settings')->set('entity_type_ids', ['node'])->save();
 
     $this->drupalGet('node/' . $this->testNode->id());
     // Manually calling statistics.php, simulating ajax behavior.
     $nid = $this->testNode->id();
-    $post = ['nid' => $nid];
+    $post = ['type' => 'node', 'key' => 'nid', 'id' => $nid];
     global $base_url;
     $stats_path = $base_url . '/' . drupal_get_path('module', 'statistics') . '/statistics.php';
     $this->client->post($stats_path, ['form_params' => $post]);
@@ -137,14 +137,14 @@ class StatisticsAdminTest extends BrowserTestBase {
    */
   public function testExpiredLogs() {
     $this->config('statistics.settings')
-      ->set('count_content_views', 1)
+      ->set('entity_type_ids', ['node'])
       ->save();
     \Drupal::state()->set('statistics.day_timestamp', 8640000);
 
     $this->drupalGet('node/' . $this->testNode->id());
     // Manually calling statistics.php, simulating ajax behavior.
     $nid = $this->testNode->id();
-    $post = ['nid' => $nid];
+    $post = ['type' => 'node', 'key' => 'nid', 'id' => $nid];
     global $base_url;
     $stats_path = $base_url . '/' . drupal_get_path('module', 'statistics') . '/statistics.php';
     $this->client->post($stats_path, ['form_params' => $post]);

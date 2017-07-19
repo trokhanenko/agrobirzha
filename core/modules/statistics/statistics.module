@@ -39,9 +39,45 @@ function statistics_help($route_name, RouteMatchInterface $route_match) {
  * Implements hook_ENTITY_TYPE_view() for node entities.
  */
 function statistics_node_view(array &$build, EntityInterface $node, EntityViewDisplayInterface $display, $view_mode) {
-  if (!$node->isNew() && $view_mode == 'full' && node_is_page($node) && empty($node->in_preview)) {
+  if (!$node->isNew() && $view_mode === 'full' && node_is_page($node) && empty($node->in_preview)) {
     $build['#attached']['library'][] = 'statistics/drupal.statistics';
-    $settings = ['data' => ['nid' => $node->id()], 'url' => Url::fromUri('base:' . drupal_get_path('module', 'statistics') . '/statistics.php')->toString()];
+    $settings = [
+      'data' => [
+        'key' => 'nid',
+        'id' => $node->id(),
+        'type' => 'node',
+      ],
+      'url' => Url::fromUri('base:' . drupal_get_path('module', 'statistics') . '/statistics.php')->toString(),
+    ];
+    $build['#attached']['drupalSettings']['statistics'] = $settings;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_view() for node entities.
+ */
+function statistics_entity_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  $entity_type_id = $entity->getEntityTypeId();
+  // @todo Remove this condition once statistics_node_view() is removed.
+  if ($entity_type_id === 'node') {
+    return;
+  }
+  $route_match = \Drupal::routeMatch();
+  $route_name = "entity.$entity_type_id.canonical";
+  if ($route_match->getRouteName() === $route_name) {
+    $page_entity = $route_match->getParameter($entity_type_id);
+  }
+  $entity_is_page = (!empty($page_entity) ? $page_entity->id() === $entity->id() : FALSE);
+  if (!$entity->isNew() && $view_mode === 'full' && $entity_is_page && empty($entity->in_preview)) {
+    $build['#attached']['library'][] = 'statistics/drupal.statistics';
+    $settings = [
+      'data' => [
+        'key' => $entity->getEntityType()->getKey('id'),
+        'id' => $entity->id(),
+        'type' => $entity_type_id,
+      ],
+      'url' => Url::fromUri('base:' . drupal_get_path('module', 'statistics') . '/statistics.php')->toString(),
+    ];
     $build['#attached']['drupalSettings']['statistics'] = $settings;
   }
 }
@@ -50,10 +86,11 @@ function statistics_node_view(array &$build, EntityInterface $node, EntityViewDi
  * Implements hook_node_links_alter().
  */
 function statistics_node_links_alter(array &$links, NodeInterface $entity, array &$context) {
-  if ($context['view_mode'] != 'rss') {
+  $entity_types = \Drupal::config('statistics.settings')->get('entity_type_ids');
+  if (in_array('node', $entity_types, TRUE) && $context['view_mode'] != 'rss') {
     $links['#cache']['contexts'][] = 'user.permissions';
     if (\Drupal::currentUser()->hasPermission('view post access counter')) {
-      $statistics = \Drupal::service('statistics.storage.node')->fetchView($entity->id());
+      $statistics = \Drupal::service('statistics.storage')->fetchView($entity->getEntityType(), $entity->id());
       if ($statistics) {
         $statistics_links['statistics_counter']['title'] = \Drupal::translation()->formatPlural($statistics->getTotalCount(), '1 view', '@count views');
         $links['statistics'] = [
@@ -71,10 +108,16 @@ function statistics_node_links_alter(array &$links, NodeInterface $entity, array
  * Implements hook_cron().
  */
 function statistics_cron() {
-  $storage = \Drupal::service('statistics.storage.node');
-  $storage->resetDayCount();
-  $max_total_count = $storage->maxTotalCount();
-  \Drupal::state()->set('statistics.node_counter_scale', 1.0 / max(1.0, $max_total_count));
+  $statistics_reset_count = \Drupal::service('statistics.reset_count');
+  $storage = \Drupal::service('statistics.storage');
+  $state = \Drupal::state();
+  $entity_type_manager = \Drupal::entityTypeManager();
+  $entity_types = \Drupal::configFactory()->get('statistics.settings')->get('entity_type_ids');
+  foreach (array_filter($entity_types) as $entity_type_id) {
+    $statistics_reset_count->resetDayCount($entity_type_id);
+    $max_total_count = $storage->maxTotalCount($entity_type_manager->getDefinition($entity_type_id));
+    $state->set("statistics.{$entity_type_id}_counter_scale", 1.0 / max(1.0, $max_total_count));
+  }
 }
 
 /**
@@ -94,7 +137,8 @@ function statistics_cron() {
  *   be executed correctly.
  */
 function statistics_title_list($dbfield, $dbrows) {
-  if (in_array($dbfield, ['totalcount', 'daycount', 'timestamp'])) {
+  $entity_types = \Drupal::config('statistics.settings')->get('entity_type_ids');
+  if (in_array('node', $entity_types, TRUE) && in_array($dbfield, array('totalcount', 'daycount', 'timestamp'))) {
     $query = db_select('node_field_data', 'n');
     $query->addTag('node_access');
     $query->join('node_counter', 's', 'n.nid = s.nid');
@@ -120,40 +164,58 @@ function statistics_title_list($dbfield, $dbrows) {
  * Retrieves a node's "view statistics".
  *
  * @deprecated in Drupal 8.2.x, will be removed before Drupal 9.0.0.
- *   Use \Drupal::service('statistics.storage.node')->fetchView($id).
+ *   Use \Drupal::service('statistics.storage')->fetchView($entity_type, $id).
  */
 function statistics_get($id) {
-  if ($id > 0) {
-    /** @var \Drupal\statistics\StatisticsViewsResult $statistics */
-    $statistics = \Drupal::service('statistics.storage.node')->fetchView($id);
-
-    // For backwards compatibility, return FALSE if an invalid node ID was
-    // passed in.
-    if (!($statistics instanceof StatisticsViewsResult)) {
-      return FALSE;
-    }
-    return [
-      'totalcount' => $statistics->getTotalCount(),
-      'daycount' => $statistics->getDayCount(),
-      'timestamp' => $statistics->getTimestamp(),
-    ];
+  $entity_type = \Drupal::entityTypeManager()->getDefinition('node');
+  /** @var \Drupal\statistics\StatisticsViewsResult $statistics */
+  $statistics = \Drupal::service('statistics.storage')->fetchView($entity_type, $id);
+  // For backwards compatibility, return FALSE if an invalid node ID was
+  // passed in.
+  if (!($statistics instanceof StatisticsViewsResult)) {
+    return FALSE;
   }
+  return [
+    'totalcount' => $statistics->getTotalCount(),
+    'daycount' => $statistics->getDayCount(),
+    'timestamp' => $statistics->getTimestamp(),
+  ];
 }
 
 /**
  * Implements hook_ENTITY_TYPE_predelete() for node entities.
  */
 function statistics_node_predelete(EntityInterface $node) {
-  // Clean up statistics table when node is deleted.
-  $id = $node->id();
-  return \Drupal::service('statistics.storage.node')->deleteViews($id);
+  $entity_types = \Drupal::config('statistics.settings')->get('entity_type_ids');
+  if (in_array('node', $entity_types, TRUE)) {
+    // Clean up statistics table when node is deleted.
+    \Drupal::service('statistics.storage')
+      ->deleteViews($node->getEntityType(), $node->id());
+  }
+}
+
+/**
+ * Implements hook_ENTITY_predelete() for node entities.
+ */
+function statistics_entity_predelete(EntityInterface $entity) {
+  // @todo Remove this condition once statistics_node_view() is removed.
+  if ($entity->getEntityTypeId() === 'node') {
+    return;
+  }
+  $entity_types = \Drupal::config('statistics.settings')->get('entity_type_ids');
+  if (in_array($entity->getEntityTypeId(), $entity_types, TRUE)) {
+    // Clean up statistics table when entity is deleted.
+    \Drupal::service('statistics.storage')
+      ->deleteViews($entity->getEntityType(), $entity->id());
+  }
 }
 
 /**
  * Implements hook_ranking().
  */
 function statistics_ranking() {
-  if (\Drupal::config('statistics.settings')->get('count_content_views')) {
+  $entity_types = \Drupal::configFactory()->get('statistics.settings')->get('entity_type_ids');
+  if (in_array('node', $entity_types, TRUE)) {
     return [
       'views' => [
         'title' => t('Number of views'),
@@ -192,8 +254,15 @@ function statistics_preprocess_block(&$variables) {
  * to count content views.
  */
 function statistics_block_alter(&$definitions) {
-  $statistics_count_content_views = \Drupal::config('statistics.settings')->get('count_content_views');
-  if (empty($statistics_count_content_views)) {
+  $entity_types = \Drupal::config('statistics.settings')->get('entity_type_ids');
+  if (!empty($entity_types) && !in_array('node', $entity_types, TRUE)) {
     unset($definitions['statistics_popular_block']);
   }
+}
+
+/**
+ * Callback for migration settings.
+ */
+function statistics_migrate_callback($source) {
+  return $source ? ['node'] : [];
 }

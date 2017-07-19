@@ -32,7 +32,7 @@ class MigrateStatisticsConfigsTest extends MigrateDrupal7TestBase {
    */
   public function testStatisticsSettings() {
     $config = $this->config('statistics.settings');
-    $this->assertIdentical(1, $config->get('count_content_views'));
+    $this->assertIdentical(['node'], $config->get('entity_type_ids'));
     $this->assertConfigSchema(\Drupal::service('config.typed'), 'statistics.settings', $config->get());
   }
 

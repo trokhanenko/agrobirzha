@@ -58,7 +58,7 @@ class IntegrationTest extends ViewTestBase {
 
     // Enable counting of content views.
     $this->config('statistics.settings')
-      ->set('count_content_views', 1)
+      ->set('entity_type_ids', ['node'])
       ->save();
 
   }
@@ -75,7 +75,7 @@ class IntegrationTest extends ViewTestBase {
     global $base_url;
     $stats_path = $base_url . '/' . drupal_get_path('module', 'statistics') . '/statistics.php';
     $client = \Drupal::httpClient();
-    $client->post($stats_path, ['form_params' => ['nid' => $this->node->id()]]);
+    $client->post($stats_path, ['form_params' => ['type' => 'node', 'key' => 'nid', 'id' => $this->node->id()]]);
     $this->drupalGet('test_statistics_integration');
 
     $expected = statistics_get($this->node->id());

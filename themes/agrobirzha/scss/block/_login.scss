@@ -64,5 +64,8 @@
   .form-type-checkbox{
     width: 19%;
     display: inline-block;
+    @include respond-to(xs) {
+      width: 49%;
+    }
   }
 }

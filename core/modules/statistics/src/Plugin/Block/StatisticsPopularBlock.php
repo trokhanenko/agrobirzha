@@ -83,7 +83,7 @@ class StatisticsPopularBlock extends BlockBase implements ContainerFactoryPlugin
       $plugin_definition,
       $container->get('entity_type.manager'),
       $container->get('entity.repository'),
-      $container->get('statistics.storage.node'),
+      $container->get('statistics.storage'),
       $container->get('renderer')
     );
   }
@@ -95,7 +95,7 @@ class StatisticsPopularBlock extends BlockBase implements ContainerFactoryPlugin
     return [
       'top_day_num' => 0,
       'top_all_num' => 0,
-      'top_last_num' => 0
+      'top_last_num' => 0,
     ];
   }
 
@@ -151,9 +151,10 @@ class StatisticsPopularBlock extends BlockBase implements ContainerFactoryPlugin
    */
   public function build() {
     $content = [];
+    $entity_type = $this->entityTypeManager->getDefinition('node');
 
     if ($this->configuration['top_day_num'] > 0) {
-      $nids = $this->statisticsStorage->fetchAll('daycount', $this->configuration['top_day_num']);
+      $nids = $this->statisticsStorage->fetchAll($entity_type, 'daycount', $this->configuration['top_day_num']);
       if ($nids) {
         $content['top_day'] = $this->nodeTitleList($nids, $this->t("Today's:"));
         $content['top_day']['#suffix'] = '<br />';
@@ -161,7 +162,7 @@ class StatisticsPopularBlock extends BlockBase implements ContainerFactoryPlugin
     }
 
     if ($this->configuration['top_all_num'] > 0) {
-      $nids = $this->statisticsStorage->fetchAll('totalcount', $this->configuration['top_all_num']);
+      $nids = $this->statisticsStorage->fetchAll($entity_type, 'totalcount', $this->configuration['top_all_num']);
       if ($nids) {
         $content['top_all'] = $this->nodeTitleList($nids, $this->t('All time:'));
         $content['top_all']['#suffix'] = '<br />';
@@ -169,7 +170,7 @@ class StatisticsPopularBlock extends BlockBase implements ContainerFactoryPlugin
     }
 
     if ($this->configuration['top_last_num'] > 0) {
-      $nids = $this->statisticsStorage->fetchAll('timestamp', $this->configuration['top_last_num']);
+      $nids = $this->statisticsStorage->fetchAll($entity_type, 'timestamp', $this->configuration['top_last_num']);
       $content['top_last'] = $this->nodeTitleList($nids, $this->t('Last viewed:'));
       $content['top_last']['#suffix'] = '<br />';
     }

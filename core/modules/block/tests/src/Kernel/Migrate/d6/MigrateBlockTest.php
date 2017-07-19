@@ -239,9 +239,9 @@ class MigrateBlockTest extends MigrateDrupal6TestBase {
 
     // Check statistic block settings.
     $settings = [
-      'id' => 'broken',
+      'id' => 'statistics_popular_block',
       'label' => '',
-      'provider' => 'core',
+      'provider' => 'statistics',
       'label_display' => '0',
       'top_day_num' => 7,
       'top_all_num' => 8,

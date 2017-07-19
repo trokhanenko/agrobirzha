@@ -7,6 +7,7 @@ dependencies:
   module:
     - commerce_price
     - commerce_product
+    - taxonomy
     - views_bootstrap
 id: statistika_posesenii
 label: 'Статистика посешений'
@@ -238,7 +239,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: false
+            link_to_entity: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -320,10 +321,10 @@ display:
           plugin_id: field
       filters: {  }
       sorts:
-        created:
-          id: created
-          table: commerce_product_field_data
-          field: created
+        totalcount:
+          id: totalcount
+          table: commerce_product_counter
+          field: totalcount
           relationship: none
           group_type: group
           admin_label: ''
@@ -331,10 +332,19 @@ display:
           exposed: false
           expose:
             label: ''
-          granularity: second
-          entity_type: commerce_product
-          entity_field: created
-          plugin_id: date
+          plugin_id: standard
+        totalcount_1:
+          id: totalcount_1
+          table: commerce_product_variation_counter
+          field: totalcount
+          relationship: variations
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
       title: 'Статистика посешений'
       header: {  }
       footer: {  }
@@ -347,6 +357,15 @@ display:
           relationship: none
           group_type: group
           admin_label: 'variations: Варіація товару'
+          required: false
+          plugin_id: standard
+        field_product:
+          id: field_product
+          table: commerce_product__field_product
+          field: field_product
+          relationship: none
+          group_type: group
+          admin_label: 'field_product: Термин таксономии'
           required: false
           plugin_id: standard
       arguments: {  }
@@ -370,6 +389,11 @@ display:
       menu:
         type: normal
         title: 'Статистика посешений'
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 0
+        context: '0'
         menu_name: footer
     cache_metadata:
       max-age: 0

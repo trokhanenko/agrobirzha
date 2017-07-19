@@ -95,11 +95,12 @@ class SearchRankingTest extends SearchTestBase {
     $this->drupalPostForm(NULL, $edit, t('Save'));
 
     // Enable counting of statistics.
-    $this->config('statistics.settings')->set('count_content_views', 1)->save();
+    $this->config('statistics.settings')->set('entity_type_ids', ['node'])->save();
 
     // Simulating content views is kind of difficult in the test. Leave that
     // to the Statistics module. So instead go ahead and manually update the
     // counter for this node.
+    \Drupal::service('statistics.storage')->createTable(\Drupal::entityTypeManager()->getDefinition('node'));
     $nid = $nodes['views'][1]->id();
     db_insert('node_counter')
       ->fields(['totalcount' => 5, 'daycount' => 5, 'timestamp' => REQUEST_TIME, 'nid' => $nid])

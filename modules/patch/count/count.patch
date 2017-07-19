@@ -1,0 +1,1646 @@
+diff --git a/core/modules/block/tests/src/Kernel/Migrate/d6/MigrateBlockTest.php b/core/modules/block/tests/src/Kernel/Migrate/d6/MigrateBlockTest.php
+index bb59f502c3..f47b06630f 100644
+--- a/core/modules/block/tests/src/Kernel/Migrate/d6/MigrateBlockTest.php
++++ b/core/modules/block/tests/src/Kernel/Migrate/d6/MigrateBlockTest.php
+@@ -239,9 +239,9 @@ public function testBlockMigration() {
+
+     // Check statistic block settings.
+     $settings = [
+-      'id' => 'broken',
++      'id' => 'statistics_popular_block',
+       'label' => '',
+-      'provider' => 'core',
++      'provider' => 'statistics',
+       'label_display' => '0',
+       'top_day_num' => 7,
+       'top_all_num' => 8,
+diff --git a/core/modules/search/src/Tests/SearchRankingTest.php b/core/modules/search/src/Tests/SearchRankingTest.php
+index 28241d2af2..cf9185136d 100644
+--- a/core/modules/search/src/Tests/SearchRankingTest.php
++++ b/core/modules/search/src/Tests/SearchRankingTest.php
+@@ -95,11 +95,12 @@ public function testRankings() {
+     $this->drupalPostForm(NULL, $edit, t('Save'));
+
+     // Enable counting of statistics.
+-    $this->config('statistics.settings')->set('count_content_views', 1)->save();
++    $this->config('statistics.settings')->set('entity_type_ids', ['node'])->save();
+
+     // Simulating content views is kind of difficult in the test. Leave that
+     // to the Statistics module. So instead go ahead and manually update the
+     // counter for this node.
++    \Drupal::service('statistics.storage')->createTable(\Drupal::entityTypeManager()->getDefinition('node'));
+     $nid = $nodes['views'][1]->id();
+     db_insert('node_counter')
+       ->fields(['totalcount' => 5, 'daycount' => 5, 'timestamp' => REQUEST_TIME, 'nid' => $nid])
+diff --git a/core/modules/statistics/config/install/statistics.settings.yml b/core/modules/statistics/config/install/statistics.settings.yml
+index 6686062923..8c73e19338 100644
+--- a/core/modules/statistics/config/install/statistics.settings.yml
++++ b/core/modules/statistics/config/install/statistics.settings.yml
+@@ -1,2 +1,2 @@
+-count_content_views: 0
++entity_type_ids: {}
+ display_max_age: 3600
+diff --git a/core/modules/statistics/config/schema/statistics.schema.yml b/core/modules/statistics/config/schema/statistics.schema.yml
+index c72a227264..0c2cd05008 100644
+--- a/core/modules/statistics/config/schema/statistics.schema.yml
++++ b/core/modules/statistics/config/schema/statistics.schema.yml
+@@ -4,12 +4,15 @@ statistics.settings:
+   type: config_object
+   label: 'Statistics settings'
+   mapping:
+-    count_content_views:
+-      type: integer
+-      label: 'Count content views'
+     display_max_age:
+       type: integer
+       label: 'How long any statistics may be cached, i.e. the refresh interval'
++    entity_type_ids:
++      type: sequence
++      label: 'Entity Type IDs'
++      sequence:
++        type: string
++        label: 'Entity Type ID'
+
+ block.settings.statistics_popular_block:
+   type: block_settings
+diff --git a/core/modules/statistics/migration_templates/statistics_settings.yml b/core/modules/statistics/migration_templates/statistics_settings.yml
+index 1f5b5bbd0e..6a6bc0e4ff 100644
+--- a/core/modules/statistics/migration_templates/statistics_settings.yml
++++ b/core/modules/statistics/migration_templates/statistics_settings.yml
+@@ -10,7 +10,11 @@ source:
+     - statistics_flush_accesslog_timer
+     - statistics_count_content_views
+ process:
+-  'count_content_views': statistics_count_content_views
++  entity_type_ids:
++    -
++      plugin: callback
++      callable: statistics_migrate_callback
++      source: statistics_count_content_views
+ destination:
+   plugin: config
+   config_name: statistics.settings
+diff --git a/core/modules/statistics/src/NodeStatisticsDatabaseStorage.php b/core/modules/statistics/src/NodeStatisticsDatabaseStorage.php
+index 0cccb1700b..8405fc5176 100644
+--- a/core/modules/statistics/src/NodeStatisticsDatabaseStorage.php
++++ b/core/modules/statistics/src/NodeStatisticsDatabaseStorage.php
+@@ -3,146 +3,42 @@
+ namespace Drupal\statistics;
+
+ use Drupal\Core\Database\Connection;
++use Drupal\Core\Entity\EntityTypeInterface;
+ use Drupal\Core\State\StateInterface;
+ use Symfony\Component\HttpFoundation\RequestStack;
+
+ /**
+  * Provides the default database storage backend for statistics.
+  */
+-class NodeStatisticsDatabaseStorage implements StatisticsStorageInterface {
++class NodeStatisticsDatabaseStorage extends StatisticsDatabaseStorage  {
+
+-  /**
+-  * The database connection used.
+-  *
+-  * @var \Drupal\Core\Database\Connection
+-  */
+-  protected $connection;
+-
+-  /**
+-   * The state service.
+-   *
+-   * @var \Drupal\Core\State\StateInterface
+-   */
+-  protected $state;
+-
+-  /**
+-   * The request stack.
+-   *
+-   * @var \Symfony\Component\HttpFoundation\RequestStack
+-   */
+-  protected $requestStack;
+-
+-  /**
+-   * Constructs the statistics storage.
+-   *
+-   * @param \Drupal\Core\Database\Connection $connection
+-   *   The database connection for the node view storage.
+-   * @param \Drupal\Core\State\StateInterface $state
+-   *   The state service.
+-   */
+-  public function __construct(Connection $connection, StateInterface $state, RequestStack $request_stack) {
+-    $this->connection = $connection;
+-    $this->state = $state;
+-    $this->requestStack = $request_stack;
++  public function recordView($entity_type_id, $key, $id) {
++    return parent::recordView($entity_type_id, $key, $id); // TODO: Change the autogenerated stub
+   }
+
+-  /**
+-   * {@inheritdoc}
+-   */
+-  public function recordView($id) {
+-    return (bool) $this->connection
+-      ->merge('node_counter')
+-      ->key('nid', $id)
+-      ->fields([
+-        'daycount' => 1,
+-        'totalcount' => 1,
+-        'timestamp' => $this->getRequestTime(),
+-      ])
+-      ->expression('daycount', 'daycount + 1')
+-      ->expression('totalcount', 'totalcount + 1')
+-      ->execute();
++  public function fetchView(EntityTypeInterface $entity_type, $id) {
++    return parent::fetchView($entity_type, $id); // TODO: Change the autogenerated stub
+   }
+
+-  /**
+-   * {@inheritdoc}
+-   */
+-  public function fetchViews($ids) {
+-    $views = $this->connection
+-      ->select('node_counter', 'nc')
+-      ->fields('nc', ['totalcount', 'daycount', 'timestamp'])
+-      ->condition('nid', $ids, 'IN')
+-      ->execute()
+-      ->fetchAll();
+-    foreach ($views as $id => $view) {
+-      $views[$id] = new StatisticsViewsResult($view->totalcount, $view->daycount, $view->timestamp);
+-    }
+-    return $views;
++  public function fetchAll(EntityTypeInterface $entity_type, $order = 'totalcount', $limit = 5) {
++    return parent::fetchAll($entity_type, $order, $limit); // TODO: Change the autogenerated stub
+   }
+
+-  /**
+-   * {@inheritdoc}
+-   */
+-  public function fetchView($id) {
+-    $views = $this->fetchViews([$id]);
+-    return reset($views);
++  public function deleteViews(EntityTypeInterface $entity_type, $id) {
++    return parent::deleteViews($entity_type, $id); // TODO: Change the autogenerated stub
+   }
+
+-  /**
+-   * {@inheritdoc}
+-   */
+-  public function fetchAll($order = 'totalcount', $limit = 5) {
+-    assert(in_array($order, ['totalcount', 'daycount', 'timestamp']), "Invalid order argument.");
+-
+-    return $this->connection
+-      ->select('node_counter', 'nc')
+-      ->fields('nc', ['nid'])
+-      ->orderBy($order, 'DESC')
+-      ->range(0, $limit)
+-      ->execute()
+-      ->fetchCol();
++  public function maxTotalCount(EntityTypeInterface $entity_type) {
++    return parent::maxTotalCount($entity_type); // TODO: Change the autogenerated stub
+   }
+
+-  /**
+-   * {@inheritdoc}
+-   */
+-  public function deleteViews($id) {
+-    return (bool) $this->connection
+-      ->delete('node_counter')
+-      ->condition('nid', $id)
+-      ->execute();
++  public function createTable(EntityTypeInterface $entity_type) {
++    parent::createTable($entity_type); // TODO: Change the autogenerated stub
+   }
+
+-  /**
+-   * {@inheritdoc}
+-   */
+-  public function resetDayCount() {
+-    $statistics_timestamp = $this->state->get('statistics.day_timestamp') ?: 0;
+-    if (($this->getRequestTime() - $statistics_timestamp) >= 86400) {
+-      $this->state->set('statistics.day_timestamp', $this->getRequestTime());
+-      $this->connection->update('node_counter')
+-        ->fields(['daycount' => 0])
+-        ->execute();
+-    }
++  public function dropTable(EntityTypeInterface $entity_type) {
++    parent::dropTable($entity_type); // TODO: Change the autogenerated stub
+   }
+
+-  /**
+-   * {@inheritdoc}
+-   */
+-  public function maxTotalCount() {
+-    $query = $this->connection->select('node_counter', 'nc');
+-    $query->addExpression('MAX(totalcount)');
+-    $max_total_count = (int)$query->execute()->fetchField();
+-    return $max_total_count;
+-  }
+-
+-  /**
+-   * Get current request time.
+-   *
+-   * @return int
+-   *   Unix timestamp for current server request time.
+-   */
+-  protected function getRequestTime() {
+-    return $this->requestStack->getCurrentRequest()->server->get('REQUEST_TIME');
+-  }
+
+ }
+diff --git a/core/modules/statistics/src/Plugin/Block/StatisticsPopularBlock.php b/core/modules/statistics/src/Plugin/Block/StatisticsPopularBlock.php
+index 1802a4569c..a0805bb327 100644
+--- a/core/modules/statistics/src/Plugin/Block/StatisticsPopularBlock.php
++++ b/core/modules/statistics/src/Plugin/Block/StatisticsPopularBlock.php
+@@ -83,7 +83,7 @@ public static function create(ContainerInterface $container, array $configuratio
+       $plugin_definition,
+       $container->get('entity_type.manager'),
+       $container->get('entity.repository'),
+-      $container->get('statistics.storage.node'),
++      $container->get('statistics.storage'),
+       $container->get('renderer')
+     );
+   }
+@@ -95,7 +95,7 @@ public function defaultConfiguration() {
+     return [
+       'top_day_num' => 0,
+       'top_all_num' => 0,
+-      'top_last_num' => 0
++      'top_last_num' => 0,
+     ];
+   }
+
+@@ -151,9 +151,10 @@ public function blockSubmit($form, FormStateInterface $form_state) {
+    */
+   public function build() {
+     $content = [];
++    $entity_type = $this->entityTypeManager->getDefinition('node');
+
+     if ($this->configuration['top_day_num'] > 0) {
+-      $nids = $this->statisticsStorage->fetchAll('daycount', $this->configuration['top_day_num']);
++      $nids = $this->statisticsStorage->fetchAll($entity_type, 'daycount', $this->configuration['top_day_num']);
+       if ($nids) {
+         $content['top_day'] = $this->nodeTitleList($nids, $this->t("Today's:"));
+         $content['top_day']['#suffix'] = '<br />';
+@@ -161,7 +162,7 @@ public function build() {
+     }
+
+     if ($this->configuration['top_all_num'] > 0) {
+-      $nids = $this->statisticsStorage->fetchAll('totalcount', $this->configuration['top_all_num']);
++      $nids = $this->statisticsStorage->fetchAll($entity_type, 'totalcount', $this->configuration['top_all_num']);
+       if ($nids) {
+         $content['top_all'] = $this->nodeTitleList($nids, $this->t('All time:'));
+         $content['top_all']['#suffix'] = '<br />';
+@@ -169,7 +170,7 @@ public function build() {
+     }
+
+     if ($this->configuration['top_last_num'] > 0) {
+-      $nids = $this->statisticsStorage->fetchAll('timestamp', $this->configuration['top_last_num']);
++      $nids = $this->statisticsStorage->fetchAll($entity_type, 'timestamp', $this->configuration['top_last_num']);
+       $content['top_last'] = $this->nodeTitleList($nids, $this->t('Last viewed:'));
+       $content['top_last']['#suffix'] = '<br />';
+     }
+diff --git a/core/modules/statistics/src/Plugin/views/field/EntityCounterTimestamp.php b/core/modules/statistics/src/Plugin/views/field/EntityCounterTimestamp.php
+new file mode 100644
+index 0000000000..9bc2a9c089
+--- /dev/null
++++ b/core/modules/statistics/src/Plugin/views/field/EntityCounterTimestamp.php
+@@ -0,0 +1,24 @@
++<?php
++
++namespace Drupal\statistics\Plugin\views\field;
++
++use Drupal\views\Plugin\views\field\Date;
++use Drupal\Core\Session\AccountInterface;
++
++/**
++ * Field handler to display the most recent time the entity has been viewed.
++ *
++ * @ingroup views_field_handlers
++ *
++ * @ViewsField("entity_counter_timestamp")
++ */
++class EntityCounterTimestamp extends Date {
++
++  /**
++   * {@inheritdoc}
++   */
++  public function access(AccountInterface $account) {
++    return $account->hasPermission('view post access counter');
++  }
++
++}
+diff --git a/core/modules/statistics/src/Plugin/views/field/NodeCounterTimestamp.php b/core/modules/statistics/src/Plugin/views/field/NodeCounterTimestamp.php
+index fb0eb3049e..037526920f 100644
+--- a/core/modules/statistics/src/Plugin/views/field/NodeCounterTimestamp.php
++++ b/core/modules/statistics/src/Plugin/views/field/NodeCounterTimestamp.php
+@@ -2,9 +2,6 @@
+
+ namespace Drupal\statistics\Plugin\views\field;
+
+-use Drupal\views\Plugin\views\field\Date;
+-use Drupal\Core\Session\AccountInterface;
+-
+ /**
+  * Field handler to display the most recent time the node has been viewed.
+  *
+@@ -12,13 +9,6 @@
+  *
+  * @ViewsField("node_counter_timestamp")
+  */
+-class NodeCounterTimestamp extends Date {
+-
+-  /**
+-   * {@inheritdoc}
+-   */
+-  public function access(AccountInterface $account) {
+-    return $account->hasPermission('view post access counter');
+-  }
++class NodeCounterTimestamp extends EntityCounterTimestamp {
+
+ }
+diff --git a/core/modules/statistics/src/StatisticsDatabaseStorage.php b/core/modules/statistics/src/StatisticsDatabaseStorage.php
+new file mode 100644
+index 0000000000..883556cfdc
+--- /dev/null
++++ b/core/modules/statistics/src/StatisticsDatabaseStorage.php
+@@ -0,0 +1,242 @@
++<?php
++
++namespace Drupal\statistics;
++
++use Drupal\Core\Database\Connection;
++use Drupal\Core\Entity\EntityTypeInterface;
++use Symfony\Component\HttpFoundation\RequestStack;
++
++/**
++ * Provides the default database storage backend for statistics.
++ */
++class StatisticsDatabaseStorage implements StatisticsStorageInterface {
++
++  /**
++   * The database connection.
++   *
++   * @var \Drupal\Core\Database\Connection
++   */
++  protected $connection;
++
++  /**
++   * The request stack.
++   *
++   * @var \Symfony\Component\HttpFoundation\RequestStack
++   */
++  protected $requestStack;
++
++  /**
++   * Constructs the statistics storage.
++   *
++   * @param \Drupal\Core\Database\Connection $connection
++   *   The database connection for the node view storage.
++   * @param \Symfony\Component\HttpFoundation\RequestStack $request_stack
++   *   The request stack.
++   */
++  public function __construct(Connection $connection, RequestStack $request_stack) {
++    $this->connection = $connection;
++    $this->requestStack = $request_stack;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function recordView($entity_type_id, $key, $id) {
++    $table = $entity_type_id . '_counter';
++    try {
++      return (bool) $this->connection
++        ->merge($table)
++        ->key($key, $id)
++        ->fields([
++          'daycount' => 1,
++          'totalcount' => 1,
++          'timestamp' => $this->requestStack->getCurrentRequest()->server->get('REQUEST_TIME'),
++        ])
++        ->expression('daycount', 'daycount + 1')
++        ->expression('totalcount', 'totalcount + 1')
++        ->execute();
++    }
++    catch (\Exception $e) {
++      $database_schema = $this->connection->schema();
++      if ($database_schema->tableExists($table)) {
++        throw $e;
++      }
++      else {
++        $entity_type = \Drupal::entityTypeManager()->getDefinition($entity_type_id);
++        $this->createTable($entity_type);
++        $this->recordView($entity_type_id, $key, $id);
++      }
++    }
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function fetchView(EntityTypeInterface $entity_type, $id) {
++    try {
++      $view = $this->connection
++        ->select($this->tableName($entity_type), 'c')
++        ->fields('c', ['totalcount', 'daycount', 'timestamp'])
++        ->condition($entity_type->getKey('id'), $id)
++        ->execute()
++        ->fetchObject();
++      if ($view) {
++        return new StatisticsViewsResult($view->totalcount, $view->daycount, $view->timestamp);
++      }
++    }
++    catch (\Exception $e) {
++      $this->catchException($entity_type, $e);
++    }
++    return NULL;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function fetchAll(EntityTypeInterface $entity_type, $order = 'totalcount', $limit = 5) {
++    assert(in_array($order, ['totalcount', 'daycount', 'timestamp']), "Invalid order argument.");
++    try {
++      return $this->connection
++        ->select($this->tableName($entity_type), 'nc')
++        ->fields('nc', [$entity_type->getKey('id')])
++        ->orderBy($order, 'DESC')
++        ->range(0, $limit)
++        ->execute()
++        ->fetchCol();
++    }
++    catch (\Exception $e) {
++      $this->catchException($entity_type, $e);
++    }
++    return [];
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function deleteViews(EntityTypeInterface $entity_type, $id) {
++    try {
++      return (bool) $this->connection
++        ->delete($this->tableName($entity_type))
++        ->condition($entity_type->getKey('id'), $id)
++        ->execute();
++    }
++    catch (\Exception $e) {
++      $this->catchException($entity_type, $e);
++    }
++    return FALSE;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function maxTotalCount(EntityTypeInterface $entity_type) {
++    try {
++      $query = $this->connection->select($this->tableName($entity_type), 'nc');
++      $query->addExpression('MAX(totalcount)');
++      $max_total_count = (int) $query->execute()->fetchField();
++      return $max_total_count;
++    }
++    catch (\Exception $e) {
++      $this->catchException($entity_type, $e);
++    }
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function createTable(EntityTypeInterface $entity_type) {
++    $entity_type_id = $entity_type->id();
++    $idKey = $entity_type->getKey('id');
++    $id_definition = \Drupal::service('entity_field.manager')->getBaseFieldDefinitions($entity_type_id)[$idKey];
++    if ($id_definition->getType() === 'integer') {
++      $id_schema = [
++        'description' => "The {{$entity_type_id}}.$idKey for these statistics.",
++        'type' => 'int',
++        'unsigned' => TRUE,
++        'not null' => TRUE,
++        'default' => 0,
++      ];
++    }
++    else {
++      $id_schema = [
++        'description' => "The {{$entity_type_id}}.$idKey for these statistics.",
++        'type' => 'varchar_ascii',
++        'length' => 128,
++        'not null' => TRUE,
++      ];
++    }
++    $table = $entity_type_id . '_counter';
++    if (!$this->connection->schema()->tableExists($table)) {
++      $schema = [
++        'description' => "Access statistics for {{$entity_type_id}}s.",
++        'fields' => [
++          $idKey => $id_schema,
++          'totalcount' => [
++            'description' => "The total number of times the {{$entity_type_id}} has been viewed.",
++            'type' => 'int',
++            'unsigned' => TRUE,
++            'not null' => TRUE,
++            'default' => 0,
++            'size' => 'big',
++          ],
++          'daycount' => [
++            'description' => "The total number of times the {{$entity_type_id}} has been viewed today.",
++            'type' => 'int',
++            'unsigned' => TRUE,
++            'not null' => TRUE,
++            'default' => 0,
++            'size' => 'medium',
++          ],
++          'timestamp' => [
++            'description' => "The most recent time the {{$entity_type_id}} has been viewed.",
++            'type' => 'int',
++            'unsigned' => TRUE,
++            'not null' => TRUE,
++            'default' => 0,
++          ],
++        ],
++        'primary key' => [$idKey],
++      ];
++      $this->connection->schema()->createTable($table, $schema);
++    }
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function dropTable(EntityTypeInterface $entity_type) {
++    if ($this->connection->schema()->tableExists($this->tableName($entity_type))) {
++      $this->connection->schema()->dropTable($this->tableName($entity_type));
++    }
++  }
++
++  /**
++   * Act on an exception when the table might not have been created.
++   *
++   * If the table does not yet exist, that's fine, but if the table exists and
++   * something else caused the exception, then propagate it.
++   *
++   * @param \Exception $e
++   *   The exception.
++   *
++   * @throws \Exception
++   */
++  protected function catchException(EntityTypeInterface $entity_type,\Exception $e) {
++    if ($this->connection->schema()->tableExists($this->tableName($entity_type))) {
++      throw $e;
++    }
++  }
++
++  /**
++   * Generates the table name from the entity type.
++   *
++   * @param \Drupal\Core\Entity\EntityTypeInterface $entity_type
++   *
++   * @return string
++   */
++  protected function tableName(EntityTypeInterface $entity_type) {
++    $entity_type_id = $entity_type->id();
++    return $entity_type_id . '_counter';
++  }
++
++}
+diff --git a/core/modules/statistics/src/StatisticsResetCount.php b/core/modules/statistics/src/StatisticsResetCount.php
+new file mode 100644
+index 0000000000..e87d7f1487
+--- /dev/null
++++ b/core/modules/statistics/src/StatisticsResetCount.php
+@@ -0,0 +1,66 @@
++<?php
++
++namespace Drupal\statistics;
++
++use Drupal\Component\Datetime\TimeInterface;
++use Drupal\Core\Database\Connection;
++use Drupal\Core\State\StateInterface;
++
++/**
++ * The statistics reset count class.
++ */
++class StatisticsResetCount implements StatisticsResetCountInterface {
++
++  /**
++   * The database connection.
++   *
++   * @var \Drupal\Core\Database\Connection
++   */
++  protected $connection;
++
++  /**
++   * The state service.
++   *
++   * @var \Drupal\Core\State\StateInterface
++   */
++  protected $state;
++
++  /**
++   * The time service.
++   *
++   * @var \Drupal\Component\Datetime\TimeInterface
++   */
++  protected $time;
++
++  /**
++   * Constructs the statistics reset count.
++   *
++   * @param \Drupal\Core\Database\Connection $connection
++   *   The database connection for the node view storage.
++   * @param \Drupal\Core\State\StateInterface $state
++   *   The state service.
++   * @param \Drupal\Component\Datetime\TimeInterface $time
++   *   The time service.
++   */
++  public function __construct(Connection $connection, StateInterface $state, TimeInterface $time) {
++    $this->connection = $connection;
++    $this->state = $state;
++    $this->time = $time;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function resetDayCount($entity_type_id) {
++    $statistics_timestamp = $this->state->get('statistics.day_timestamp') ?: 0;
++    $time = $this->time->getRequestTime();
++    $table = $entity_type_id . '_counter';
++    if (($time - $statistics_timestamp) >= 86400 && $this->connection->schema()->tableExists($table)) {
++      $this->state->set('statistics.day_timestamp', $time);
++      $this->connection->update($table)
++        ->fields(['daycount' => 0])
++        ->execute();
++    }
++  }
++
++}
+diff --git a/core/modules/statistics/src/StatisticsResetCountInterface.php b/core/modules/statistics/src/StatisticsResetCountInterface.php
+new file mode 100644
+index 0000000000..d4b493cfa3
+--- /dev/null
++++ b/core/modules/statistics/src/StatisticsResetCountInterface.php
+@@ -0,0 +1,18 @@
++<?php
++
++namespace Drupal\statistics;
++
++/**
++ * The statistics reset count interface.
++ */
++interface StatisticsResetCountInterface {
++
++  /**
++   * Reset the day counter for all entities once every day.
++   *
++   * @param string $entity_type_id
++   *   The entity type ID.
++   */
++  public function resetDayCount($entity_type_id);
++
++}
+diff --git a/core/modules/statistics/src/StatisticsSettingsForm.php b/core/modules/statistics/src/StatisticsSettingsForm.php
+index 4c06e0b1de..9397eadf7a 100644
+--- a/core/modules/statistics/src/StatisticsSettingsForm.php
++++ b/core/modules/statistics/src/StatisticsSettingsForm.php
+@@ -2,6 +2,8 @@
+
+ namespace Drupal\statistics;
+
++use Drupal\Core\Entity\EntityTypeManagerInterface;
++use Drupal\Core\Entity\EntityTypeRepositoryInterface;
+ use Drupal\Core\Extension\ModuleHandlerInterface;
+ use Drupal\Core\Form\ConfigFormBase;
+ use Drupal\Core\Config\ConfigFactoryInterface;
+@@ -21,16 +23,45 @@ class StatisticsSettingsForm extends ConfigFormBase {
+   protected $moduleHandler;
+
+   /**
+-   * Constructs a \Drupal\statistics\StatisticsSettingsForm object.
++   * The entity type manager.
++   *
++   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
++   */
++  protected $entityTypeManager;
++
++  /**
++   * The entity type repository service.
++   *
++   * @var \Drupal\Core\Entity\EntityTypeRepositoryInterface
++   */
++  protected $entityTypeRepository;
++
++  /**
++   * The storage for statistics.
++   *
++   * @var \Drupal\statistics\StatisticsStorageInterface
++   */
++  protected $statisticsStorage;
++
++  /**
++   * Constructs a \Drupal\user\StatisticsSettingsForm object.
+    *
+    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
+    *   The factory for configuration objects.
+    * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
+    *   The module handler.
++   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
++   *   The entity type manager.
++   * @param \Drupal\Core\Entity\EntityTypeRepositoryInterface $entity_type_repository
++   *   The entity type repository service.
++   * @param \Drupal\statistics\StatisticsStorageInterface $statistics_storage
++   *   The storage for statistics.
+    */
+-  public function __construct(ConfigFactoryInterface $config_factory, ModuleHandlerInterface $module_handler) {
++  public function __construct(ConfigFactoryInterface $config_factory, ModuleHandlerInterface $module_handler, EntityTypeManagerInterface $entity_type_manager, EntityTypeRepositoryInterface $entity_type_repository, StatisticsStorageInterface $statistics_storage) {
+     parent::__construct($config_factory);
+-
++    $this->entityTypeManager = $entity_type_manager;
++    $this->entityTypeRepository = $entity_type_repository;
++    $this->statisticsStorage = $statistics_storage;
+     $this->moduleHandler = $module_handler;
+   }
+
+@@ -40,7 +71,10 @@ public function __construct(ConfigFactoryInterface $config_factory, ModuleHandle
+   public static function create(ContainerInterface $container) {
+     return new static(
+       $container->get('config.factory'),
+-      $container->get('module_handler')
++      $container->get('module_handler'),
++      $container->get('entity_type.manager'),
++      $container->get('entity_type.repository'),
++      $container->get('statistics.storage')
+     );
+   }
+
+@@ -63,18 +97,27 @@ protected function getEditableConfigNames() {
+    */
+   public function buildForm(array $form, FormStateInterface $form_state) {
+     $config = $this->config('statistics.settings');
++    $labels = $this->entityTypeRepository->getEntityTypeLabels(TRUE);
++    $labels = $labels[(string) $this->t('Content', [], ['context' => 'Entity type group'])];
++    $options = [];
++    foreach ($labels as $entity_type_id => $label) {
++      $options[$entity_type_id] = $this->t('Enable statistics for @entity_type', ['@entity_type' => $label]);
++    }
+
+-    // Content counter settings.
++    // Content entity counter settings.
+     $form['content'] = [
+       '#type' => 'details',
+-      '#title' => t('Content viewing counter settings'),
++      '#title' => $this->t('Content viewing counter settings'),
++      '#description' => $this->t('Increment a counter each time content is viewed.'),
+       '#open' => TRUE,
+     ];
+-    $form['content']['statistics_count_content_views'] = [
+-      '#type' => 'checkbox',
+-      '#title' => t('Count content views'),
+-      '#default_value' => $config->get('count_content_views'),
+-      '#description' => t('Increment a counter each time content is viewed.'),
++
++    $form['content']['entity_type_ids'] = [
++      '#type' => 'checkboxes',
++      '#title' => $this->t('Select content'),
++      '#options' => $options,
++      '#default_value' => $config->get('entity_type_ids'),
++
+     ];
+
+     return parent::buildForm($form, $form_state);
+@@ -84,9 +127,19 @@ public function buildForm(array $form, FormStateInterface $form_state) {
+    * {@inheritdoc}
+    */
+   public function submitForm(array &$form, FormStateInterface $form_state) {
++    $entity_type_ids = $form_state->getValue('entity_type_ids');
+     $this->config('statistics.settings')
+-      ->set('count_content_views', $form_state->getValue('statistics_count_content_views'))
++      ->set('entity_type_ids', $entity_type_ids)
+       ->save();
++    foreach (array_keys($entity_type_ids) as $entity_type_id) {
++      $entity_type = $this->entityTypeManager->getDefinition($entity_type_id);
++      if ($entity_type_ids[$entity_type_id] === $entity_type_id) {
++        $this->statisticsStorage->createTable($entity_type);
++      }
++      else {
++        $this->statisticsStorage->dropTable($entity_type);
++      }
++    }
+
+     // The popular statistics block is dependent on these settings, so clear the
+     // block plugin definitions cache.
+diff --git a/core/modules/statistics/src/StatisticsStorageInterface.php b/core/modules/statistics/src/StatisticsStorageInterface.php
+index ad6d6d5dce..cbe7af0d3f 100644
+--- a/core/modules/statistics/src/StatisticsStorageInterface.php
++++ b/core/modules/statistics/src/StatisticsStorageInterface.php
+@@ -2,6 +2,8 @@
+
+ namespace Drupal\statistics;
+
++use Drupal\Core\Entity\EntityTypeInterface;
++
+ /**
+  * Provides an interface defining Statistics Storage.
+  *
+@@ -13,78 +15,87 @@
+   /**
+    * Count a entity view.
+    *
++   * @param string $entity_type_id
++   *   The entity type ID.
++   * @param string $key
++   *   The ID key of the entity to count.
+    * @param int $id
+    *   The ID of the entity to count.
+    *
+    * @return bool
+    *   TRUE if the entity view has been counted.
+    */
+-  public function recordView($id);
+-
+-  /**
+-   * Returns the number of times entities have been viewed.
+-   *
+-   * @param array $ids
+-   *   An array of IDs of entities to fetch the views for.
+-   *
+-   * @return \Drupal\statistics\StatisticsViewsResult[]
+-   *   An array of value objects representing the number of times each entity
+-   *   has been viewed. The array is keyed by entity ID. If an ID does not
+-   *   exist, it will not be present in the array.
+-   */
+-  public function fetchViews($ids);
++  public function recordView($entity_type_id, $key, $id);
+
+   /**
+    * Returns the number of times a single entity has been viewed.
+    *
++   * @param \Drupal\Core\Entity\EntityTypeInterface $entity_type
++   *   The entity type.
+    * @param int $id
+    *   The ID of the entity to fetch the views for.
+    *
+-   * @return \Drupal\statistics\StatisticsViewsResult|false
+-   *   If the entity exists, a value object representing the number of times if
+-   *   has been viewed. If it does not exist, FALSE is returned.
++   * @return \Drupal\statistics\StatisticsViewsResult|null
++   *   The StatisticsViewsResult object if the result is present NULL otherwise.
+    */
+-  public function fetchView($id);
++  public function fetchView(EntityTypeInterface $entity_type, $id);
+
+   /**
+-   * Returns the number of times a entity has been viewed.
++   * Returns the number of times an entity has been viewed.
+    *
++   * @param \Drupal\Core\Entity\EntityTypeInterface $entity_type
++   *   The entity type.
+    * @param string $order
+    *   The counter name to order by:
+    *   - 'totalcount' The total number of views.
+    *   - 'daycount' The number of views today.
+    *   - 'timestamp' The unix timestamp of the last view.
+-   *
+    * @param int $limit
+    *   The number of entity IDs to return.
+    *
+    * @return array
+    *   An ordered array of entity IDs.
+    */
+-  public function fetchAll($order = 'totalcount', $limit = 5);
++  public function fetchAll(EntityTypeInterface $entity_type, $order = 'totalcount', $limit = 5);
+
+   /**
+    * Delete counts for a specific entity.
+    *
++   * @param \Drupal\Core\Entity\EntityTypeInterface $entity_type
++   *   The entity type.
+    * @param int $id
+    *   The ID of the entity which views to delete.
+    *
+    * @return bool
+    *   TRUE if the entity views have been deleted.
+    */
+-  public function deleteViews($id);
+-
+-  /**
+-   * Reset the day counter for all entities once every day.
+-   */
+-  public function resetDayCount();
++  public function deleteViews(EntityTypeInterface $entity_type, $id);
+
+   /**
+    * Returns the highest 'totalcount' value.
+    *
++   * @param \Drupal\Core\Entity\EntityTypeInterface $entity_type
++   *   The entity type.
++   *
+    * @return int
+    *   The highest 'totalcount' value.
+    */
+-  public function maxTotalCount();
++  public function maxTotalCount(EntityTypeInterface $entity_type);
++
++  /**
++   * Creates entity counter table.
++   *
++   * @param \Drupal\Core\Entity\EntityTypeInterface $entity_type
++   *   The entity type.
++   */
++  public function createTable(EntityTypeInterface $entity_type);
++
++  /**
++   * Drops entity counter table.
++   *
++   * @param \Drupal\Core\Entity\EntityTypeInterface $entity_type
++   *   The entity type.
++   */
++  public function dropTable(EntityTypeInterface $entity_type);
+
+ }
+diff --git a/core/modules/statistics/src/Tests/StatisticsTestBase.php b/core/modules/statistics/src/Tests/StatisticsTestBase.php
+index 4f530cf9cd..d4b2d32a58 100644
+--- a/core/modules/statistics/src/Tests/StatisticsTestBase.php
++++ b/core/modules/statistics/src/Tests/StatisticsTestBase.php
+@@ -47,7 +47,7 @@ protected function setUp() {
+
+     // Enable logging.
+     $this->config('statistics.settings')
+-      ->set('count_content_views', 1)
++      ->set('entity_type_ids', ['node'])
+       ->save();
+   }
+
+diff --git a/core/modules/statistics/src/Tests/Views/IntegrationTest.php b/core/modules/statistics/src/Tests/Views/IntegrationTest.php
+index 18f5581587..0f57663d08 100644
+--- a/core/modules/statistics/src/Tests/Views/IntegrationTest.php
++++ b/core/modules/statistics/src/Tests/Views/IntegrationTest.php
+@@ -58,7 +58,7 @@ protected function setUp() {
+
+     // Enable counting of content views.
+     $this->config('statistics.settings')
+-      ->set('count_content_views', 1)
++      ->set('entity_type_ids', ['node'])
+       ->save();
+
+   }
+@@ -75,7 +75,7 @@ public function testNodeCounterIntegration() {
+     global $base_url;
+     $stats_path = $base_url . '/' . drupal_get_path('module', 'statistics') . '/statistics.php';
+     $client = \Drupal::httpClient();
+-    $client->post($stats_path, ['form_params' => ['nid' => $this->node->id()]]);
++    $client->post($stats_path, ['form_params' => ['type' => 'node', 'key' => 'nid', 'id' => $this->node->id()]]);
+     $this->drupalGet('test_statistics_integration');
+
+     $expected = statistics_get($this->node->id());
+diff --git a/core/modules/statistics/statistics.install b/core/modules/statistics/statistics.install
+index deac9010a4..20e8f597d5 100644
+--- a/core/modules/statistics/statistics.install
++++ b/core/modules/statistics/statistics.install
+@@ -9,53 +9,16 @@
+  * Implements hook_uninstall().
+  */
+ function statistics_uninstall() {
++  $state = \Drupal::state();
++  $entity_type_manager = \Drupal::entityTypeManager();
++  $statistic_storage = \Drupal::service('statistics.storage');
+   // Remove states.
+-  \Drupal::state()->delete('statistics.node_counter_scale');
+-  \Drupal::state()->delete('statistics.day_timestamp');
+-}
+-
+-/**
+- * Implements hook_schema().
+- */
+-function statistics_schema() {
+-  $schema['node_counter'] = [
+-    'description' => 'Access statistics for {node}s.',
+-    'fields' => [
+-      'nid' => [
+-        'description' => 'The {node}.nid for these statistics.',
+-        'type' => 'int',
+-        'unsigned' => TRUE,
+-        'not null' => TRUE,
+-        'default' => 0,
+-      ],
+-      'totalcount' => [
+-        'description' => 'The total number of times the {node} has been viewed.',
+-        'type' => 'int',
+-        'unsigned' => TRUE,
+-        'not null' => TRUE,
+-        'default' => 0,
+-        'size' => 'big',
+-      ],
+-      'daycount' => [
+-        'description' => 'The total number of times the {node} has been viewed today.',
+-        'type' => 'int',
+-        'unsigned' => TRUE,
+-        'not null' => TRUE,
+-        'default' => 0,
+-        'size' => 'medium',
+-      ],
+-      'timestamp' => [
+-        'description' => 'The most recent time the {node} has been viewed.',
+-        'type' => 'int',
+-        'unsigned' => TRUE,
+-        'not null' => TRUE,
+-        'default' => 0,
+-      ],
+-    ],
+-    'primary key' => ['nid'],
+-  ];
+-
+-  return $schema;
++  $state->delete('statistics.day_timestamp');
++  $entity_types = \Drupal::configFactory()->get('statistics.settings')->get('entity_type_ids');
++  foreach (array_keys($entity_types) as $entity_type_id) {
++    $state->delete("statistics.{$entity_type_id}_counter_scale");
++    $statistic_storage->dropTable($entity_type_manager->getDefinition($entity_type_id));
++  }
+ }
+
+ /**
+@@ -86,3 +49,15 @@ function statistics_update_8002() {
+ function statistics_update_8300() {
+   \Drupal::configFactory()->getEditable('statistics.settings')->clear('access_log')->save();
+ }
++
++/**
++ * Replace count_content_views settings with entity_type_ids setting.
++ */
++function statistics_update_8301() {
++  $config = \Drupal::configFactory()->getEditable('statistics.settings');
++  $value = $config->get('count_content_views') ? ['node' => 'node'] : [];
++  // Remove the old count_content_views configuration setting.
++  $config->clear('count_content_views')
++  // Set the new configuration setting for entity_type_ids to the initial value.
++    ->set('entity_type_ids', $value)->save();
++}
+diff --git a/core/modules/statistics/statistics.module b/core/modules/statistics/statistics.module
+index 4d7f42a33c..70e24b3e46 100644
+--- a/core/modules/statistics/statistics.module
++++ b/core/modules/statistics/statistics.module
+@@ -39,9 +39,45 @@ function statistics_help($route_name, RouteMatchInterface $route_match) {
+  * Implements hook_ENTITY_TYPE_view() for node entities.
+  */
+ function statistics_node_view(array &$build, EntityInterface $node, EntityViewDisplayInterface $display, $view_mode) {
+-  if (!$node->isNew() && $view_mode == 'full' && node_is_page($node) && empty($node->in_preview)) {
++  if (!$node->isNew() && $view_mode === 'full' && node_is_page($node) && empty($node->in_preview)) {
+     $build['#attached']['library'][] = 'statistics/drupal.statistics';
+-    $settings = ['data' => ['nid' => $node->id()], 'url' => Url::fromUri('base:' . drupal_get_path('module', 'statistics') . '/statistics.php')->toString()];
++    $settings = [
++      'data' => [
++        'key' => 'nid',
++        'id' => $node->id(),
++        'type' => 'node',
++      ],
++      'url' => Url::fromUri('base:' . drupal_get_path('module', 'statistics') . '/statistics.php')->toString(),
++    ];
++    $build['#attached']['drupalSettings']['statistics'] = $settings;
++  }
++}
++
++/**
++ * Implements hook_ENTITY_view() for node entities.
++ */
++function statistics_entity_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
++  $entity_type_id = $entity->getEntityTypeId();
++  // @todo Remove this condition once statistics_node_view() is removed.
++  if ($entity_type_id === 'node') {
++    return;
++  }
++  $route_match = \Drupal::routeMatch();
++  $route_name = "entity.$entity_type_id.canonical";
++  if ($route_match->getRouteName() === $route_name) {
++    $page_entity = $route_match->getParameter($entity_type_id);
++  }
++  $entity_is_page = (!empty($page_entity) ? $page_entity->id() === $entity->id() : FALSE);
++  if (!$entity->isNew() && $view_mode === 'full' && $entity_is_page && empty($entity->in_preview)) {
++    $build['#attached']['library'][] = 'statistics/drupal.statistics';
++    $settings = [
++      'data' => [
++        'key' => $entity->getEntityType()->getKey('id'),
++        'id' => $entity->id(),
++        'type' => $entity_type_id,
++      ],
++      'url' => Url::fromUri('base:' . drupal_get_path('module', 'statistics') . '/statistics.php')->toString(),
++    ];
+     $build['#attached']['drupalSettings']['statistics'] = $settings;
+   }
+ }
+@@ -50,10 +86,11 @@ function statistics_node_view(array &$build, EntityInterface $node, EntityViewDi
+  * Implements hook_node_links_alter().
+  */
+ function statistics_node_links_alter(array &$links, NodeInterface $entity, array &$context) {
+-  if ($context['view_mode'] != 'rss') {
++  $entity_types = \Drupal::config('statistics.settings')->get('entity_type_ids');
++  if (in_array('node', $entity_types, TRUE) && $context['view_mode'] != 'rss') {
+     $links['#cache']['contexts'][] = 'user.permissions';
+     if (\Drupal::currentUser()->hasPermission('view post access counter')) {
+-      $statistics = \Drupal::service('statistics.storage.node')->fetchView($entity->id());
++      $statistics = \Drupal::service('statistics.storage')->fetchView($entity->getEntityType(), $entity->id());
+       if ($statistics) {
+         $statistics_links['statistics_counter']['title'] = \Drupal::translation()->formatPlural($statistics->getTotalCount(), '1 view', '@count views');
+         $links['statistics'] = [
+@@ -71,10 +108,16 @@ function statistics_node_links_alter(array &$links, NodeInterface $entity, array
+  * Implements hook_cron().
+  */
+ function statistics_cron() {
+-  $storage = \Drupal::service('statistics.storage.node');
+-  $storage->resetDayCount();
+-  $max_total_count = $storage->maxTotalCount();
+-  \Drupal::state()->set('statistics.node_counter_scale', 1.0 / max(1.0, $max_total_count));
++  $statistics_reset_count = \Drupal::service('statistics.reset_count');
++  $storage = \Drupal::service('statistics.storage');
++  $state = \Drupal::state();
++  $entity_type_manager = \Drupal::entityTypeManager();
++  $entity_types = \Drupal::configFactory()->get('statistics.settings')->get('entity_type_ids');
++  foreach (array_filter($entity_types) as $entity_type_id) {
++    $statistics_reset_count->resetDayCount($entity_type_id);
++    $max_total_count = $storage->maxTotalCount($entity_type_manager->getDefinition($entity_type_id));
++    $state->set("statistics.{$entity_type_id}_counter_scale", 1.0 / max(1.0, $max_total_count));
++  }
+ }
+
+ /**
+@@ -94,7 +137,8 @@ function statistics_cron() {
+  *   be executed correctly.
+  */
+ function statistics_title_list($dbfield, $dbrows) {
+-  if (in_array($dbfield, ['totalcount', 'daycount', 'timestamp'])) {
++  $entity_types = \Drupal::config('statistics.settings')->get('entity_type_ids');
++  if (in_array('node', $entity_types, TRUE) && in_array($dbfield, array('totalcount', 'daycount', 'timestamp'))) {
+     $query = db_select('node_field_data', 'n');
+     $query->addTag('node_access');
+     $query->join('node_counter', 's', 'n.nid = s.nid');
+@@ -120,40 +164,58 @@ function statistics_title_list($dbfield, $dbrows) {
+  * Retrieves a node's "view statistics".
+  *
+  * @deprecated in Drupal 8.2.x, will be removed before Drupal 9.0.0.
+- *   Use \Drupal::service('statistics.storage.node')->fetchView($id).
++ *   Use \Drupal::service('statistics.storage')->fetchView($entity_type, $id).
+  */
+ function statistics_get($id) {
+-  if ($id > 0) {
+-    /** @var \Drupal\statistics\StatisticsViewsResult $statistics */
+-    $statistics = \Drupal::service('statistics.storage.node')->fetchView($id);
+-
+-    // For backwards compatibility, return FALSE if an invalid node ID was
+-    // passed in.
+-    if (!($statistics instanceof StatisticsViewsResult)) {
+-      return FALSE;
+-    }
+-    return [
+-      'totalcount' => $statistics->getTotalCount(),
+-      'daycount' => $statistics->getDayCount(),
+-      'timestamp' => $statistics->getTimestamp(),
+-    ];
++  $entity_type = \Drupal::entityTypeManager()->getDefinition('node');
++  /** @var \Drupal\statistics\StatisticsViewsResult $statistics */
++  $statistics = \Drupal::service('statistics.storage')->fetchView($entity_type, $id);
++  // For backwards compatibility, return FALSE if an invalid node ID was
++  // passed in.
++  if (!($statistics instanceof StatisticsViewsResult)) {
++    return FALSE;
+   }
++  return [
++    'totalcount' => $statistics->getTotalCount(),
++    'daycount' => $statistics->getDayCount(),
++    'timestamp' => $statistics->getTimestamp(),
++  ];
+ }
+
+ /**
+  * Implements hook_ENTITY_TYPE_predelete() for node entities.
+  */
+ function statistics_node_predelete(EntityInterface $node) {
+-  // Clean up statistics table when node is deleted.
+-  $id = $node->id();
+-  return \Drupal::service('statistics.storage.node')->deleteViews($id);
++  $entity_types = \Drupal::config('statistics.settings')->get('entity_type_ids');
++  if (in_array('node', $entity_types, TRUE)) {
++    // Clean up statistics table when node is deleted.
++    \Drupal::service('statistics.storage')
++      ->deleteViews($node->getEntityType(), $node->id());
++  }
++}
++
++/**
++ * Implements hook_ENTITY_predelete() for node entities.
++ */
++function statistics_entity_predelete(EntityInterface $entity) {
++  // @todo Remove this condition once statistics_node_view() is removed.
++  if ($entity->getEntityTypeId() === 'node') {
++    return;
++  }
++  $entity_types = \Drupal::config('statistics.settings')->get('entity_type_ids');
++  if (in_array($entity->getEntityTypeId(), $entity_types, TRUE)) {
++    // Clean up statistics table when entity is deleted.
++    \Drupal::service('statistics.storage')
++      ->deleteViews($entity->getEntityType(), $entity->id());
++  }
+ }
+
+ /**
+  * Implements hook_ranking().
+  */
+ function statistics_ranking() {
+-  if (\Drupal::config('statistics.settings')->get('count_content_views')) {
++  $entity_types = \Drupal::configFactory()->get('statistics.settings')->get('entity_type_ids');
++  if (in_array('node', $entity_types, TRUE)) {
+     return [
+       'views' => [
+         'title' => t('Number of views'),
+@@ -192,8 +254,15 @@ function statistics_preprocess_block(&$variables) {
+  * to count content views.
+  */
+ function statistics_block_alter(&$definitions) {
+-  $statistics_count_content_views = \Drupal::config('statistics.settings')->get('count_content_views');
+-  if (empty($statistics_count_content_views)) {
++  $entity_types = \Drupal::config('statistics.settings')->get('entity_type_ids');
++  if (!empty($entity_types) && !in_array('node', $entity_types, TRUE)) {
+     unset($definitions['statistics_popular_block']);
+   }
+ }
++
++/**
++ * Callback for migration settings.
++ */
++function statistics_migrate_callback($source) {
++  return $source ? ['node'] : [];
++}
+diff --git a/core/modules/statistics/statistics.php b/core/modules/statistics/statistics.php
+index a43509eaf8..8090e02726 100644
+--- a/core/modules/statistics/statistics.php
++++ b/core/modules/statistics/statistics.php
+@@ -11,20 +11,32 @@
+ chdir('../../..');
+
+ $autoloader = require_once 'autoload.php';
+-
+-$kernel = DrupalKernel::createFromRequest(Request::createFromGlobals(), $autoloader, 'prod');
++$request = Request::createFromGlobals();
++$kernel = DrupalKernel::createFromRequest($request, $autoloader, 'prod');
+ $kernel->boot();
+ $container = $kernel->getContainer();
+
+-$views = $container
++$entity_types = $container
+   ->get('config.factory')
+   ->get('statistics.settings')
+-  ->get('count_content_views');
++  ->get('entity_type_ids');
++$key = filter_input(INPUT_POST, 'key', FILTER_CALLBACK, ['options' => 'statistics_validate_machine_name']);
++$id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
++$entity_type = filter_input(INPUT_POST, 'type', FILTER_CALLBACK, ['options' => 'statistics_validate_machine_name']);
++if ($key && $id && $entity_type && in_array($entity_type, $entity_types, TRUE)) {
++  $container->get('request_stack')->push($request);
++  $container->get('statistics.storage')->recordView($entity_type, $key, $id);
++}
+
+-if ($views) {
+-  $nid = filter_input(INPUT_POST, 'nid', FILTER_VALIDATE_INT);
+-  if ($nid) {
+-    $container->get('request_stack')->push(Request::createFromGlobals());
+-    $container->get('statistics.storage.node')->recordView($nid);
+-  }
++/**
++ * Validate entity type machine name.
++ *
++ * @param string $machine_name
++ *   The machine name.
++ *
++ * @return string|null
++ *   The valid machine name or NULL.
++ */
++function statistics_validate_machine_name($machine_name) {
++  return preg_match('@[^a-z0-9_]+@', $machine_name) === 0 ? $machine_name : NULL;
+ }
+diff --git a/core/modules/statistics/statistics.services.yml b/core/modules/statistics/statistics.services.yml
+index cf15573024..d746a8bf8f 100644
+--- a/core/modules/statistics/statistics.services.yml
++++ b/core/modules/statistics/statistics.services.yml
+@@ -1,6 +1,12 @@
+ services:
+-  statistics.storage.node:
+-    class: Drupal\statistics\NodeStatisticsDatabaseStorage
+-    arguments: ['@database', '@state', '@request_stack']
++  statistics.storage:
++    class: Drupal\statistics\StatisticsDatabaseStorage
++    arguments: ['@database', '@request_stack']
++    tags:
++      - { name: backend_overridable }
++
++  statistics.reset_count:
++    class: Drupal\statistics\StatisticsResetCount
++    arguments: ['@database', '@state', '@datetime.time']
+     tags:
+       - { name: backend_overridable }
+diff --git a/core/modules/statistics/statistics.views.inc b/core/modules/statistics/statistics.views.inc
+index 03e73ffcfa..de5f06c5f8 100644
+--- a/core/modules/statistics/statistics.views.inc
++++ b/core/modules/statistics/statistics.views.inc
+@@ -9,68 +9,82 @@
+  * Implements hook_views_data().
+  */
+ function statistics_views_data() {
+-  $data['node_counter']['table']['group']  = t('Content statistics');
++  $data = [];
++  $entity_type_manager = \Drupal::entityTypeManager();
++  $entity_types = \Drupal::configFactory()->get('statistics.settings')->get('entity_type_ids');
++  if (!empty($entity_types)) {
++    foreach (array_filter($entity_types) as $entity_type_id) {
++      if ($entity_type_manager->hasHandler($entity_type_id, 'views_data')) {
++        $table = $entity_type_id . '_counter';
++        $entity_type = $entity_type_manager->getDefinition($entity_type_id);
++        $base_table = $entity_type_manager->getHandler($entity_type_id, 'views_data')
++          ->getViewsTableForEntityType($entity_type);
++        $data[$table]['table']['group'] = t('@label statistics', ['@label' => $entity_type->getLabel()]);
+
+-  $data['node_counter']['table']['join'] = [
+-    'node_field_data' => [
+-      'left_field' => 'nid',
+-      'field' => 'nid',
+-    ],
+-  ];
++        $data[$table]['table']['join'] = [
++          $base_table => [
++            'left_field' => $entity_type->getKey('id'),
++            'field' => $entity_type->getKey('id'),
++          ],
++        ];
+
+-  $data['node_counter']['totalcount'] = [
+-    'title' => t('Total views'),
+-    'help' => t('The total number of times the node has been viewed.'),
+-    'field' => [
+-      'id' => 'statistics_numeric',
+-      'click sortable' => TRUE,
+-     ],
+-    'filter' => [
+-      'id' => 'numeric',
+-    ],
+-    'argument' => [
+-      'id' => 'numeric',
+-    ],
+-    'sort' => [
+-      'id' => 'standard',
+-    ],
+-  ];
++        $data[$table]['totalcount'] = [
++          'title' => t('Total views'),
++          'help' => t('The total number of times the @entity has been viewed.', ['@entity' => $entity_type->id()]),
++          'field' => [
++            'id' => 'statistics_numeric',
++            'click sortable' => TRUE,
++          ],
++          'filter' => [
++            'id' => 'numeric',
++          ],
++          'argument' => [
++            'id' => 'numeric',
++          ],
++          'sort' => [
++            'id' => 'standard',
++          ],
++        ];
+
+-  $data['node_counter']['daycount'] = [
+-    'title' => t('Views today'),
+-    'help' => t('The total number of times the node has been viewed today.'),
+-    'field' => [
+-      'id' => 'statistics_numeric',
+-      'click sortable' => TRUE,
+-     ],
+-    'filter' => [
+-      'id' => 'numeric',
+-    ],
+-    'argument' => [
+-      'id' => 'numeric',
+-    ],
+-    'sort' => [
+-      'id' => 'standard',
+-    ],
+-  ];
++        $data[$table]['daycount'] = [
++          'title' => t('Views today'),
++          'help' => t('The total number of times the @entity has been viewed today.', ['@entity' => $entity_type->id()]),
++          'field' => [
++            'id' => 'statistics_numeric',
++            'click sortable' => TRUE,
++          ],
++          'filter' => [
++            'id' => 'numeric',
++          ],
++          'argument' => [
++            'id' => 'numeric',
++          ],
++          'sort' => [
++            'id' => 'standard',
++          ],
++        ];
+
+-  $data['node_counter']['timestamp'] = [
+-    'title' => t('Most recent view'),
+-    'help' => t('The most recent time the node has been viewed.'),
+-    'field' => [
+-      'id' => 'node_counter_timestamp',
+-      'click sortable' => TRUE,
+-    ],
+-    'filter' => [
+-      'id' => 'date',
+-    ],
+-    'argument' => [
+-      'id' => 'date',
+-    ],
+-    'sort' => [
+-      'id' => 'standard',
+-    ],
+-  ];
++        $data[$table]['timestamp'] = [
++          'title' => t('Most recent view'),
++          'help' => t('The most recent time the @entity has been viewed.', ['@entity' => $entity_type->id()]),
++          'field' => [
++            // @todo replace node_counter_timestamp with entity_counter_timestamp.
++            'id' => 'node_counter_timestamp',
++            'click sortable' => TRUE,
++          ],
++          'filter' => [
++            'id' => 'date',
++          ],
++          'argument' => [
++            'id' => 'date',
++          ],
++          'sort' => [
++            'id' => 'standard',
++          ],
++        ];
++      }
++    }
++  }
+
+   return $data;
+ }
+diff --git a/core/modules/statistics/tests/src/Functional/StatisticsAdminTest.php b/core/modules/statistics/tests/src/Functional/StatisticsAdminTest.php
+index f4c22bd8a7..4d1f72408e 100644
+--- a/core/modules/statistics/tests/src/Functional/StatisticsAdminTest.php
++++ b/core/modules/statistics/tests/src/Functional/StatisticsAdminTest.php
+@@ -63,19 +63,19 @@ protected function setUp() {
+    */
+   public function testStatisticsSettings() {
+     $config = $this->config('statistics.settings');
+-    $this->assertFalse($config->get('count_content_views'), 'Count content view log is disabled by default.');
++    $this->assertFalse($config->get('entity_type_ids'), 'No entity types are enabled by default.');
+
+     // Enable counter on content view.
+-    $edit['statistics_count_content_views'] = 1;
++    $edit['entity_type_ids[node]'] = 1;
+     $this->drupalPostForm('admin/config/system/statistics', $edit, t('Save configuration'));
+     $config = $this->config('statistics.settings');
+-    $this->assertTrue($config->get('count_content_views'), 'Count content view log is enabled.');
++    $this->assertEqual($config->get('entity_type_ids'), ['node' => 'node', 'user' => 0], 'Node is enabled.');
+
+     // Hit the node.
+     $this->drupalGet('node/' . $this->testNode->id());
+     // Manually calling statistics.php, simulating ajax behavior.
+     $nid = $this->testNode->id();
+-    $post = ['nid' => $nid];
++    $post = ['type' => 'node', 'key' => 'nid', 'id' => $nid];
+     global $base_url;
+     $stats_path = $base_url . '/' . drupal_get_path('module', 'statistics') . '/statistics.php';
+     $this->client->post($stats_path, ['form_params' => $post]);
+@@ -105,12 +105,12 @@ public function testStatisticsSettings() {
+    * Tests that when a node is deleted, the node counter is deleted too.
+    */
+   public function testDeleteNode() {
+-    $this->config('statistics.settings')->set('count_content_views', 1)->save();
++    $this->config('statistics.settings')->set('entity_type_ids', ['node'])->save();
+
+     $this->drupalGet('node/' . $this->testNode->id());
+     // Manually calling statistics.php, simulating ajax behavior.
+     $nid = $this->testNode->id();
+-    $post = ['nid' => $nid];
++    $post = ['type' => 'node', 'key' => 'nid', 'id' => $nid];
+     global $base_url;
+     $stats_path = $base_url . '/' . drupal_get_path('module', 'statistics') . '/statistics.php';
+     $this->client->post($stats_path, ['form_params' => $post]);
+@@ -137,14 +137,14 @@ public function testDeleteNode() {
+    */
+   public function testExpiredLogs() {
+     $this->config('statistics.settings')
+-      ->set('count_content_views', 1)
++      ->set('entity_type_ids', ['node'])
+       ->save();
+     \Drupal::state()->set('statistics.day_timestamp', 8640000);
+
+     $this->drupalGet('node/' . $this->testNode->id());
+     // Manually calling statistics.php, simulating ajax behavior.
+     $nid = $this->testNode->id();
+-    $post = ['nid' => $nid];
++    $post = ['type' => 'node', 'key' => 'nid', 'id' => $nid];
+     global $base_url;
+     $stats_path = $base_url . '/' . drupal_get_path('module', 'statistics') . '/statistics.php';
+     $this->client->post($stats_path, ['form_params' => $post]);
+diff --git a/core/modules/statistics/tests/src/Functional/StatisticsLoggingTest.php b/core/modules/statistics/tests/src/Functional/StatisticsLoggingTest.php
+index 09565aefae..cdc79a1532 100644
+--- a/core/modules/statistics/tests/src/Functional/StatisticsLoggingTest.php
++++ b/core/modules/statistics/tests/src/Functional/StatisticsLoggingTest.php
+@@ -78,7 +78,7 @@ protected function setUp() {
+
+     // Enable access logging.
+     $this->config('statistics.settings')
+-      ->set('count_content_views', 1)
++      ->set('entity_type_ids', ['node'])
+       ->save();
+
+     // Clear the logs.
+@@ -112,17 +112,17 @@ public function testLogging() {
+     $this->drupalGet($path);
+     $settings = $this->getDrupalSettings();
+     $this->assertPattern($expected_library, 'Found statistics library JS on node page.');
+-    $this->assertIdentical($this->node->id(), $settings['statistics']['data']['nid'], 'Found statistics settings on node page.');
++    $this->assertIdentical($this->node->id(), $settings['statistics']['data']['id'], 'Found statistics settings on node page.');
+
+     // Verify the same when loading the site in a non-default language.
+     $this->drupalGet($this->language['langcode'] . '/' . $path);
+     $settings = $this->getDrupalSettings();
+     $this->assertPattern($expected_library, 'Found statistics library JS on a valid node page in a non-default language.');
+-    $this->assertIdentical($this->node->id(), $settings['statistics']['data']['nid'], 'Found statistics settings on valid node page in a non-default language.');
++    $this->assertIdentical($this->node->id(), $settings['statistics']['data']['id'], 'Found statistics settings on valid node page in a non-default language.');
+
+     // Manually call statistics.php to simulate ajax data collection behavior.
+     global $base_root;
+-    $post = ['nid' => $this->node->id()];
++    $post = ['type' => 'node', 'key' => 'nid', 'id' => $this->node->id()];
+     $this->client->post($base_root . $stats_path, ['form_params' => $post]);
+     $node_counter = statistics_get($this->node->id());
+     $this->assertIdentical($node_counter['totalcount'], '1');
+diff --git a/core/modules/statistics/tests/src/Functional/StatisticsReportsTest.php b/core/modules/statistics/tests/src/Functional/StatisticsReportsTest.php
+index edebca166c..f015993bb7 100644
+--- a/core/modules/statistics/tests/src/Functional/StatisticsReportsTest.php
++++ b/core/modules/statistics/tests/src/Functional/StatisticsReportsTest.php
+@@ -26,7 +26,7 @@ public function testPopularContentBlock() {
+     $this->drupalGet('node/' . $node->id());
+     // Manually calling statistics.php, simulating ajax behavior.
+     $nid = $node->id();
+-    $post = http_build_query(['nid' => $nid]);
++    $post = http_build_query(['type' => 'node', 'key' => 'nid', 'id' => $nid]);
+     $headers = ['Content-Type' => 'application/x-www-form-urlencoded'];
+     global $base_url;
+     $stats_path = $base_url . '/' . drupal_get_path('module', 'statistics') . '/statistics.php';
+diff --git a/core/modules/statistics/tests/src/Functional/StatisticsTestBase.php b/core/modules/statistics/tests/src/Functional/StatisticsTestBase.php
+index 3be95e2ab6..16f8bf1b6c 100644
+--- a/core/modules/statistics/tests/src/Functional/StatisticsTestBase.php
++++ b/core/modules/statistics/tests/src/Functional/StatisticsTestBase.php
+@@ -44,7 +44,7 @@ protected function setUp() {
+
+     // Enable logging.
+     $this->config('statistics.settings')
+-      ->set('count_content_views', 1)
++      ->set('entity_type_ids', ['node'])
+       ->save();
+   }
+
+diff --git a/core/modules/statistics/tests/src/Functional/StatisticsTokenReplaceTest.php b/core/modules/statistics/tests/src/Functional/StatisticsTokenReplaceTest.php
+index 8402d221af..f2d024aca5 100644
+--- a/core/modules/statistics/tests/src/Functional/StatisticsTokenReplaceTest.php
++++ b/core/modules/statistics/tests/src/Functional/StatisticsTokenReplaceTest.php
+@@ -23,8 +23,8 @@ public function testStatisticsTokenReplacement() {
+     // Hit the node.
+     $this->drupalGet('node/' . $node->id());
+     // Manually calling statistics.php, simulating ajax behavior.
+-    $nid = $node->id();
+-    $post = http_build_query(['nid' => $nid]);
++    $id = $node->id();
++    $post = http_build_query(['type' => 'node', 'key' => 'nid', 'id' => $id]);
+     $headers = ['Content-Type' => 'application/x-www-form-urlencoded'];
+     global $base_url;
+     $stats_path = $base_url . '/' . drupal_get_path('module', 'statistics') . '/statistics.php';
+diff --git a/core/modules/statistics/tests/src/Kernel/Migrate/d6/MigrateStatisticsConfigsTest.php b/core/modules/statistics/tests/src/Kernel/Migrate/d6/MigrateStatisticsConfigsTest.php
+index a9c18a733b..0c59024639 100644
+--- a/core/modules/statistics/tests/src/Kernel/Migrate/d6/MigrateStatisticsConfigsTest.php
++++ b/core/modules/statistics/tests/src/Kernel/Migrate/d6/MigrateStatisticsConfigsTest.php
+@@ -32,7 +32,7 @@ protected function setUp() {
+    */
+   public function testStatisticsSettings() {
+     $config = $this->config('statistics.settings');
+-    $this->assertSame(1, $config->get('count_content_views'));
++    $this->assertSame(['node'], $config->get('entity_type_ids'));
+     $this->assertConfigSchema(\Drupal::service('config.typed'), 'statistics.settings', $config->get());
+   }
+
+diff --git a/core/modules/statistics/tests/src/Kernel/Migrate/d7/MigrateStatisticsConfigsTest.php b/core/modules/statistics/tests/src/Kernel/Migrate/d7/MigrateStatisticsConfigsTest.php
+index 36e270d8f6..0fdfbb0128 100644
+--- a/core/modules/statistics/tests/src/Kernel/Migrate/d7/MigrateStatisticsConfigsTest.php
++++ b/core/modules/statistics/tests/src/Kernel/Migrate/d7/MigrateStatisticsConfigsTest.php
+@@ -32,7 +32,7 @@ protected function setUp() {
+    */
+   public function testStatisticsSettings() {
+     $config = $this->config('statistics.settings');
+-    $this->assertIdentical(1, $config->get('count_content_views'));
++    $this->assertIdentical(['node'], $config->get('entity_type_ids'));
+     $this->assertConfigSchema(\Drupal::service('config.typed'), 'statistics.settings', $config->get());
+   }
