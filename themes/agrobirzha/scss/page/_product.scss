@@ -1,0 +1,28 @@
+.path-product{
+  .field--name-field-izobrazenie{
+    .field--item{
+      margin-bottom: 10px;
+      @include respond-to(xs) {
+        display: inline-block;
+      }
+      &:first-child{
+        width: 70%;
+        float: right;
+        @include respond-to(xs) {
+          width: 100%;
+          float: none;
+        }
+      }
+      img{
+        margin: 0 auto;
+      }
+    }
+  }
+  .tovar-images{
+    border-right: 1px dotted #000;
+    @include respond-to(xs) {
+      border-right: none;
+      border-bottom: 1px dotted #000;
+    }
+  }
+}

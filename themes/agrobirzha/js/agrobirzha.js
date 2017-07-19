@@ -2,13 +2,13 @@
 
   Drupal.behaviors.add_class_to_search_form = {
     attach: function(context, settings) {
-      $('#edit-submit-customsearch').once().addClass("icon glyphicon glyphicon-search");
+      $('#edit-submit-customsearch').addClass("icon glyphicon glyphicon-search");
     }
   };
 
   Drupal.behaviors.mobile_menu = {
     attach: function(context, settings) {
-      $('.sidebarBtn').once().click(function(){
+      $('.sidebarBtn').click(function(){
         $('.sidebar').toggleClass('menu-active');
         $('.sidebarBtn').toggleClass('toggle');
       });
@@ -54,10 +54,19 @@
         slidesToScroll: 1,
         prevArrow: '<img src="/themes/agrobirzha/images/left.png" class="slick-prev">',
         nextArrow: '<img src="/themes/agrobirzha/images/right.png" class="slick-next">',
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              arrows: false,
+              slidesToShow: 5
+            }
+          },
+        ]
       });
     }
   };
-    Drupal.behaviors.slider_product_page = {
+    /*Drupal.behaviors.slider_product_page = {
     attach: function(context, settings) {
       $('.tovar-images .field--name-field-izobrazenie').once().slick({
         autoplay: true,
@@ -65,5 +74,5 @@
         arrows: false,
       });
     }
-  };
+  };*/
 })(jQuery);

@@ -5,6 +5,9 @@
   background-position: bottom center;
   background-size: cover;
   min-height: 200px;
+  @include respond-to(xs) {
+    min-height: 215px;
+  }
 }
 .header{
   height: 150px;
@@ -24,6 +27,9 @@
     padding: 0 0 5px;
     margin-top: 12px;
     text-transform: uppercase;
+    @include respond-to(xs) {
+      font-size: 22px;
+    }
   }
   .navbar-text{
     color: #b59f83;
@@ -37,6 +43,8 @@
     @include respond-to(xs) {
       left: 0;
       top: 0;
+      font-size: 10px;
+      float: left;
     }
   }
 }

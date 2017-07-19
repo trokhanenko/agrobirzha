@@ -4,6 +4,9 @@
     font-size: 17px;
     padding: 0;
     margin: 0;
+    @include respond-to(md) {
+      font-size: 14px;
+    }
   }
   .view{
     margin-top: 10px;

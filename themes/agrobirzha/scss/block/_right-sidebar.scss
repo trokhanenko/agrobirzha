@@ -13,6 +13,9 @@
     margin-top: 0px;
     padding: 10px;
     text-transform: uppercase;
+    @include respond-to(md) {
+      font-size: 16px;
+    }
   }
 
   #block-katalogtovariv{
@@ -67,10 +70,13 @@
       width: 100%;
       border-radius: 0;
     }
-    #edit-actions, #edit-actions--2 {
+    #edit-actions, #edit-actions--2, #edit-actions--3 {
       position: absolute;
       top: 50px;
       right: 2px;
+      @include respond-to(xs) {
+        top: 54px;
+      }
       #edit-submit-customsearch {
         padding: 0 5px;
         margin: 0;

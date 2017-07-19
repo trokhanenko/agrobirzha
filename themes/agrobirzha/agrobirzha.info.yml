@@ -18,5 +18,5 @@ libraries:
   - 'agrobirzha/bootstrap-scripts'
   - 'agrobirzha/google.maps'
   - 'agrobirzha/slick'
-  - 'agrobirzha/readmore'
+  - 'agrobirzha/colorbox'
   - 'agrobirzha/custom'

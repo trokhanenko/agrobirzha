@@ -15,7 +15,7 @@ $icon-font-path: '../bootstrap/assets/fonts/bootstrap/';
 
 /*MEDIA ----------------*/
 $small: 768px;
-$large: 992px;
+$large: 1025px;
 @mixin respond-to($media) {
   @if $media == xs {
     @media only screen and (max-width: $small) { @content; }

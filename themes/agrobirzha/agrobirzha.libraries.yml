@@ -33,14 +33,12 @@ slick:
   dependencies:
     - core/jquery
 
-readmore:
-  js:
-    http://jedfoster.com/js/readmore.min.js: { minified: true }
-  dependencies:
-    - core/jquery
-
 custom:
   js:
     /themes/agrobirzha/js/agrobirzha.js: {}
   dependencies:
     - core/jquery
+
+colorbox:
+  js:
+    /libraries/colorbox/jquery.colorbox-min.js: {}

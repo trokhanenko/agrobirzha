@@ -10,8 +10,10 @@ dependencies:
     - field.field.commerce_product.obavlenie.field_type_service
     - field.field.commerce_product.obavlenie.stores
     - field.field.commerce_product.obavlenie.variations
+    - image.style.large
+    - image.style.thumbnail
   module:
-    - image
+    - colorbox
     - options
     - text
 id: commerce_product.obavlenie.default
@@ -30,10 +32,15 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: ''
-      image_link: ''
+      colorbox_node_style: thumbnail
+      colorbox_node_style_first: large
+      colorbox_image_style: ''
+      colorbox_gallery: post
+      colorbox_gallery_custom: ''
+      colorbox_caption: auto
+      colorbox_caption_custom: ''
     third_party_settings: {  }
-    type: image
+    type: colorbox
     region: content
   field_product:
     weight: 1

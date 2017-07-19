@@ -12,6 +12,11 @@
         background: #fff;
         color: #3d0000;
       }
+      @include respond-to(md) {
+        padding-left: 3px;
+        padding-right: 3px;
+        margin-right: 2px;
+      }
     }
     .is-active{
       border-top-left-radius: 5px;
@@ -19,5 +24,6 @@
       background: #fff;
       color: #3d0000;
     }
+
   }
 }

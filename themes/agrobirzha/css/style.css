@@ -9721,6 +9721,54 @@ a {
   font-style: italic;
 }
 
+/* line 3, ../scss/page/_product.scss */
+.path-product .field--name-field-izobrazenie .field--item {
+  margin-bottom: 10px;
+}
+@media only screen and (max-width: 768px) {
+  /* line 3, ../scss/page/_product.scss */
+  .path-product .field--name-field-izobrazenie .field--item {
+    display: inline-block;
+  }
+}
+/* line 8, ../scss/page/_product.scss */
+.path-product .field--name-field-izobrazenie .field--item:first-child {
+  width: 70%;
+  float: right;
+}
+@media only screen and (max-width: 768px) {
+  /* line 8, ../scss/page/_product.scss */
+  .path-product .field--name-field-izobrazenie .field--item:first-child {
+    width: 100%;
+    float: none;
+  }
+}
+/* line 16, ../scss/page/_product.scss */
+.path-product .field--name-field-izobrazenie .field--item img {
+  margin: 0 auto;
+}
+/* line 21, ../scss/page/_product.scss */
+.path-product .tovar-images {
+  border-right: 1px dotted #000;
+}
+@media only screen and (max-width: 768px) {
+  /* line 21, ../scss/page/_product.scss */
+  .path-product .tovar-images {
+    border-right: none;
+    border-bottom: 1px dotted #000;
+  }
+}
+
+/* line 1, ../scss/page/_order.scss */
+.order-total-line {
+  padding: 0;
+}
+
+/* line 4, ../scss/page/_order.scss */
+.order-total-line-label {
+  width: 50%;
+}
+
 @media only screen and (max-width: 768px) {
   /* line 1, ../scss/menu/_sidebar.scss */
   .sidebar {
@@ -9831,9 +9879,21 @@ a {
   text-decoration: none;
   text-transform: uppercase;
 }
-/* line 10, ../scss/block/_cart.scss */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* line 4, ../scss/block/_cart.scss */
+  .cart--cart-block a {
+    font-size: 12px;
+  }
+}
+/* line 13, ../scss/block/_cart.scss */
 .cart--cart-block .cart-block--summary__icon img {
   width: 45px;
+}
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* line 13, ../scss/block/_cart.scss */
+  .cart--cart-block .cart-block--summary__icon img {
+    width: 30px;
+  }
 }
 
 /* line 2, ../scss/block/_comment.scss */
@@ -9888,18 +9948,24 @@ a {
   background-size: cover;
   min-height: 200px;
 }
+@media only screen and (max-width: 768px) {
+  /* line 1, ../scss/block/_header.scss */
+  .top {
+    min-height: 215px;
+  }
+}
 
-/* line 9, ../scss/block/_header.scss */
+/* line 12, ../scss/block/_header.scss */
 .header {
   height: 150px;
   padding-top: 15px;
 }
-/* line 12, ../scss/block/_header.scss */
+/* line 15, ../scss/block/_header.scss */
 .header .logo {
   display: block;
   float: left;
 }
-/* line 16, ../scss/block/_header.scss */
+/* line 19, ../scss/block/_header.scss */
 .header .navbar-brand {
   border-bottom: 1px dotted #736455;
   color: #d7d7d7;
@@ -9912,7 +9978,13 @@ a {
   margin-top: 12px;
   text-transform: uppercase;
 }
-/* line 28, ../scss/block/_header.scss */
+@media only screen and (max-width: 768px) {
+  /* line 19, ../scss/block/_header.scss */
+  .header .navbar-brand {
+    font-size: 22px;
+  }
+}
+/* line 34, ../scss/block/_header.scss */
 .header .navbar-text {
   color: #b59f83;
   display: block;
@@ -9924,239 +9996,293 @@ a {
   width: auto;
 }
 @media only screen and (max-width: 768px) {
-  /* line 28, ../scss/block/_header.scss */
+  /* line 34, ../scss/block/_header.scss */
   .header .navbar-text {
     left: 0;
     top: 0;
+    font-size: 10px;
+    float: left;
   }
 }
 
-/* line 6, ../scss/block/_frontblock.scss */
+/* line 8, ../scss/block/_frontblock.scss */
 .path-frontpage .view,
 .path-price .view,
 .path-posts .view,
 .path-taxonomy .view,
-.user-logged-in .view {
+.path-cart .view,
+.user-logged-in .view,
+.path-checkout .view {
   margin-top: 20px;
 }
-/* line 8, ../scss/block/_frontblock.scss */
+/* line 10, ../scss/block/_frontblock.scss */
 .path-frontpage .view .view-header,
 .path-price .view .view-header,
 .path-posts .view .view-header,
 .path-taxonomy .view .view-header,
-.user-logged-in .view .view-header {
+.path-cart .view .view-header,
+.user-logged-in .view .view-header,
+.path-checkout .view .view-header {
   margin-bottom: 10px;
 }
 @media only screen and (max-width: 768px) {
-  /* line 8, ../scss/block/_frontblock.scss */
+  /* line 10, ../scss/block/_frontblock.scss */
   .path-frontpage .view .view-header,
   .path-price .view .view-header,
   .path-posts .view .view-header,
   .path-taxonomy .view .view-header,
-  .user-logged-in .view .view-header {
+  .path-cart .view .view-header,
+  .user-logged-in .view .view-header,
+  .path-checkout .view .view-header {
     text-align: center;
   }
 }
-/* line 13, ../scss/block/_frontblock.scss */
+/* line 15, ../scss/block/_frontblock.scss */
 .path-frontpage .view .view-header h3,
 .path-price .view .view-header h3,
 .path-posts .view .view-header h3,
 .path-taxonomy .view .view-header h3,
-.user-logged-in .view .view-header h3 {
+.path-cart .view .view-header h3,
+.user-logged-in .view .view-header h3,
+.path-checkout .view .view-header h3 {
   color: #67440c;
   width: auto;
   display: inline-block;
   margin: 0;
   font-family: none;
 }
-/* line 20, ../scss/block/_frontblock.scss */
+/* line 22, ../scss/block/_frontblock.scss */
 .path-frontpage .view .view-header span,
 .path-price .view .view-header span,
 .path-posts .view .view-header span,
 .path-taxonomy .view .view-header span,
-.user-logged-in .view .view-header span {
+.path-cart .view .view-header span,
+.user-logged-in .view .view-header span,
+.path-checkout .view .view-header span {
   color: #67440c;
   vertical-align: top;
   font-size: 12px;
 }
-/* line 25, ../scss/block/_frontblock.scss */
+/* line 27, ../scss/block/_frontblock.scss */
 .path-frontpage .view .view-header .links,
 .path-price .view .view-header .links,
 .path-posts .view .view-header .links,
 .path-taxonomy .view .view-header .links,
-.user-logged-in .view .view-header .links {
+.path-cart .view .view-header .links,
+.user-logged-in .view .view-header .links,
+.path-checkout .view .view-header .links {
   float: right;
 }
 @media only screen and (max-width: 768px) {
-  /* line 25, ../scss/block/_frontblock.scss */
+  /* line 27, ../scss/block/_frontblock.scss */
   .path-frontpage .view .view-header .links,
   .path-price .view .view-header .links,
   .path-posts .view .view-header .links,
   .path-taxonomy .view .view-header .links,
-  .user-logged-in .view .view-header .links {
+  .path-cart .view .view-header .links,
+  .user-logged-in .view .view-header .links,
+  .path-checkout .view .view-header .links {
     float: none;
     text-align: center;
   }
 }
-/* line 34, ../scss/block/_frontblock.scss */
+/* line 36, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockprice-partners-block-2,
 .path-price .block-views-blockprice-partners-block-2,
 .path-posts .block-views-blockprice-partners-block-2,
 .path-taxonomy .block-views-blockprice-partners-block-2,
-.user-logged-in .block-views-blockprice-partners-block-2 {
+.path-cart .block-views-blockprice-partners-block-2,
+.user-logged-in .block-views-blockprice-partners-block-2,
+.path-checkout .block-views-blockprice-partners-block-2 {
   display: none;
 }
-/* line 36, ../scss/block/_frontblock.scss */
+/* line 38, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockprice-partners-block-2 .col,
 .path-price .block-views-blockprice-partners-block-2 .col,
 .path-posts .block-views-blockprice-partners-block-2 .col,
 .path-taxonomy .block-views-blockprice-partners-block-2 .col,
-.user-logged-in .block-views-blockprice-partners-block-2 .col {
+.path-cart .block-views-blockprice-partners-block-2 .col,
+.user-logged-in .block-views-blockprice-partners-block-2 .col,
+.path-checkout .block-views-blockprice-partners-block-2 .col {
   text-align: center;
   border-right: 1px dotted #67440c;
   margin-bottom: 10px;
 }
-/* line 40, ../scss/block/_frontblock.scss */
+/* line 42, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockprice-partners-block-2 .col:nth-child(2n),
 .path-price .block-views-blockprice-partners-block-2 .col:nth-child(2n),
 .path-posts .block-views-blockprice-partners-block-2 .col:nth-child(2n),
 .path-taxonomy .block-views-blockprice-partners-block-2 .col:nth-child(2n),
-.user-logged-in .block-views-blockprice-partners-block-2 .col:nth-child(2n) {
+.path-cart .block-views-blockprice-partners-block-2 .col:nth-child(2n),
+.user-logged-in .block-views-blockprice-partners-block-2 .col:nth-child(2n),
+.path-checkout .block-views-blockprice-partners-block-2 .col:nth-child(2n) {
   background: #efebe8;
 }
-/* line 43, ../scss/block/_frontblock.scss */
+/* line 45, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockprice-partners-block-2 .col:last-child,
 .path-price .block-views-blockprice-partners-block-2 .col:last-child,
 .path-posts .block-views-blockprice-partners-block-2 .col:last-child,
 .path-taxonomy .block-views-blockprice-partners-block-2 .col:last-child,
-.user-logged-in .block-views-blockprice-partners-block-2 .col:last-child {
+.path-cart .block-views-blockprice-partners-block-2 .col:last-child,
+.user-logged-in .block-views-blockprice-partners-block-2 .col:last-child,
+.path-checkout .block-views-blockprice-partners-block-2 .col:last-child {
   border-right: none;
 }
-/* line 47, ../scss/block/_frontblock.scss */
+/* line 49, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockprice-partners-block-2 .col .views-field:nth-child(2n),
 .path-price .block-views-blockprice-partners-block-2 .col .views-field:nth-child(2n),
 .path-posts .block-views-blockprice-partners-block-2 .col .views-field:nth-child(2n),
 .path-taxonomy .block-views-blockprice-partners-block-2 .col .views-field:nth-child(2n),
-.user-logged-in .block-views-blockprice-partners-block-2 .col .views-field:nth-child(2n) {
+.path-cart .block-views-blockprice-partners-block-2 .col .views-field:nth-child(2n),
+.user-logged-in .block-views-blockprice-partners-block-2 .col .views-field:nth-child(2n),
+.path-checkout .block-views-blockprice-partners-block-2 .col .views-field:nth-child(2n) {
   color: #67440c;
 }
-/* line 53, ../scss/block/_frontblock.scss */
+/* line 55, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockposts-block-2,
 .path-price .block-views-blockposts-block-2,
 .path-posts .block-views-blockposts-block-2,
 .path-taxonomy .block-views-blockposts-block-2,
-.user-logged-in .block-views-blockposts-block-2 {
+.path-cart .block-views-blockposts-block-2,
+.user-logged-in .block-views-blockposts-block-2,
+.path-checkout .block-views-blockposts-block-2 {
   display: none;
 }
-/* line 55, ../scss/block/_frontblock.scss */
+/* line 57, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockposts-block-2 .col,
 .path-price .block-views-blockposts-block-2 .col,
 .path-posts .block-views-blockposts-block-2 .col,
 .path-taxonomy .block-views-blockposts-block-2 .col,
-.user-logged-in .block-views-blockposts-block-2 .col {
+.path-cart .block-views-blockposts-block-2 .col,
+.user-logged-in .block-views-blockposts-block-2 .col,
+.path-checkout .block-views-blockposts-block-2 .col {
   text-align: center;
   border-right: 1px dotted #67440c;
 }
-/* line 58, ../scss/block/_frontblock.scss */
+/* line 60, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockposts-block-2 .col:nth-child(2n),
 .path-price .block-views-blockposts-block-2 .col:nth-child(2n),
 .path-posts .block-views-blockposts-block-2 .col:nth-child(2n),
 .path-taxonomy .block-views-blockposts-block-2 .col:nth-child(2n),
-.user-logged-in .block-views-blockposts-block-2 .col:nth-child(2n) {
+.path-cart .block-views-blockposts-block-2 .col:nth-child(2n),
+.user-logged-in .block-views-blockposts-block-2 .col:nth-child(2n),
+.path-checkout .block-views-blockposts-block-2 .col:nth-child(2n) {
   background: #efebe8;
 }
-/* line 61, ../scss/block/_frontblock.scss */
+/* line 63, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockposts-block-2 .col:last-child,
 .path-price .block-views-blockposts-block-2 .col:last-child,
 .path-posts .block-views-blockposts-block-2 .col:last-child,
 .path-taxonomy .block-views-blockposts-block-2 .col:last-child,
-.user-logged-in .block-views-blockposts-block-2 .col:last-child {
+.path-cart .block-views-blockposts-block-2 .col:last-child,
+.user-logged-in .block-views-blockposts-block-2 .col:last-child,
+.path-checkout .block-views-blockposts-block-2 .col:last-child {
   border-right: none;
 }
-/* line 65, ../scss/block/_frontblock.scss */
+/* line 67, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockposts-block-2 .col .views-field:nth-child(2n),
 .path-price .block-views-blockposts-block-2 .col .views-field:nth-child(2n),
 .path-posts .block-views-blockposts-block-2 .col .views-field:nth-child(2n),
 .path-taxonomy .block-views-blockposts-block-2 .col .views-field:nth-child(2n),
-.user-logged-in .block-views-blockposts-block-2 .col .views-field:nth-child(2n) {
+.path-cart .block-views-blockposts-block-2 .col .views-field:nth-child(2n),
+.user-logged-in .block-views-blockposts-block-2 .col .views-field:nth-child(2n),
+.path-checkout .block-views-blockposts-block-2 .col .views-field:nth-child(2n) {
   color: #67440c;
 }
-/* line 71, ../scss/block/_frontblock.scss */
+/* line 73, ../scss/block/_frontblock.scss */
 .path-frontpage thead,
 .path-price thead,
 .path-posts thead,
 .path-taxonomy thead,
-.user-logged-in thead {
+.path-cart thead,
+.user-logged-in thead,
+.path-checkout thead {
   font-family: none;
   background: #67440c;
   color: #fff;
 }
-/* line 75, ../scss/block/_frontblock.scss */
+/* line 77, ../scss/block/_frontblock.scss */
 .path-frontpage thead th,
 .path-price thead th,
 .path-posts thead th,
 .path-taxonomy thead th,
-.user-logged-in thead th {
+.path-cart thead th,
+.user-logged-in thead th,
+.path-checkout thead th {
   border-right: 1px solid #fff;
 }
-/* line 77, ../scss/block/_frontblock.scss */
+/* line 79, ../scss/block/_frontblock.scss */
 .path-frontpage thead th:last-child,
 .path-price thead th:last-child,
 .path-posts thead th:last-child,
 .path-taxonomy thead th:last-child,
-.user-logged-in thead th:last-child {
+.path-cart thead th:last-child,
+.user-logged-in thead th:last-child,
+.path-checkout thead th:last-child {
   border-right: none;
 }
-/* line 81, ../scss/block/_frontblock.scss */
+/* line 83, ../scss/block/_frontblock.scss */
 .path-frontpage thead a,
 .path-price thead a,
 .path-posts thead a,
 .path-taxonomy thead a,
-.user-logged-in thead a {
+.path-cart thead a,
+.user-logged-in thead a,
+.path-checkout thead a {
   color: #fff;
 }
-/* line 86, ../scss/block/_frontblock.scss */
+/* line 88, ../scss/block/_frontblock.scss */
 .path-frontpage tbody a,
 .path-price tbody a,
 .path-posts tbody a,
 .path-taxonomy tbody a,
-.user-logged-in tbody a {
+.path-cart tbody a,
+.user-logged-in tbody a,
+.path-checkout tbody a {
   color: #000;
   cursor: pointer;
 }
-/* line 91, ../scss/block/_frontblock.scss */
+/* line 93, ../scss/block/_frontblock.scss */
 .path-frontpage tbody tr:nth-child(2n),
 .path-price tbody tr:nth-child(2n),
 .path-posts tbody tr:nth-child(2n),
 .path-taxonomy tbody tr:nth-child(2n),
-.user-logged-in tbody tr:nth-child(2n) {
+.path-cart tbody tr:nth-child(2n),
+.user-logged-in tbody tr:nth-child(2n),
+.path-checkout tbody tr:nth-child(2n) {
   background: #efebe8;
 }
-/* line 94, ../scss/block/_frontblock.scss */
+/* line 96, ../scss/block/_frontblock.scss */
 .path-frontpage tbody tr:hover,
 .path-price tbody tr:hover,
 .path-posts tbody tr:hover,
 .path-taxonomy tbody tr:hover,
-.user-logged-in tbody tr:hover {
+.path-cart tbody tr:hover,
+.user-logged-in tbody tr:hover,
+.path-checkout tbody tr:hover {
   background: #efebe8;
 }
-/* line 97, ../scss/block/_frontblock.scss */
+/* line 99, ../scss/block/_frontblock.scss */
 .path-frontpage tbody tr td,
 .path-price tbody tr td,
 .path-posts tbody tr td,
 .path-taxonomy tbody tr td,
-.user-logged-in tbody tr td {
+.path-cart tbody tr td,
+.user-logged-in tbody tr td,
+.path-checkout tbody tr td {
   border-right: 1px solid #efebe7;
 }
-/* line 99, ../scss/block/_frontblock.scss */
+/* line 101, ../scss/block/_frontblock.scss */
 .path-frontpage tbody tr td:last-child,
 .path-price tbody tr td:last-child,
 .path-posts tbody tr td:last-child,
 .path-taxonomy tbody tr td:last-child,
-.user-logged-in tbody tr td:last-child {
+.path-cart tbody tr td:last-child,
+.user-logged-in tbody tr td:last-child,
+.path-checkout tbody tr td:last-child {
   border-right: none;
 }
-/* line 104, ../scss/block/_frontblock.scss */
+/* line 106, ../scss/block/_frontblock.scss */
 .path-frontpage tbody .views-field-created,
 .path-frontpage tbody .views-field-type,
 .path-frontpage tbody .views-field-price,
@@ -10169,17 +10295,25 @@ a {
 .path-taxonomy tbody .views-field-created,
 .path-taxonomy tbody .views-field-type,
 .path-taxonomy tbody .views-field-price,
+.path-cart tbody .views-field-created,
+.path-cart tbody .views-field-type,
+.path-cart tbody .views-field-price,
 .user-logged-in tbody .views-field-created,
 .user-logged-in tbody .views-field-type,
-.user-logged-in tbody .views-field-price {
+.user-logged-in tbody .views-field-price,
+.path-checkout tbody .views-field-created,
+.path-checkout tbody .views-field-type,
+.path-checkout tbody .views-field-price {
   color: #8c652d;
 }
-/* line 110, ../scss/block/_frontblock.scss */
+/* line 112, ../scss/block/_frontblock.scss */
 .path-frontpage .all-prices,
 .path-price .all-prices,
 .path-posts .all-prices,
 .path-taxonomy .all-prices,
-.user-logged-in .all-prices {
+.path-cart .all-prices,
+.user-logged-in .all-prices,
+.path-checkout .all-prices {
   height: 23px;
   background: #c9ba9b;
   background: url(/modules/custom/maps_filter/images/ellipse-active.png) no-repeat 5px center #c9ba9b;
@@ -10190,22 +10324,26 @@ a {
   display: inline-block;
   line-height: 20px;
 }
-/* line 120, ../scss/block/_frontblock.scss */
+/* line 122, ../scss/block/_frontblock.scss */
 .path-frontpage .all-prices:hover,
 .path-price .all-prices:hover,
 .path-posts .all-prices:hover,
 .path-taxonomy .all-prices:hover,
-.user-logged-in .all-prices:hover {
+.path-cart .all-prices:hover,
+.user-logged-in .all-prices:hover,
+.path-checkout .all-prices:hover {
   color: #603b00;
   background: url(/modules/custom/maps_filter/images/ellipse-active.png) no-repeat 5px center #c9ba9b;
 }
 @media only screen and (max-width: 768px) {
-  /* line 110, ../scss/block/_frontblock.scss */
+  /* line 112, ../scss/block/_frontblock.scss */
   .path-frontpage .all-prices,
   .path-price .all-prices,
   .path-posts .all-prices,
   .path-taxonomy .all-prices,
-  .user-logged-in .all-prices {
+  .path-cart .all-prices,
+  .user-logged-in .all-prices,
+  .path-checkout .all-prices {
     font-size: 12px;
   }
 }
@@ -10224,7 +10362,7 @@ a {
 /* line 8, ../scss/block/_footer.scss */
 .footer li a {
   color: #fff;
-  padding: 0 15px;
+  padding: 0;
   float: left;
 }
 /* line 12, ../scss/block/_footer.scss */
@@ -10368,29 +10506,35 @@ a {
   padding: 0;
   margin: 0;
 }
-/* line 8, ../scss/block/_news.scss */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* line 2, ../scss/block/_news.scss */
+  .block-views-blockblock-with-news-block-1 .block-title {
+    font-size: 14px;
+  }
+}
+/* line 11, ../scss/block/_news.scss */
 .block-views-blockblock-with-news-block-1 .view {
   margin-top: 10px;
   text-align: center;
 }
-/* line 11, ../scss/block/_news.scss */
+/* line 14, ../scss/block/_news.scss */
 .block-views-blockblock-with-news-block-1 .view .views-row {
   margin-top: 10px;
 }
-/* line 14, ../scss/block/_news.scss */
+/* line 17, ../scss/block/_news.scss */
 .block-views-blockblock-with-news-block-1 .view .views-field-title {
   margin-top: 5px;
 }
-/* line 17, ../scss/block/_news.scss */
+/* line 20, ../scss/block/_news.scss */
 .block-views-blockblock-with-news-block-1 .view .views-field-field-date {
   color: #b2a595;
   font-size: 12px;
 }
-/* line 22, ../scss/block/_news.scss */
+/* line 25, ../scss/block/_news.scss */
 .block-views-blockblock-with-news-block-1 a {
   color: #000;
 }
-/* line 25, ../scss/block/_news.scss */
+/* line 28, ../scss/block/_news.scss */
 .block-views-blockblock-with-news-block-1 img {
   width: 100%;
   box-shadow: 3px 3px #b3b3b3;
@@ -10450,52 +10594,58 @@ a {
   padding: 10px;
   text-transform: uppercase;
 }
-/* line 18, ../scss/block/_right-sidebar.scss */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* line 8, ../scss/block/_right-sidebar.scss */
+  .well h2 {
+    font-size: 16px;
+  }
+}
+/* line 21, ../scss/block/_right-sidebar.scss */
 .well #block-katalogtovariv {
   border: 1px solid #b4a68a;
   background: #f9f7f4;
   margin-bottom: 20px;
 }
-/* line 22, ../scss/block/_right-sidebar.scss */
+/* line 25, ../scss/block/_right-sidebar.scss */
 .well #block-katalogtovariv .nav {
   padding-left: 10px;
 }
-/* line 24, ../scss/block/_right-sidebar.scss */
+/* line 27, ../scss/block/_right-sidebar.scss */
 .well #block-katalogtovariv .nav a {
   color: #000;
   background: url(/themes/agrobirzha/images/ellipse-static.png) no-repeat left center;
   padding-top: 5px;
   padding-bottom: 5px;
 }
-/* line 29, ../scss/block/_right-sidebar.scss */
+/* line 32, ../scss/block/_right-sidebar.scss */
 .well #block-katalogtovariv .nav a:hover {
   background: url(/themes/agrobirzha/images/ellipse-active.png) no-repeat left center;
   cursor: pointer;
 }
-/* line 36, ../scss/block/_right-sidebar.scss */
+/* line 39, ../scss/block/_right-sidebar.scss */
 .well .block-simple-block-example {
   border: 1px solid #b4a68a;
   background: #f9f7f4;
 }
-/* line 39, ../scss/block/_right-sidebar.scss */
+/* line 42, ../scss/block/_right-sidebar.scss */
 .well .block-simple-block-example #feedback-form {
   padding: 0 10px;
 }
-/* line 41, ../scss/block/_right-sidebar.scss */
+/* line 44, ../scss/block/_right-sidebar.scss */
 .well .block-simple-block-example #feedback-form .form-control {
   border-radius: 0;
 }
-/* line 44, ../scss/block/_right-sidebar.scss */
+/* line 47, ../scss/block/_right-sidebar.scss */
 .well .block-simple-block-example #feedback-form button {
   width: 100%;
   border-radius: 0;
   margin-bottom: 10px;
 }
-/* line 52, ../scss/block/_right-sidebar.scss */
+/* line 55, ../scss/block/_right-sidebar.scss */
 .well .block-views-exposed-filter-blockcustomsearch-page-1 .form--inline {
   position: relative;
 }
-/* line 55, ../scss/block/_right-sidebar.scss */
+/* line 58, ../scss/block/_right-sidebar.scss */
 .well .block-views-exposed-filter-blockcustomsearch-page-1 .control-label {
   display: block;
   background: linear-gradient(to top, #cec0a4 0%, #afa186 100%);
@@ -10507,19 +10657,25 @@ a {
   padding: 8px 10px;
   text-transform: uppercase;
 }
-/* line 66, ../scss/block/_right-sidebar.scss */
+/* line 69, ../scss/block/_right-sidebar.scss */
 .well .block-views-exposed-filter-blockcustomsearch-page-1 .form-control {
   width: 100%;
   border-radius: 0;
 }
-/* line 70, ../scss/block/_right-sidebar.scss */
-.well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions, .well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions--2 {
+/* line 73, ../scss/block/_right-sidebar.scss */
+.well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions, .well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions--2, .well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions--3 {
   position: absolute;
   top: 50px;
   right: 2px;
 }
-/* line 74, ../scss/block/_right-sidebar.scss */
-.well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions #edit-submit-customsearch, .well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions--2 #edit-submit-customsearch {
+@media only screen and (max-width: 768px) {
+  /* line 73, ../scss/block/_right-sidebar.scss */
+  .well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions, .well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions--2, .well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions--3 {
+    top: 54px;
+  }
+}
+/* line 80, ../scss/block/_right-sidebar.scss */
+.well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions #edit-submit-customsearch, .well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions--2 #edit-submit-customsearch, .well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions--3 #edit-submit-customsearch {
   padding: 0 5px;
   margin: 0;
   border: 0;
@@ -10543,7 +10699,15 @@ a {
   background: #fff;
   color: #3d0000;
 }
-/* line 16, ../scss/block/_region-navigation.scss */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* line 3, ../scss/block/_region-navigation.scss */
+  .region-navigation .navbar-nav a {
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-right: 2px;
+  }
+}
+/* line 21, ../scss/block/_region-navigation.scss */
 .region-navigation .navbar-nav .is-active {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -10600,16 +10764,16 @@ a {
   color: #fff;
 }
 
-/* line 49, ../scss/_overrides.scss */
+/* line 51, ../scss/_overrides.scss */
 ol, ul {
   padding-left: 1.5em;
 }
-/* line 51, ../scss/_overrides.scss */
+/* line 53, ../scss/_overrides.scss */
 .popover ol:last-child, .popover ul:last-child {
   margin-bottom: 0;
 }
 
-/* line 57, ../scss/_overrides.scss */
+/* line 59, ../scss/_overrides.scss */
 .page-header {
   margin-top: 8px;
   margin-bottom: 0px;
@@ -10618,7 +10782,7 @@ ol, ul {
   font-family: none;
 }
 
-/* line 66, ../scss/_overrides.scss */
+/* line 68, ../scss/_overrides.scss */
 .footer {
   margin-top: 25px;
   padding: 10px;
@@ -10626,32 +10790,32 @@ ol, ul {
   border-top: 1px solid #E5E5E5;
 }
 
-/* line 74, ../scss/_overrides.scss */
+/* line 76, ../scss/_overrides.scss */
 p:last-child,
 .form-group:last-child,
 .panel:last-child {
   margin-bottom: 0;
 }
 
-/* line 82, ../scss/_overrides.scss */
+/* line 84, ../scss/_overrides.scss */
 .region-help > .glyphicon {
   font-size: 18px;
   float: left;
   margin: -0.05em 0.5em 0 0;
 }
-/* line 87, ../scss/_overrides.scss */
+/* line 89, ../scss/_overrides.scss */
 .region-help .block {
   overflow: hidden;
 }
 
-/* line 93, ../scss/_overrides.scss */
+/* line 95, ../scss/_overrides.scss */
 .help-block, .control-group .help-inline {
   color: #777777;
   font-size: 12px;
   margin: 5px 0 10px;
   padding: 0;
 }
-/* line 98, ../scss/_overrides.scss */
+/* line 100, ../scss/_overrides.scss */
 .help-block:first-child, .control-group .help-inline:first-child {
   margin-top: 0;
 }

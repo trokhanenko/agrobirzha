@@ -5,10 +5,16 @@
     color: #603b00;
     text-decoration: none;
     text-transform: uppercase;
+    @include respond-to(md) {
+      font-size: 12px;
+    }
   }
   .cart-block--summary__icon{
     img{
       width: 45px;
+      @include respond-to(md) {
+        width: 30px;
+      }
     }
   }
 }
