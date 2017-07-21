@@ -536,7 +536,7 @@ display:
           group_type: group
           admin_label: ''
           empty: false
-          content: '<h3>Свежие обьявления</h3><span>(@total)</span>'
+          content: '<h3>Свежие объявления</h3><span>(@total)</span>'
           plugin_id: result
         area:
           id: area
@@ -548,7 +548,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: "<div class=\"links\">\n<a href=\"/posts\" class=\"all-prices\">Все обьявления</a> \n<a href=\"product/add\" class=\"all-prices\">Добавить обьявление</a>\n<a href=\"#\" class=\"icon-table-posts\"><img src=\"/themes/agrobirzha/images/table.png\"></a>\n<a href=\"#\" class=\"icon-grid-posts\"><img src=\"/themes/agrobirzha/images/grid.png\"></a> \n</div>"
+            value: "<div class=\"links\">\n<a href=\"/posts\" class=\"all-prices\">Все объявления</a> \n<a href=\"product/add\" class=\"all-prices\">Добавить объявление</a>\n<a href=\"#\" class=\"icon-table-posts\"><img src=\"/themes/agrobirzha/images/table.png\"></a>\n<a href=\"#\" class=\"icon-grid-posts\"><img src=\"/themes/agrobirzha/images/grid.png\"></a> \n</div>"
             format: full_html
           plugin_id: text
       footer: {  }
@@ -1549,7 +1549,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: "<div class=\"links\">\n<a herf=\"product/add\" class=\"all-prices\">Добавить обьявление</a>\n</div>"
+            value: "<div class=\"links\">\n<a href=\"product/add\" class=\"all-prices\">Добавить объявление</a>\n</div>"
             format: full_html
           plugin_id: text
       defaults:

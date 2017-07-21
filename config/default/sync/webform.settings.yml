@@ -3,7 +3,7 @@ settings:
   default_form_open_message: 'This form has not yet been opened to submissions.'
   default_form_close_message: 'Sorry...This form is closed to new submissions.'
   default_form_exception_message: 'Unable to display this webform. Please contact the site administrator.'
-  default_submit_button_label: Submit
+  default_submit_button_label: Подтвердить
   default_form_submit_once: false
   default_form_confidential_message: 'This form is confidential. You must <a href="[site:login-url]/logout?destination=[current-page:url:relative]">Log out</a> to submit it.'
   default_form_disable_back: false
@@ -15,7 +15,7 @@ settings:
   default_wizard_prev_button_label: '< Previous Page'
   default_wizard_next_button_label: 'Next Page >'
   default_wizard_start_label: Start
-  default_wizard_complete_label: Complete
+  default_wizard_complete_label: Оформлено
   default_preview_next_button_label: Preview
   default_preview_prev_button_label: '< Previous'
   default_preview_label: Preview

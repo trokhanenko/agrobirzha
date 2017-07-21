@@ -15,7 +15,7 @@ id: contact
 title: Contact
 description: 'Basic email contact webform.'
 category: ''
-elements: "name:\n  '#title': 'Ваше имя'\n  '#type': textfield\n  '#required': true\n  '#default_value': '[webform-authenticated-user:display-name]'\nemail:\n  '#title': 'Ваш email'\n  '#type': email\n  '#required': true\n  '#default_value': '[webform-authenticated-user:mail]'\n//subject:\n  '//''#title''': Subject\n  '//''#type''': textfield\n  '//''#required''': true\n  '//''#test''': 'Testing contact webform from [site:name]'\nmessage:\n  '#title': 'Ваш отзыв'\n  '#type': textarea\n  '#required': true\n  '#test': 'Please ignore this email.'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': 'Оставить отзыв'"
+elements: "name:\r\n  '#title': 'Ваше имя'\r\n  '#type': textfield\r\n  '#required': true\r\n  '#default_value': '[webform-authenticated-user:display-name]'\r\nemail:\r\n  '#title': 'Ваш email'\r\n  '#type': email\r\n  '#required': true\r\n  '#default_value': '[webform-authenticated-user:mail]'\r\n//subject:\r\n  '//''#title''': Subject\r\n  '//''#type''': textfield\r\n  '//''#required''': true\r\n  '//''#test''': 'Testing contact webform from [site:name]'\r\nmessage:\r\n  '#title': 'Ваш отзыв'\r\n  '#type': textarea\r\n  '#required': true\r\n  '#test': 'Please ignore this email.'\r\nactions:\r\n  '#type': webform_actions\r\n  '#title': 'Submit button(s)'\r\n  '#submit__label': 'Оставить отзыв'"
 css: ''
 javascript: ''
 settings:
