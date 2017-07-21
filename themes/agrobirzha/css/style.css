@@ -10004,7 +10004,19 @@ a {
     float: left;
   }
 }
-
+@-moz-document url-prefix() {
+  /* line 51, ../scss/block/_header.scss */
+  .header .navbar-text {
+    color: #b59f83;
+    display: block;
+    margin: 0;
+    position: relative;
+    left: -25%;
+    top: 38px;
+    text-transform: uppercase;
+    width: auto;
+  }
+}
 /* line 8, ../scss/block/_frontblock.scss */
 .path-frontpage .view,
 .path-price .view,
