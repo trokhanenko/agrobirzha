@@ -4,13 +4,15 @@
 use Drupal\Core\Mail\MailManagerInterface;
 use Drupal\Component\Utility\SafeMarkup;
 use Drupal\Component\Utility\Html;
+use Drupal\node\Entity\Node;
+
+
 
 
 /**
  * Implements hook_mail().
  */
 function feedback_form_mail($key, &$message, $params) {
-    kint($key);
     $options = array(
         'langcode' => $message['langcode'],
     );
@@ -23,9 +25,13 @@ function feedback_form_mail($key, &$message, $params) {
     }
 }
 
+/**
+ * Implements hook_entity_insert().
+ */
 
 function feedback_form_entity_insert(Drupal\Core\Entity\EntityInterface $entity)
 {
+
     if ($entity->getEntityTypeId() !== 'node' || ($entity->getEntityTypeId() === 'node' && $entity->bundle() !== 'feedback')) {
         return;
     }
