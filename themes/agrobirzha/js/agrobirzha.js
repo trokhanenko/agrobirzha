@@ -50,8 +50,8 @@
       $('.view-slide .view-content').once().slick({
         autoplay: true,
         autoplaySpeed: 2000,
-        slidesToShow: 8,
-        slidesToScroll: 1,
+        slidesToShow: 9,
+        slidesToScroll: 2,
         prevArrow: '<img src="/themes/agrobirzha/images/left.png" class="slick-prev">',
         nextArrow: '<img src="/themes/agrobirzha/images/right.png" class="slick-next">',
         responsive: [

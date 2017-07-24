@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_date
     - field.storage.node.field_image
-    - image.style.thumbnail
     - node.type.article
   module:
     - datetime
@@ -113,7 +112,7 @@ display:
           click_sort_column: target_id
           type: image
           settings:
-            image_style: thumbnail
+            image_style: ''
             image_link: content
           group_column: ''
           group_columns: {  }

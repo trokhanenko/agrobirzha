@@ -20,6 +20,8 @@
  */
 #}
 <article{{ attributes }}>
-  <div class="tovar-images col-sm-12 col-md-8">{{ product.field_izobrazenie }}</div>
-  <div class="col-md-4">{{- product|without('variation_attributes', 'field_izobrazenie') -}}</div>
+  <div class="tovar">
+    <div class="tovar-images col-sm-12 col-md-8">{{ product.field_izobrazenie }}</div>
+    <div class="col-md-4">{{- product|without('variation_attributes', 'field_izobrazenie') -}}</div>
+  </div>
 </article>

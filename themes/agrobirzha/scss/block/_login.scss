@@ -41,6 +41,7 @@
       background: #f6f6f6;
       border: none;
       border-radius: 0;
+      color: #000;
       width: 50px;
       vertical-align: inherit;
       height: 33px;
@@ -62,6 +63,7 @@
 
 #edit-entity-test-company-field-regions{
   .form-type-checkbox{
+    text-align: left;
     width: 19%;
     display: inline-block;
     @include respond-to(xs) {

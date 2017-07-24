@@ -7,17 +7,23 @@
 #views-exposed-form-karta-block-1 #edit-actions {
   display: none;
 }
-#views-exposed-form-karta-block-1 .form-submit {
+#views-exposed-form-karta-block-1 .form-submit, #views-exposed-form-karta-block-1 .form-actions {
   display: none;
 }
-
+.view-karta-pri-vidsutnosti-rezultativ{
+  margin-top: 0 !important;
+}
 .view-karta .form-group{
   margin-bottom: 0;
+}
+#edit-actions--HRDkMK9fImY {
+  display: none;
 }
 .region-title{
   font-size: 24px;
   margin-right: 5px;
   font-family: none;
+  color: #67440c;
  }
 .pop-list {
   overflow: hidden;

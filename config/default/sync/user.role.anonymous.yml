@@ -21,4 +21,6 @@ permissions:
   - 'use text format restricted_html'
   - 'use ulogin'
   - 'view any commerce_product'
+  - 'view any test_company profile'
   - 'view commerce_product_attribute'
+  - 'view own test_company profile'

@@ -55,6 +55,35 @@ ol, ul {
     margin-bottom: 0;
   }
 }
+::selection{
+  background: #fff2a8;
+}
+.btn{
+  background: $main-color;
+  border-color: #000;
+  border-radius: 0;
+  color: #fff;
+  &:hover, &:focus, &:active, .active, .focus{
+    background: #b5740c;
+    border-color: #000;
+  }
+
+}
+// help title
+.alert{
+  border-radius: 0;
+  background: #eee;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  color: #484646;
+  font-style: italic;
+}
+.alert-danger, .alert-success{
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid;
+}
+
 
 // Page header.
 .page-header {

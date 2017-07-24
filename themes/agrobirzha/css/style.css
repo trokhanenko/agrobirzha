@@ -9743,16 +9743,12 @@ a {
     float: none;
   }
 }
-/* line 16, ../scss/page/_product.scss */
-.path-product .field--name-field-izobrazenie .field--item img {
-  margin: 0 auto;
-}
-/* line 21, ../scss/page/_product.scss */
+/* line 19, ../scss/page/_product.scss */
 .path-product .tovar-images {
   border-right: 1px dotted #000;
 }
 @media only screen and (max-width: 768px) {
-  /* line 21, ../scss/page/_product.scss */
+  /* line 19, ../scss/page/_product.scss */
   .path-product .tovar-images {
     border-right: none;
     border-bottom: 1px dotted #000;
@@ -10126,6 +10122,16 @@ a {
   }
 }
 /* line 36, ../scss/block/_frontblock.scss */
+.path-frontpage .block-views-blockprice-partners-block-1,
+.path-price .block-views-blockprice-partners-block-1,
+.path-posts .block-views-blockprice-partners-block-1,
+.path-taxonomy .block-views-blockprice-partners-block-1,
+.path-cart .block-views-blockprice-partners-block-1,
+.user-logged-in .block-views-blockprice-partners-block-1,
+.path-checkout .block-views-blockprice-partners-block-1 {
+  border-bottom: 1px solid #eee;
+}
+/* line 39, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockprice-partners-block-2,
 .path-price .block-views-blockprice-partners-block-2,
 .path-posts .block-views-blockprice-partners-block-2,
@@ -10134,8 +10140,9 @@ a {
 .user-logged-in .block-views-blockprice-partners-block-2,
 .path-checkout .block-views-blockprice-partners-block-2 {
   display: none;
+  border-bottom: 1px solid #eee;
 }
-/* line 38, ../scss/block/_frontblock.scss */
+/* line 42, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockprice-partners-block-2 .col,
 .path-price .block-views-blockprice-partners-block-2 .col,
 .path-posts .block-views-blockprice-partners-block-2 .col,
@@ -10147,7 +10154,7 @@ a {
   border-right: 1px dotted #67440c;
   margin-bottom: 10px;
 }
-/* line 42, ../scss/block/_frontblock.scss */
+/* line 46, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockprice-partners-block-2 .col:nth-child(2n),
 .path-price .block-views-blockprice-partners-block-2 .col:nth-child(2n),
 .path-posts .block-views-blockprice-partners-block-2 .col:nth-child(2n),
@@ -10157,7 +10164,7 @@ a {
 .path-checkout .block-views-blockprice-partners-block-2 .col:nth-child(2n) {
   background: #efebe8;
 }
-/* line 45, ../scss/block/_frontblock.scss */
+/* line 49, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockprice-partners-block-2 .col:last-child,
 .path-price .block-views-blockprice-partners-block-2 .col:last-child,
 .path-posts .block-views-blockprice-partners-block-2 .col:last-child,
@@ -10167,7 +10174,7 @@ a {
 .path-checkout .block-views-blockprice-partners-block-2 .col:last-child {
   border-right: none;
 }
-/* line 49, ../scss/block/_frontblock.scss */
+/* line 53, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockprice-partners-block-2 .col .views-field:nth-child(2n),
 .path-price .block-views-blockprice-partners-block-2 .col .views-field:nth-child(2n),
 .path-posts .block-views-blockprice-partners-block-2 .col .views-field:nth-child(2n),
@@ -10177,7 +10184,7 @@ a {
 .path-checkout .block-views-blockprice-partners-block-2 .col .views-field:nth-child(2n) {
   color: #67440c;
 }
-/* line 55, ../scss/block/_frontblock.scss */
+/* line 59, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockposts-block-2,
 .path-price .block-views-blockposts-block-2,
 .path-posts .block-views-blockposts-block-2,
@@ -10187,7 +10194,7 @@ a {
 .path-checkout .block-views-blockposts-block-2 {
   display: none;
 }
-/* line 57, ../scss/block/_frontblock.scss */
+/* line 61, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockposts-block-2 .col,
 .path-price .block-views-blockposts-block-2 .col,
 .path-posts .block-views-blockposts-block-2 .col,
@@ -10198,7 +10205,7 @@ a {
   text-align: center;
   border-right: 1px dotted #67440c;
 }
-/* line 60, ../scss/block/_frontblock.scss */
+/* line 64, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockposts-block-2 .col:nth-child(2n),
 .path-price .block-views-blockposts-block-2 .col:nth-child(2n),
 .path-posts .block-views-blockposts-block-2 .col:nth-child(2n),
@@ -10208,7 +10215,7 @@ a {
 .path-checkout .block-views-blockposts-block-2 .col:nth-child(2n) {
   background: #efebe8;
 }
-/* line 63, ../scss/block/_frontblock.scss */
+/* line 67, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockposts-block-2 .col:last-child,
 .path-price .block-views-blockposts-block-2 .col:last-child,
 .path-posts .block-views-blockposts-block-2 .col:last-child,
@@ -10218,7 +10225,7 @@ a {
 .path-checkout .block-views-blockposts-block-2 .col:last-child {
   border-right: none;
 }
-/* line 67, ../scss/block/_frontblock.scss */
+/* line 71, ../scss/block/_frontblock.scss */
 .path-frontpage .block-views-blockposts-block-2 .col .views-field:nth-child(2n),
 .path-price .block-views-blockposts-block-2 .col .views-field:nth-child(2n),
 .path-posts .block-views-blockposts-block-2 .col .views-field:nth-child(2n),
@@ -10228,7 +10235,7 @@ a {
 .path-checkout .block-views-blockposts-block-2 .col .views-field:nth-child(2n) {
   color: #67440c;
 }
-/* line 73, ../scss/block/_frontblock.scss */
+/* line 77, ../scss/block/_frontblock.scss */
 .path-frontpage thead,
 .path-price thead,
 .path-posts thead,
@@ -10240,7 +10247,7 @@ a {
   background: #67440c;
   color: #fff;
 }
-/* line 77, ../scss/block/_frontblock.scss */
+/* line 81, ../scss/block/_frontblock.scss */
 .path-frontpage thead th,
 .path-price thead th,
 .path-posts thead th,
@@ -10250,7 +10257,7 @@ a {
 .path-checkout thead th {
   border-right: 1px solid #fff;
 }
-/* line 79, ../scss/block/_frontblock.scss */
+/* line 83, ../scss/block/_frontblock.scss */
 .path-frontpage thead th:last-child,
 .path-price thead th:last-child,
 .path-posts thead th:last-child,
@@ -10260,7 +10267,7 @@ a {
 .path-checkout thead th:last-child {
   border-right: none;
 }
-/* line 83, ../scss/block/_frontblock.scss */
+/* line 87, ../scss/block/_frontblock.scss */
 .path-frontpage thead a,
 .path-price thead a,
 .path-posts thead a,
@@ -10270,7 +10277,7 @@ a {
 .path-checkout thead a {
   color: #fff;
 }
-/* line 88, ../scss/block/_frontblock.scss */
+/* line 92, ../scss/block/_frontblock.scss */
 .path-frontpage tbody a,
 .path-price tbody a,
 .path-posts tbody a,
@@ -10281,7 +10288,7 @@ a {
   color: #000;
   cursor: pointer;
 }
-/* line 93, ../scss/block/_frontblock.scss */
+/* line 97, ../scss/block/_frontblock.scss */
 .path-frontpage tbody tr:nth-child(2n),
 .path-price tbody tr:nth-child(2n),
 .path-posts tbody tr:nth-child(2n),
@@ -10291,7 +10298,7 @@ a {
 .path-checkout tbody tr:nth-child(2n) {
   background: #efebe8;
 }
-/* line 96, ../scss/block/_frontblock.scss */
+/* line 100, ../scss/block/_frontblock.scss */
 .path-frontpage tbody tr:hover,
 .path-price tbody tr:hover,
 .path-posts tbody tr:hover,
@@ -10301,7 +10308,7 @@ a {
 .path-checkout tbody tr:hover {
   background: #efebe8;
 }
-/* line 99, ../scss/block/_frontblock.scss */
+/* line 103, ../scss/block/_frontblock.scss */
 .path-frontpage tbody tr td,
 .path-price tbody tr td,
 .path-posts tbody tr td,
@@ -10311,7 +10318,7 @@ a {
 .path-checkout tbody tr td {
   border-right: 1px solid #efebe7;
 }
-/* line 101, ../scss/block/_frontblock.scss */
+/* line 105, ../scss/block/_frontblock.scss */
 .path-frontpage tbody tr td:last-child,
 .path-price tbody tr td:last-child,
 .path-posts tbody tr td:last-child,
@@ -10321,7 +10328,7 @@ a {
 .path-checkout tbody tr td:last-child {
   border-right: none;
 }
-/* line 106, ../scss/block/_frontblock.scss */
+/* line 110, ../scss/block/_frontblock.scss */
 .path-frontpage tbody .views-field-created,
 .path-frontpage tbody .views-field-type,
 .path-frontpage tbody .views-field-price,
@@ -10345,7 +10352,7 @@ a {
 .path-checkout tbody .views-field-price {
   color: #8c652d;
 }
-/* line 112, ../scss/block/_frontblock.scss */
+/* line 116, ../scss/block/_frontblock.scss */
 .path-frontpage .all-prices,
 .path-price .all-prices,
 .path-posts .all-prices,
@@ -10363,7 +10370,7 @@ a {
   display: inline-block;
   line-height: 20px;
 }
-/* line 122, ../scss/block/_frontblock.scss */
+/* line 126, ../scss/block/_frontblock.scss */
 .path-frontpage .all-prices:hover,
 .path-price .all-prices:hover,
 .path-posts .all-prices:hover,
@@ -10375,7 +10382,7 @@ a {
   background: url(/modules/custom/maps_filter/images/ellipse-active.png) no-repeat 5px center #c9ba9b;
 }
 @media only screen and (max-width: 768px) {
-  /* line 112, ../scss/block/_frontblock.scss */
+  /* line 116, ../scss/block/_frontblock.scss */
   .path-frontpage .all-prices,
   .path-price .all-prices,
   .path-posts .all-prices,
@@ -10475,34 +10482,36 @@ a {
   background: #f6f6f6;
   border: none;
   border-radius: 0;
+  color: #000;
   width: 50px;
   vertical-align: inherit;
   height: 33px;
 }
-/* line 49, ../scss/block/_login.scss */
+/* line 50, ../scss/block/_login.scss */
 #block-vhodnasait .form-control {
   border-radius: 0;
 }
-/* line 52, ../scss/block/_login.scss */
+/* line 53, ../scss/block/_login.scss */
 #block-vhodnasait .form-type-password.js-form-type-password {
   display: inline-block;
   width: 70%;
 }
 @media only screen and (max-width: 768px) {
-  /* line 52, ../scss/block/_login.scss */
+  /* line 53, ../scss/block/_login.scss */
   #block-vhodnasait .form-type-password.js-form-type-password {
     width: 40%;
   }
 }
 
 /*----Page- reg---*/
-/* line 64, ../scss/block/_login.scss */
+/* line 65, ../scss/block/_login.scss */
 #edit-entity-test-company-field-regions .form-type-checkbox {
+  text-align: left;
   width: 19%;
   display: inline-block;
 }
 @media only screen and (max-width: 768px) {
-  /* line 64, ../scss/block/_login.scss */
+  /* line 65, ../scss/block/_login.scss */
   #edit-entity-test-company-field-regions .form-type-checkbox {
     width: 49%;
   }
@@ -10512,28 +10521,35 @@ a {
 #block-pereklucatelazyka {
   float: right;
 }
-/* line 3, ../scss/block/_lang.scss */
-#block-pereklucatelazyka li {
+/* line 4, ../scss/block/_lang.scss */
+#block-pereklucatelazyka .links li {
   display: inline-block;
   list-style: none;
   margin: 0 2px;
 }
-/* line 7, ../scss/block/_lang.scss */
-#block-pereklucatelazyka li a {
+/* line 8, ../scss/block/_lang.scss */
+#block-pereklucatelazyka .links li a {
   cursor: pointer;
   display: block;
   height: 20px;
   font-size: 0;
   width: 30px;
-  /*box-shadow: 0px 0px 5px #000;*/
 }
-/* line 16, ../scss/block/_lang.scss */
-#block-pereklucatelazyka .ru {
+/* line 14, ../scss/block/_lang.scss */
+#block-pereklucatelazyka .links li a:hover, #block-pereklucatelazyka .links li a:active, #block-pereklucatelazyka .links li a .is-active {
+  box-shadow: 0px 0px 5px #000;
+}
+/* line 18, ../scss/block/_lang.scss */
+#block-pereklucatelazyka .links li .is-active {
+  box-shadow: 0px 0px 5px #000;
+}
+/* line 22, ../scss/block/_lang.scss */
+#block-pereklucatelazyka .links .ru {
   background: url(/themes/agrobirzha/images/ru.png) no-repeat center center;
   background-size: cover;
 }
-/* line 20, ../scss/block/_lang.scss */
-#block-pereklucatelazyka .uk {
+/* line 26, ../scss/block/_lang.scss */
+#block-pereklucatelazyka .links .uk {
   background: url(/themes/agrobirzha/images/ua.png) no-repeat center center;
   background-size: cover;
 }
@@ -10812,7 +10828,42 @@ ol, ul {
   margin-bottom: 0;
 }
 
-/* line 60, ../scss/_overrides.scss */
+/* line 58, ../scss/_overrides.scss */
+::selection {
+  background: #fff2a8;
+}
+
+/* line 61, ../scss/_overrides.scss */
+.btn {
+  background: #67440c;
+  border-color: #000;
+  border-radius: 0;
+  color: #fff;
+}
+/* line 66, ../scss/_overrides.scss */
+.btn:hover, .btn:focus, .btn:active, .btn .active, .btn .focus {
+  background: #b5740c;
+  border-color: #000;
+}
+
+/* line 73, ../scss/_overrides.scss */
+.alert {
+  border-radius: 0;
+  background: #eee;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  color: #484646;
+  font-style: italic;
+}
+
+/* line 81, ../scss/_overrides.scss */
+.alert-danger, .alert-success {
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid;
+}
+
+/* line 89, ../scss/_overrides.scss */
 .page-header {
   margin-top: 8px;
   margin-bottom: 0px;
@@ -10821,7 +10872,7 @@ ol, ul {
   font-family: none;
 }
 
-/* line 69, ../scss/_overrides.scss */
+/* line 98, ../scss/_overrides.scss */
 .footer {
   margin-top: 25px;
   padding: 10px;
@@ -10829,32 +10880,32 @@ ol, ul {
   border-top: 1px solid #E5E5E5;
 }
 
-/* line 77, ../scss/_overrides.scss */
+/* line 106, ../scss/_overrides.scss */
 p:last-child,
 .form-group:last-child,
 .panel:last-child {
   margin-bottom: 0;
 }
 
-/* line 85, ../scss/_overrides.scss */
+/* line 114, ../scss/_overrides.scss */
 .region-help > .glyphicon {
   font-size: 18px;
   float: left;
   margin: -0.05em 0.5em 0 0;
 }
-/* line 90, ../scss/_overrides.scss */
+/* line 119, ../scss/_overrides.scss */
 .region-help .block {
   overflow: hidden;
 }
 
-/* line 96, ../scss/_overrides.scss */
+/* line 125, ../scss/_overrides.scss */
 .help-block, .control-group .help-inline {
   color: #777777;
   font-size: 12px;
   margin: 5px 0 10px;
   padding: 0;
 }
-/* line 101, ../scss/_overrides.scss */
+/* line 130, ../scss/_overrides.scss */
 .help-block:first-child, .control-group .help-inline:first-child {
   margin-top: 0;
 }
