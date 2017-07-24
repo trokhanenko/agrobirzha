@@ -9,6 +9,7 @@ dependencies:
     - commerce_cart
     - commerce_order
     - commerce_price
+    - commerce_product
 _core:
   default_config_hash: ADHFqDLD7jZk4Gh_rF1TOh7eze4y0wWQAO2JHZyCCV4
 id: commerce_cart_form
@@ -484,6 +485,16 @@ display:
           group_type: group
           admin_label: 'order_items: Order Item'
           required: true
+          plugin_id: standard
+        commerce_product_variation:
+          id: commerce_product_variation
+          table: commerce_order_item
+          field: commerce_product_variation
+          relationship: order_items
+          group_type: group
+          admin_label: 'Product variation'
+          required: false
+          entity_type: commerce_order_item
           plugin_id: standard
       arguments:
         order_id:

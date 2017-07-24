@@ -9769,6 +9769,32 @@ a {
   width: 50%;
 }
 
+/* line 2, ../scss/page/_profile.scss */
+.path-profile .page-header {
+  text-align: center;
+}
+
+/* line 7, ../scss/page/_profile.scss */
+.field--name-field-logo-company img {
+  margin: 0 auto;
+}
+
+/* line 11, ../scss/page/_profile.scss */
+.field--name-field-about-company {
+  text-align: center;
+  font-style: italic;
+}
+
+/* line 15, ../scss/page/_profile.scss */
+.field--name-field-regions {
+  font-style: italic;
+  text-align: center;
+}
+/* line 18, ../scss/page/_profile.scss */
+.field--name-field-regions .field--label {
+  float: none;
+}
+
 @media only screen and (max-width: 768px) {
   /* line 1, ../scss/menu/_sidebar.scss */
   .sidebar {
@@ -10678,7 +10704,7 @@ a {
 .well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions, .well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions--2, .well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions--3 {
   position: absolute;
   top: 50px;
-  right: 2px;
+  right: 10px;
 }
 @media only screen and (max-width: 768px) {
   /* line 73, ../scss/block/_right-sidebar.scss */
@@ -10688,7 +10714,7 @@ a {
 }
 /* line 80, ../scss/block/_right-sidebar.scss */
 .well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions #edit-submit-customsearch, .well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions--2 #edit-submit-customsearch, .well .block-views-exposed-filter-blockcustomsearch-page-1 #edit-actions--3 #edit-submit-customsearch {
-  padding: 0 5px;
+  padding: 0;
   margin: 0;
   border: 0;
   border-radius: 0;
@@ -10776,16 +10802,16 @@ a {
   color: #fff;
 }
 
-/* line 51, ../scss/_overrides.scss */
+/* line 52, ../scss/_overrides.scss */
 ol, ul {
   padding-left: 1.5em;
 }
-/* line 53, ../scss/_overrides.scss */
+/* line 54, ../scss/_overrides.scss */
 .popover ol:last-child, .popover ul:last-child {
   margin-bottom: 0;
 }
 
-/* line 59, ../scss/_overrides.scss */
+/* line 60, ../scss/_overrides.scss */
 .page-header {
   margin-top: 8px;
   margin-bottom: 0px;
@@ -10794,7 +10820,7 @@ ol, ul {
   font-family: none;
 }
 
-/* line 68, ../scss/_overrides.scss */
+/* line 69, ../scss/_overrides.scss */
 .footer {
   margin-top: 25px;
   padding: 10px;
@@ -10802,32 +10828,32 @@ ol, ul {
   border-top: 1px solid #E5E5E5;
 }
 
-/* line 76, ../scss/_overrides.scss */
+/* line 77, ../scss/_overrides.scss */
 p:last-child,
 .form-group:last-child,
 .panel:last-child {
   margin-bottom: 0;
 }
 
-/* line 84, ../scss/_overrides.scss */
+/* line 85, ../scss/_overrides.scss */
 .region-help > .glyphicon {
   font-size: 18px;
   float: left;
   margin: -0.05em 0.5em 0 0;
 }
-/* line 89, ../scss/_overrides.scss */
+/* line 90, ../scss/_overrides.scss */
 .region-help .block {
   overflow: hidden;
 }
 
-/* line 95, ../scss/_overrides.scss */
+/* line 96, ../scss/_overrides.scss */
 .help-block, .control-group .help-inline {
   color: #777777;
   font-size: 12px;
   margin: 5px 0 10px;
   padding: 0;
 }
-/* line 100, ../scss/_overrides.scss */
+/* line 101, ../scss/_overrides.scss */
 .help-block:first-child, .control-group .help-inline:first-child {
   margin-top: 0;
 }

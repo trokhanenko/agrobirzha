@@ -8,6 +8,7 @@ dependencies:
   module:
     - commerce_order
     - commerce_price
+    - commerce_product
 _core:
   default_config_hash: D-aj_NEmyw-wjss4Gsqim6DzfB4_YRl65ROmEI7v96U
 id: commerce_checkout_order_summary
@@ -385,6 +386,16 @@ display:
           group_type: group
           admin_label: 'order_items: Order Item'
           required: true
+          plugin_id: standard
+        commerce_product_variation:
+          id: commerce_product_variation
+          table: commerce_order_item
+          field: commerce_product_variation
+          relationship: order_items
+          group_type: group
+          admin_label: 'Product variation'
+          required: false
+          entity_type: commerce_order_item
           plugin_id: standard
       arguments:
         order_id:

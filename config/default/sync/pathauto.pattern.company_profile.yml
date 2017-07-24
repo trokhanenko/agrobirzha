@@ -1,0 +1,23 @@
+uuid: fdf63927-c06a-4675-aa69-8938c2c40b7e
+langcode: ru
+status: true
+dependencies:
+  module:
+    - ctools
+    - profile
+id: company_profile
+label: 'Company Profile'
+type: 'canonical_entities:profile'
+pattern: 'company/[profile:field_name_company]'
+selection_criteria:
+  34f0eab8-76a8-410b-ab7f-c0ca121bd982:
+    id: 'entity_bundle:profile'
+    bundles:
+      test_company: test_company
+    negate: false
+    context_mapping:
+      profile: profile
+    uuid: 34f0eab8-76a8-410b-ab7f-c0ca121bd982
+selection_logic: and
+weight: -5
+relationships: {  }

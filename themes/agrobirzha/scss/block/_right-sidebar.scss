@@ -73,12 +73,12 @@
     #edit-actions, #edit-actions--2, #edit-actions--3 {
       position: absolute;
       top: 50px;
-      right: 2px;
+      right: 10px;
       @include respond-to(xs) {
         top: 54px;
       }
       #edit-submit-customsearch {
-        padding: 0 5px;
+        padding: 0;
         margin: 0;
         border: 0;
         border-radius: 0;

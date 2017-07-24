@@ -3,6 +3,7 @@ langcode: ru
 status: true
 dependencies:
   config:
+    - field.field.profile.test_company.field_about_company
     - field.field.profile.test_company.field_ad
     - field.field.profile.test_company.field_logo_company
     - field.field.profile.test_company.field_name_company
@@ -12,13 +13,22 @@ dependencies:
   module:
     - geolocation
     - image
+    - path
 id: profile.test_company.default
 targetEntityType: profile
 bundle: test_company
 mode: default
 content:
+  field_about_company:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
   field_ad:
-    weight: 3
+    weight: 4
     settings:
       default_longitude: '31.4489168'
       default_latitude: '49.0383462 '
@@ -69,9 +79,15 @@ content:
     type: string_textfield
     region: content
   field_regions:
-    weight: 2
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden: {  }

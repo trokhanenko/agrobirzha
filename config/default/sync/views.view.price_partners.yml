@@ -550,7 +550,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: "<div class=\"links\">\n<a href='/price' class=\"all-prices\">Все прайсы</a>\n<a href=\"product/add\" class=\"all-prices\">Добавить прайс</a>\n<a href=\"#\" class=\"icon-table-price\"><img src=\"/themes/agrobirzha/images/table.png\"></a> \n<a href=\"#\" class=\"icon-grid-price\"><img src=\"/themes/agrobirzha/images/grid.png\"></a> \n</div>"
+            value: "<div class=\"links\">\n<a href='/price' class=\"all-prices\">Все прайси</a>\n<a href=\"product/add\" class=\"all-prices\">Добавить прайс</a>\n<a href=\"#\" class=\"icon-table-price\"><img src=\"/themes/agrobirzha/images/table.png\"></a> \n<a href=\"#\" class=\"icon-grid-price\"><img src=\"/themes/agrobirzha/images/grid.png\"></a> \n</div>"
             format: full_html
           plugin_id: text
       footer: {  }
@@ -862,7 +862,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: false
+            link_to_entity: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1348,7 +1348,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: false
+            link_to_entity: true
           group_column: value
           group_columns: {  }
           group_rows: true
