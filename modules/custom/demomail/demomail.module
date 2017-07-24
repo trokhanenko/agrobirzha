@@ -1,0 +1,104 @@
+<?php
+
+/**
+ * @file
+ * Contains demomail.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\commerce_product\Entity\Product;
+use Drupal\commerce_order\Entity\Order;
+use Drupal\commerce_order\Entity\OrderItem;
+use Drupal\Core\Form;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_help().
+ */
+function demomail_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the demomail module.
+    case 'help.page.demomail':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('How to send an email programmatically') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_mail().
+ */
+function demomail_mail($key, &$message, $params) {
+  $options = array(
+    'langcode' => $message['langcode'],
+  );
+
+  switch ($key) {
+    case 'create_order':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('Создано заказ № @id_order: @title', array('@title' => $params['order_title'], '@id_order' => $params['id_order']), $options);
+      $message['body'][] = $params['message'];
+      break;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function demomail_form_commerce_checkout_flow_multistep_default_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
+  if($form['#step_id'] == 'review'){
+    // Add a custom submit handler
+    $form['actions']['next']['#submit'][] = 'sending_mail';
+    //kint($form);
+  }
+}
+
+function sending_mail(array $form, FormStateInterface $form_state){
+
+  // Load commerce_order
+  $order_id = $form['sidebar']['order_summary']['view']['#arguments'][0];
+  $order_info = \Drupal\commerce_order\Entity\Order::load($order_id);
+  //kint($order_info);
+
+  //Load order_items
+  $order_id_items = $order_info->get('order_items')->target_id;
+  $order_item_info = \Drupal\commerce_order\Entity\OrderItem::load($order_id_items);
+  $title_order = $order_item_info->getTitle(); // Title product
+  $total_price = $order_item_info->getUnitPrice(); // All order price
+  $total_quantity = $order_item_info->getQuantity(); // All item quantity
+  //kint($order_item_info);
+
+  // Load product
+  $product_id = $order_item_info->getPurchasedEntityId();
+  $product = \Drupal\commerce_product\Entity\Product::load($product_id);
+  //kint($product);
+
+  // Load user
+  $user_id = $product->getOwnerId();
+  $user = \Drupal\user\Entity\User::load($user_id);
+  //kint($user);
+
+  $user_mail = $user->getEmail(); // Author product
+
+  $mailManager = \Drupal::service('plugin.manager.mail');
+
+  $module = 'demomail';
+  $key = 'create_order';
+  $to = $user_mail;
+  $params['id_order'] = $order_id;
+  $params['message'] = 'Сума заказа: '.$total_price.'. Количество: '.$total_quantity;
+  $params['order_title'] = $title_order;
+  $langcode = \Drupal::currentUser()->getPreferredLangcode();
+  $send = true;
+
+  $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+  if ($result['result'] !== true) {
+    drupal_set_message(t('Письмо не отправлено.'), 'error');
+  }
+  else {
+    drupal_set_message(t('Письмо отправлено.'));
+  }
+}
