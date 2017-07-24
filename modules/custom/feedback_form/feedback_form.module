@@ -1,53 +1,77 @@
 <?php
 
 
-use Drupal\Core\Mail\MailManagerInterface;
-use Drupal\Component\Utility\SafeMarkup;
-use Drupal\Component\Utility\Html;
-use Drupal\node\Entity\Node;
+  use Drupal\Core\Mail\MailManagerInterface;
+  use Drupal\Component\Utility\SafeMarkup;
+  use Drupal\Component\Utility\Html;
+  use Drupal\node\Entity\Node;
 
 
 
 
-/**
- * Implements hook_mail().
- */
-function feedback_form_mail($key, &$message, $params) {
-    $options = array(
-        'langcode' => $message['langcode'],
+  /**
+   * Implements hook_mail().
+   */
+  function feedback_form_mail($key, &$message, $params) {
+    $options = array (
+      'langcode' => $message['langcode'],
     );
     switch ($key) {
-        case 'create_feedback_form':
-            $message['from'] = \Drupal::config('system.site')->get('mail');
-            $message['subject'] = t('Новый отзыв оставлен: @title', array('@title' => $params['node_title']), $options);
-            $message['body'][] = $params['message'];
-            break;
-    }
-}
+      case 'comment_alert_mail':
+        $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
+        $message['from'] = \Drupal::config('system.site')->get('mail');
+        $message['subject'] = t('Пользователь с именем: @title ' . 'оставил отзыв', array(
+            '@title' => $params['node_title'],
+           ),
+          $options);
+        $theme_body = array (
+          '#theme' => 'comment_alert_mail',
+          '#text' => $params['message'],
+          '#title' => $params['node_title'],
+        );
+        $mail_body = drupal_render($theme_body);
+        $message['body'][] = Html::escape($mail_body);
+        break;
+    };
+  }
 
-/**
- * Implements hook_entity_insert().
- */
+  /**
+   * Implements hook_entity_insert().
+   */
 
-function feedback_form_entity_insert(Drupal\Core\Entity\EntityInterface $entity)
-{
-
+  function feedback_form_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
     if ($entity->getEntityTypeId() !== 'node' || ($entity->getEntityTypeId() === 'node' && $entity->bundle() !== 'feedback')) {
-        return;
+      return;
     }
-    $key = 'create_feedback_form';
+    $key = 'comment_alert_mail';
     $mailManager = \Drupal::service('plugin.manager.mail');
     $module = 'feedback_form';
- $to = \Drupal::config('system.site')->get('mail');
- $params['message'] = 'Пользователь оставил комментарий: ' . $entity->get('field_feed')->getValue()[0]['value'];
- $params['node_title'] = $entity->get('title')->getValue()[0]['value'];
- $langcode = \Drupal::currentUser()->getPreferredLangcode();
- $send = true;
- $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
- if ($result['result'] !== true) {
-     drupal_set_message(t('There was a problem sending your message and it was not sent.'), 'error');
- }
- else {
-     drupal_set_message(t('Ваш отзыв отправлен на проверку администратору.'));
- }
-}
+    $to = \Drupal::config('system.site')->get('mail');
+    $params['message'] = $entity->get('field_feed')->getValue()[0]['value'];
+    $params['node_title'] = $entity->get('title')->getValue()[0]['value'];
+    $langcode = \Drupal::currentUser()->getPreferredLangcode();
+    $send = true;
+    $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+    if ($result['result'] !== true) {
+      drupal_set_message(t('There was a problem sending your message and it was not sent.'), 'error');
+    }
+    else {
+      drupal_set_message(t('Ваш отзыв отправлен на проверку администратору.'));
+    }
+  }
+
+
+  /**
+   * Implements hook_theme().
+   */
+
+  function feedback_form_theme() {
+    return [
+      'comment_alert_mail' => [
+        'variables' => [
+          'title' => $params['node_title'],
+          'text' => '    ' . $params['message'],
+        ],
+      ],
+    ];
+  }
