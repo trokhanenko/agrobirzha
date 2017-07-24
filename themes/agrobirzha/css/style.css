@@ -9793,6 +9793,7 @@ a {
 /* line 18, ../scss/page/_profile.scss */
 .field--name-field-regions .field--label {
   float: none;
+  padding-right: 0;
 }
 
 @media only screen and (max-width: 768px) {
