@@ -1,0 +1,18 @@
+uuid: adafff0b-ef64-40b7-b854-b0a5062abe0d
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.feedback
+id: node.feedback.created
+field_name: created
+entity_type: node
+bundle: feedback
+label: 'Время создания'
+description: 'Время создания материала.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

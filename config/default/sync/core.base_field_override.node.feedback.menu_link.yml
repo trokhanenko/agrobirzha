@@ -1,0 +1,20 @@
+uuid: 32c0e2ab-884b-492c-9597-3c6054ac70b8
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.feedback
+id: node.feedback.menu_link
+field_name: menu_link
+entity_type: node
+bundle: feedback
+label: 'Ссылка меню'
+description: 'Computed menu link for the node (only available during node saving).'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

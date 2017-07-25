@@ -14,7 +14,7 @@ bundle: prodat
 label: 'Тип услуги'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value:
   -
     value: '2'

@@ -1,0 +1,22 @@
+uuid: 6affddc6-644f-45d0-83f9-07a3ecd2c2ae
+langcode: ru
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.kupit
+id: commerce_product.kupit.status
+field_name: status
+entity_type: commerce_product
+bundle: kupit
+label: Published
+description: 'Whether the product is published.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,18 @@
+uuid: 2047a8df-dfec-4ee9-a79f-a0003895b687
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.page
+id: node.page.created
+field_name: created
+entity_type: node
+bundle: page
+label: 'Время создания'
+description: 'Время создания материала.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

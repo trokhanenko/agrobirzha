@@ -1528,6 +1528,7 @@ display:
         weight: -48
         context: '0'
         menu_name: main
+        enabled: true
       header:
         result:
           id: result

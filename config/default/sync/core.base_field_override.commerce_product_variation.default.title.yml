@@ -1,0 +1,18 @@
+uuid: 4fbb078c-4a1b-4842-b236-4448b168feb8
+langcode: ru
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.default
+id: commerce_product_variation.default.title
+field_name: title
+entity_type: commerce_product_variation
+bundle: default
+label: Title
+description: 'The variation title.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

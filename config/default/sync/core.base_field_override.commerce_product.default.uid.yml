@@ -1,0 +1,20 @@
+uuid: 55fdf2b1-016b-480c-af1d-c98d225417ed
+langcode: ru
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
+id: commerce_product.default.uid
+field_name: uid
+entity_type: commerce_product
+bundle: default
+label: Автор
+description: 'The product author.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: 'Drupal\commerce_product\Entity\Product::getCurrentUserId'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

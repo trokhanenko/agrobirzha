@@ -19,5 +19,5 @@ settings:
   label: ''
   provider: views
   label_display: visible
-  views_label: Поиск
+  views_label: Пошук
 visibility: {  }

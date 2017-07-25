@@ -1,0 +1,20 @@
+uuid: 4089c5a7-82f5-44d2-bf12-ff439ee259de
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.article
+id: node.article.uid
+field_name: uid
+entity_type: node
+bundle: article
+label: Автор
+description: 'Имя пользователя автора содержимого.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: 'Drupal\node\Entity\Node::getCurrentUserId'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

@@ -1,0 +1,18 @@
+uuid: 78365ed1-0dea-40cb-83d8-d3c52f0171e7
+langcode: ru
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.kupit
+id: commerce_product.kupit.changed
+field_name: changed
+entity_type: commerce_product
+bundle: kupit
+label: Изменение
+description: 'The time when the product was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

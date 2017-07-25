@@ -5,6 +5,7 @@ url:
   prefixes:
     ru: ''
     uk: uk
+    '': null
   domains:
     ru: ''
     uk: ''

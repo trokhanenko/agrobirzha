@@ -1,0 +1,40 @@
+display:
+  default:
+    display_options:
+      title: 'Послуги та ціни'
+      header:
+        area:
+          content:
+            value: "<div class=\"links\"><a class=\"all-prices\" href=\"/price\">Все прайси</a> <a class=\"all-prices\" href=\"product/add\">Добавить прайс</a> <a class=\"icon-table-price\" href=\"\"><img src=\"/themes/agrobirzha/images/table.png\" /></a> <a class=\"icon-grid-price\" href=\"\"><img src=\"/themes/agrobirzha/images/grid.png\" /></a></div>\r\n"
+            format: full_html
+      fields:
+        field_type_service:
+          label: Продаж
+        field_name_company:
+          label: Компанія
+        price__number:
+          label: Ціна
+  page_1:
+    display_options:
+      menu:
+        title: 'Послуги та ціни'
+      header:
+        area:
+          content:
+            value: "<div class=\"links\"><a class=\"all-prices\" href=\"product/add\">Додати прайс</a></div>\r\n"
+            format: full_html
+          admin_label: 'Додати прайс'
+        result:
+          admin_label: 'Прайси партнерів'
+          content: '<h3>Прайси партнерів</h3><span>(@total)</span>'
+      title: 'Послуги та ціни'
+  block_1:
+    display_options:
+      fields:
+        field_type_service:
+          label: Продаж
+        field_name_company:
+          label: Компанія
+        price__number:
+          label: Ціна
+label: 'Прайси партнерів'

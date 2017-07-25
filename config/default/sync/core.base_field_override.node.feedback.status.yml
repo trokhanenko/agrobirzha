@@ -1,0 +1,22 @@
+uuid: 2e0f3185-5449-4025-b8e2-9b9b035215b2
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.feedback
+id: node.feedback.status
+field_name: status
+entity_type: node
+bundle: feedback
+label: 'Статус публикации'
+description: 'A boolean indicating the published state.'
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

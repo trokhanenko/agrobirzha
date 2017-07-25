@@ -1,0 +1,19 @@
+label: 'Статистика відвідувань'
+display:
+  default:
+    display_options:
+      fields:
+        counter:
+          label: Позиція
+        price__number:
+          label: Ціна
+      title: 'Статистика відвідувань'
+      sorts:
+        totalcount:
+          admin_label: 'Статистика відвідувань'
+        totalcount_1:
+          admin_label: 'Статистика відвідувань'
+  page_1:
+    display_options:
+      menu:
+        title: 'Статистика відвідувань'
