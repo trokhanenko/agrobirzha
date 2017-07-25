@@ -1,0 +1,22 @@
+uuid: e77480be-0f75-4d63-887a-e9bbfedaec26
+langcode: ru
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.prodat
+id: commerce_product_variation.prodat.status
+field_name: status
+entity_type: commerce_product_variation
+bundle: prodat
+label: Активно
+description: 'Whether the variation is active.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

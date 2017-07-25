@@ -1527,6 +1527,10 @@ display:
         title: 'Услуги и цены'
         menu_name: main
         weight: -47
+        description: ''
+        parent: ''
+        expanded: false
+        enabled: true
       header:
         result:
           id: result

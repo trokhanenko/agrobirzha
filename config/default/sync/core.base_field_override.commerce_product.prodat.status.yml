@@ -1,0 +1,22 @@
+uuid: 05fe8baf-49c5-4ce3-ba35-bcc82d8079f7
+langcode: ru
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.prodat
+id: commerce_product.prodat.status
+field_name: status
+entity_type: commerce_product
+bundle: prodat
+label: Published
+description: 'Whether the product is published.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

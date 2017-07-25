@@ -1,0 +1,18 @@
+uuid: 334c5d9e-042b-4a09-b19d-d586970c793e
+langcode: ru
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.prodat
+id: commerce_product_variation.prodat.changed
+field_name: changed
+entity_type: commerce_product_variation
+bundle: prodat
+label: Изменение
+description: 'The time when the variation was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

@@ -1,0 +1,40 @@
+label: Оголошення
+display:
+  default:
+    display_options:
+      fields:
+        field_type_service:
+          label: Продаж
+        field_name_company:
+          label: Компанія
+        price__number:
+          label: Ціна
+      title: 'Виробники та споживачі'
+      header:
+        area:
+          content:
+            value: "<div class=\"links\"><a class=\"all-prices\" href=\"/posts\">Все обьявления</a> <a class=\"all-prices\" href=\"product/add\">Добавить обьявление</a> <a class=\"icon-table-posts\" href=\"\"><img src=\"/themes/agrobirzha/images/table.png\" /></a> <a class=\"icon-grid-posts\" href=\"\"><img src=\"/themes/agrobirzha/images/grid.png\" /></a></div>\r\n"
+            format: full_html
+  page_1:
+    display_options:
+      header:
+        area:
+          content:
+            value: "<div class=\"links\"><a class=\"all-prices\" herf=\"product/add\">Додати оголошення</a></div>\r\n"
+            format: full_html
+          admin_label: 'Додати оголошення'
+        result:
+          content: '<h3>Прайси партнерів</h3><span>@total</span>'
+          admin_label: 'Додати оголошення'
+      menu:
+        title: 'Виробники та споживачі'
+    display_title: 'Нові оголошення'
+  block_1:
+    display_options:
+      fields:
+        field_type_service:
+          label: Продаж
+        field_name_company:
+          label: Компанія
+        price__number:
+          label: Ціна

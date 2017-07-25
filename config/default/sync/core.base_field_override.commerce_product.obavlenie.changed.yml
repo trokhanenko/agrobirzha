@@ -1,0 +1,18 @@
+uuid: 4ef66858-e75f-448f-a60a-861cfbea140d
+langcode: ru
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.obavlenie
+id: commerce_product.obavlenie.changed
+field_name: changed
+entity_type: commerce_product
+bundle: obavlenie
+label: Изменение
+description: 'The time when the product was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

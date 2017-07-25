@@ -600,7 +600,7 @@ display:
           fields: {  }
           plugin_id: search_api_fulltext
       sorts: {  }
-      title: Поиск
+      title: Пошук
       header: {  }
       footer: {  }
       empty: {  }

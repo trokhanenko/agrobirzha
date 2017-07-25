@@ -1,0 +1,22 @@
+uuid: e2b5a256-050d-4d4d-8f02-df8211941424
+langcode: ru
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.obavlenia
+id: commerce_product_variation.obavlenia.status
+field_name: status
+entity_type: commerce_product_variation
+bundle: obavlenia
+label: Активно
+description: 'Whether the variation is active.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

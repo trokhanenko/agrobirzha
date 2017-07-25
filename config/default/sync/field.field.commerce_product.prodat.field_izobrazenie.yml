@@ -6,14 +6,7 @@ dependencies:
     - commerce_product.commerce_product_type.prodat
     - field.storage.commerce_product.field_izobrazenie
   module:
-    - content_translation
     - image
-third_party_settings:
-  content_translation:
-    translation_sync:
-      file: '0'
-      alt: '0'
-      title: '0'
 id: commerce_product.prodat.field_izobrazenie
 field_name: field_izobrazenie
 entity_type: commerce_product
@@ -21,7 +14,7 @@ bundle: prodat
 label: Изображение
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:

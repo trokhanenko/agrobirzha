@@ -1,0 +1,18 @@
+uuid: b702fcab-9b31-4959-857a-b4dafed9d0f5
+langcode: ru
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.prodat
+id: commerce_product.prodat.created
+field_name: created
+entity_type: commerce_product
+bundle: prodat
+label: Создано
+description: 'The time when the product was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

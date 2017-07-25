@@ -1,0 +1,11 @@
+uuid: a8fd8e5b-67aa-4474-9dec-247c4792d73f
+langcode: ru
+status: true
+dependencies:
+  config:
+    - contact.form.personal
+id: contact_message.personal
+target_entity_type_id: contact_message
+target_bundle: personal
+default_langcode: site_default
+language_alterable: false

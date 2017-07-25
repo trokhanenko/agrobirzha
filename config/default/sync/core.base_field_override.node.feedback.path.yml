@@ -1,0 +1,20 @@
+uuid: 7412e967-d3c9-4c64-88f6-4f6ddfb2e714
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.feedback
+  module:
+    - path
+id: node.feedback.path
+field_name: path
+entity_type: node
+bundle: feedback
+label: 'Синоним URL'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

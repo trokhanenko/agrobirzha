@@ -1,0 +1,22 @@
+uuid: d8702ca3-3154-4030-add2-18b66029929c
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.webform
+id: node.webform.sticky
+field_name: sticky
+entity_type: node
+bundle: webform
+label: 'Закреплять вверху списков'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,18 @@
+uuid: ab2e2676-ddff-47b0-a6c3-398eb810ab10
+langcode: ru
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.regions
+id: taxonomy_term.regions.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: regions
+label: Изменение
+description: 'Время, когда этот термин был последний раз отредактирован.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

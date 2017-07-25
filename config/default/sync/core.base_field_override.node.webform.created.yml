@@ -1,0 +1,18 @@
+uuid: 160e72a1-7304-4d4f-a33d-e4bc20432080
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.webform
+id: node.webform.created
+field_name: created
+entity_type: node
+bundle: webform
+label: 'Время создания'
+description: 'Время создания материала.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

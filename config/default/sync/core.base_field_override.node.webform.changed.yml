@@ -1,0 +1,18 @@
+uuid: 891dc4d8-a9ab-4bd1-83d8-833986f65732
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.webform
+id: node.webform.changed
+field_name: changed
+entity_type: node
+bundle: webform
+label: Изменение
+description: 'Время последнего редактирования материала.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

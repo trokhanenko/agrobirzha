@@ -1,0 +1,20 @@
+uuid: 631c4867-9c46-4aa0-83af-9c5d62fb1bd7
+langcode: ru
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.regions
+  module:
+    - text
+id: taxonomy_term.regions.description
+field_name: description
+entity_type: taxonomy_term
+bundle: regions
+label: Описание
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
