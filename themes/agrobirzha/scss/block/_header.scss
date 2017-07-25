@@ -12,51 +12,45 @@
 .header{
   height: 150px;
   padding-top: 15px;
-  .logo{
-    display: block;
+  .logo-site{
+    width: 390px;
     float: left;
-  }
-  .navbar-brand{
-    border-bottom: 1px dotted #736455;
-    color: #d7d7d7;
-    display: block;
-    float: left;
-    font-family: none;
-    font-size: 30px;
-    height: auto;
-    padding: 0 0 5px;
-    margin-top: 12px;
-    text-transform: uppercase;
+    margin-top: 20px;
     @include respond-to(xs) {
-      font-size: 22px;
+      margin-top: 10px;
+      margin-bottom: 5px;
     }
-  }
-  .navbar-text{
-    color: #b59f83;
-    display: block;
-    margin: 0;
-    position: relative;
-    left: -274px;
-    top: 38px;
-    text-transform: uppercase;
-    width: auto;
-    @include respond-to(xs) {
-      left: 0;
-      top: 0;
-      font-size: 10px;
-      float: left;
+    .logo{
+      margin: 0;
+      padding: 0;
     }
-  }
-  @-moz-document url-prefix() {
+    .navbar-brand{
+      border-bottom: 1px dotted #736455;
+      color: #d7d7d7;
+      font-family: none;
+      text-transform: uppercase;
+      padding: 0;
+      margin: 0;
+      height: auto;
+      h1{
+        margin: 0;
+        @include respond-to(xs) {
+          font-size: 30px;
+        }
+      }
+    }
     .navbar-text{
       color: #b59f83;
-      display: block;
+      font-size: 12px;
       margin: 0;
-      position: relative;
-      left: -25%;
-      top: 38px;
+      padding: 0;
       text-transform: uppercase;
-      width: auto;
+      white-space: nowrap;
+      @include respond-to(xs) {
+        font-size: 10px;
+        float: left;
+      }
     }
+
   }
 }

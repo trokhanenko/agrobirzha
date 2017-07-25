@@ -67,8 +67,43 @@ ol, ul {
     background: #b5740c;
     border-color: #000;
   }
-
 }
+
+thead{
+  font-family: none;
+  background: #67440c;
+  color: #fff;
+  th{
+    border-right: 1px solid #fff;
+    &:last-child{
+      border-right: none;
+    }
+  }
+  a{
+    color: #fff;
+  }
+}
+tbody{
+  a{
+    color: #000;
+    cursor: pointer;
+  }
+  tr{
+    &:nth-child(2n){
+    background: #efebe8;
+    }
+    &:hover{
+      background: #efebe8;
+    }
+    td{
+      border-right: 1px solid #efebe7;
+      &:last-child{
+        border-right: none;
+      }
+    }
+  }
+}
+
 // help title
 .alert{
   border-radius: 0;

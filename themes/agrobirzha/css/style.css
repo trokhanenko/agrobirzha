@@ -9984,62 +9984,60 @@ a {
   padding-top: 15px;
 }
 /* line 15, ../scss/block/_header.scss */
-.header .logo {
-  display: block;
+.header .logo-site {
+  width: 390px;
   float: left;
-}
-/* line 19, ../scss/block/_header.scss */
-.header .navbar-brand {
-  border-bottom: 1px dotted #736455;
-  color: #d7d7d7;
-  display: block;
-  float: left;
-  font-family: none;
-  font-size: 30px;
-  height: auto;
-  padding: 0 0 5px;
-  margin-top: 12px;
-  text-transform: uppercase;
+  margin-top: 20px;
 }
 @media only screen and (max-width: 768px) {
-  /* line 19, ../scss/block/_header.scss */
-  .header .navbar-brand {
-    font-size: 22px;
+  /* line 15, ../scss/block/_header.scss */
+  .header .logo-site {
+    margin-top: 10px;
+    margin-bottom: 5px;
   }
 }
-/* line 34, ../scss/block/_header.scss */
-.header .navbar-text {
-  color: #b59f83;
-  display: block;
+/* line 23, ../scss/block/_header.scss */
+.header .logo-site .logo {
   margin: 0;
-  position: relative;
-  left: -274px;
-  top: 38px;
+  padding: 0;
+}
+/* line 27, ../scss/block/_header.scss */
+.header .logo-site .navbar-brand {
+  border-bottom: 1px dotted #736455;
+  color: #d7d7d7;
+  font-family: none;
   text-transform: uppercase;
-  width: auto;
+  padding: 0;
+  margin: 0;
+  height: auto;
+}
+/* line 35, ../scss/block/_header.scss */
+.header .logo-site .navbar-brand h1 {
+  margin: 0;
 }
 @media only screen and (max-width: 768px) {
-  /* line 34, ../scss/block/_header.scss */
-  .header .navbar-text {
-    left: 0;
-    top: 0;
+  /* line 35, ../scss/block/_header.scss */
+  .header .logo-site .navbar-brand h1 {
+    font-size: 30px;
+  }
+}
+/* line 42, ../scss/block/_header.scss */
+.header .logo-site .navbar-text {
+  color: #b59f83;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+@media only screen and (max-width: 768px) {
+  /* line 42, ../scss/block/_header.scss */
+  .header .logo-site .navbar-text {
     font-size: 10px;
     float: left;
   }
 }
-@-moz-document url-prefix() {
-  /* line 51, ../scss/block/_header.scss */
-  .header .navbar-text {
-    color: #b59f83;
-    display: block;
-    margin: 0;
-    position: relative;
-    left: -25%;
-    top: 38px;
-    text-transform: uppercase;
-    width: auto;
-  }
-}
+
 /* line 8, ../scss/block/_frontblock.scss */
 .path-frontpage .view,
 .path-price .view,
@@ -10846,7 +10844,48 @@ ol, ul {
   border-color: #000;
 }
 
-/* line 73, ../scss/_overrides.scss */
+/* line 72, ../scss/_overrides.scss */
+thead {
+  font-family: none;
+  background: #67440c;
+  color: #fff;
+}
+/* line 76, ../scss/_overrides.scss */
+thead th {
+  border-right: 1px solid #fff;
+}
+/* line 78, ../scss/_overrides.scss */
+thead th:last-child {
+  border-right: none;
+}
+/* line 82, ../scss/_overrides.scss */
+thead a {
+  color: #fff;
+}
+
+/* line 87, ../scss/_overrides.scss */
+tbody a {
+  color: #000;
+  cursor: pointer;
+}
+/* line 92, ../scss/_overrides.scss */
+tbody tr:nth-child(2n) {
+  background: #efebe8;
+}
+/* line 95, ../scss/_overrides.scss */
+tbody tr:hover {
+  background: #efebe8;
+}
+/* line 98, ../scss/_overrides.scss */
+tbody tr td {
+  border-right: 1px solid #efebe7;
+}
+/* line 100, ../scss/_overrides.scss */
+tbody tr td:last-child {
+  border-right: none;
+}
+
+/* line 108, ../scss/_overrides.scss */
 .alert {
   border-radius: 0;
   background: #eee;
@@ -10856,14 +10895,14 @@ ol, ul {
   font-style: italic;
 }
 
-/* line 81, ../scss/_overrides.scss */
+/* line 116, ../scss/_overrides.scss */
 .alert-danger, .alert-success {
   border-radius: 0;
   border: none;
   border-bottom: 1px solid;
 }
 
-/* line 89, ../scss/_overrides.scss */
+/* line 124, ../scss/_overrides.scss */
 .page-header {
   margin-top: 8px;
   margin-bottom: 0px;
@@ -10872,7 +10911,7 @@ ol, ul {
   font-family: none;
 }
 
-/* line 98, ../scss/_overrides.scss */
+/* line 133, ../scss/_overrides.scss */
 .footer {
   margin-top: 25px;
   padding: 10px;
@@ -10880,32 +10919,32 @@ ol, ul {
   border-top: 1px solid #E5E5E5;
 }
 
-/* line 106, ../scss/_overrides.scss */
+/* line 141, ../scss/_overrides.scss */
 p:last-child,
 .form-group:last-child,
 .panel:last-child {
   margin-bottom: 0;
 }
 
-/* line 114, ../scss/_overrides.scss */
+/* line 149, ../scss/_overrides.scss */
 .region-help > .glyphicon {
   font-size: 18px;
   float: left;
   margin: -0.05em 0.5em 0 0;
 }
-/* line 119, ../scss/_overrides.scss */
+/* line 154, ../scss/_overrides.scss */
 .region-help .block {
   overflow: hidden;
 }
 
-/* line 125, ../scss/_overrides.scss */
+/* line 160, ../scss/_overrides.scss */
 .help-block, .control-group .help-inline {
   color: #777777;
   font-size: 12px;
   margin: 5px 0 10px;
   padding: 0;
 }
-/* line 130, ../scss/_overrides.scss */
+/* line 165, ../scss/_overrides.scss */
 .help-block:first-child, .control-group .help-inline:first-child {
   margin-top: 0;
 }
