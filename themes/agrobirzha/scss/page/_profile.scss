@@ -6,17 +6,30 @@
 .field--name-field-logo-company{
   img{
     margin: 0 auto;
+    text-align: left;
+    float: left;
+    @include respond-to(xs) {
+    float: none;
+    }
   }
 }
 .field--name-field-about-company{
-  text-align: center;
   font-style: italic;
+  margin-left: 20%;
+  margin-bottom: 5%;
+  @include respond-to(xs) {
+    margin-left: 0%;
+  }
 }
 .field--name-field-regions{
   font-style: italic;
   text-align: center;
   .field--label{
-    float: none;
-    padding-right: 0;
+    padding-left: 2%;
+    color: #603b00;
+  }
+  .field__items {
+    color: #603b00;
+    text-align: left;
   }
 }

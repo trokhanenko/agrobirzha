@@ -9109,13 +9109,15 @@ table .checkbox.form-no-label, table .radio.form-no-label {
   line-height: 1;
   height: 7px;
   width: 10px;
+  margin-left: 4px;
+  margin-bottom: 12%;
 }
 
-/* line 94, ../scss/component/_form.scss */
+/* line 97, ../scss/component/_form.scss */
 .form-actions .btn, .form-actions .btn-group {
   margin-right: 10px;
 }
-/* line 98, ../scss/component/_form.scss */
+/* line 101, ../scss/component/_form.scss */
 .form-actions .btn-group .btn {
   margin-right: 0;
 }
@@ -9762,7 +9764,19 @@ a {
 
 /* line 4, ../scss/page/_order.scss */
 .order-total-line-label {
-  width: 50%;
+  width: 25%;
+  padding-bottom: 2px;
+}
+
+/* line 9, ../scss/page/_order.scss */
+.order-total-line-value {
+  width: 0%;
+}
+
+/* line 14, ../scss/page/_order.scss */
+.views-form .form-actions {
+  margin-bottom: 0;
+  margin-top: 2%;
 }
 
 /* line 2, ../scss/page/_profile.scss */
@@ -9773,23 +9787,43 @@ a {
 /* line 7, ../scss/page/_profile.scss */
 .field--name-field-logo-company img {
   margin: 0 auto;
+  text-align: left;
+  float: left;
+}
+@media only screen and (max-width: 768px) {
+  /* line 7, ../scss/page/_profile.scss */
+  .field--name-field-logo-company img {
+    float: none;
+  }
 }
 
-/* line 11, ../scss/page/_profile.scss */
+/* line 16, ../scss/page/_profile.scss */
 .field--name-field-about-company {
-  text-align: center;
   font-style: italic;
+  margin-left: 20%;
+  margin-bottom: 5%;
+}
+@media only screen and (max-width: 768px) {
+  /* line 16, ../scss/page/_profile.scss */
+  .field--name-field-about-company {
+    margin-left: 0%;
+  }
 }
 
-/* line 15, ../scss/page/_profile.scss */
+/* line 24, ../scss/page/_profile.scss */
 .field--name-field-regions {
   font-style: italic;
   text-align: center;
 }
-/* line 18, ../scss/page/_profile.scss */
+/* line 27, ../scss/page/_profile.scss */
 .field--name-field-regions .field--label {
-  float: none;
-  padding-right: 0;
+  padding-left: 2%;
+  color: #603b00;
+}
+/* line 31, ../scss/page/_profile.scss */
+.field--name-field-regions .field__items {
+  color: #603b00;
+  text-align: left;
 }
 
 @media only screen and (max-width: 768px) {

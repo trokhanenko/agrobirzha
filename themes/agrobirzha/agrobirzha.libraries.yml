@@ -38,6 +38,7 @@ custom:
     /themes/agrobirzha/js/agrobirzha.js: {}
   dependencies:
     - core/jquery
+    - core/drupal
 
 colorbox:
   js:
