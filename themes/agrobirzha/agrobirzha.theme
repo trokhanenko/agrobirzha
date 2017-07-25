@@ -40,6 +40,11 @@ function agrobirzha_form_alter(&$form, $form_state, $form_id){
 	if ($form_id == 'contact_message_feedback_form') {
 		$form['actions']['preview'] = false;
 	}
+
+	if ($form_id == 'comment_comment_form') {
+	    $form['actions']['preview'] = false;
+	    $form['status'] = 1;
+	}
 }
 
 
