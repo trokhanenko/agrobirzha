@@ -3,7 +3,7 @@ name: Agrobirzha.info
 mail: agrobirzha@gmail.com
 slogan: 'Место встречи производителей и покупателей'
 page:
-  403: ''
+  403: /403
   404: ''
   front: /front
 admin_compact_mode: false

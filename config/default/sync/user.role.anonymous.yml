@@ -18,6 +18,7 @@ permissions:
   - 'create otzyvy content'
   - 'post comments'
   - 'search content'
+  - 'skip comment approval'
   - 'use text format restricted_html'
   - 'use ulogin'
   - 'view any commerce_product'

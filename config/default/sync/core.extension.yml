@@ -53,6 +53,7 @@ module:
   layout_discovery: 0
   link: 0
   locale: 0
+  login_popup: 0
   maps_filter: 0
   menu_ui: 0
   node: 0

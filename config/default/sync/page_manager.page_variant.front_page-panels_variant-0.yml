@@ -8,10 +8,7 @@ dependencies:
     - views.view.posts
     - views.view.price_partners
     - views.view.slide
-  content:
-    - 'block_content:basic:769d2a10-601b-4044-9789-87ea71859557'
   module:
-    - block_content
     - panels
     - views
 id: front_page-panels_variant-0
@@ -27,7 +24,7 @@ variant_settings:
       views_label: ''
       items_per_page: none
       region: content
-      weight: 5
+      weight: 4
       uuid: 701ae28f-2381-421c-921e-a50f0825a281
       context_mapping: {  }
     130deb3b-b248-4001-95c1-13bed1cab830:
@@ -38,7 +35,7 @@ variant_settings:
       views_label: ''
       items_per_page: none
       region: content
-      weight: 4
+      weight: 3
       uuid: 130deb3b-b248-4001-95c1-13bed1cab830
       context_mapping: {  }
     f629ced6-e36d-4631-a801-520c7c1b973c:
@@ -49,7 +46,7 @@ variant_settings:
       views_label: ''
       items_per_page: none
       region: content
-      weight: 3
+      weight: 2
       uuid: f629ced6-e36d-4631-a801-520c7c1b973c
       context_mapping: {  }
     0a932b64-b162-49b3-aa60-5bbf61fd67e1:
@@ -60,7 +57,7 @@ variant_settings:
       views_label: ''
       items_per_page: none
       region: content
-      weight: 1
+      weight: 0
       uuid: 0a932b64-b162-49b3-aa60-5bbf61fd67e1
       context_mapping: {  }
     a169c39c-320a-45e4-b192-c71b6ea96ec6:
@@ -71,7 +68,7 @@ variant_settings:
       views_label: ''
       items_per_page: none
       region: content
-      weight: 2
+      weight: 1
       uuid: a169c39c-320a-45e4-b192-c71b6ea96ec6
       context_mapping: {  }
     5ebd7fed-88d1-4c10-8b3c-82506df48f12:
@@ -82,7 +79,7 @@ variant_settings:
       views_label: ''
       items_per_page: none
       region: content
-      weight: 0
+      weight: -2
       uuid: 5ebd7fed-88d1-4c10-8b3c-82506df48f12
       context_mapping: {  }
     ea12315d-7d4c-465c-abd2-6d7eb688c926:
@@ -90,11 +87,11 @@ variant_settings:
       label: Item
       provider: block_content
       label_display: '0'
+      region: content
+      weight: -3
       status: true
       info: ''
       view_mode: full
-      region: content
-      weight: 0
       uuid: ea12315d-7d4c-465c-abd2-6d7eb688c926
       context_mapping: {  }
   id: panels_variant

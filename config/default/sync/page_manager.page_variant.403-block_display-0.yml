@@ -1,0 +1,47 @@
+uuid: 06d453e1-055f-49be-9d81-80ecf98b14e7
+langcode: ru
+status: true
+dependencies:
+  config:
+    - page_manager.page.403
+  content:
+    - 'block_content:basic:e79c4487-3828-49d1-bf95-69a7e03c5c23'
+  module:
+    - block_content
+    - login_popup
+id: 403-block_display-0
+label: 'Block page'
+variant: block_display
+variant_settings:
+  blocks:
+    b3a95ef8-4cdd-4ae8-82f9-61f83562d158:
+      id: 'block_content:e79c4487-3828-49d1-bf95-69a7e03c5c23'
+      label: 'Вход на сайт на странице добавления прайсов'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: top
+      weight: -10
+      uuid: b3a95ef8-4cdd-4ae8-82f9-61f83562d158
+      context_mapping: {  }
+    4390fb20-b82f-44c5-8b8e-bd679d759349:
+      id: login_register_form_popup
+      label: 'Login And Register Form popup'
+      provider: login_popup
+      label_display: '0'
+      region: top
+      weight: 0
+      uuid: 4390fb20-b82f-44c5-8b8e-bd679d759349
+      context_mapping: {  }
+  id: block_display
+  uuid: 1037899c-5843-4360-98e5-fe6a7cc0a76a
+  label: null
+  weight: 0
+  page_title: ''
+page: '403'
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

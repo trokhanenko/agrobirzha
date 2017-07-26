@@ -1,0 +1,12 @@
+uuid: aa97c4f6-7cd4-45cb-9e22-6c683103c537
+langcode: ru
+status: true
+dependencies: {  }
+id: '403'
+label: '403'
+description: ''
+use_admin_theme: false
+path: /403
+access_logic: and
+access_conditions: {  }
+parameters: {  }
