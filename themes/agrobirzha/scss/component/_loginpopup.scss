@@ -1,0 +1,51 @@
+.Login-Register-popup-link {
+  text-align: center;
+  margin-top: 3%;
+  color: #fff;
+  .use-ajax {
+  	background-color: #603913;
+	  color: #fff;
+	  font-weight: bold;
+    padding: 0.5%;
+    border-radius: 10px;
+  }
+}
+
+.block-region-top {
+  .block-block-contente79c4487-3828-49d1-bf95-69a7e03c5c23 {
+    background-color: #c7b299;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+  }
+}
+
+.modal-dialog {
+  .modal-content {
+    width: 80%;
+    text-align: center;
+  }
+}
+
+.modal-body {
+  .user-register-form {
+    .field--name-field-about-company {
+      margin-left: 0%;
+      margin-bottom: 0%;
+    }
+  }
+  .user-login-form {
+    a:before {
+      content: url(../images/fb.jpg);
+    }
+    a {  
+      font-weight: bold;
+      font-size: 95%;
+    }
+    .form-group {
+      margin-top: 4%;
+    }
+  }
+}

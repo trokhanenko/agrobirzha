@@ -10802,6 +10802,56 @@ a {
   color: #3d0000;
 }
 
+/* line 1, ../scss/component/_loginpopup.scss */
+.Login-Register-popup-link {
+  text-align: center;
+  margin-top: 3%;
+  color: #fff;
+}
+/* line 5, ../scss/component/_loginpopup.scss */
+.Login-Register-popup-link .use-ajax {
+  background-color: #603913;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.5%;
+  border-radius: 10px;
+}
+
+/* line 15, ../scss/component/_loginpopup.scss */
+.block-region-top .block-block-contente79c4487-3828-49d1-bf95-69a7e03c5c23 {
+  background-color: #c7b299;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+}
+
+/* line 26, ../scss/component/_loginpopup.scss */
+.modal-dialog .modal-content {
+  width: 80%;
+  text-align: center;
+}
+
+/* line 34, ../scss/component/_loginpopup.scss */
+.modal-body .user-register-form .field--name-field-about-company {
+  margin-left: 0%;
+  margin-bottom: 0%;
+}
+/* line 40, ../scss/component/_loginpopup.scss */
+.modal-body .user-login-form a:before {
+  content: url(../images/fb.jpg);
+}
+/* line 43, ../scss/component/_loginpopup.scss */
+.modal-body .user-login-form a {
+  font-weight: bold;
+  font-size: 95%;
+}
+/* line 47, ../scss/component/_loginpopup.scss */
+.modal-body .user-login-form .form-group {
+  margin-top: 4%;
+}
+
 /**
  * jQuery UI autocomplete widget style overrides.
  *
@@ -10851,75 +10901,75 @@ a {
   color: #fff;
 }
 
-/* line 52, ../scss/_overrides.scss */
+/* line 53, ../scss/_overrides.scss */
 ol, ul {
   padding-left: 1.5em;
 }
-/* line 54, ../scss/_overrides.scss */
+/* line 55, ../scss/_overrides.scss */
 .popover ol:last-child, .popover ul:last-child {
   margin-bottom: 0;
 }
 
-/* line 58, ../scss/_overrides.scss */
+/* line 59, ../scss/_overrides.scss */
 ::selection {
   background: #fff2a8;
 }
 
-/* line 61, ../scss/_overrides.scss */
+/* line 62, ../scss/_overrides.scss */
 .btn {
   background: #67440c;
   border-color: #000;
   border-radius: 0;
   color: #fff;
 }
-/* line 66, ../scss/_overrides.scss */
+/* line 67, ../scss/_overrides.scss */
 .btn:hover, .btn:focus, .btn:active, .btn .active, .btn .focus {
   background: #b5740c;
   border-color: #000;
 }
 
-/* line 72, ../scss/_overrides.scss */
+/* line 73, ../scss/_overrides.scss */
 thead {
   font-family: none;
   background: #67440c;
   color: #fff;
 }
-/* line 76, ../scss/_overrides.scss */
+/* line 77, ../scss/_overrides.scss */
 thead th {
   border-right: 1px solid #fff;
 }
-/* line 78, ../scss/_overrides.scss */
+/* line 79, ../scss/_overrides.scss */
 thead th:last-child {
   border-right: none;
 }
-/* line 82, ../scss/_overrides.scss */
+/* line 83, ../scss/_overrides.scss */
 thead a {
   color: #fff;
 }
 
-/* line 87, ../scss/_overrides.scss */
+/* line 88, ../scss/_overrides.scss */
 tbody a {
   color: #000;
   cursor: pointer;
 }
-/* line 92, ../scss/_overrides.scss */
+/* line 93, ../scss/_overrides.scss */
 tbody tr:nth-child(2n) {
   background: #efebe8;
 }
-/* line 95, ../scss/_overrides.scss */
+/* line 96, ../scss/_overrides.scss */
 tbody tr:hover {
   background: #efebe8;
 }
-/* line 98, ../scss/_overrides.scss */
+/* line 99, ../scss/_overrides.scss */
 tbody tr td {
   border-right: 1px solid #efebe7;
 }
-/* line 100, ../scss/_overrides.scss */
+/* line 101, ../scss/_overrides.scss */
 tbody tr td:last-child {
   border-right: none;
 }
 
-/* line 108, ../scss/_overrides.scss */
+/* line 109, ../scss/_overrides.scss */
 .alert {
   border-radius: 0;
   background: #eee;
@@ -10929,14 +10979,14 @@ tbody tr td:last-child {
   font-style: italic;
 }
 
-/* line 116, ../scss/_overrides.scss */
+/* line 117, ../scss/_overrides.scss */
 .alert-danger, .alert-success {
   border-radius: 0;
   border: none;
   border-bottom: 1px solid;
 }
 
-/* line 124, ../scss/_overrides.scss */
+/* line 125, ../scss/_overrides.scss */
 .page-header {
   margin-top: 8px;
   margin-bottom: 0px;
@@ -10945,7 +10995,7 @@ tbody tr td:last-child {
   font-family: none;
 }
 
-/* line 133, ../scss/_overrides.scss */
+/* line 134, ../scss/_overrides.scss */
 .footer {
   margin-top: 25px;
   padding: 10px;
@@ -10953,32 +11003,32 @@ tbody tr td:last-child {
   border-top: 1px solid #E5E5E5;
 }
 
-/* line 141, ../scss/_overrides.scss */
+/* line 142, ../scss/_overrides.scss */
 p:last-child,
 .form-group:last-child,
 .panel:last-child {
   margin-bottom: 0;
 }
 
-/* line 149, ../scss/_overrides.scss */
+/* line 150, ../scss/_overrides.scss */
 .region-help > .glyphicon {
   font-size: 18px;
   float: left;
   margin: -0.05em 0.5em 0 0;
 }
-/* line 154, ../scss/_overrides.scss */
+/* line 155, ../scss/_overrides.scss */
 .region-help .block {
   overflow: hidden;
 }
 
-/* line 160, ../scss/_overrides.scss */
+/* line 161, ../scss/_overrides.scss */
 .help-block, .control-group .help-inline {
   color: #777777;
   font-size: 12px;
   margin: 5px 0 10px;
   padding: 0;
 }
-/* line 165, ../scss/_overrides.scss */
+/* line 166, ../scss/_overrides.scss */
 .help-block:first-child, .control-group .help-inline:first-child {
   margin-top: 0;
 }
